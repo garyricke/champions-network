@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Champions Network for Religious Liberty — Brand Standards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Nunito+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:   #BB8C3A;
+      --blue:   #0876A9;
+      --navy:   #055A81;
+      --light:  #ECF4F9;
+      --white:  #FFFFFF;
+      --text:   #1a2b38;
+      --muted:  #5a7080;
+      --border: #d4e6f0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+
+    nav .nav-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--gold); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 100px 48px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(187,140,58,0.12) 0%, transparent 60%);
+    }
+
+    .hero-logo {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 48px;
+    }
+
+    .hero-rule {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 32px auto 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 5vw, 56px);
+      color: var(--white);
+      letter-spacing: 0.06em;
+      line-height: 1.1;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .hero p {
+      max-width: 620px;
+      color: rgba(255,255,255,0.75);
+      font-size: 17px;
+      margin-top: 16px;
+      line-height: 1.8;
+    }
+
+    .hero-badge {
+      margin-top: 36px;
+      display: inline-block;
+      border: 1.5px solid rgba(187,140,58,0.5);
+      color: var(--gold);
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 2px;
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 80px 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 680px;
+      margin-bottom: 48px;
+      line-height: 1.8;
+    }
+
+    /* ─── MISSION GRID ─── */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .mission-card {
+      background: var(--light);
+      border-left: 4px solid var(--blue);
+      border-radius: 4px;
+      padding: 28px 28px 28px 24px;
+    }
+
+    .mission-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      color: var(--navy);
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .mission-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .mission-card.gold-accent { border-left-color: var(--gold); }
+
+    /* ─── VALUES TABLE ─── */
+    .values-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .values-table th {
+      background: var(--navy);
+      color: var(--gold);
+      text-align: left;
+      padding: 14px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .values-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .values-table tr:last-child td { border-bottom: none; }
+    .values-table tr:nth-child(even) td { background: var(--light); }
+
+    .values-table td:first-child {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    /* ─── COLOR PALETTE ─── */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .swatch-card {
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .swatch-block {
+      height: 140px;
+      position: relative;
+    }
+
+    .swatch-block .primary-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.25);
+      color: rgba(255,255,255,0.9);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+
+    .swatch-info {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: none;
+      padding: 16px;
+    }
+
+    .swatch-info .color-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .swatch-info .color-hex {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--muted);
+      background: var(--light);
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 6px;
+    }
+
+    .swatch-info .color-values {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .swatch-info .color-usage {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    /* ─── COLOR COMBOS ─── */
+    .combo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .combo-card {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .combo-preview {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+    }
+
+    .combo-label {
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--light);
+      line-height: 1.5;
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+    .type-specimens {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .type-row {
+      display: grid;
+      grid-template-columns: 180px 1fr 120px;
+      align-items: center;
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border);
+      gap: 24px;
+    }
+
+    .type-row:last-child { border-bottom: none; }
+    .type-row:nth-child(even) { background: var(--light); }
+
+    .type-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .type-sample { line-height: 1.3; }
+    .type-color-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .type-color-info {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+    }
+
+    /* ─── TIER SYSTEM ─── */
+    .tier-track {
+      position: relative;
+      padding-left: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .tier-track::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), var(--blue));
+    }
+
+    .tier-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 24px 0;
+      position: relative;
+    }
+
+    .tier-item:not(:last-child) {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tier-dot {
+      position: absolute;
+      left: -36px;
+      top: 28px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--gold);
+      flex-shrink: 0;
+    }
+
+    .tier-dot.blue { background: var(--blue); box-shadow: 0 0 0 2px var(--blue); }
+    .tier-dot.navy { background: var(--navy); box-shadow: 0 0 0 2px var(--navy); }
+
+    .tier-number {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      color: var(--white);
+      background: var(--gold);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+    }
+
+    .tier-number.blue { background: var(--blue); }
+    .tier-number.navy { background: var(--navy); }
+
+    .tier-content h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .tier-content .tier-year {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .tier-content p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ─── VOICE PILLARS ─── */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--blue);
+      border-radius: 4px;
+      padding: 28px 24px;
+    }
+
+    .pillar-card.gold-top { border-top-color: var(--gold); }
+    .pillar-card.navy-top { border-top-color: var(--navy); }
+
+    .pillar-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      color: var(--light);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pillar-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      color: var(--navy);
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .pillar-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ─── LOGO SECTION ─── */
+    .logo-usage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .logo-usage-card {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .logo-usage-preview {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .logo-usage-label {
+      padding: 14px 16px;
+      background: var(--light);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .logo-usage-label strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 2px;
+      font-size: 13px;
+    }
+
+    /* ─── DO / DON'T ─── */
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .do-list, .dont-list {
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .do-list .list-header { background: #1a6640; color: var(--white); }
+    .dont-list .list-header { background: #8b2020; color: var(--white); }
+
+    .list-header {
+      padding: 14px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .list-items {
+      border: 1px solid var(--border);
+      border-top: none;
+    }
+
+    .list-items li {
+      padding: 12px 20px 12px 44px;
+      font-size: 14px;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .list-items li:last-child { border-bottom: none; }
+
+    .do-list .list-items li::before {
+      content: '✓';
+      position: absolute;
+      left: 18px;
+      color: #1a6640;
+      font-weight: 700;
+    }
+
+    .dont-list .list-items li::before {
+      content: '✕';
+      position: absolute;
+      left: 18px;
+      color: #8b2020;
+      font-weight: 700;
+    }
+
+    /* ─── ORG STRUCTURE ─── */
+    .org-layers {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .org-layer {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      align-items: center;
+      background: var(--light);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .org-layer-num {
+      background: var(--blue);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px;
+      text-align: center;
+      height: 100%;
+    }
+
+    .org-layer-num span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 4px;
+    }
+
+    .org-layer-num strong {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--gold);
+    }
+
+    .org-layer-num.layer2 { background: var(--navy); }
+    .org-layer-num.layer3 { background: var(--text); }
+
+    .org-layer-content {
+      padding: 24px 28px 24px 0;
+    }
+
+    .org-layer-content h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .org-layer-content p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ─── APPLICATION EXAMPLES ─── */
+    .application-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .app-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .app-preview {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+    }
+
+    .app-label {
+      padding: 16px 20px;
+      background: var(--light);
+      border-top: 1px solid var(--border);
+    }
+
+    .app-label strong {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 17px;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .app-label p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 40px 48px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    footer strong {
+      display: block;
+      color: var(--gold);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-brand">Champions Network — Brand Standards</div>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Type</a></li>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#logo-rationale">Design</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#tiers">Tiers</a></li>
+    <li><a href="#applications">Applications</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="hero-logo">
+    <img src="logo-champions-network-20mar2026-on-dark-background.svg"
+         alt="Champions Network for Religious Liberty logo"
+         style="max-width:560px;width:100%;height:auto;" />
+  </div>
+
+  <div class="hero-rule"></div>
+  <h1>Brand Standards Guide</h1>
+  <p>Official visual identity and communication standards for the Champions for Religious Liberty Network — an initiative of the Lutheran Center for Religious Liberty, Washington, D.C.</p>
+  <div class="hero-badge">Version 2.0 &nbsp;|&nbsp; March 2026</div>
+</div>
+
+<!-- ─── BRAND OVERVIEW ─── -->
+<section id="overview">
+  <div class="section-label">01 — Brand Overview</div>
+  <h2 class="section-title">Organization & Mission</h2>
+  <p class="section-intro">
+    The Champions for Religious Liberty Network is a specialized initiative of the <strong>Lutheran Center for Religious Liberty (LCRL)</strong>, rooted in the Lutheran Church—Missouri Synod tradition. The network educates and empowers Christians to become informed <strong>Champion Citizens</strong> — men and women who can advocate for religious liberty, marriage, and the sanctity of life without compromising the saving mission of the Church.
+  </p>
+
+  <div class="mission-grid">
+    <div class="mission-card gold-accent">
+      <h3>Two-Kingdom Foundation</h3>
+      <p>The Left-Hand Kingdom: God preserving temporal civility through law and government. The Right-Hand Kingdom: God saving souls through the Church and the Gospel. Champion Citizens understand — and live within — both kingdoms.</p>
+    </div>
+    <div class="mission-card">
+      <h3>Advocates, Not Activists</h3>
+      <p>The LCRL draws a deliberate distinction. Advocates engage for the sake of the Gospel mission. Activists prioritize political outcomes. Champions are always the former — measured, truth-filled, and motivated by love of neighbor.</p>
+    </div>
+    <div class="mission-card">
+      <h3>Long-Term Formation</h3>
+      <p>The five-year tiered pathway — from Apprentice to Knight — reflects the conviction that mature, grounded advocacy requires time, mentorship, and formation, not reactionary urgency.</p>
+    </div>
+    <div class="mission-card gold-accent">
+      <h3>Unified Voice</h3>
+      <p>A nationwide coalition of Champions Churches able to speak coherently on key issues: religious liberty, marriage, and education — from the authority of a Washington, D.C. advocacy organization with deep theological roots.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ─── STRATEGIC CONTEXT ─── -->
+<section>
+  <div class="section-label">01b — Strategic Context</div>
+  <h2 class="section-title">Identified Threats</h2>
+  <p class="section-intro">The network explicitly addresses cultural shifts that the LCRL identifies as threatening the free exercise of Christianity in America. These threats define the scope of Champion Citizens' advocacy — always within the Two-Kingdom framework.</p>
+
+  <div class="mission-grid">
+    <div class="mission-card">
+      <h3>Redefining Marriage & Gender</h3>
+      <p>Opposing the legal and cultural "re-gendering" of persons and the redefinition of marriage — areas where government policy increasingly conflicts with biblical anthropology and the rights of religious institutions.</p>
+    </div>
+    <div class="mission-card gold-accent">
+      <h3>Sanctity of Life</h3>
+      <p>Addressing the "cheapening" of human life through policy and cultural norms. Champions advocate for the sanctity of life from conception to natural death as a matter of both theological conviction and constitutional principle.</p>
+    </div>
+    <div class="mission-card gold-accent">
+      <h3>Government Overreach</h3>
+      <p>Challenging trends where civil government replaces parental authority, silences ecclesiastical speech, or otherwise transgresses its proper Left-Hand Kingdom role by intruding into the domain of family and church.</p>
+    </div>
+    <div class="mission-card">
+      <h3>Secular Blasphemy Laws</h3>
+      <p>Opposing policies and legal frameworks that penalize the expression of a biblical worldview as "hate speech" — a direct threat to religious liberty and the free proclamation of the Gospel.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ─── BRAND VALUES ─── -->
+<section>
+  <div class="section-label">01c — Core Values</div>
+  <h2 class="section-title">What We Stand For</h2>
+  <p class="section-intro">These values govern every visual decision, communication, and program expression of the Champions Network brand.</p>
+
+  <table class="values-table">
+    <thead>
+      <tr>
+        <th>Value</th>
+        <th>Brand Expression</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Religious Liberty</td>
+        <td>The foundational cause — the freedom to preach, teach, and live the Gospel without government interference.</td>
+      </tr>
+      <tr>
+        <td>Two-Kingdom Clarity</td>
+        <td>Helping Christians distinguish their dual role as citizens of the temporal and the eternal kingdoms — never confusing the two.</td>
+      </tr>
+      <tr>
+        <td>Theological Integrity</td>
+        <td>All messaging is grounded in Lutheran doctrine and constitutional principle — never reactionary or merely partisan.</td>
+      </tr>
+      <tr>
+        <td>Civic Courage</td>
+        <td>Speaking truth in love; engaging the public square with conviction and the posture of an advocate.</td>
+      </tr>
+      <tr>
+        <td>Long-Term Formation</td>
+        <td>The five-tier pathway reflects a commitment to maturity over urgency — patience, mentorship, and the long view.</td>
+      </tr>
+      <tr>
+        <td>Unified Voice</td>
+        <td>A nationwide coalition of Champions Churches speaking coherently on shared convictions at local, state, and national levels.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ─── COLOR PALETTE ─── -->
+<section id="colors">
+  <div class="section-label">02 — Color Palette</div>
+  <h2 class="section-title">Official Brand Colors</h2>
+  <p class="section-intro">
+    The LCRL palette draws from gold and blue — colors of valor, civic authority, and the clarity of truth. Gold signals knighthood and honor; blue grounds the brand in institutional trust and constitutional conviction. Use these consistently across all brand touchpoints.
+  </p>
+
+  <div class="palette-grid">
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#BB8C3A;">
+        <span class="primary-badge">Primary Accent</span>
+      </div>
+      <div class="swatch-info">
+        <div class="color-name">Liberty Gold</div>
+        <div class="color-hex">#BB8C3A</div>
+        <div class="color-values">RGB: 187, 140, 58<br>CMYK: 0, 25, 69, 27</div>
+        <div class="color-usage">Headlines, CTAs, knighthood marks, decorative rule lines, honor designations.</div>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#0876A9;">
+        <span class="primary-badge">Primary Color</span>
+      </div>
+      <div class="swatch-info">
+        <div class="color-name">Freedom Blue</div>
+        <div class="color-hex">#0876A9</div>
+        <div class="color-values">RGB: 8, 118, 169<br>CMYK: 95, 30, 0, 34</div>
+        <div class="color-usage">Backgrounds, navigation, icon fills, structural elements, presentation slides.</div>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#055A81;">
+        <span class="primary-badge">Secondary</span>
+      </div>
+      <div class="swatch-info">
+        <div class="color-name">Constitution Navy</div>
+        <div class="color-hex">#055A81</div>
+        <div class="color-values">RGB: 5, 90, 129<br>CMYK: 96, 30, 0, 49</div>
+        <div class="color-usage">Footers, covers, formal print, overlaid text panels, seal backgrounds.</div>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#ECF4F9; border: 1px solid #d4e6f0;">
+      </div>
+      <div class="swatch-info">
+        <div class="color-name">Gospel Light</div>
+        <div class="color-hex">#ECF4F9</div>
+        <div class="color-values">RGB: 236, 244, 249<br>CMYK: 5, 2, 0, 2</div>
+        <div class="color-usage">Page backgrounds, content cards, form inputs, alternating rows.</div>
+      </div>
+    </div>
+
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#FFFFFF; border: 1px solid #d4e6f0;">
+      </div>
+      <div class="swatch-info">
+        <div class="color-name">Pure White</div>
+        <div class="color-hex">#FFFFFF</div>
+        <div class="color-values">RGB: 255, 255, 255<br>CMYK: 0, 0, 0, 0</div>
+        <div class="color-usage">Reversed type on dark backgrounds, logo lockups on color, icon outlines.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Color Combos -->
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.04em;color:var(--navy);margin-top:56px;margin-bottom:8px;">Approved Color Combinations</h3>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:0;">These pairings are tested for WCAG contrast compliance and brand consistency.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card">
+      <div class="combo-preview" style="background:#0876A9;color:#ffffff;">Freedom Blue + White</div>
+      <div class="combo-label">Primary backgrounds with reversed text. Headers, banners, feature sections.</div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-preview" style="background:#055A81;color:#ffffff;">Constitution Navy + White</div>
+      <div class="combo-label">Formal and print applications. Document covers, footers, overlays on photography.</div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-preview" style="background:#ECF4F9;color:#055A81;">Gospel Light + Navy</div>
+      <div class="combo-label">Body copy and content sections. Clean, legible, accessible for long-form reading.</div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-preview" style="background:#055A81;color:#BB8C3A;">Navy + Liberty Gold</div>
+      <div class="combo-label">Premium and honors applications. Knight designations, event titles, award certificates.</div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-preview" style="background:#0876A9;color:#BB8C3A;">Freedom Blue + Gold</div>
+      <div class="combo-label">Headline accents on blue backgrounds. Use Gold as the dominant word, not full text.</div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-preview" style="background:#ffffff;color:#0876A9;border:1px solid #d4e6f0;">White + Freedom Blue</div>
+      <div class="combo-label">Digital body text, links, and content hierarchy. Most accessible everyday pairing.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ─── TYPOGRAPHY ─── -->
+<section id="typography">
+  <div class="section-label">03 — Typography</div>
+  <h2 class="section-title">Type System</h2>
+  <p class="section-intro">
+    Typography must feel <strong>principled, authoritative, and institutional</strong>. The brand uses a two-family system: a <strong>condensed serif</strong> drawn from the LCRL parent logo for the wordmark and primary headings, and a <strong>modern geometric sans-serif in light/thin weights</strong> for body copy and supporting text. This pairing signals both theological heritage and civic clarity.
+  </p>
+
+  <!-- Font family callout boxes -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px;">
+    <div style="background:var(--light);border-left:4px solid var(--gold);border-radius:4px;padding:24px 24px 20px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Primary — Brand Wordmark</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--navy);letter-spacing:0.06em;margin-bottom:8px;">BEBAS NEUE</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;">Condensed display typeface — all-caps, Tan/Gold colorway. Used for the "CHAMPIONS NETWORK" wordmark and primary headings. Available free via Google Fonts. Pairs with a geometric sans-serif for body copy.</p>
+    </div>
+    <div style="background:var(--light);border-left:4px solid var(--blue);border-radius:4px;padding:24px 24px 20px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">Secondary — Body & Support</div>
+      <div style="font-family:'Poppins',sans-serif;font-weight:300;font-size:26px;color:var(--navy);margin-bottom:8px;">Geometric Sans-Serif</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;">Light or thin weight only. Primary recommendation: <strong>Proxima Nova Light</strong>. Free alternatives: <strong>Poppins Light</strong> or <strong>Montserrat Light</strong>. Use for subtext, body copy, captions, and fine print.</p>
+    </div>
+  </div>
+
+  <div class="type-specimens">
+
+    <div class="type-row">
+      <div class="type-label">Wordmark — Primary</div>
+      <div class="type-sample">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#BB8C3A;letter-spacing:0.08em;">CHAMPIONS NETWORK</span>
+      </div>
+      <div class="type-color-info">
+        <span class="type-color-dot" style="background:#BB8C3A;"></span> Liberty Gold
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">H1 — Campaign Title</div>
+      <div class="type-sample">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:#BB8C3A;letter-spacing:0.04em;">RELIGIOUS LIBERTY</span>
+      </div>
+      <div class="type-color-info">
+        <span class="type-color-dot" style="background:#BB8C3A;"></span> Liberty Gold
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">H2 — Section Header</div>
+      <div class="type-sample">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#055A81;letter-spacing:0.04em;">TWO-KINGDOM CITIZENSHIP</span>
+      </div>
+      <div class="type-color-info">
+        <span class="type-color-dot" style="background:#055A81;"></span> Constitution Navy
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">H3 — Subhead</div>
+      <div class="type-sample">
+        <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:16px;color:#0876A9;text-transform:uppercase;letter-spacing:0.12em;">Defending the Gospel</span>
+      </div>
+      <div class="type-color-info">
+        <span class="type-color-dot" style="background:#0876A9;"></span> Freedom Blue
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">Body Copy</div>
+      <div class="type-sample">
+        <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:15px;color:#1a2b38;line-height:1.8;">The Champions Network equips congregants to engage American culture and government through a biblically grounded, constitutionally informed worldview — as advocates, not activists.</span>
+      </div>
+      <div class="type-color-info">
+        <span class="type-color-dot" style="background:#1a2b38;"></span> Text Dark
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">Pull Quote</div>
+      <div class="type-sample">
+        <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:17px;color:#BB8C3A;font-style:italic;">"Speak truth in love — as advocates for the Gospel, not merely activists for a cause."</span>
+      </div>
+      <div class="type-color-info">
+        <span class="type-color-dot" style="background:#BB8C3A;"></span> Liberty Gold
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-label">Label / Tag</div>
+      <div class="type-sample">
+        <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:11px;color:#0876A9;text-transform:uppercase;letter-spacing:0.2em;">Tier 5 — Knight, First Class</span>
+      </div>
+      <div class="type-color-info">
+        <span class="type-color-dot" style="background:#0876A9;"></span> Freedom Blue
+      </div>
+    </div>
+
+    <div class="type-row" style="border-bottom:none;">
+      <div class="type-label">Caption / Legal</div>
+      <div class="type-sample">
+        <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:11px;color:#5a7080;">Lutheran Center for Religious Liberty | Washington, D.C. | lcrlfreedom.org</span>
+      </div>
+      <div class="type-color-info">
+        <span class="type-color-dot" style="background:#5a7080;"></span> Muted
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ─── LOGO GUIDELINES ─── -->
+<section id="logo">
+  <div class="section-label">04 — Logo</div>
+  <h2 class="section-title">Logo Usage</h2>
+  <p class="section-intro">
+    The Champions Network logo comprises two elements: the <strong>icon mark</strong> (a clean shield outline containing an upward-pointing sword, with a gold star-cross at the tip representing the saving purpose of the Gospel) and the <strong>wordmark</strong> in the LCRL condensed serif. The shield symbolizes defense of the faith; the sword, the Word of God. Never alter, recolor, distort, or separate these elements without authorization.
+  </p>
+
+  <div class="logo-usage-grid">
+
+    <div class="logo-usage-card">
+      <div class="logo-usage-preview" style="background:#FFFFFF;padding:16px;">
+        <img src="logo-champions-network-20mar2026.svg"
+             alt="Champions Network logo — full color on light background"
+             style="max-width:200px;width:100%;height:auto;" />
+      </div>
+      <div class="logo-usage-label">
+        <strong>Full Color — Light Background</strong>
+        Use on white or Gospel Light backgrounds. Default preferred version for print, digital, and presentations.
+      </div>
+    </div>
+
+    <div class="logo-usage-card">
+      <div class="logo-usage-preview" style="background:#055A81;padding:16px;">
+        <img src="logo-champions-network-20mar2026.svg"
+             alt="Champions Network logo — reversed on dark background"
+             style="max-width:200px;width:100%;height:auto;filter:brightness(0) invert(1);" />
+      </div>
+      <div class="logo-usage-label">
+        <strong>Reversed — Dark Background</strong>
+        Use on Constitution Navy, Freedom Blue, or over photography. Request the white-reversed master file from LCRL.
+      </div>
+    </div>
+
+    <div class="logo-usage-card">
+      <div class="logo-usage-preview" style="background:#1a2b38;padding:16px;">
+        <img src="logo-champions-network-20mar2026.svg"
+             alt="Champions Network logo — gold on dark background"
+             style="max-width:200px;width:100%;height:auto;filter:brightness(0) saturate(100%) invert(70%) sepia(60%) saturate(400%) hue-rotate(5deg);" />
+      </div>
+      <div class="logo-usage-label">
+        <strong>Gold on Dark — Premium</strong>
+        For Knight-level honors, formal certificates, and premium print. Request the single-color gold master file from LCRL.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="do-dont">
+    <div class="do-list">
+      <div class="list-header">Logo Do's</div>
+      <ul class="list-items">
+        <li>Maintain clear space equal to the cap-height of "C" on all sides</li>
+        <li>Use approved color versions only (full color, reversed white, gold on dark)</li>
+        <li>Reproduce at minimum 1 inch / 120px width</li>
+        <li>Use the full lockup (shield icon + wordmark) whenever possible</li>
+        <li>Place the affiliation mark secondary to the local church's own identity</li>
+      </ul>
+    </div>
+    <div class="dont-list">
+      <div class="list-header">Logo Don'ts</div>
+      <ul class="list-items">
+        <li>Never stretch, rotate, or distort the logo</li>
+        <li>Never recolor the flame, wordmark, or icon mark</li>
+        <li>Never separate the icon mark from the wordmark for standalone use without approval</li>
+        <li>Never place the logo on a busy pattern or image without an approved overlay</li>
+        <li>Never reproduce smaller than minimum size guidelines</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ─── LOGO DESIGN RATIONALE ─── -->
+<section id="logo-rationale">
+  <div class="section-label">04b — Logo Design Rationale</div>
+  <h2 class="section-title">The Thinking Behind the Mark</h2>
+  <p class="section-intro">
+    This logo is a balanced, coherent evolution. It honors the parent organization's heritage while establishing a powerful and distinct identity for the Network — grounded in four best practices: <strong>Simplicity, Memorability, Versatility,</strong> and <strong>Relevance</strong>.
+  </p>
+
+  <!-- Core Constraints -->
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:56px;">
+
+    <div style="background:var(--light);border-left:4px solid var(--gold);border-radius:4px;padding:24px;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.06em;color:var(--navy);margin-bottom:8px;">The Typeface — Non-Negotiable</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.75;">The new design uses the exact unique, condensed tan/gold serif font from the parent LCRL logo. This is non-negotiable for ensuring brand association and trust — it provides the core visual link between the Network and its parent organization.</p>
+    </div>
+
+    <div style="background:var(--light);border-left:4px solid var(--blue);border-radius:4px;padding:24px;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.06em;color:var(--navy);margin-bottom:8px;">Simplicity &amp; Scalability</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.75;">Unlike previous iterations — a cluttered text arrangement and a complex, disconnected mark — this logo is simple. The mark is a singular, powerful symbol that reads distinctly at any size, from a letterhead to a highway sign.</p>
+    </div>
+
+    <div style="background:var(--light);border-left:4px solid var(--blue);border-radius:4px;padding:24px;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.06em;color:var(--navy);margin-bottom:8px;">Memorable Relevance</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.75;">The design moves away from generic flames and a cluttered Capitol/Shield split. A clean <strong>shield and upward-pointing sword</strong> represent the Left-Hand Kingdom role of protection and defense (the Knight/Tier 5 symbol). A <strong>gold star-cross at the sword tip</strong> represents the Right-Hand Kingdom goal of grace — a far stronger symbolic tie than vague flames or a standalone dome.</p>
+    </div>
+
+    <div style="background:var(--light);border-left:4px solid var(--gold);border-radius:4px;padding:24px;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.06em;color:var(--navy);margin-bottom:8px;">Distinct but Connected</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.75;">The parent LCRL logo features a Capitol dome and split shield. This mark creates a more unified expression of the same core values — re-using the parent colors and typeface, but with a unique graphic mark that makes "Champions Network" feel like an empowered, specialized extension, not a smaller copy of the main office.</p>
+    </div>
+
+  </div>
+
+  <!-- Logo Evolution -->
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.04em;color:var(--navy);margin-bottom:8px;">Logo Evolution</h3>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.7;">Three iterations of the Champions Network identity, evaluated against brand best practices.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px;">
+
+    <!-- Parent LCRL -->
+    <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden;">
+      <div style="background:var(--white);padding:24px;display:flex;align-items:center;justify-content:center;min-height:200px;">
+        <img src="lutherans-for-religious-liberty-logo.png"
+             alt="LCRL Parent Logo"
+             style="max-width:100%;max-height:160px;object-fit:contain;" />
+      </div>
+      <div style="background:var(--light);padding:16px;border-top:1px solid var(--border);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:0.06em;color:var(--navy);margin-bottom:4px;">LCRL Parent Logo</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6;">The reference. Capitol dome, split shield, and the signature condensed tan serif. The typeface and color palette are the binding heritage every Network iteration must honor.</div>
+      </div>
+    </div>
+
+    <!-- Debut Logo -->
+    <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden;">
+      <div style="background:var(--white);padding:24px;display:flex;align-items:center;justify-content:center;min-height:200px;">
+        <img src="champions-for-religious-liberty-network-logo.png"
+             alt="Debut Champions Network Logo"
+             style="max-width:100%;max-height:160px;object-fit:contain;" />
+      </div>
+      <div style="background:#fff5f5;padding:16px;border-top:3px solid #8b2020;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:0.06em;color:var(--navy);">Debut Logo</div>
+          <span style="font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#8b2020;color:white;padding:2px 8px;border-radius:2px;">Fail</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6;">Sans-serif typeface (incorrect). Pure text arrangement with no symbol mark. Poor scalability. Complex layout lacks a single memorable image.</div>
+      </div>
+    </div>
+
+    <!-- Redesign 1 -->
+    <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden;">
+      <div style="background:#f5f5f5;padding:24px;display:flex;align-items:center;justify-content:center;min-height:200px;">
+        <img src="champions-for-religious-liberty-logo-new-design.png"
+             alt="First Redesign Attempt"
+             style="max-width:100%;max-height:160px;object-fit:contain;" />
+      </div>
+      <div style="background:#fff5f5;padding:16px;border-top:3px solid #8b2020;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:0.06em;color:var(--navy);">Redesign 1</div>
+          <span style="font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#8b2020;color:white;padding:2px 8px;border-radius:2px;">Fail</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6;">Sans-serif typeface (incorrect). Complex flame mark is vague and somewhat disconnected from the Network's mission. Diverges from parent brand identity.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Final Design Breakdown -->
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.04em;color:var(--navy);margin-bottom:24px;">Final Design — Visual Breakdown</h3>
+
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start;margin-bottom:56px;">
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:6px;padding:32px;display:flex;align-items:center;justify-content:center;min-height:220px;">
+      <img src="logo-champions-network-20mar2026.svg"
+           alt="Final Champions Network Logo"
+           style="max-width:100%;height:auto;" />
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="background:var(--light);border-radius:4px;padding:20px 20px 16px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.06em;color:var(--gold);margin-bottom:6px;">1 — Logomark</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7;">A clean, bold blue shield outline. Within the shield, a confident upward-pointing sword. At the tip, a distinct <strong>gold/tan star-cross hybrid</strong> representing achievement and the saving purpose of the Gospel. Powerful, integrated, and readable at any scale.</p>
+      </div>
+      <div style="background:var(--light);border-radius:4px;padding:20px 20px 16px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.06em;color:var(--gold);margin-bottom:6px;">2 — Primary Text Block</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7;">Rendered in the exact parent typeface — a specific, condensed tan/gold font. <strong>CHAMPIONS</strong> (large, tan) on line one. <strong>NETWORK</strong> (large, tan) on line two. All-caps, matching the LCRL parent brand precisely.</p>
+      </div>
+      <div style="background:var(--light);border-radius:4px;padding:20px 20px 16px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.06em;color:var(--gold);margin-bottom:6px;">3 — Secondary Subtext</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7;"><strong>FOR RELIGIOUS LIBERTY</strong> in the parent typeface on a single line for simplicity. An optional fourth line — "A specialized initiative of the Lutheran Center for Religious Liberty" — in smaller gray sans-serif, using title case to subordinate it beneath the primary all-caps brand names.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Evaluation Table -->
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.04em;color:var(--navy);margin-bottom:24px;">Design Evaluation</h3>
+  <table class="values-table">
+    <thead>
+      <tr>
+        <th>Logo Attempt</th>
+        <th>Typeface</th>
+        <th>Mark Relevance</th>
+        <th>Scalability</th>
+        <th>Best Practices</th>
+        <th>Verdict</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Debut Logo</td>
+        <td>Sans-Serif — Incorrect</td>
+        <td>Text arrangement only — no symbol</td>
+        <td>Poor</td>
+        <td>Poor</td>
+        <td><span style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:#8b2020;color:white;padding:3px 10px;border-radius:2px;white-space:nowrap;">Fail</span></td>
+      </tr>
+      <tr>
+        <td>Redesign 1</td>
+        <td>Sans-Serif — Incorrect</td>
+        <td>Complex flames — vague, disconnected</td>
+        <td>Moderate</td>
+        <td>Poor</td>
+        <td><span style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:#8b2020;color:white;padding:3px 10px;border-radius:2px;white-space:nowrap;">Fail</span></td>
+      </tr>
+      <tr>
+        <td>Current Redesign</td>
+        <td>Parent Typeface — Exact match</td>
+        <td>Sword / Shield / Star-Cross — Knight tier &amp; Two-Kingdom relevance</td>
+        <td>Excellent</td>
+        <td>High</td>
+        <td><span style="font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:#1a6640;color:white;padding:3px 10px;border-radius:2px;white-space:nowrap;">Success</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ─── ORGANIZATIONAL STRUCTURE ─── -->
+<section id="tiers">
+  <div class="section-label">05 — Structure & Tiers</div>
+  <h2 class="section-title">The Three-Layer Model</h2>
+  <p class="section-intro">Affiliation is organized into three distinct layers, allowing churches to scale involvement as they develop internal leadership capacity.</p>
+
+  <div class="org-layers">
+    <div class="org-layer">
+      <div class="org-layer-num">
+        <span>Layer</span>
+        <strong>01</strong>
+      </div>
+      <div class="org-layer-content">
+        <h4>The 2KG Academy</h4>
+        <p>The entry point for individuals and small groups. Provides educational resources and facilitated discussions on Two-Kingdom citizenship. Includes a general citizen track and an advanced track for those developing as local leaders.</p>
+      </div>
+    </div>
+    <div class="org-layer">
+      <div class="org-layer-num layer2">
+        <span>Layer</span>
+        <strong>02</strong>
+      </div>
+      <div class="org-layer-content">
+        <h4>The Champions Church</h4>
+        <p>A congregation becomes an Official Champions Church upon completing Year 1 of the 2KG Academy. At this stage, the LCRL works directly with pastors and church boards to develop strategic support for Champion Citizens and local community engagement plans.</p>
+      </div>
+    </div>
+    <div class="org-layer">
+      <div class="org-layer-num layer3">
+        <span>Layer</span>
+        <strong>03</strong>
+      </div>
+      <div class="org-layer-content">
+        <h4>The Champions Network</h4>
+        <p>The highest level of affiliation — a nationwide coalition of Champions Churches. Enables congregations to share ideas, connect across state lines, and speak with a unified voice on national policies affecting religious liberty and education.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tier pathway -->
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.04em;color:var(--navy);margin-top:64px;margin-bottom:8px;">Five-Year Developmental Pathway</h3>
+  <p style="font-size:15px;color:var(--muted);margin-bottom:40px;">The knighthood tier system ensures advocacy is grounded in maturity, not reactionary urgency. This progression is central to the brand's visual and narrative identity.</p>
+
+  <div class="tier-track">
+    <div class="tier-item">
+      <div class="tier-dot"></div>
+      <div class="tier-number">T1</div>
+      <div class="tier-content">
+        <div class="tier-year">Year 1</div>
+        <h4>Apprentice</h4>
+        <p>Learning the foundational principles of religious liberty and Two-Kingdom citizenship. Building the theological and constitutional vocabulary of the Champion Citizen.</p>
+      </div>
+    </div>
+    <div class="tier-item">
+      <div class="tier-dot blue"></div>
+      <div class="tier-number blue">T2</div>
+      <div class="tier-content">
+        <div class="tier-year">Year 2</div>
+        <h4>Journeyman — Squire</h4>
+        <p>Refining applications and beginning to engage local and state governing authorities. Moving from education into action under the guidance of a senior mentor.</p>
+      </div>
+    </div>
+    <div class="tier-item">
+      <div class="tier-dot blue"></div>
+      <div class="tier-number blue">T3</div>
+      <div class="tier-content">
+        <div class="tier-year">Year 3</div>
+        <h4>Journeyman — Bachelor</h4>
+        <p>Maturing in community engagement and discovering how to communicate conviction without becoming an activist. Truth spoken in love, with constitutional precision.</p>
+      </div>
+    </div>
+    <div class="tier-item">
+      <div class="tier-dot navy"></div>
+      <div class="tier-number navy">T4</div>
+      <div class="tier-content">
+        <div class="tier-year">Year 4</div>
+        <h4>Journeyman — Banneret</h4>
+        <p>Mentoring newer members and participating in regional and national LCRL events. Beginning to shape the direction of the local Champions community.</p>
+      </div>
+    </div>
+    <div class="tier-item">
+      <div class="tier-dot navy"></div>
+      <div class="tier-number navy">T5</div>
+      <div class="tier-content">
+        <div class="tier-year">Year 5+</div>
+        <h4>Knight — First Class</h4>
+        <p>Long-term loyalty and mentoring the next generation of Champion Citizens. The Knight stands in the gap — defending the preaching of the Gospel in the public square with the full weight of formation and experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ─── VOICE & TONE ─── -->
+<section id="voice">
+  <div class="section-label">06 — Voice & Tone</div>
+  <h2 class="section-title">How We Communicate</h2>
+  <p class="section-intro">The Champions Network brand voice is <strong>theologically grounded, civically engaged, and courageously principled</strong> — always measured, never reactionary.</p>
+
+  <div class="pillar-grid">
+    <div class="pillar-card gold-top">
+      <div class="pillar-number">01</div>
+      <h3>Theologically Precise</h3>
+      <p>Every communication reflects the Two-Kingdom framework. Never conflate political victory with the mission of the Church. The LCRL speaks from the Right-Hand Kingdom about the Left-Hand Kingdom — with clarity about the distinction.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-number">02</div>
+      <h3>Civic & Constitutional</h3>
+      <p>The network is fluent in both biblical and constitutional language — for an audience that is simultaneously a member of the Body of Christ and a citizen of the United States. Reference Scripture alongside the First Amendment.</p>
+    </div>
+    <div class="pillar-card navy-top">
+      <div class="pillar-number">03</div>
+      <h3>Principled, Not Partisan</h3>
+      <p>The LCRL does not endorse candidates or campaigns. It advocates for principles — religious liberty, marriage, sanctity of life — grounded in natural law and Lutheran theological tradition. Avoid partisan framing entirely.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-number">04</div>
+      <h3>Advocates, Not Activists</h3>
+      <p>An advocate engages for the sake of the Gospel mission. An activist prioritizes political outcomes above Gospel proclamation. Brand language must always reflect the advocate's posture — measured, truth-filled, neighbor-loving.</p>
+    </div>
+    <div class="pillar-card gold-top">
+      <div class="pillar-number">05</div>
+      <h3>Formative, Not Reactionary</h3>
+      <p>The five-tier pathway exists because formation takes time. Brand communication reinforces the long view — patience, mentorship, maturity — over urgency or alarm. Champions are shaped, not manufactured.</p>
+    </div>
+    <div class="pillar-card navy-top">
+      <div class="pillar-number">06</div>
+      <h3>Confessional in Heritage</h3>
+      <p>Rooted in the LCMS tradition. Language reflects Lutheran theological confidence without exclusion. References to the Two-Kingdom doctrine, the Gospel, and the means of grace are appropriate and expected.</p>
+    </div>
+  </div>
+
+  <div class="do-dont" style="margin-top:48px;">
+    <div class="do-list">
+      <div class="list-header">Language Aligned with the Brand</div>
+      <ul class="list-items">
+        <li>Champion Citizen, Two-Kingdom, religious liberty, constitutional freedom</li>
+        <li>Advocate, formation, maturity, faithful witness</li>
+        <li>Gospel proclamation, temporal civility, natural law</li>
+        <li>Knighthood, covenant, valor, standing in the gap</li>
+        <li>Defending the faith, truth in love, civic engagement</li>
+        <li>Liberty, conscience, freedom of worship, sanctity of life</li>
+      </ul>
+    </div>
+    <div class="dont-list">
+      <div class="list-header">Language to Avoid</div>
+      <ul class="list-items">
+        <li>Activist, crusade, revolution — framing that suggests political combat over Gospel mission</li>
+        <li>Partisan political endorsements or candidate-specific language</li>
+        <li>Inflammatory or fear-based framing that prioritizes urgency over formation</li>
+        <li>Language conflating America's political founding with the Kingdom of God</li>
+        <li>Slogans that reduce complex doctrinal positions to bumper-sticker activism</li>
+        <li>Vilifying or shaming language toward any group or institution</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ─── APPLICATIONS ─── -->
+<section id="applications">
+  <div class="section-label">07 — Applications</div>
+  <h2 class="section-title">Brand in Use</h2>
+  <p class="section-intro">Every application of the brand must meet the standard of a Washington, D.C. advocacy organization — clean grids, consistent color, and typography that places the mission first.</p>
+
+  <div class="application-grid">
+
+    <div class="app-card">
+      <div class="app-preview" style="background:#055A81;flex-direction:column;gap:8px;text-align:center;">
+        <div style="font-family:'Poppins',sans-serif;font-weight:600;font-size:11px;color:#BB8C3A;letter-spacing:0.15em;text-transform:uppercase;">Liberty Weekend</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#ffffff;letter-spacing:0.04em;line-height:1.1;">Religious Liberty<br>Matters</div>
+        <div style="width:40px;height:2px;background:#BB8C3A;margin:4px auto;"></div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);">Champions Network | LCRL</div>
+      </div>
+      <div class="app-label">
+        <strong>Event Program Cover</strong>
+        Constitution Navy + Pure White headline + Liberty Gold accent. Interior on Gospel Light with Constitution Navy body copy.
+      </div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-preview" style="background:#ECF4F9;flex-direction:column;gap:6px;">
+        <div style="background:#0876A9;padding:8px 16px;width:100%;text-align:center;">
+          <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:10px;color:#BB8C3A;letter-spacing:0.15em;text-transform:uppercase;">Champions Network for Religious Liberty</span>
+        </div>
+        <div style="padding:12px 20px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.04em;color:#055A81;margin-bottom:4px;">Liberty Action Alert</div>
+          <div style="font-size:12px;color:#5a7080;line-height:1.5;">This week: religious liberty case updates and how your church can respond as an advocate, not an activist.</div>
+        </div>
+        <div style="background:#055A81;padding:8px 16px;width:100%;text-align:center;">
+          <span style="font-size:11px;color:rgba(255,255,255,0.6);">lcrlfreedom.org</span>
+        </div>
+      </div>
+      <div class="app-label">
+        <strong>Email Template</strong>
+        Freedom Blue header bar + Liberty Gold label. Gospel Light body with Constitution Navy text. Navy footer.
+      </div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-preview" style="background:#0876A9;flex-direction:column;gap:6px;text-align:center;padding:20px;">
+        <div style="font-family:'Poppins',sans-serif;font-weight:600;font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.2em;text-transform:uppercase;">Tier 5 Designation</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.06em;color:#BB8C3A;">Knight — First Class</div>
+        <div style="width:36px;height:2px;background:#BB8C3A;margin:4px auto;"></div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.7);font-style:italic;">In recognition of faithful service<br>to the cause of religious liberty.</div>
+      </div>
+      <div class="app-label">
+        <strong>Certificate / Honor Designation</strong>
+        Freedom Blue background, Liberty Gold tier mark, Pure White supporting text. Premium print stock recommended.
+      </div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-preview" style="background:#FFFFFF;flex-direction:column;gap:8px;padding:20px 24px;">
+        <div style="display:flex;align-items:center;gap:10px;border-bottom:2px solid #BB8C3A;padding-bottom:10px;width:100%;">
+          <div style="width:6px;height:36px;background:#0876A9;border-radius:1px;"></div>
+          <div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.06em;color:#055A81;">CHAMPIONS NETWORK</div>
+            <div style="font-size:10px;color:#5a7080;letter-spacing:0.08em;text-transform:uppercase;">For Religious Liberty</div>
+          </div>
+        </div>
+        <div style="font-family:'Poppins',sans-serif;font-weight:300;font-size:12px;color:#1a2b38;line-height:1.6;padding-top:4px;">The 2KG Academy equips believers with the Two-Kingdom framework needed to advocate faithfully in the public square — as citizens of both kingdoms.</div>
+        <div style="font-size:11px;color:#0876A9;font-weight:600;margin-top:4px;">lcrlfreedom.org →</div>
+      </div>
+      <div class="app-label">
+        <strong>Print Handout / Flyer</strong>
+        White stock, Freedom Blue accent rule, Constitution Navy headers, Gold rule at top. Clean grid, generous margins.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ─── AFFILIATION ─── -->
+<section>
+  <div class="section-label">08 — Affiliation</div>
+  <h2 class="section-title">Joining the Network</h2>
+  <p class="section-intro">Affiliation is a long-term commitment, not a simple membership. Churches enter through structured engagement and grow through the five-tier pathway.</p>
+
+  <table class="values-table">
+    <thead>
+      <tr>
+        <th>Format</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Liberty Lectures</td>
+        <td>60–90 minute interactive presentations on foundational constitutional protections and the biblical roots of religious freedom. Ideal first engagement for interested congregations.</td>
+      </tr>
+      <tr>
+        <td>Liberty Weekends</td>
+        <td>Saturday workshop plus Sunday Religious Liberty Sunday service. LCRL staff preach and lead Bible classes at the host church — the most immersive initial experience available.</td>
+      </tr>
+      <tr>
+        <td>Virtual Consultation</td>
+        <td>A direct meeting with Network Director Rev. Mark Frith to discuss localized engagement strategy and readiness for the 2KG Academy launch.</td>
+      </tr>
+      <tr>
+        <td>2KG Academy Launch</td>
+        <td>Form a local leadership team, recruit participants, and begin the Tier 1 curriculum. After Year 1, the church formally partners as an Official Champions Church.</td>
+      </tr>
+      <tr>
+        <td>Champions Chapters</td>
+        <td>Local chapter leadership teams of <strong>4–5 facilitators</strong> organized around three pillars: <strong>Hospitality</strong> (creating welcoming formation environments), <strong>Prayer</strong> (covering advocacy in intercession), and <strong>Communication</strong> (sharing the network's voice in the community).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="background:var(--light);border-left:4px solid var(--gold);border-radius:4px;padding:28px 28px 24px;margin-top:40px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Required Reading</div>
+    <div style="display:flex;align-items:flex-start;gap:20px;">
+      <div style="font-size:48px;line-height:1;color:var(--navy);flex-shrink:0;">&#128366;</div>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.04em;color:var(--navy);margin-bottom:4px;">Free to Believe</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:8px;">by Luke Goodrich</div>
+        <p style="font-size:14px;color:var(--text);line-height:1.7;">Required reading for all Champions entering the Tier 1 Apprentice pathway. Provides the foundational constitutional and theological framework for understanding religious liberty in America — essential vocabulary for every Champion Citizen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <strong>Champions for Religious Liberty Network</strong>
+  An Initiative of the Lutheran Center for Religious Liberty (LCRL) &nbsp;|&nbsp; Washington, D.C.<br/>
+  <a href="https://www.lcrlfreedom.org">lcrlfreedom.org</a> &nbsp;|&nbsp; Network Director: Rev. Mark Frith &nbsp;|&nbsp; Executive Director: Rev. Dr. Gregory Seltz<br/><br/>
+  Brand Standards Guide — Version 2.0 &nbsp;|&nbsp; March 2026 &nbsp;|&nbsp; This is a living document. Contact the network for usage questions.
+</footer>
+
+</body>
+</html>

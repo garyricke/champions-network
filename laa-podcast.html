@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building the Champions Network — Liberty Action Alert 4-Part Series | LCRL</title>
+<meta name="description" content="Rev. Dr. Gregory Seltz and Rev. Mark Frith unpack what the Champions for Religious Liberty Network is, why it's needed now, and how your church can get involved. Listen to all 4 episodes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="laa-podcast.css">
+</head>
+<body>
+
+<!-- PASSWORD GATE ============================================ -->
+<style>
+#pw-gate{position:fixed;inset:0;z-index:9999;background:#021e2e;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;}
+#pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(187,140,58,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(187,140,58,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+#pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(187,140,58,.25);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5);}
+#pw-box img{height:48px;margin-bottom:24px;display:block;margin-inline:auto;}
+#pw-box h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#BB8C3A;letter-spacing:.08em;margin:0 0 8px;}
+#pw-box p.sub{color:rgba(255,255,255,.45);font-size:.85rem;margin:0 0 28px;}
+#pw-input{width:100%;box-sizing:border-box;background:rgba(255,255,255,.07);border:1px solid rgba(187,140,58,.3);border-radius:8px;padding:12px 16px;color:#fff;font-family:'Poppins',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;}
+#pw-input:focus{border-color:#BB8C3A;}
+#pw-btn{margin-top:14px;width:100%;background:#BB8C3A;color:#021e2e;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;border:none;border-radius:8px;padding:13px;cursor:pointer;transition:background .2s;}
+#pw-btn:hover{background:#d4a44e;}
+#pw-error{color:#e87070;font-size:.8rem;margin:10px 0 0;min-height:1.1em;}
+@keyframes pw-shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.pw-shake{animation:pw-shake .4s ease;}
+</style>
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network">
+    <h2>Private Preview</h2>
+    <p class="sub">This site is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='cn_auth',PASS='markrules',gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function attempt(){
+    if(document.getElementById('pw-input').value===PASS){
+      sessionStorage.setItem(KEY,'1');
+      document.body.style.overflow='';
+      gate.style.display='none';
+    } else {
+      document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+      var box=document.getElementById('pw-box');
+      box.classList.remove('pw-shake');
+      void box.offsetWidth;
+      box.classList.add('pw-shake');
+      document.getElementById('pw-input').value='';
+      document.getElementById('pw-input').focus();
+    }
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+})();
+</script>
+<!-- END PASSWORD GATE ======================================== -->
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav" aria-label="Page navigation">
+  <div class="nav-inner">
+    <a class="nav-back" href="index.html" aria-label="Back to Champions Network">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Champions Network
+    </a>
+    <a class="nav-logo" href="#hero" aria-label="Home">
+      <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network" height="36">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#players">Episodes</a></li>
+      <li><a href="#hosts">Hosts</a></li>
+      <li><a href="#themes">Key Themes</a></li>
+      <li><a href="#network">The Network</a></li>
+      <li><a href="#book">Book a Session</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="nav-mobile" role="navigation" aria-label="Mobile navigation">
+  <a href="#players">Episodes</a>
+  <a href="#hosts">Hosts</a>
+  <a href="#themes">Key Themes</a>
+  <a href="#pillars">The 4 Pillars</a>
+  <a href="#network">The Network</a>
+  <a href="#journey">The Journey</a>
+  <a href="#book">Book a Session</a>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="hero" aria-label="Series overview">
+  <div class="hero-bg-grid" aria-hidden="true"></div>
+  <div class="hero-bg-glow" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+
+    <!-- Left: Text content -->
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="hero-badge-pulse" aria-hidden="true"></span>
+        Liberty Action Alert &nbsp;·&nbsp; 4-Part Podcast Series
+      </div>
+      <h1 class="hero-title">
+        Building the
+        <span class="hero-title-accent">Champions Network</span>
+      </h1>
+      <p class="hero-series-label">LCRL &nbsp;·&nbsp; August 2023</p>
+      <p class="hero-desc">In four weekly conversations, Rev. Dr. Gregory Seltz and Rev. Mark Frith explain what the Champions for Religious Liberty Network is, why this moment demands it, and exactly how your church can get involved.</p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          4 Episodes
+        </span>
+        <span class="hero-meta-div" aria-hidden="true"></span>
+        <span class="hero-meta-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          August 9–30, 2023
+        </span>
+        <span class="hero-meta-div" aria-hidden="true"></span>
+        <span class="hero-meta-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          lcrlfreedom.org
+        </span>
+      </div>
+      <div class="hero-actions">
+        <a href="#players" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+          Listen to the Series
+        </a>
+        <a href="#book" class="btn btn-outline-white">Book a Consultation</a>
+      </div>
+    </div>
+
+    <!-- Right: Host portraits -->
+    <div class="hero-hosts">
+      <p class="hero-hosts-eyebrow">Your Hosts</p>
+      <div class="hero-hosts-duo">
+        <div class="hero-host">
+          <div class="hero-host-ring">
+            <img src="images/champions-profile-greg-seltz.jpg" alt="Rev. Dr. Gregory Seltz" loading="eager">
+          </div>
+          <p class="hero-host-name">Rev. Dr.<br>Gregory Seltz</p>
+          <p class="hero-host-role">Executive Director, LCRL</p>
+        </div>
+        <div class="hero-vs" aria-hidden="true">WITH</div>
+        <div class="hero-host">
+          <div class="hero-host-ring">
+            <img src="images/champions-profile-mark-frith.jpg" alt="Rev. Mark T. Frith" loading="eager">
+          </div>
+          <p class="hero-host-name">Rev. Mark T.<br>Frith</p>
+          <p class="hero-host-role">National Director, Champions Network</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Episode strip -->
+    <div class="hero-ep-strip" role="list" aria-label="Episode list">
+
+      <div class="hero-ep-chip reveal" data-ep-chip="1" role="listitem" tabindex="0" aria-label="Play Episode 1">
+        <span class="hero-ep-chip-num" aria-hidden="true">01</span>
+        <div class="hero-ep-chip-info">
+          <p class="hero-ep-chip-title">What Is the Champions Network?</p>
+          <p class="hero-ep-chip-date">August 9, 2023</p>
+        </div>
+        <span class="hero-ep-chip-play" aria-hidden="true">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        </span>
+      </div>
+
+      <div class="hero-ep-chip reveal reveal-delay-1" data-ep-chip="2" role="listitem" tabindex="0" aria-label="Play Episode 2">
+        <span class="hero-ep-chip-num" aria-hidden="true">02</span>
+        <div class="hero-ep-chip-info">
+          <p class="hero-ep-chip-title">Why Now? The Case for Organizing</p>
+          <p class="hero-ep-chip-date">August 16, 2023</p>
+        </div>
+        <span class="hero-ep-chip-play" aria-hidden="true">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        </span>
+      </div>
+
+      <div class="hero-ep-chip reveal reveal-delay-2" data-ep-chip="3" role="listitem" tabindex="0" aria-label="Play Episode 3">
+        <span class="hero-ep-chip-num" aria-hidden="true">03</span>
+        <div class="hero-ep-chip-info">
+          <p class="hero-ep-chip-title">Standing in the Gap — For Our Children &amp; Our Neighbors</p>
+          <p class="hero-ep-chip-date">August 23, 2023</p>
+        </div>
+        <span class="hero-ep-chip-play" aria-hidden="true">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        </span>
+      </div>
+
+      <div class="hero-ep-chip reveal reveal-delay-3" data-ep-chip="4" role="listitem" tabindex="0" aria-label="Play Episode 4">
+        <span class="hero-ep-chip-num" aria-hidden="true">04</span>
+        <div class="hero-ep-chip-info">
+          <p class="hero-ep-chip-title">How to Join &amp; What to Expect</p>
+          <p class="hero-ep-chip-date">August 30, 2023</p>
+        </div>
+        <span class="hero-ep-chip-play" aria-hidden="true">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        </span>
+      </div>
+
+    </div><!-- /hero-ep-strip -->
+  </div><!-- /hero-inner -->
+
+  <div class="hero-bottom-fade" aria-hidden="true"></div>
+</section>
+
+<!-- ============================================================
+     AUDIO PLAYERS
+     ============================================================ -->
+<section class="players-section section-dark" id="players" aria-label="Listen to the series">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Listen to the Series</span>
+      <h2>Four Conversations. One Mission.</h2>
+      <p>Each episode builds on the last. Start with Part 1 and work your way through — or jump to the topic most relevant to you.</p>
+    </div>
+
+    <div class="players-grid">
+
+      <!-- Player 1 -->
+      <div class="audio-player reveal" data-player="1" aria-label="Episode 1 player">
+        <audio src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1774616229/lcrl-liberty-action-alert-2023-08-09-part-1_tke9pw.mp3" preload="metadata"></audio>
+        <div class="player-top">
+          <div class="player-ep-badge" aria-hidden="true">01</div>
+          <div class="player-info">
+            <span class="player-ep-num">Episode 1 · August 9, 2023</span>
+            <p class="player-ep-title">What Is the Champions Network?</p>
+            <span class="player-ep-date">Rev. Seltz &amp; Rev. Frith introduce the network, its 4 pillars, and the Two-Kingdom vision</span>
+          </div>
+          <div class="player-bars" aria-label="Now playing" aria-live="polite">
+            <span style="height:8px"></span>
+            <span style="height:16px"></span>
+            <span style="height:10px"></span>
+            <span style="height:14px"></span>
+            <span style="height:6px"></span>
+          </div>
+        </div>
+        <div class="player-progress-row">
+          <span class="player-time time-current">0:00</span>
+          <div class="player-track" role="slider" aria-label="Seek audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="player-fill">
+              <div class="player-thumb" aria-hidden="true"></div>
+            </div>
+          </div>
+          <span class="player-time right time-duration">--:--</span>
+        </div>
+        <div class="player-controls">
+          <button class="player-ctrl skip-back" title="Back 15 seconds" aria-label="Rewind 15 seconds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.27"/></svg>
+            <span class="player-ctrl-lbl">15s</span>
+          </button>
+          <button class="player-ctrl player-ctrl-play" aria-label="Play Episode 1">
+            <svg class="play-icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg class="play-icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <button class="player-ctrl skip-fwd" title="Forward 15 seconds" aria-label="Skip 15 seconds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.49-4.27"/></svg>
+            <span class="player-ctrl-lbl">15s</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Player 2 -->
+      <div class="audio-player reveal reveal-delay-1" data-player="2" aria-label="Episode 2 player">
+        <audio src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1774616229/lcrl-liberty-action-alert-2023-08-16-part-2_jtday7.mp3" preload="metadata"></audio>
+        <div class="player-top">
+          <div class="player-ep-badge" aria-hidden="true">02</div>
+          <div class="player-info">
+            <span class="player-ep-num">Episode 2 · August 16, 2023</span>
+            <p class="player-ep-title">Why Now? The Case for Organizing</p>
+            <span class="player-ep-date">Two-Kingdom citizenship, conscience rights, and why the church cannot stay silent</span>
+          </div>
+          <div class="player-bars" aria-label="Now playing" aria-live="polite">
+            <span style="height:12px"></span>
+            <span style="height:8px"></span>
+            <span style="height:18px"></span>
+            <span style="height:10px"></span>
+            <span style="height:14px"></span>
+          </div>
+        </div>
+        <div class="player-progress-row">
+          <span class="player-time time-current">0:00</span>
+          <div class="player-track" role="slider" aria-label="Seek audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="player-fill">
+              <div class="player-thumb" aria-hidden="true"></div>
+            </div>
+          </div>
+          <span class="player-time right time-duration">--:--</span>
+        </div>
+        <div class="player-controls">
+          <button class="player-ctrl skip-back" aria-label="Rewind 15 seconds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.27"/></svg>
+            <span class="player-ctrl-lbl">15s</span>
+          </button>
+          <button class="player-ctrl player-ctrl-play" aria-label="Play Episode 2">
+            <svg class="play-icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg class="play-icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <button class="player-ctrl skip-fwd" aria-label="Skip 15 seconds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.49-4.27"/></svg>
+            <span class="player-ctrl-lbl">15s</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Player 3 -->
+      <div class="audio-player reveal reveal-delay-2" data-player="3" aria-label="Episode 3 player">
+        <audio src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1774616229/lcrl-liberty-action-alert-2023-08-23-part-3_nyzsh2.mp3" preload="metadata"></audio>
+        <div class="player-top">
+          <div class="player-ep-badge" aria-hidden="true">03</div>
+          <div class="player-info">
+            <span class="player-ep-num">Episode 3 · August 23, 2023</span>
+            <p class="player-ep-title">Standing in the Gap</p>
+            <span class="player-ep-date">For our children, our neighbors, and the next generation of Two-Kingdom citizens</span>
+          </div>
+          <div class="player-bars" aria-label="Now playing" aria-live="polite">
+            <span style="height:16px"></span>
+            <span style="height:10px"></span>
+            <span style="height:6px"></span>
+            <span style="height:18px"></span>
+            <span style="height:12px"></span>
+          </div>
+        </div>
+        <div class="player-progress-row">
+          <span class="player-time time-current">0:00</span>
+          <div class="player-track" role="slider" aria-label="Seek audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="player-fill">
+              <div class="player-thumb" aria-hidden="true"></div>
+            </div>
+          </div>
+          <span class="player-time right time-duration">--:--</span>
+        </div>
+        <div class="player-controls">
+          <button class="player-ctrl skip-back" aria-label="Rewind 15 seconds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.27"/></svg>
+            <span class="player-ctrl-lbl">15s</span>
+          </button>
+          <button class="player-ctrl player-ctrl-play" aria-label="Play Episode 3">
+            <svg class="play-icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg class="play-icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <button class="player-ctrl skip-fwd" aria-label="Skip 15 seconds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.49-4.27"/></svg>
+            <span class="player-ctrl-lbl">15s</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Player 4 -->
+      <div class="audio-player reveal reveal-delay-3" data-player="4" aria-label="Episode 4 player">
+        <audio src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1774616229/lcrl-liberty-action-alert-2023-08-30-part-4_xbjxtc.mp3" preload="metadata"></audio>
+        <div class="player-top">
+          <div class="player-ep-badge" aria-hidden="true">04</div>
+          <div class="player-info">
+            <span class="player-ep-num">Episode 4 · August 30, 2023</span>
+            <p class="player-ep-title">How to Join &amp; What to Expect</p>
+            <span class="player-ep-date">The network structure, the 5-tier pathway, and your first step as a Champion</span>
+          </div>
+          <div class="player-bars" aria-label="Now playing" aria-live="polite">
+            <span style="height:10px"></span>
+            <span style="height:18px"></span>
+            <span style="height:14px"></span>
+            <span style="height:8px"></span>
+            <span style="height:16px"></span>
+          </div>
+        </div>
+        <div class="player-progress-row">
+          <span class="player-time time-current">0:00</span>
+          <div class="player-track" role="slider" aria-label="Seek audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="player-fill">
+              <div class="player-thumb" aria-hidden="true"></div>
+            </div>
+          </div>
+          <span class="player-time right time-duration">--:--</span>
+        </div>
+        <div class="player-controls">
+          <button class="player-ctrl skip-back" aria-label="Rewind 15 seconds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.27"/></svg>
+            <span class="player-ctrl-lbl">15s</span>
+          </button>
+          <button class="player-ctrl player-ctrl-play" aria-label="Play Episode 4">
+            <svg class="play-icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg class="play-icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <button class="player-ctrl skip-fwd" aria-label="Skip 15 seconds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.49-4.27"/></svg>
+            <span class="player-ctrl-lbl">15s</span>
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /players-grid -->
+  </div>
+</section>
+
+<!-- ============================================================
+     MEET THE HOSTS
+     ============================================================ -->
+<section class="section" id="hosts" aria-label="Meet the hosts">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Meet Your Hosts</span>
+      <h2>The Voices Behind the Series</h2>
+      <p>Two leaders who have spent decades at the intersection of theology, religious liberty, and the public square.</p>
+    </div>
+    <div class="hosts-grid">
+
+      <div class="host-card reveal">
+        <div class="host-photo">
+          <img src="images/champions-profile-greg-seltz.jpg" alt="Rev. Dr. Gregory Seltz" loading="lazy">
+        </div>
+        <div class="host-info">
+          <p class="host-role">Executive Director, LCRL</p>
+          <h3 class="host-name">Rev. Dr. Gregory Seltz</h3>
+          <p class="host-bio">Distinguished theologian and evangelical leader serving as Executive Director of the Lutheran Center for Religious Liberty in Washington, D.C. Dr. Seltz brings the Two-Kingdom framework to life for congregations across the country through Liberty Weekends, radio, and national advocacy work.</p>
+          <p class="host-bio">A sought-after speaker and preacher, he has championed religious liberty at the federal level for over two decades — and helped give the Champions Network its theological and strategic foundation.</p>
+          <div class="host-links">
+            <a class="host-link" href="https://lcrlfreedom.org" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              lcrlfreedom.org
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="host-card reveal reveal-delay-2">
+        <div class="host-photo">
+          <img src="images/champions-profile-mark-frith.jpg" alt="Rev. Mark T. Frith" loading="lazy">
+        </div>
+        <div class="host-info">
+          <p class="host-role">National Director, Champions Network</p>
+          <h3 class="host-name">Rev. Mark T. Frith</h3>
+          <p class="host-bio">Guides, supports, and empowers church leaders with the tools needed to reach their full potential as Two-Kingdom Citizens. Rev. Frith manages practical recruitment, church support, and day-to-day leadership of the growing Champions Network across America.</p>
+          <p class="host-bio">A pastor and former Lutheran Army Ministries evangelist, Mark brings deep pastoral instincts to the work of religious liberty — helping ordinary believers understand that defending conscience is itself an act of love for neighbor.</p>
+          <div class="host-links">
+            <a class="host-link" href="mailto:Mark.Frith@LCRLfreedom.org">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Mark.Frith@LCRLfreedom.org
+            </a>
+            <a class="host-link" href="tel:9133754181">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              913-375-4181
+            </a>
+            <a class="host-link" href="https://calendly.com/markfrith/30min" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Schedule a Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     KEY THEMES (TABS)
+     ============================================================ -->
+<section class="section section-light" id="themes" aria-label="Key themes from the series">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">What You'll Learn</span>
+      <h2>The Big Ideas from the Series</h2>
+      <p>Four conversations distilled into the three themes that run through every episode.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="tabs-nav" id="themes-nav" role="tablist" aria-label="Key themes">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="mission">The Mission</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="threats">The Threats</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="kingdoms">Two Kingdoms</button>
+      </div>
+
+      <!-- Tab: Mission -->
+      <div class="tab-panel theme-panel active" data-theme="mission" role="tabpanel">
+        <div class="theme-grid">
+          <div class="theme-text">
+            <h3>Why the Church Must Engage — Without Politicizing</h3>
+            <p>The Champions Network was born from a simple conviction: the church's freedom to share the gospel depends on its willingness to defend that freedom in the public square. But this is not about politics — it's about keeping politics in its proper place.</p>
+            <p>As Dr. Seltz puts it, the network is "teaching you how to take the politics <em>out</em> of these issues — to tell the state 'mind your business so we can be good neighbors even to those with whom we disagree.'"</p>
+            <div class="theme-quote">
+              "We're not asking the church to become activists. We're teaching them to become what I'd call anti-activist activists — advocates who know how to engage without being defined by the conflict."
+              <cite>— Rev. Dr. Gregory Seltz, Part 1</cite>
+            </div>
+          </div>
+          <div class="theme-points">
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>Blocking, Not Scoring</h5>
+                <p>Evangelists score touchdowns. Champions Network members are the offensive line — blocking nefarious laws so the gospel can move forward freely.</p>
+              </div>
+            </div>
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>This Is God's Preserving Work</h5>
+                <p>Defending religious liberty and family integrity is not a political compromise — it's participating in God's left-hand kingdom work to preserve a world where the gospel can be freely heard.</p>
+              </div>
+            </div>
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>Churches Helping Churches</h5>
+                <p>The network connects congregations so no church faces cultural or legal pressure alone. What one church learns in Michigan strengthens a church in Ohio.</p>
+              </div>
+            </div>
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>Lay People at the Forefront</h5>
+                <p>Doctors, lawyers, nurses, entrepreneurs, parents — the laity have access to the culture in ways pastors don't. The network equips them to use that access for God's preserving work.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Threats -->
+      <div class="tab-panel theme-panel" data-theme="threats" role="tabpanel">
+        <div class="theme-grid">
+          <div class="theme-text">
+            <h3>Political Correctness, Codified into Law</h3>
+            <p>What began as cultural pressure has become legal coercion. The LCRL calls these "secular blasphemy laws" — regulations that make it illegal to express a biblical worldview in public life, business, or education.</p>
+            <p>These aren't abstract threats. They have names, faces, and decades-long legal battles attached to them. The Champions Network exists to say: these people should never have had to fight alone.</p>
+            <div class="theme-quote">
+              "The politicization of conscience. Who would have ever thought that would happen in America? We're fighting to make your conscience expression or your worship illegal — even though we have this thing called the First Amendment."
+              <cite>— Rev. Mark Frith, Part 1</cite>
+            </div>
+          </div>
+          <div class="theme-points">
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>Religious Institutions Under Pressure</h5>
+                <p>Catholic charities in Pennsylvania ordered to cease operations. Christian adoption agencies banned in Oregon. The targeting is systematic and growing.</p>
+              </div>
+            </div>
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>Process as Punishment</h5>
+                <p>Even when believers win in court, the decade of legal fighting destroys livelihoods. The goal of opponents is often exhaustion, not just legal victory.</p>
+              </div>
+            </div>
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>Isolation Is the Enemy</h5>
+                <p>"When we make headlines, people give me attention. Then that attention goes away and I feel like I'm all by myself." — Jack Phillips. The network changes this.</p>
+              </div>
+            </div>
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><book width="24" height="24"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>Pastors Need Protection Too</h5>
+                <p>With everything now recorded, a sermon preaching biblical truth on marriage or life could trigger legal exposure. The laity's job is to stand in front of their pastors.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Two Kingdoms -->
+      <div class="tab-panel theme-panel" data-theme="kingdoms" role="tabpanel">
+        <div class="theme-grid">
+          <div class="theme-text">
+            <h3>God's Two Ways of Working in the World</h3>
+            <p>The theological backbone of the entire series. Jesus said: <em>"Give to Caesar what is Caesar's, and give to God what is God's."</em> He was not dividing life into sacred and secular — he was distinguishing how God works.</p>
+            <p>God <strong>preserves</strong> the world through families, governments, and natural law — even through non-Christians. God <strong>saves</strong> the world through the proclamation of the gospel in Jesus Christ. Both are God's work. Both matter.</p>
+            <div class="theme-quote">
+              "God civilizes our world even as he saves our world. He preserves so that people can hear that he has saved — freely. Keep Caesar in his proper place, because Caesar is not going to save you."
+              <cite>— Rev. Dr. Gregory Seltz, Part 1</cite>
+            </div>
+          </div>
+          <div class="theme-points">
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>Left-Hand Kingdom (Preserving)</h5>
+                <p>Government, family, law, vocation. God uses these — even through unbelievers — to restrain evil and make civilized life possible. Christians engage here as citizens.</p>
+              </div>
+            </div>
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>Right-Hand Kingdom (Saving)</h5>
+                <p>The church, the gospel, word and sacrament. God works here through grace alone to forgive sins and grant eternal life through Jesus Christ.</p>
+              </div>
+            </div>
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>Why This Matters Practically</h5>
+                <p>When you confuse the two, you either expect too much from government (utopianism) or you create a coercive church. Keeping them distinct protects both freedom and the gospel.</p>
+              </div>
+            </div>
+            <div class="theme-point">
+              <div class="theme-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="theme-point-body">
+                <h5>America Got a Glimpse</h5>
+                <p>The founders organized a government based on limited power — because they believed both in human dignity (God's image) and human sinfulness. That's what the LCRL fights to preserve.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tabs wrapper -->
+  </div>
+</section>
+
+<!-- ============================================================
+     THE 4 PILLARS (ACCORDION)
+     ============================================================ -->
+<section class="section" id="pillars" aria-label="The 4 pillars of the Champions Network">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">The 4 Pillars</span>
+      <h2>What the Network Defends</h2>
+      <p>Four non-negotiable areas where the LCRL and Champions Network take a public stand — not to impose, but to protect the freedom to believe, speak, and live accordingly.</p>
+    </div>
+
+    <div class="accordion reveal" role="list">
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="pillar-1-body">
+          <div class="acc-icon" aria-hidden="true">⚖️</div>
+          <div class="acc-label">
+            <h4>Religious Liberty</h4>
+            <span>The foundational right — conscience cannot be coerced</span>
+          </div>
+          <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body" id="pillar-1-body" role="region">
+          <div class="acc-content">
+            <p>James Madison called conscience "the greatest property any human being can have." Martin Luther said forcing someone to act against their conscience is "the most heinous of sins." The Champions Network agrees — and fights to keep it that way.</p>
+            <p>Religious liberty is not merely a political preference. It is the precondition for everything else the church does. When the state can dictate what a pastor preaches, what a Christian business owner believes, or what a school may teach — the mission of the church is in direct peril.</p>
+            <ul>
+              <li>Defending freedom of conscience for believers and non-believers alike</li>
+              <li>Opposing secular blasphemy laws that criminalize biblical speech</li>
+              <li>Protecting the church's right to define its own doctrine and practice</li>
+              <li>Supporting Christians in legal conflicts through prayer, awareness, and advocacy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="pillar-2-body">
+          <div class="acc-icon" aria-hidden="true">✝️</div>
+          <div class="acc-label">
+            <h4>Sanctity of Life</h4>
+            <span>Every human being bears the image of God — and the state cannot declare otherwise</span>
+          </div>
+          <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body" id="pillar-2-body" role="region">
+          <div class="acc-content">
+            <p>The foundational question behind the sanctity of life debate is not abortion versus choice. It is this: does the government have the power to declare that certain innocent human life is not worth living?</p>
+            <p>The founders answered this with the Declaration of Independence: all people are created equal, endowed by their Creator with inalienable rights. Once the state becomes the arbiter of which lives have value — in the womb, in old age, or through ideology — the entire framework of human dignity collapses.</p>
+            <ul>
+              <li>Every person is created in God's image and redeemed by Christ — that is their dignity</li>
+              <li>The state has no authority to declare innocent life as disposable</li>
+              <li>This defense is for all people — it is a universal human rights argument</li>
+              <li>Champions Network equips members to speak to this clearly and compassionately</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="pillar-3-body">
+          <div class="acc-icon" aria-hidden="true">🏛️</div>
+          <div class="acc-label">
+            <h4>Marriage as Institution</h4>
+            <span>Not about imposing beliefs — about protecting the church's voice to define them</span>
+          </div>
+          <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body" id="pillar-3-body" role="region">
+          <div class="acc-content">
+            <p>The Champions Network's position on marriage is not primarily about what marriage is — it's about who has the right to define it. The state does not have the authority to compel the church to affirm what the church believes to be contrary to God's design.</p>
+            <p>When adoption agencies are shut down for believing children flourish best with a mother and father — that is the state overstepping its bounds. When Christian schools and ministries face legal sanction for their doctrine — that is the church being told what to preach.</p>
+            <ul>
+              <li>The government's role is not to define sacramental marriage for the church</li>
+              <li>Defending the church's freedom on this issue even for those who disagree</li>
+              <li>The breakdown of the family directly impacts the stability of civil society</li>
+              <li>Champions Network trains members to discuss this without political framing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="pillar-4-body">
+          <div class="acc-icon" aria-hidden="true">📚</div>
+          <div class="acc-label">
+            <h4>Educational Freedom</h4>
+            <span>Parents have the right to raise children in the virtues that produce wisdom, not just facts</span>
+          </div>
+          <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body" id="pillar-4-body" role="region">
+          <div class="acc-content">
+            <p>The American founders believed freedom depended on a citizenry that understood they were created in God's image — and that this knowledge came through education in the home and community. Today, public education is increasingly at war with that foundation.</p>
+            <p>Gender ideology is being taught as settled science. Biblical morality is framed as harmful. Parents who want to educate their children differently are fighting against institutional power — often alone. The Champions Network says that fight is worth having.</p>
+            <ul>
+              <li>Parents are the primary educators of their children — government is a steward, not the sovereign</li>
+              <li>Educational freedom protects children from ideological coercion in the classroom</li>
+              <li>Champions Network supports school board engagement, homeschool rights, and parental advocacy</li>
+              <li>This issue will define the cultural landscape of the next generation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /accordion -->
+  </div>
+</section>
+
+<!-- ============================================================
+     REAL CASES (CARDS + MODAL)
+     ============================================================ -->
+<section class="section section-light" id="cases" aria-label="Real cases of religious liberty under threat">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">These Stories Are Why</span>
+      <h2>Real People. Real Costs.</h2>
+      <p>These are three of the stories that shaped the Champions Network's sense of urgency. Click any card to read the full account.</p>
+    </div>
+    <div class="cases-grid">
+
+      <div class="case-card reveal" data-case="phillips" role="button" tabindex="0" aria-label="Read Jack Phillips' story">
+        <span class="case-ghost" aria-hidden="true">01</span>
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <p class="case-name">Jack Phillips</p>
+        <p class="case-tagline">Masterpiece Cakeshop · Colorado</p>
+        <p class="case-excerpt">A Christian baker. Ten years of lawsuits. Multiple near-losses of his business. Now they're coming after his family. His story defined an era — and he almost had to face it alone.</p>
+        <span class="case-cta">Read His Story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+
+      <div class="case-card reveal reveal-delay-1" data-case="smith" role="button" tabindex="0" aria-label="Read Lorie Smith's story">
+        <span class="case-ghost" aria-hidden="true">02</span>
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <p class="case-name">Lorie Smith</p>
+        <p class="case-tagline">303 Creative · Colorado</p>
+        <p class="case-excerpt">A web designer who fought for her creative freedom before she was ever targeted. Seven years of limbo. A Supreme Court victory in 2023 — but at what cost?</p>
+        <span class="case-cta">Read Her Story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+
+      <div class="case-card reveal reveal-delay-2" data-case="stutzman" role="button" tabindex="0" aria-label="Read Barronelle Stutzman's story">
+        <span class="case-ghost" aria-hidden="true">03</span>
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <p class="case-name">Barronelle Stutzman</p>
+        <p class="case-tagline">Arlene's Flowers · Washington</p>
+        <p class="case-excerpt">Beloved in her community by everyone — including her gay customers. The state came anyway. They bankrupted a grandmother. Her neighbors watched it happen.</p>
+        <span class="case-cta">Read Her Story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     NETWORK STRUCTURE (DARK TABS)
+     ============================================================ -->
+<section class="section section-navy" id="network" aria-label="Champions Network structure">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">The Network, Explained</span>
+      <h2>Three Layers. One Mission.</h2>
+      <p style="color:rgba(255,255,255,0.55)">The Champions Network is organized into three interconnected components — each building on the last.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="tabs-nav dark" id="network-nav" role="tablist" aria-label="Network components">
+        <button class="tab-btn active" role="tab" data-tab="academy">Two Kingdom Academy</button>
+        <button class="tab-btn" role="tab" data-tab="church">Champions Church</button>
+        <button class="tab-btn" role="tab" data-tab="networkcomp">Champions Network</button>
+      </div>
+
+      <!-- Academy -->
+      <div class="tab-panel network-panel active" data-net="academy" role="tabpanel">
+        <div class="network-panel-inner">
+          <div class="network-text">
+            <h3>Two Kingdom Academy</h3>
+            <p>The learning engine of the network. The Academy is where ordinary church members go deep on the theology and principles that undergird everything else — understanding what it means to be a Two-Kingdom citizen in 21st-century America.</p>
+            <p>The first year is called the Apprentice year. Members work through 8–9 study modules, read key books, engage in group discussions, and begin limited community engagement — listening before speaking, asking before asserting.</p>
+            <div class="network-feats">
+              <div class="network-feat">
+                <div class="network-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                <div class="network-feat-text"><strong>8–9 Study Modules per Year</strong>Theology, current events, and practical application — all through a Two-Kingdom lens.</div>
+              </div>
+              <div class="network-feat">
+                <div class="network-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div class="network-feat-text"><strong>Small Group Format</strong>Learning happens in community — with fellow members, supported by champions chapter leaders.</div>
+              </div>
+              <div class="network-feat">
+                <div class="network-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+                <div class="network-feat-text"><strong>Community Listening</strong>Year one includes going into your community, meeting neighbors, praying over what you see — before engaging on any issue.</div>
+              </div>
+            </div>
+          </div>
+          <div class="network-card">
+            <p class="network-card-label">Year 1 Apprentice Journey</p>
+            <div class="network-step"><div class="network-step-num">1</div><div class="network-step-body"><strong>Champions Weekend Kickoff</strong>A half-day or full-day event to introduce the Two-Kingdom framework and launch your local champions group.</div></div>
+            <div class="network-step"><div class="network-step-num">2</div><div class="network-step-body"><strong>Leader Identification</strong>4–5 facilitators raised up in your congregation — Hospitality, Prayer, and Communication pillars filled.</div></div>
+            <div class="network-step"><div class="network-step-num">3</div><div class="network-step-body"><strong>Module Curriculum</strong>Work through 8–9 study modules over the year, plus 1–2 assigned books (starting with <em>Free to Believe</em> by Luke Goodrich).</div></div>
+            <div class="network-step"><div class="network-step-num">4</div><div class="network-step-body"><strong>Community Engagement</strong>Listen, pray, and build relationships in your community — learning to speak when the moment is right.</div></div>
+            <div class="network-step"><div class="network-step-num">5</div><div class="network-step-body"><strong>Graduation to Squire</strong>Completion of year one — and entry into the Champions Church benefits and network connection.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Champions Church -->
+      <div class="tab-panel network-panel" data-net="church" role="tabpanel">
+        <div class="network-panel-inner">
+          <div class="network-text">
+            <h3>Champions Church</h3>
+            <p>Individual congregations that have completed the Academy's first year and are actively connected to the national LCRL network. A Champions Church receives ongoing resources, advocacy updates, and direct support from LCRL staff.</p>
+            <p>Critically, Champions Church is not a replacement for the pastoral voice — it is the laity coming alongside their pastor as "offensive linemen," protecting the church's freedom so the pastor can preach freely.</p>
+            <div class="network-feats">
+              <div class="network-feat">
+                <div class="network-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                <div class="network-feat-text"><strong>Direct Support from LCRL</strong>Access to Rev. Frith and the LCRL team for questions, legal updates, and speaking engagements.</div>
+              </div>
+              <div class="network-feat">
+                <div class="network-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <div class="network-feat-text"><strong>Weekly Resources</strong>Monday devotion and Friday op-ed, both written through a Two-Kingdom lens and delivered to your inbox.</div>
+              </div>
+              <div class="network-feat">
+                <div class="network-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div class="network-feat-text"><strong>Pastoral Protection</strong>A trained lay team standing between the pastor and the culture — so he can preach freely without legal or social exposure.</div>
+              </div>
+            </div>
+          </div>
+          <div class="network-card">
+            <p class="network-card-label">Champion Church Benefits</p>
+            <div class="network-step"><div class="network-step-num">✓</div><div class="network-step-body"><strong>LCRL Resource Library</strong>Growing archive of legal, theological, and advocacy materials tailored for congregational use.</div></div>
+            <div class="network-step"><div class="network-step-num">✓</div><div class="network-step-body"><strong>Liberty Action Alerts</strong>Real-time updates on issues affecting your state, denomination, and local congregation.</div></div>
+            <div class="network-step"><div class="network-step-num">✓</div><div class="network-step-body"><strong>Network Prayer Chain</strong>Connected to a national community praying for specific cases and champions under pressure.</div></div>
+            <div class="network-step"><div class="network-step-num">✓</div><div class="network-step-body"><strong>Speaking Representation</strong>LCRL advocates for Champion Churches in Washington — with a growing constituency behind them.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Champions Network -->
+      <div class="tab-panel network-panel" data-net="networkcomp" role="tabpanel">
+        <div class="network-panel-inner">
+          <div class="network-text">
+            <h3>The Champions Network</h3>
+            <p>The broadest layer — a national network of Champion Churches and individual Two-Kingdom citizens who may not yet have a home church in the network. This is where the power of scale becomes real.</p>
+            <p>When Dr. Seltz walks into a senator's office, he represents the churches, the alumni, and the individual subscribers behind him. Constituency matters on Capitol Hill — and the network builds it.</p>
+            <div class="network-feats">
+              <div class="network-feat">
+                <div class="network-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                <div class="network-feat-text"><strong>National Reach</strong>Churches from coast to coast — sharing what worked, warning what's coming, standing together across state lines.</div>
+              </div>
+              <div class="network-feat">
+                <div class="network-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div class="network-feat-text"><strong>Individual Membership</strong>Not yet connected to a Champions Church? Join as an individual — receive resources, connect with local champions.</div>
+              </div>
+              <div class="network-feat">
+                <div class="network-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                <div class="network-feat-text"><strong>Federal Advocacy Power</strong>The larger the network, the louder the voice in Washington. Your membership is counted when LCRL advocates on the Hill.</div>
+              </div>
+            </div>
+          </div>
+          <div class="network-card">
+            <p class="network-card-label">How to Get Connected</p>
+            <div class="network-step"><div class="network-step-num">1</div><div class="network-step-body"><strong>Sign Up for Word from the Center</strong>Monday devotion + Friday op-ed delivered to your inbox. The easiest first step. Free.</div></div>
+            <div class="network-step"><div class="network-step-num">2</div><div class="network-step-body"><strong>Request a Champions Weekend</strong>Contact Rev. Frith to schedule a half-day kickoff event for your congregation.</div></div>
+            <div class="network-step"><div class="network-step-num">3</div><div class="network-step-body"><strong>Begin the Academy</strong>Your congregation enters year one — working through modules together as Two-Kingdom Apprentices.</div></div>
+            <div class="network-step"><div class="network-step-num">4</div><div class="network-step-body"><strong>Join the Network</strong>Become a Champions Church — and connect with the national community of believers standing together.</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tabs wrapper -->
+  </div>
+</section>
+
+<!-- ============================================================
+     THE JOURNEY (5-STEP PATHWAY)
+     ============================================================ -->
+<section class="section section-light journey-section" id="journey" aria-label="The Champions Network 5-tier pathway">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Your Champions Journey</span>
+      <h2>Five Tiers. A Lifetime of Service.</h2>
+      <p>The Champions Network uses a knighthood metaphor — honoring the tradition of citizens who gave their lives in service to something greater than themselves.</p>
+    </div>
+
+    <div class="journey-track reveal" role="list">
+
+      <div class="journey-step" role="listitem">
+        <div class="journey-node">T1</div>
+        <p class="journey-tier">Tier 1</p>
+        <p class="journey-role">Apprentice</p>
+        <p class="journey-desc">Year one. Learning the Two-Kingdom framework. Listening before speaking. Building foundations.</p>
+      </div>
+
+      <div class="journey-step" role="listitem">
+        <div class="journey-node">T2</div>
+        <p class="journey-tier">Tier 2</p>
+        <p class="journey-role">Squire</p>
+        <p class="journey-desc">Growing in confidence. Taking an active role in congregation. Beginning to engage community issues.</p>
+      </div>
+
+      <div class="journey-step" role="listitem">
+        <div class="journey-node">T3</div>
+        <p class="journey-tier">Tier 3</p>
+        <p class="journey-role">Bachelor</p>
+        <p class="journey-desc">Developed skill sets. Mentoring apprentices. Engaging local civic conversations with confidence.</p>
+      </div>
+
+      <div class="journey-step" role="listitem">
+        <div class="journey-node">T4</div>
+        <p class="journey-tier">Tier 4</p>
+        <p class="journey-role">Banneret</p>
+        <p class="journey-desc">Network leader. Supporting Champions Chapters. Training others. State-level engagement.</p>
+      </div>
+
+      <div class="journey-step" role="listitem">
+        <div class="journey-node">T5</div>
+        <p class="journey-tier">Tier 5</p>
+        <p class="journey-role">Knight First Class</p>
+        <p class="journey-desc">Full Two-Kingdom citizen leader. Federal advocacy. Coming alongside LCRL in Washington.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3 CORE PRINCIPLES (ACCORDION)
+     ============================================================ -->
+<section class="section" id="principles" aria-label="The 3 core principles of Two-Kingdom citizenship">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">From Episode 4</span>
+      <h2>3 Core Principles</h2>
+      <p>The Academy teaches Two-Kingdom citizenship through three interconnected principles — unpacked by Rev. Frith in the final episode of this series.</p>
+    </div>
+
+    <div class="accordion reveal" role="list">
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="princ-1-body">
+          <div class="acc-icon" aria-hidden="true">⚡</div>
+          <div class="acc-label">
+            <h4>Dynamic Differentiation</h4>
+            <span>Jump in — but know which kingdom you're engaging</span>
+          </div>
+          <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body" id="princ-1-body" role="region">
+          <div class="acc-content">
+            <p>Lutherans have often been accused of passivity — of using the Two-Kingdom distinction as an excuse to disengage. Dynamic Differentiation is the corrective. Yes, we differentiate God's preserving work from his saving work. But we jump in to both.</p>
+            <p>The word <em>dynamic</em> is key. This is not a wall between church and world — it is an active, engaged understanding of how God works so we can work with him. The Christian who understands Two Kingdoms doesn't withdraw from public life. They engage it with greater clarity and confidence.</p>
+            <ul>
+              <li>Differentiate — know which kingdom you're operating in and why</li>
+              <li>Engage — don't let the distinction become an excuse for silence</li>
+              <li>Ask the right questions — "What is the government's role here?" is different from "What does the gospel say here?"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="princ-2-body">
+          <div class="acc-icon" aria-hidden="true">🛡️</div>
+          <div class="acc-label">
+            <h4>Reformation Restraint</h4>
+            <span>Before acting, ask: is God already at work here?</span>
+          </div>
+          <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body" id="princ-2-body" role="region">
+          <div class="acc-content">
+            <p>The Two-Kingdom citizen engages — but not impulsively. Before rushing in to fix something that feels broken, the wise champion asks: Is God already preserving something good here that I'm not seeing? Could he be using even sinful people to set about corrections?</p>
+            <p>This is not passivity — it is wisdom. It leads to listening before speaking, learning before acting, and building relationships in the community before demanding anything from it. The champion who walks into a neighborhood asking questions will always serve it better than one who arrives with all the answers.</p>
+            <ul>
+              <li>Reformation — rooted in the confession that God's truth reforms what is broken</li>
+              <li>Restraint — a posture of humility before engaging any cultural conflict</li>
+              <li>Listening first earns you the right to be heard — and the right to speak God's truth into the situation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="princ-3-body">
+          <div class="acc-icon" aria-hidden="true">🤝</div>
+          <div class="acc-label">
+            <h4>Vocational Respect</h4>
+            <span>Honor how God orders creation — through every calling</span>
+          </div>
+          <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body" id="princ-3-body" role="region">
+          <div class="acc-content">
+            <p>God's moral law — including how he orders family, work, property, government, and human dignity — is a gift to civilization. Vocational Respect means honoring that order: understanding that a nurse, a lawyer, a school board member, and a pastor all have distinct callings with distinct responsibilities.</p>
+            <p>This principle is what grounds the Champions Network's approach to each of the four pillars. We are not demanding that the state enforce the church's doctrine. We are asking that the state respect the vocations God has given — including the vocation of believer, parent, and citizen of conscience.</p>
+            <ul>
+              <li>Every vocation is a gift from God and a form of service to neighbor</li>
+              <li>The state's role is to protect and enable these vocations — not to redefine them</li>
+              <li>The champion uses their specific vocational position to engage their specific area of the culture</li>
+              <li>Doctors, nurses, lawyers, teachers, parents — all have access the pastor doesn't</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BOOK A SESSION (CTA)
+     ============================================================ -->
+<section class="cta-section" id="book" aria-label="Book a consultation with Rev. Mark Frith">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text reveal">
+        <span class="eyebrow">Ready to Take the Next Step?</span>
+        <h2>Bring the Champions Network to Your Church</h2>
+        <p>Rev. Mark Frith will sit down with you — or your pastoral team — to answer questions, share how the network works, and help you discern if this is the right season for your congregation to get involved.</p>
+        <a href="https://calendly.com/markfrith/30min" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book a Free 30-Min Consultation
+        </a>
+        <div class="cta-contact">
+          Or reach Mark directly:
+          <a href="mailto:Mark.Frith@LCRLfreedom.org">Mark.Frith@LCRLfreedom.org</a>
+          &nbsp;·&nbsp;
+          <a href="tel:9133754181">913-375-4181</a>
+        </div>
+      </div>
+      <div class="cta-card reveal reveal-delay-2">
+        <div class="cta-photo">
+          <img src="images/champions-profile-mark-frith.jpg" alt="Rev. Mark T. Frith" loading="lazy">
+        </div>
+        <p class="cta-name">Rev. Mark T. Frith</p>
+        <span class="cta-role">National Director, Champions Network</span>
+        <p class="cta-meta">30-minute virtual consultation<br>No obligation · Response within 48 hrs</p>
+        <a href="https://calendly.com/markfrith/30min" target="_blank" rel="noopener" class="btn btn-outline-gold" style="width:100%; justify-content:center;">
+          Book via Calendly
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html" aria-label="Champions Network Home">
+        <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network" height="30">
+      </a>
+      <p class="footer-copy">
+        &copy; 2026 <a href="https://lcrlfreedom.org" target="_blank" rel="noopener">Lutheran Center for Religious Liberty</a> · Washington, D.C. ·
+        <a href="index.html">Back to Main Site</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     CASE MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-case-name">
+  <div class="modal-panel" id="modal-panel">
+    <div class="modal-head">
+      <button class="modal-close" id="modal-close" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <span class="modal-case-tag" id="modal-case-tag"></span>
+      <h3 class="modal-case-name" id="modal-case-name"></h3>
+      <p class="modal-case-sub" id="modal-case-sub"></p>
+    </div>
+    <div class="modal-body" id="modal-case-body"></div>
+  </div>
+</div>
+
+<script src="laa-podcast.js"></script>
+</body>
+</html>
