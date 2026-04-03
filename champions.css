@@ -77,6 +77,7 @@ p { font-size: 1rem; font-weight: 300; line-height: 1.75; }
 .section--light { background: var(--light); }
 .section--gold { background: var(--gold); color: var(--white); }
 .section-header { text-align: center; margin-bottom: 3.5rem; }
+.section-logo { height: 171px; display: block; margin: 0 auto 1.5rem; }
 .section-header h2 { color: var(--navy); }
 .section--dark .section-header h2,
 .section--navy-dark .section-header h2 { color: var(--white); }
@@ -293,15 +294,16 @@ p { font-size: 1rem; font-weight: 300; line-height: 1.75; }
 }
 .hero-text {}
 .hero-quote {
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--gold-light);
-  text-transform: uppercase;
   margin-bottom: 1.5rem;
   padding-left: 1.2rem;
   border-left: 3px solid var(--gold);
-  font-style: italic;
   line-height: 1.6;
 }
 .hero-title {
@@ -346,10 +348,12 @@ p { font-size: 1rem; font-weight: 300; line-height: 1.75; }
   backdrop-filter: blur(8px);
 }
 .hero-card-verse {
-  font-size: 1rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
   font-style: italic;
-  color: rgba(236,244,249,0.9);
-  line-height: 1.8;
+  font-weight: 700;
+  color: rgba(236,244,249,0.95);
+  line-height: 1.75;
   margin-bottom: 1rem;
   border-left: 3px solid var(--gold);
   padding-left: 1.2rem;
