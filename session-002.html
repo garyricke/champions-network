@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon-champions-network.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Session 002 — Champions Network Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="session-002.css">
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<style>
+#pw-gate{position:fixed;inset:0;z-index:9999;background:#021e2e;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;}
+#pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(187,140,58,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(187,140,58,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+#pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(187,140,58,.25);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5);}
+#pw-box img{height:48px;margin-bottom:24px;display:block;margin-inline:auto;}
+#pw-box h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#BB8C3A;letter-spacing:.08em;margin:0 0 8px;}
+#pw-box p.sub{color:rgba(255,255,255,.45);font-size:.85rem;margin:0 0 28px;}
+#pw-input{width:100%;box-sizing:border-box;background:rgba(255,255,255,.07);border:1px solid rgba(187,140,58,.3);border-radius:8px;padding:12px 16px;color:#fff;font-family:'Poppins',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;}
+#pw-input:focus{border-color:#BB8C3A;}
+#pw-btn{margin-top:14px;width:100%;background:#BB8C3A;color:#021e2e;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;border:none;border-radius:8px;padding:13px;cursor:pointer;transition:background .2s;}
+#pw-btn:hover{background:#d4a44e;}
+#pw-error{color:#e87070;font-size:.8rem;margin:10px 0 0;min-height:1.1em;}
+@keyframes pw-shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.pw-shake{animation:pw-shake .4s ease;}
+</style>
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network">
+    <h2>Private Preview</h2>
+    <p class="sub">This site is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='cn_auth',PASS='markrules',gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function attempt(){
+    if(document.getElementById('pw-input').value===PASS){
+      sessionStorage.setItem(KEY,'1');document.body.style.overflow='';gate.style.display='none';
+    } else {
+      document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+      var box=document.getElementById('pw-box');
+      box.classList.remove('pw-shake');void box.offsetWidth;box.classList.add('pw-shake');
+      document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();
+    }
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+})();
+</script>
+<!-- END PASSWORD GATE -->
+
+<!-- NAV -->
+<nav class="nav" aria-label="Session navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network">
+    </a>
+    <a class="nav-back" href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Main Site
+    </a>
+    <span class="nav-badge">Year One · Session 002</span>
+    <a class="nav-cta" href="#quiz">Take the Quiz</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="s2-hero">
+  <img class="s2-hero-bg" src="generated_imgs/generated-2026-04-03T14-33-58-436Z-68aa1r.png" alt="" aria-hidden="true">
+  <div class="s2-hero-overlay"></div>
+  <div class="s2-hero-content">
+    <div class="container">
+      <div class="s2-chips">
+        <span class="s2-chip">Champions Network</span>
+        <span class="s2-chip">Year One</span>
+        <span class="s2-chip">Session 002</span>
+      </div>
+      <h1 class="s2-hero-title">Champion<br><span>Citizens</span></h1>
+      <p class="s2-hero-sub">Called to Study · Grounded in Scripture · Engaged in Culture</p>
+      <div class="s2-scripture">
+        <blockquote>"For this is the will of God, that by doing good you should put to silence the ignorance of foolish people. Live as people who are free… Fear God. Honor the Emperor."</blockquote>
+        <cite>— 1 Peter 2:15–17 · LCRL's Guiding Scripture</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION OVERVIEW -->
+<section class="s2-section s2-section--light" id="overview">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">What You'll Cover</span>
+      <h2>Session 002 at a Glance</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">Five interconnected teachings — from personal vocation to public engagement — that equip you to stand with courage as a Champion for Religious Liberty.</p>
+    </div>
+    <div class="g3 reveal">
+      <div class="s2-card">
+        <h3>Devotional</h3>
+        <p>What does it truly mean to be "called"? Rooted in 1 Peter 2:15–17, this opening explores the courageous vocation of every Champion.</p>
+      </div>
+      <div class="s2-card">
+        <h3>Champion Pillars</h3>
+        <p>Four foundational behaviors every Champion must practice. Session 2 introduces Pillar One: the commitment to Study.</p>
+      </div>
+      <div class="s2-card">
+        <h3>Two Kingdoms</h3>
+        <p>"Mom & Pop Paper #1" — the foundational concept behind everything LCRL does. God works two distinct ways in the world.</p>
+      </div>
+      <div class="s2-card">
+        <h3>Free to Believe</h3>
+        <p>Chapters 1–3 of Luke Goodrich's essential book. What is religious freedom — and how do we get it right?</p>
+      </div>
+      <div class="s2-card">
+        <h3>Community Engagement</h3>
+        <p>Current events, watchdog resources, school board meetings, and legislative tracking — putting knowledge into action.</p>
+      </div>
+      <div class="s2-card">
+        <h3>Knowledge Check</h3>
+        <p>Ten questions to test and solidify what you've learned. Immediate feedback on every answer. See how you score.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEVOTIONAL -->
+<section class="s2-section s2-section--white" id="devotional">
+  <div class="container">
+    <div class="g2 center">
+      <div class="reveal">
+        <span class="s2-eyebrow">Opening Devotional</span>
+        <h2>What Does It Mean to Be Called?</h2>
+        <div class="gold-rule"></div>
+        <p class="s2-lead">Dr. Gregory Seltz often heard seminary students say "I want to be called" — meaning health insurance, benefits, security. But being called means something far more demanding.</p>
+        <p style="margin-top:16px;font-size:.9rem;color:var(--text-mid);line-height:1.8;">In the early church, the bishop was often the only public Christian — the last one willing to stand when all hell breaks loose. <em>That</em> is what it means to be called. As a Champion for Religious Liberty, your vocation demands that same courage.</p>
+        <button class="btn-outline" style="margin-top:20px;" data-modal="prayer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Read the Opening Prayer
+        </button>
+      </div>
+      <div class="reveal">
+        <div class="s2-accordion">
+          <div class="s2-acc-item open">
+            <button class="s2-acc-trigger">
+              The Vocation of a Champion
+              <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="s2-acc-body">
+              <div class="s2-acc-inner">
+                <p>1 Peter tells us to "live as people who are free, not using your freedom as a cover-up for evil, but living as servants of God." The vocation of Champion is a courageous one — a person who will not be silent in the face of evil.</p>
+                <div class="pullquote">"If you see something that isn't right, and we stay silent, afraid for ourselves, that's a cover-up for evil." — Pastor Mark Frith</div>
+                <p>Through the vocation of Champion, other people will be saved — simply because you have the courage to be yourself when all hell breaks loose.</p>
+              </div>
+            </div>
+          </div>
+          <div class="s2-acc-item">
+            <button class="s2-acc-trigger">
+              1 Peter 2:15–17 — A Closer Look
+              <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="s2-acc-body">
+              <div class="s2-acc-inner">
+                <p>This passage is LCRL's primary guiding scripture. It holds three distinct commands for the Champion citizen:</p>
+                <ul>
+                  <li><strong>Live as people who are free</strong> — free in Christ, not enslaved to fear or silence</li>
+                  <li><strong>Fear God</strong> — our ultimate allegiance is vertical, not horizontal</li>
+                  <li><strong>Honor the Emperor</strong> — engaged citizenship is a calling, not an option</li>
+                </ul>
+                <p>The freedom we have in Christ is the foundation for every liberty we steward in America.</p>
+              </div>
+            </div>
+          </div>
+          <div class="s2-acc-item">
+            <button class="s2-acc-trigger">
+              Reflection Questions
+              <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="s2-acc-body">
+              <div class="s2-acc-inner">
+                <ul>
+                  <li>What did you think "being called" meant before reading this? How has that changed?</li>
+                  <li>In what area of your daily life could you be a more courageous public voice for the Gospel?</li>
+                  <li>How does the freedom we have in Christ connect to the liberties we protect as Americans?</li>
+                  <li>Name one person in your life who models the courage described in this devotional.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAMPION PILLARS -->
+<section class="s2-section s2-section--light" id="pillars">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">Champion Pillars</span>
+      <h2>Four Foundations of a Champion</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">These are not programs or events — they are daily behaviors. If we are going to be strong and effective Champions, we must practice these consistently.</p>
+    </div>
+    <div class="pillar-grid reveal">
+      <div class="pillar-card active">
+        <span class="pillar-badge">Session 2</span>
+        <div class="pillar-icon">📖</div>
+        <div class="pillar-num">Pillar One</div>
+        <h3>Study</h3>
+        <p>Commit to being informed. Read, listen, learn.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🙏</div>
+        <div class="pillar-num">Pillar Two</div>
+        <h3>Prayer</h3>
+        <p>Intercede for leaders, cases, and community.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🤝</div>
+        <div class="pillar-num">Pillar Three</div>
+        <h3>Hospitality</h3>
+        <p>Build relationships that open doors for truth.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🗣️</div>
+        <div class="pillar-num">Pillar Four</div>
+        <h3>Engagement</h3>
+        <p>Show up — in school boards, legislatures, and neighborhoods.</p>
+      </div>
+    </div>
+
+    <div class="g2 center reveal">
+      <div>
+        <img src="generated_imgs/generated-2026-04-03T14-34-26-969Z-zl29j1.png" alt="Champion citizens studying together" style="border-radius:12px;width:100%;">
+      </div>
+      <div>
+        <h3 style="font-size:2rem;color:var(--navy);margin-bottom:12px;">Pillar One: Study</h3>
+        <p style="color:var(--text-mid);font-size:.9rem;line-height:1.8;margin-bottom:16px;">To be a faithful Champion, you don't need to speak in front of crowds. Most of your conversations will be one-on-one. But you must be informed enough to have them with confidence and clarity.</p>
+        <div class="s2-accordion">
+          <div class="s2-acc-item open">
+            <button class="s2-acc-trigger">
+              What Study Looks Like in Practice
+              <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="s2-acc-body">
+              <div class="s2-acc-inner">
+                <p>Study doesn't require hours each day. Setting aside a little bit of time three times a week will likely suffice. Here's what that looks like:</p>
+                <ul>
+                  <li>Subscribe to a curated resource (like LCRL's publications)</li>
+                  <li>Read a couple of key books per year — starting with <em>Free to Believe</em></li>
+                  <li>Review published articles on religious liberty cases</li>
+                  <li>Participate in monthly round table conversations like this one</li>
+                </ul>
+                <div class="pullquote">"Some things as individuals you may not be able to do. That's okay. Just don't close your mind to everything." — Pastor Mark Frith</div>
+              </div>
+            </div>
+          </div>
+          <div class="s2-acc-item">
+            <button class="s2-acc-trigger">
+              Know Your Abilities and Limits
+              <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="s2-acc-body">
+              <div class="s2-acc-inner">
+                <p>You don't have to be an attorney or a lobbyist. Many Champions say "I can't speak in front of people" — and that's fine. That doesn't mean you can't speak at all.</p>
+                <p>The goal of Study is to equip you for the conversations already in your life — with neighbors, coworkers, family members — and to recognize religious liberty issues when they appear.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO KINGDOMS -->
+<section class="s2-section s2-section--dark" id="two-kingdoms">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">Mom &amp; Pop Paper #1</span>
+      <h2>God Works Two Distinct Ways</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">The foundational concept behind everything LCRL does. Simple to explain, profound in impact — and the lens through which every religious liberty question must be viewed.</p>
+    </div>
+
+    <div class="g2 center reveal" style="margin-bottom:40px;">
+      <div>
+        <div class="tk-diagram">
+          <div class="tk-side tk-left">
+            <div class="tk-label">Right Hand Kingdom</div>
+            <div class="tk-sub">God Saves</div>
+            <ul class="tk-items">
+              <li>Delivers the Gospel</li>
+              <li>Forgiveness of sins</li>
+              <li>Word &amp; Sacraments</li>
+              <li>The Church</li>
+              <li>Eternal life</li>
+            </ul>
+            <span class="tk-tag">Spiritual / Eternal</span>
+          </div>
+          <div class="tk-divider"></div>
+          <div class="tk-side tk-right">
+            <div class="tk-label">Left Hand Kingdom</div>
+            <div class="tk-sub">God Preserves</div>
+            <ul class="tk-items">
+              <li>Keeps the peace</li>
+              <li>Ensures fair laws</li>
+              <li>Impartial justice</li>
+              <li>The State / Government</li>
+              <li>Temporal wellbeing</li>
+            </ul>
+            <span class="tk-tag">Civil / Temporal</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tk-image" style="margin-bottom:20px;">
+          <img src="generated_imgs/generated-2026-04-03T14-34-51-759Z-mfi50g.png" alt="Two Kingdoms — Church and State">
+        </div>
+        <button class="btn-outline" data-modal="two-kingdoms-detail">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Explore the Two Kingdoms in Depth
+        </button>
+      </div>
+    </div>
+
+    <div class="s2-accordion s2-accordion--dark reveal">
+      <div class="s2-acc-item">
+        <button class="s2-acc-trigger">
+          Why This Matters for Religious Liberty
+          <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="s2-acc-body">
+          <div class="s2-acc-inner">
+            <p>When government oversteps into the Right Hand Kingdom — telling churches what to preach, dictating religious belief, or punishing conscience — it violates the boundary God himself set. This is precisely the threat that Champions are trained to identify and resist.</p>
+            <p>Our Founding Fathers were shaped by this same principle: that the State's role is to preserve and protect — not to save, control belief, or coerce conscience.</p>
+          </div>
+        </div>
+      </div>
+      <div class="s2-acc-item">
+        <button class="s2-acc-trigger">
+          Matthew 22:21 — "Give to Caesar What Is Caesar's"
+          <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="s2-acc-body">
+          <div class="s2-acc-inner">
+            <p>Jesus draws a clear line: Caesar has a role, and God has a role — and they are not the same role. The brilliance of this teaching is how it limits Caesar. Not everything belongs to Caesar. Conscience, belief, worship — these belong to God.</p>
+            <p>This is not a teaching about tax compliance. It is the defining text for understanding why government does not have the authority to control your faith.</p>
+          </div>
+        </div>
+      </div>
+      <div class="s2-acc-item">
+        <button class="s2-acc-trigger">
+          The Simple Summary (Say It Without Looking)
+          <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="s2-acc-body">
+          <div class="s2-acc-inner">
+            <p>Mom &amp; Pop Paper #1 is meant to be simple enough to explain to your spouse without looking at your notes. Practice this:</p>
+            <ul>
+              <li><strong>God preserves the world</strong> — through the State, government, laws, and civic life</li>
+              <li><strong>God saves people</strong> — through Jesus Christ, the Church, Word and Sacrament</li>
+              <li><strong>Both are legitimate</strong> — but they are distinct, and must not be confused</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE TO BELIEVE -->
+<section class="s2-section s2-section--white" id="free-to-believe">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">Required Reading</span>
+      <h2>Free to Believe — Chapters 1–3</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">Luke Goodrich's essential guide to religious liberty in America. These first three chapters answer the foundational question: <em>What is religious freedom?</em></p>
+    </div>
+
+    <div class="ftb-author reveal">
+      <div class="ftb-avatar">LG</div>
+      <div>
+        <div class="ftb-name">Luke Goodrich</div>
+        <div class="ftb-role">Attorney · Becket Fund for Religious Liberty · Supreme Court Advocate</div>
+      </div>
+      <p style="font-size:.82rem;color:var(--text-mid);line-height:1.65;max-width:480px;margin-left:auto;">Goodrich has won landmark Supreme Court cases defending religious freedom for nuns, a Muslim prisoner, and a Lutheran school. His book is not a scare tactic — it is a practical, faith-guided call to informed citizenship.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="s2-tab-nav" id="ftb-tabs">
+        <button class="s2-tab-btn active" data-tab="ch1">Chapter 1 — Getting It Wrong</button>
+        <button class="s2-tab-btn" data-tab="ch2">Chapter 2 — Getting It Right</button>
+        <button class="s2-tab-btn" data-tab="ch3">Chapter 3 — Persuading Others</button>
+      </div>
+
+      <!-- CHAPTER 1 -->
+      <div class="s2-tab-panel ftb-panel active" data-ftb="ch1">
+        <div class="ch-layout">
+          <div>
+            <h3 style="color:var(--navy);font-size:2rem;margin-bottom:12px;">How Christians Get Religious Freedom Wrong</h3>
+            <p style="color:var(--text-mid);font-size:.88rem;line-height:1.8;margin-bottom:16px;">Goodrich opens with a frank assessment: many Christians approach religious liberty with one of three flawed frameworks. Recognizing which group you've belonged to — and why each is inadequate — is the first step toward a better way.</p>
+            <button class="btn-outline" data-modal="three-types">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Deep Dive: The Three Types
+            </button>
+          </div>
+          <div>
+            <div class="three-types">
+              <div class="type-card pilgrim">
+                <h4>The Pilgrims</h4>
+                <p>Assume Christians founded this nation and Christian faith should always be prominent in public life.</p>
+                <div class="type-flaw">Problem: Scripture doesn't support dominance, and history shows they often denied liberty to others.</div>
+              </div>
+              <div class="type-card martyr">
+                <h4>The Martyrs</h4>
+                <p>Believe America has no special standing and that religious liberty is used to oppress other faiths.</p>
+                <div class="type-flaw">Problem: Scripture says persecution will come — but it is not a good thing, and no one should pray for it.</div>
+              </div>
+              <div class="type-card beginner">
+                <h4>The Beginners</h4>
+                <p>Simply unequipped — unable to explain religious freedom or take a stand when it matters most.</p>
+                <div class="type-flaw">Problem: Good intentions without knowledge lead to silence when courage is needed most.</div>
+              </div>
+            </div>
+            <div class="better-way">
+              <h4>The Better Way</h4>
+              <p>Religious liberty is about <strong style="color:#fff;">biblical justice</strong> — rooted in the nature of God and the nature of humanity. Because God never coerces anyone into relationship with Him, no government has the authority to coerce belief. That is the foundation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER 2 -->
+      <div class="s2-tab-panel ftb-panel" data-ftb="ch2">
+        <div class="ch-layout">
+          <div>
+            <h3 style="color:var(--navy);font-size:2rem;margin-bottom:12px;">How to Get It Right</h3>
+            <p style="color:var(--text-mid);font-size:.88rem;line-height:1.8;margin-bottom:16px;">Religious liberty is not defined by the Greeks, the Romans, or the U.S. Constitution. Goodrich makes the stunning case that it is rooted in God's own design for humanity — and walks through three key pillars to prove it.</p>
+            <div class="s2-accordion">
+              <div class="s2-acc-item open">
+                <button class="s2-acc-trigger">
+                  We Are Made in God's Image (Imago Dei)
+                  <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="s2-acc-body">
+                  <div class="s2-acc-inner">
+                    <p>Being made in God's image means we reflect His heart and nature — not perfectly, but genuinely. God is a relational being who never stops pursuing humanity. He never coerces. He always invites.</p>
+                    <p>If God himself refuses to coerce belief, then no government has grounds to do so either. Religious liberty flows from this foundational truth.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="s2-acc-item">
+                <button class="s2-acc-trigger">
+                  A "Thirsting for God" in Our Being
+                  <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="s2-acc-body">
+                  <div class="s2-acc-inner">
+                    <p>Goodrich describes a yearning built into every human being — a thirst that cannot be satisfied by substances, success, or status. When people try to fill this void, they are never truly satisfied.</p>
+                    <p>This is not about earning salvation — that is God's work alone. But it explains the restlessness of human hearts when separated from their Creator.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="s2-acc-item">
+                <button class="s2-acc-trigger">
+                  Justice: The Vertical and the Horizontal
+                  <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="s2-acc-body">
+                  <div class="s2-acc-inner">
+                    <p>Goodrich draws a distinction between our vertical relationship (God and the person) and the horizontal (person to person). Government's legitimate role is the horizontal — ensuring fair laws, impartial judges, protection for the vulnerable.</p>
+                    <p>It is <em>not</em> the government's role to control the vertical. The moment government starts dictating how — or whether — you relate to God, it has overstepped its God-given mandate.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn-outline" style="margin-top:16px;" data-modal="ch2-detail">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Why Did God Give Us the Ability to Reject Him?
+            </button>
+          </div>
+          <div>
+            <div style="background:var(--off-white);border-radius:12px;padding:28px;">
+              <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--navy);margin-bottom:14px;">Three Objections Goodrich Answers</h4>
+              <div class="s2-accordion">
+                <div class="s2-acc-item">
+                  <button class="s2-acc-trigger" style="background:transparent;">
+                    Objection: What about Israel?
+                    <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="s2-acc-body">
+                    <div class="s2-acc-inner">
+                      <p>Israel's theocratic government was unique and unrepeatable — a specific covenant with a specific people for a specific time. It cannot serve as a template for modern civil government. Goodrich spends several pages unpacking why.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="s2-acc-item">
+                  <button class="s2-acc-trigger" style="background:transparent;">
+                    Objection: What about Heretics?
+                    <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="s2-acc-body">
+                    <div class="s2-acc-inner">
+                      <p>Government is not equipped to adjudicate theological truth. The moment it tries, it inevitably abuses power. Government is a servant of God for civil order — not a theological enforcer.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="s2-acc-item">
+                  <button class="s2-acc-trigger" style="background:transparent;">
+                    Objection: Does religious liberty have no limits?
+                    <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="s2-acc-body">
+                    <div class="s2-acc-inner">
+                      <p>No — religious liberty does not mean anyone can do anything in the name of religion. Human sacrifice, for example, is not protected. Goodrich addresses the limits extensively later in the book. Freedom has boundaries; it does not have no boundaries.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER 3 -->
+      <div class="s2-tab-panel ftb-panel" data-ftb="ch3">
+        <div class="ch-layout">
+          <div>
+            <h3 style="color:var(--navy);font-size:2rem;margin-bottom:12px;">How to Persuade Skeptical Neighbors</h3>
+            <p style="color:var(--text-mid);font-size:.88rem;line-height:1.8;margin-bottom:16px;">Goodrich writes from a courtroom perspective: what good is our argument if we can't convey it persuasively? Chapter 3 gives you three field-tested arguments that work — even without quoting Scripture.</p>
+            <div class="arg-list">
+              <div class="arg-item">
+                <div class="arg-num">1</div>
+                <div class="arg-body">
+                  <h5>Religious Freedom Benefits Society</h5>
+                  <p>Robert Putnam's research found that the #1 predictor of civic engagement is religious community involvement — not education, income, or location. And religious communities contribute over $1 trillion annually to U.S. charities.</p>
+                </div>
+              </div>
+              <div class="arg-item">
+                <div class="arg-num">2</div>
+                <div class="arg-body">
+                  <h5>Religious Freedom Protects Our Other Rights</h5>
+                  <p>When the government gains power over religious conscience, every other freedom is at risk. History shows that the erosion of religious liberty is often the first sign of broader totalitarianism.</p>
+                </div>
+              </div>
+              <div class="arg-item">
+                <div class="arg-num">3</div>
+                <div class="arg-body">
+                  <h5>Religious Freedom Is a Fundamental Human Right</h5>
+                  <p>The most important relationship any person can have is with God. No government has the authority to control or prevent that relationship. This is not a Christian argument — it is a human one.</p>
+                </div>
+              </div>
+            </div>
+            <button class="btn-outline" data-modal="ch3-detail">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Goodrich's Working Definition of Religious Liberty
+            </button>
+          </div>
+          <div>
+            <div class="stat-callout">
+              <div class="stat-num">$1T+</div>
+              <div class="stat-desc"><strong>Per year</strong> contributed to charitable causes by religious communities in the United States, according to Georgetown University research cited by Goodrich.</div>
+            </div>
+            <div class="stat-callout" style="margin-top:12px;">
+              <div class="stat-num">#1</div>
+              <div class="stat-desc"><strong>Factor in civic engagement</strong> according to researcher Robert Putnam — involvement in a religious community, above education, income, or geography.</div>
+            </div>
+            <div style="background:var(--off-white);border-radius:12px;padding:24px;margin-top:20px;">
+              <h4 style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--navy);margin-bottom:10px;">Goodrich's Defining Example</h4>
+              <p style="font-size:.85rem;color:var(--text-mid);line-height:1.75;">A public school bans all hats. A conservative Jewish boy enrolls, accustomed to wearing his yarmulke out of reverence for God. Religious liberty isn't simple anymore. The goal: the government defaults to leaving religion alone — within reasonable limits.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY ENGAGEMENT -->
+<section class="s2-section s2-section--dark" id="engagement">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">Current Events &amp; Community Engagement</span>
+      <h2>Putting Knowledge Into Action</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">Champions don't just study — they show up. Here's how your Chapter begins the work of watching, praying, and engaging your local community.</p>
+    </div>
+
+    <div class="g3 reveal" style="margin-bottom:40px;">
+      <div class="engagement-card">
+        <h3>School Board Watch</h3>
+        <p>Are there agenda items at your local school board that affect religious expression, curriculum, or parental rights? Champions go first to listen and learn — then to pray — then to advocate.</p>
+        <a class="resource-link" href="https://www.adfmedia.org" target="_blank" rel="noopener">
+          ADF Legal Cases →
+        </a>
+      </div>
+      <div class="engagement-card">
+        <h3>State Legislature</h3>
+        <p>Is your state legislature in session? Are any bills affecting religious liberty being discussed? Your Chapter should identify these, research them, and decide whether to become better informed or engaged.</p>
+      </div>
+      <div class="engagement-card">
+        <h3>Washington D.C.</h3>
+        <p>Federal legislation on religious liberty moves slowly — bills can take years. Your Chapter's watchdog role is to stay alert and sound the alarm well in advance of a vote or crisis.</p>
+      </div>
+    </div>
+
+    <div class="g2 reveal">
+      <div>
+        <h3 style="color:var(--gold);font-size:2rem;margin-bottom:16px;">Your Session 2 Action List</h3>
+        <ul class="checklist">
+          <li><span class="chk" tabindex="0">✓</span>List current events your group should discuss or research</li>
+          <li><span class="chk" tabindex="0">✓</span>Identify any school board meetings coming up in your area</li>
+          <li><span class="chk" tabindex="0">✓</span>Look up one active religious liberty case on ADF's website</li>
+          <li><span class="chk" tabindex="0">✓</span>Read Chapter 1 of <em>Free to Believe</em> at least twice this week</li>
+          <li><span class="chk" tabindex="0">✓</span>Practice explaining the Two Kingdoms concept without notes</li>
+          <li><span class="chk" tabindex="0">✓</span>Identify one person in your life who is a "Beginner" — and consider how you might help</li>
+        </ul>
+      </div>
+      <div>
+        <div class="s2-accordion s2-accordion--dark">
+          <div class="s2-acc-item">
+            <button class="s2-acc-trigger">
+              Discussion Questions for Your Round Table
+              <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="s2-acc-body">
+              <div class="s2-acc-inner">
+                <ul>
+                  <li>What current events in our community relate to religious liberty?</li>
+                  <li>Which of Goodrich's three Christian types have you been — or seen in others?</li>
+                  <li>How would you explain the Two Kingdoms concept to a non-Christian neighbor?</li>
+                  <li>What is one thing you can commit to "watching" before our next session?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="s2-acc-item">
+            <button class="s2-acc-trigger">
+              The Hosanna-Tabor Case — Know This Story
+              <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="s2-acc-body">
+              <div class="s2-acc-inner">
+                <p>Goodrich opens <em>Free to Believe</em> with the story of Hosanna-Tabor Evangelical Lutheran Church and School (LCMS) in Redford, Michigan — sued by a former school teacher in a case that reached the U.S. Supreme Court.</p>
+                <p>The Supreme Court ruled unanimously in the school's favor, protecting the "ministerial exception." But the case illustrates exactly what Champions train for: lawsuits against Christians are becoming more frequent, more vitriolic, and closer to home.</p>
+                <button class="btn-outline" style="margin-top:12px;" data-modal="hosanna">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  Read the Hosanna-Tabor Story
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="s2-acc-item">
+            <button class="s2-acc-trigger">
+              Why So Many Americans Don't Care
+              <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="s2-acc-body">
+              <div class="s2-acc-inner">
+                <p>As Goodrich observes — when most of us hear of these things happening, we yawn. We are so busy running at full tilt that we don't have the energy to care.</p>
+                <p>People who have immigrated from communist and socialist states look at what is happening in America with horror. They all say the same thing: <em>"This is how it started for us. It starts when you let go of God. No God — no freedom."</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="s2-section s2-section--light" id="quiz">
+  <div class="container">
+    <div class="s2-section-header reveal" style="text-align:center;">
+      <span class="s2-eyebrow">Knowledge Check</span>
+      <h2>Test Your Understanding</h2>
+      <div class="gold-rule" style="margin:14px auto 18px;"></div>
+      <p class="s2-lead" style="margin:0 auto;">Ten questions from Session 002. Immediate feedback after each answer. See how you score — then revisit what you missed.</p>
+    </div>
+
+    <div class="quiz-wrap reveal">
+      <div class="quiz-progress-bar"><div class="quiz-fill" id="quiz-fill"></div></div>
+
+      <!-- Q1 -->
+      <div class="quiz-q active" data-qi="0">
+        <div class="quiz-num">Question 1 of 10</div>
+        <div class="quiz-question">What is LCRL's primary guiding passage of Scripture?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt">Romans 13:1–4</button>
+          <button class="quiz-opt">1 Peter 2:15–17</button>
+          <button class="quiz-opt">Matthew 22:21</button>
+          <button class="quiz-opt">Ephesians 6:10–18</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next Question →</button></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-q" data-qi="1">
+        <div class="quiz-num">Question 2 of 10</div>
+        <div class="quiz-question">What does LCRL stand for?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt">Lutheran Church Religious Leaders</button>
+          <button class="quiz-opt">Liberty Center for Religious Law</button>
+          <button class="quiz-opt">Lutheran Center for Religious Liberty</button>
+          <button class="quiz-opt">Lutheran Council for Religious Living</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next Question →</button></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-q" data-qi="2">
+        <div class="quiz-num">Question 3 of 10</div>
+        <div class="quiz-question">According to Luke Goodrich, how many types of Christians misunderstand religious freedom?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt">Two</button>
+          <button class="quiz-opt">Three</button>
+          <button class="quiz-opt">Four</button>
+          <button class="quiz-opt">Five</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next Question →</button></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-q" data-qi="3">
+        <div class="quiz-num">Question 4 of 10</div>
+        <div class="quiz-question">What is the First Pillar of a Champion for Religious Liberty?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt">Prayer</button>
+          <button class="quiz-opt">Hospitality</button>
+          <button class="quiz-opt">Engagement</button>
+          <button class="quiz-opt">Study</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next Question →</button></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-q" data-qi="4">
+        <div class="quiz-num">Question 5 of 10</div>
+        <div class="quiz-question">According to Goodrich, religious liberty is ultimately rooted in:</div>
+        <div class="quiz-options">
+          <button class="quiz-opt">The U.S. Constitution</button>
+          <button class="quiz-opt">Greek and Roman philosophy</button>
+          <button class="quiz-opt">God's design for humanity</button>
+          <button class="quiz-opt">The First Amendment</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next Question →</button></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-q" data-qi="5">
+        <div class="quiz-num">Question 6 of 10</div>
+        <div class="quiz-question">What did researcher Robert Putnam find to be the #1 factor in civic engagement and care for community?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt">Level of education</button>
+          <button class="quiz-opt">Involvement in a religious community</button>
+          <button class="quiz-opt">Household income</button>
+          <button class="quiz-opt">Geographic location</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next Question →</button></div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-q" data-qi="6">
+        <div class="quiz-num">Question 7 of 10</div>
+        <div class="quiz-question">Jesus' words "Give to Caesar what is Caesar's, and to God what is God's" (Matthew 22:21) most directly illustrate what doctrine?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt">Christian tax compliance</button>
+          <button class="quiz-opt">The church's authority over government</button>
+          <button class="quiz-opt">Two Kingdom doctrine</button>
+          <button class="quiz-opt">Principles of civil disobedience</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next Question →</button></div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-q" data-qi="7">
+        <div class="quiz-num">Question 8 of 10</div>
+        <div class="quiz-question">Which legal organization does Pastor Frith recommend as a resource for tracking religious liberty cases?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt">ACLU</button>
+          <button class="quiz-opt">ADF — Alliance Defending Freedom</button>
+          <button class="quiz-opt">NAACP</button>
+          <button class="quiz-opt">Freedom From Religion Foundation</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next Question →</button></div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-q" data-qi="8">
+        <div class="quiz-num">Question 9 of 10</div>
+        <div class="quiz-question">What is Goodrich's working definition of religious liberty?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt">Christians can practice their faith without any restrictions</button>
+          <button class="quiz-opt">The government, within reasonable limits, leaves religion alone as much as possible</button>
+          <button class="quiz-opt">Religious organizations are exempt from all government regulation</button>
+          <button class="quiz-opt">No government may establish or favor an official religion</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next Question →</button></div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-q" data-qi="9">
+        <div class="quiz-num">Question 10 of 10</div>
+        <div class="quiz-question">In Goodrich's Chapter 3, what is his FIRST main argument for religious liberty to skeptical audiences?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt">Religious freedom is a fundamental human right</button>
+          <button class="quiz-opt">Religious freedom protects our other rights</button>
+          <button class="quiz-opt">Religious freedom benefits society</button>
+          <button class="quiz-opt">Religious freedom is constitutionally guaranteed</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">See My Score →</button></div>
+      </div>
+
+      <!-- SCORE -->
+      <div class="quiz-score" id="quiz-score">
+        <div class="score-ring">
+          <div class="score-big" id="score-num">0</div>
+          <div class="score-of">out of 10</div>
+        </div>
+        <div class="score-msg" id="score-msg"></div>
+        <div class="score-sub" id="score-sub"></div>
+        <button class="btn-gold" id="quiz-retry">Retake Quiz</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="s2-footer">
+  <div class="container">
+    <p>Champions Network · Year One · Session 002 · <a href="index.html">← Return to Main Site</a> · <a href="https://www.lcrlfreedom.org" target="_blank" rel="noopener">LCRLfreedom.org</a></p>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="s2-overlay" id="s2-overlay">
+  <div class="s2-modal" id="s2-modal">
+    <div class="s2-modal-head">
+      <div>
+        <div class="s2-modal-tag" id="modal-tag"></div>
+        <div class="s2-modal-title" id="modal-title"></div>
+      </div>
+      <button class="s2-modal-x" id="modal-close">✕</button>
+    </div>
+    <div class="s2-modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script src="session-002.js"></script>
+</body>
+</html>
