@@ -459,6 +459,22 @@ p { font-size: 1rem; font-weight: 300; line-height: 1.75; }
 .threat-card:hover .threat-icon { background: var(--navy); color: var(--white); }
 .threat-card h4 { color: var(--navy); margin-bottom: 0.6rem; font-size: 1rem; }
 .threat-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
+.threat-card--marriage {
+  background: linear-gradient(rgba(255,255,255,0.50), rgba(255,255,255,0.50)),
+              url('generated_imgs/generated-2026-04-10T19-44-07-519Z-qwpzwk.png') center/cover no-repeat;
+}
+.threat-card--life {
+  background: linear-gradient(rgba(255,255,255,0.50), rgba(255,255,255,0.50)),
+              url('generated_imgs/generated-2026-04-10T19-44-26-492Z-5bonly.png') center/cover no-repeat;
+}
+.threat-card--overreach {
+  background: linear-gradient(rgba(255,255,255,0.50), rgba(255,255,255,0.50)),
+              url('generated_imgs/generated-2026-04-10T19-44-41-684Z-03jh3g.png') center/cover no-repeat;
+}
+.threat-card--blasphemy {
+  background: linear-gradient(rgba(255,255,255,0.50), rgba(255,255,255,0.50)),
+              url('generated_imgs/generated-2026-04-10T19-44-58-762Z-fj35aj.png') center/cover no-repeat;
+}
 .threat-learn {
   font-size: 0.8rem;
   color: var(--gold);
@@ -1331,6 +1347,44 @@ p { font-size: 1rem; font-weight: 300; line-height: 1.75; }
   font-size: 0.95rem;
 }
 .modal-scripture cite { display: block; margin-top: 0.5rem; font-style: normal; font-weight: 600; color: var(--gold); font-size: 0.82rem; }
+
+/* Threat Modal Hero Banner */
+.modal-hero {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem 2.5rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.modal-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.50) 100%);
+  border-radius: inherit;
+}
+.modal-hero .eyebrow {
+  position: relative;
+  z-index: 1;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 0.3rem;
+}
+.modal-hero h3 {
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+  margin: 0;
+}
+.modal-hero--marriage  { background-image: url('generated_imgs/generated-2026-04-10T19-44-07-519Z-qwpzwk.png'); }
+.modal-hero--life      { background-image: url('generated_imgs/generated-2026-04-10T19-44-26-492Z-5bonly.png'); }
+.modal-hero--overreach { background-image: url('generated_imgs/generated-2026-04-10T19-44-41-684Z-03jh3g.png'); }
+.modal-hero--blasphemy { background-image: url('generated_imgs/generated-2026-04-10T19-44-58-762Z-fj35aj.png'); }
 
 /* Leader Modal */
 .modal--leader .modal-header { display: flex; gap: 1.5rem; align-items: center; }
