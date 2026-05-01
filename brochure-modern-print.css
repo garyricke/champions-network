@@ -1,0 +1,979 @@
+/* ============================================================
+   Champions for Religious Liberty — v2 Modern Print Brochure
+   Visual language: Champions Network website (champions-network.com)
+   - Dark navy gradient + gold-grid overlays
+   - White card system with gold accents
+   - Modern editorial photography
+   - Generous whitespace
+   Trim 8.5×11 + 0.125" bleed = 8.75×11.25 page size
+   ============================================================ */
+
+@page { size: 8.75in 11.25in; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #BB8C3A;
+  --gold-light: #d4a854;
+  --gold-dark: #9a7230;
+  --gold-pale: #f1e2c2;
+  --blue: #0876A9;
+  --navy: #055A81;
+  --navy-deep: #033f5c;
+  --navy-ink: #021e2e;
+  --light: #ECF4F9;
+  --white: #FFFFFF;
+  --ink: #14202d;
+  --ink-mid: #3d5166;
+  --ink-soft: #6b8099;
+
+  --bleed: 0.125in;
+  --safe: 0.25in;
+  --edge: 0.375in;
+}
+
+html, body {
+  background: #fff;
+  color: var(--ink);
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  line-height: 1.55;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 8.75in;
+  height: 11.25in;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  background: #fff;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+/* Crop marks */
+.crops i { position: absolute; background: #000; z-index: 999; }
+.crops .tl-h, .crops .tr-h, .crops .bl-h, .crops .br-h { width: 0.1in; height: 0.5pt; }
+.crops .tl-v, .crops .tr-v, .crops .bl-v, .crops .br-v { width: 0.5pt; height: 0.1in; }
+.crops .tl-h { top: 0.125in; left: 0; }
+.crops .tl-v { top: 0; left: 0.125in; }
+.crops .tr-h { top: 0.125in; right: 0; }
+.crops .tr-v { top: 0; right: 0.125in; }
+.crops .bl-h { bottom: 0.125in; left: 0; }
+.crops .bl-v { bottom: 0; left: 0.125in; }
+.crops .br-h { bottom: 0.125in; right: 0; }
+.crops .br-v { bottom: 0; right: 0.125in; }
+body.no-crops .crops { display: none; }
+
+/* ----- Shared design tokens ----- */
+.bg-navy {
+  background: linear-gradient(140deg, var(--navy-ink) 0%, var(--navy-deep) 60%, var(--navy) 100%);
+}
+.bg-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(187,140,58,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(187,140,58,0.07) 1px, transparent 1px);
+  background-size: 0.4in 0.4in;
+  pointer-events: none;
+}
+
+.eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+}
+.gold-rule {
+  width: 0.45in; height: 2pt;
+  background: var(--gold);
+  border-radius: 1pt;
+  display: block;
+  margin: 0.1in 0 0.18in;
+}
+.gold-rule.center { margin-left: auto; margin-right: auto; }
+
+.display, h1, h2, h3, h4 {
+  font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 0.96;
+}
+p { font-size: 10.5pt; line-height: 1.65; color: var(--ink-mid); }
+strong { font-weight: 600; color: var(--navy); }
+ul.bullets { padding-left: 1.05em; }
+ul.bullets li { font-size: 10.5pt; line-height: 1.65; margin: 0.06in 0; list-style: disc; color: var(--ink-mid); }
+ul.bullets li::marker { color: var(--gold); }
+
+/* ============================================================
+   PAGE 1 — COVER (modern hero, photographic)
+   ============================================================ */
+.page--cover {
+  background: var(--navy-ink);
+  color: #fff;
+}
+.page--cover .cover__photo {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 6.4in;
+  overflow: hidden;
+}
+.page--cover .cover__photo img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.page--cover .cover__photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2,30,46,0.5) 0%, rgba(2,30,46,0.02) 30%, rgba(2,30,46,0.02) 60%, var(--navy-ink) 100%);
+}
+
+.page--cover .cover__lower {
+  position: absolute;
+  top: 6.2in;
+  left: 0; right: 0;
+  bottom: 0;
+  background: var(--navy-ink);
+  overflow: hidden;
+}
+.page--cover .cover__lower::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(187,140,58,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(187,140,58,0.06) 1px, transparent 1px);
+  background-size: 0.4in 0.4in;
+  pointer-events: none;
+}
+
+.page--cover .cover__inner {
+  position: relative;
+  padding: 0.45in 0.7in 0;
+  z-index: 2;
+}
+
+.page--cover .cover__eyebrow {
+  color: var(--gold);
+  font-size: 9.5pt;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.page--cover h1 {
+  font-size: 48pt;
+  line-height: 0.96;
+  color: #fff;
+  margin-top: 0.14in;
+  letter-spacing: 0.02em;
+}
+.page--cover h1 .accent {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0;
+}
+
+.page--cover .cover__rule {
+  width: 0.7in; height: 2pt;
+  background: var(--gold);
+  margin: 0.18in 0;
+}
+
+.page--cover .cover__sub {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 11.5pt;
+  color: rgba(236,244,249,0.8);
+  max-width: 6.5in;
+  line-height: 1.55;
+}
+
+.page--cover .cover__footer {
+  position: absolute;
+  bottom: 0.6in; left: 0.7in; right: 0.7in;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.18in;
+  border-top: 1pt solid rgba(187,140,58,0.32);
+  z-index: 3;
+}
+.page--cover .cover__footer .lockup {
+  display: flex; align-items: center;
+}
+.page--cover .cover__footer .lockup img {
+  height: 0.5in; width: auto;
+  opacity: 0.95;
+}
+.page--cover .cover__footer .url {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+/* ============================================================
+   PAGE 2 — PROBLEM (dark hero, white card)
+   ============================================================ */
+.page--problem {
+  background: linear-gradient(140deg, var(--navy-ink) 0%, var(--navy-deep) 60%, var(--navy) 100%);
+  color: #fff;
+}
+.page--problem::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(187,140,58,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(187,140,58,0.07) 1px, transparent 1px);
+  background-size: 0.4in 0.4in;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.page--problem .problem__hdr {
+  position: absolute;
+  top: 0.7in; left: 0.7in; right: 0.7in;
+  z-index: 3;
+}
+.page--problem .problem__hdr .eyebrow { color: var(--gold-light); margin-bottom: 0.1in; }
+.page--problem .problem__hdr h2 {
+  font-size: 50pt;
+  color: #fff;
+  line-height: 0.94;
+}
+.page--problem .problem__hdr h2 .accent {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--gold-light);
+  font-size: 28pt;
+  letter-spacing: 0;
+  display: inline-block;
+  margin-left: 0.1in;
+  vertical-align: 0.05in;
+}
+
+.page--problem .problem__photo {
+  position: absolute;
+  top: 2.5in; right: 0.7in;
+  width: 3.6in; height: 2.6in;
+  border-radius: 8pt;
+  overflow: hidden;
+  box-shadow: 0 14pt 38pt rgba(0,0,0,0.45);
+  z-index: 2;
+}
+.page--problem .problem__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.page--problem .problem__lede {
+  position: absolute;
+  top: 2.6in; left: 0.7in;
+  width: 3.4in;
+  z-index: 3;
+}
+.page--problem .problem__lede p {
+  font-size: 11pt;
+  color: rgba(236,244,249,0.92);
+  line-height: 1.65;
+}
+.page--problem .problem__lede p strong { color: #fff; }
+
+.page--problem .problem__card {
+  position: absolute;
+  left: 0.7in; right: 0.7in;
+  bottom: 0.7in;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.42in 0.5in;
+  border-radius: 8pt;
+  border-left: 3pt solid var(--gold);
+  box-shadow: 0 16pt 44pt rgba(0,0,0,0.35);
+  z-index: 4;
+}
+.page--problem .problem__card .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35in;
+  margin-top: 0.06in;
+}
+.page--problem .problem__card .col h3 {
+  font-size: 13pt;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.1in;
+}
+.page--problem .problem__card .col ul.bullets li {
+  font-size: 10pt;
+}
+.page--problem .problem__card .closing {
+  margin-top: 0.28in;
+  padding-top: 0.2in;
+  border-top: 1pt solid rgba(8,118,169,0.18);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--navy-deep);
+  line-height: 1.5;
+}
+.page--problem .problem__card .closing strong {
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
+/* ============================================================
+   PAGE 3 — THEOLOGY (light + cards)
+   ============================================================ */
+.page--theology { background: var(--light); color: var(--ink); }
+
+.page--theology .theology__hdr {
+  position: absolute;
+  top: 0.7in; left: 0.7in; right: 0.7in;
+}
+.page--theology .theology__hdr .eyebrow { color: var(--gold); }
+.page--theology .theology__hdr h2 {
+  font-size: 48pt;
+  color: var(--navy);
+  margin-top: 0.06in;
+}
+.page--theology .theology__hdr h2 .accent {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 26pt;
+  letter-spacing: 0;
+  margin-left: 0.08in;
+}
+.page--theology .theology__hdr p {
+  font-size: 11pt;
+  margin-top: 0.18in;
+  max-width: 6.5in;
+  color: var(--ink-mid);
+}
+
+.page--theology .theology__photo {
+  position: absolute;
+  top: 2.9in; left: 0.7in; right: 0.7in;
+  height: 2.6in;
+  border-radius: 10pt;
+  overflow: hidden;
+  box-shadow: 0 12pt 36pt rgba(5,90,129,0.18);
+}
+.page--theology .theology__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.page--theology .theology__cards {
+  position: absolute;
+  top: 5.95in; left: 0.7in; right: 0.7in;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.32in;
+}
+.theo-card {
+  background: #fff;
+  border-radius: 8pt;
+  padding: 0.32in 0.32in 0.36in;
+  border-top: 3pt solid var(--gold);
+  box-shadow: 0 8pt 24pt rgba(5,90,129,0.10);
+  display: flex;
+  flex-direction: column;
+}
+.theo-card .h-eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7.5pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.06in;
+}
+.theo-card h3 {
+  font-size: 22pt;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+  line-height: 1.0;
+  margin-bottom: 0.14in;
+}
+.theo-card p { font-size: 10pt; color: var(--ink-mid); line-height: 1.6; }
+.theo-card p strong { color: var(--navy-deep); }
+.theo-card .role {
+  margin-top: auto;
+  padding-top: 0.2in;
+  border-top: 1pt solid rgba(8,118,169,0.18);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14pt;
+  letter-spacing: 0.05em;
+  color: var(--gold-dark);
+}
+
+.page--theology .theology__band {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 0.5in;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+  opacity: 0.18;
+}
+
+/* ============================================================
+   PAGE 4 — SOLUTION (white, photo + cards)
+   ============================================================ */
+.page--solution { background: #fff; color: var(--ink); }
+
+.page--solution .solution__hdr {
+  position: absolute;
+  top: 0.7in; left: 0.7in; right: 0.7in;
+}
+.page--solution .solution__hdr .eyebrow { color: var(--gold); }
+.page--solution .solution__hdr h2 {
+  font-size: 50pt;
+  color: var(--navy);
+  margin-top: 0.06in;
+}
+.page--solution .solution__hdr p {
+  font-size: 11pt;
+  color: var(--ink-mid);
+  margin-top: 0.16in;
+  max-width: 6.5in;
+}
+
+.page--solution .solution__photo {
+  position: absolute;
+  top: 3.0in; left: 0.7in; right: 0.7in;
+  height: 2.7in;
+  border-radius: 10pt;
+  overflow: hidden;
+  box-shadow: 0 14pt 36pt rgba(5,90,129,0.18);
+}
+.page--solution .solution__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.page--solution .solution__pillars {
+  position: absolute;
+  top: 6.1in; left: 0.7in; right: 0.7in;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.22in;
+}
+.pillar-card {
+  background: var(--light);
+  border-radius: 8pt;
+  border-left: 3pt solid var(--gold);
+  padding: 0.3in 0.26in;
+  display: flex;
+  flex-direction: column;
+}
+.pillar-card .num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14pt;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.04in;
+}
+.pillar-card h3 {
+  font-size: 18pt;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.1in;
+  line-height: 1.0;
+}
+.pillar-card p { font-size: 9.5pt; line-height: 1.55; color: var(--ink-mid); }
+
+.page--solution .solution__cta {
+  position: absolute;
+  bottom: 0.7in; left: 0.7in; right: 0.7in;
+  background: linear-gradient(140deg, var(--navy-ink) 0%, var(--navy-deep) 100%);
+  color: #fff;
+  padding: 0.26in 0.4in;
+  border-radius: 8pt;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  position: absolute;
+}
+.page--solution .solution__cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(187,140,58,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(187,140,58,0.07) 1px, transparent 1px);
+  background-size: 0.3in 0.3in;
+  pointer-events: none;
+}
+.page--solution .solution__cta .label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14pt;
+  letter-spacing: 0.06em;
+  color: var(--gold-light);
+  position: relative; z-index: 2;
+}
+.page--solution .solution__cta .value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18pt;
+  letter-spacing: 0.06em;
+  color: #fff;
+  position: relative; z-index: 2;
+}
+
+/* ============================================================
+   PAGE 5 — GET STARTED (white + step cards)
+   ============================================================ */
+.page--get-started { background: #fff; color: var(--ink); }
+
+.page--get-started .gs__hdr {
+  position: absolute;
+  top: 0.7in; left: 0.7in; right: 0.7in;
+}
+.page--get-started .gs__hdr .eyebrow { color: var(--gold); }
+.page--get-started .gs__hdr h2 {
+  font-size: 56pt;
+  color: var(--navy);
+  margin-top: 0.06in;
+  letter-spacing: 0.025em;
+}
+.page--get-started .gs__hdr p {
+  font-size: 11pt;
+  color: var(--ink-mid);
+  margin-top: 0.14in;
+  max-width: 5.5in;
+}
+
+.page--get-started .gs__steps {
+  position: absolute;
+  top: 3.0in;
+  left: 0.7in; right: 0.7in;
+  display: flex;
+  flex-direction: column;
+  gap: 0.22in;
+}
+.step-card {
+  background: #fff;
+  border-radius: 8pt;
+  border-left: 3pt solid var(--gold);
+  box-shadow: 0 6pt 22pt rgba(5,90,129,0.10);
+  padding: 0.28in 0.32in;
+  display: grid;
+  grid-template-columns: 1.1in 1fr 1.4in;
+  gap: 0.24in;
+  align-items: center;
+}
+.step-card .num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56pt;
+  color: var(--gold);
+  letter-spacing: 0;
+  line-height: 0.9;
+  text-align: center;
+}
+.step-card .body h3 {
+  font-size: 17pt;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+  line-height: 1.0;
+  margin-bottom: 0.06in;
+}
+.step-card .body p { font-size: 9.5pt; line-height: 1.55; color: var(--ink-mid); }
+.step-card .qr {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0.05in;
+}
+.step-card .qr img { width: 1.1in; height: 1.1in; }
+.step-card .qr .qr-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.page--get-started .gs__footer {
+  position: absolute;
+  bottom: 0.7in; left: 0.7in; right: 0.7in;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12pt;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  padding-top: 0.22in;
+  border-top: 1pt solid rgba(187,140,58,0.3);
+}
+.page--get-started .gs__footer span {
+  color: var(--navy);
+  margin: 0 0.18in;
+}
+
+/* ============================================================
+   PAGE 6 — SCRIPTURE + TWO-KINGDOMS (light-grad)
+   ============================================================ */
+.page--scripture {
+  background: linear-gradient(180deg, var(--light) 0%, #fff 70%);
+  color: var(--ink);
+}
+.page--scripture::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(8,118,169,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8,118,169,0.04) 1px, transparent 1px);
+  background-size: 0.4in 0.4in;
+  pointer-events: none;
+}
+
+.page--scripture .scripture__hdr {
+  position: absolute;
+  top: 0.8in; left: 0; right: 0;
+  text-align: center;
+  z-index: 2;
+}
+.page--scripture .scripture__hdr .eyebrow { color: var(--gold); }
+.page--scripture .scripture__hdr h2 {
+  font-size: 40pt;
+  color: var(--navy);
+  margin-top: 0.06in;
+}
+
+.page--scripture .scripture__quote {
+  position: absolute;
+  top: 2.0in;
+  left: 1.0in; right: 1.0in;
+  text-align: center;
+  z-index: 2;
+}
+.page--scripture .scripture__quote .quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 60pt;
+  color: var(--gold);
+  line-height: 0.5;
+  display: block;
+  margin-bottom: 0.16in;
+}
+.page--scripture .scripture__quote blockquote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 18pt;
+  line-height: 1.45;
+  color: var(--navy);
+}
+.page--scripture .scripture__quote cite {
+  display: block;
+  margin-top: 0.28in;
+  font-style: normal;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14pt;
+  letter-spacing: 0.22em;
+  color: var(--gold-dark);
+}
+
+.page--scripture .scripture__diagram {
+  position: absolute;
+  top: 5.4in;
+  left: 0.7in; right: 0.7in;
+  bottom: 0.8in;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3in;
+  z-index: 2;
+}
+.km-card {
+  background: #fff;
+  border-radius: 10pt;
+  padding: 0.42in 0.4in 0.45in;
+  border-top: 4pt solid var(--gold);
+  box-shadow: 0 8pt 28pt rgba(5,90,129,0.12);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.km-card .km-marker {
+  position: absolute;
+  top: 0.42in; right: 0.42in;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36pt;
+  color: rgba(187,140,58,0.18);
+  line-height: 0.9;
+}
+.km-card .h-eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7.5pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.06in;
+}
+.km-card h3 {
+  font-size: 22pt;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+  line-height: 1.0;
+  margin-bottom: 0.14in;
+}
+.km-card p { font-size: 9.5pt; color: var(--ink-mid); line-height: 1.6; }
+.km-card .km-chips {
+  list-style: none;
+  margin-top: 0.18in;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.06in;
+}
+.km-card .km-chips li {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7.5pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--light);
+  border: 0.5pt solid rgba(8,118,169,0.18);
+  padding: 0.06in 0.13in;
+  border-radius: 99pt;
+}
+.km-card .km-role {
+  margin-top: auto;
+  padding-top: 0.16in;
+  border-top: 1pt solid rgba(8,118,169,0.18);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14pt;
+  letter-spacing: 0.05em;
+  color: var(--gold-dark);
+}
+
+/* ============================================================
+   PAGE 7 — NOTES (light grid)
+   ============================================================ */
+.page--notes { background: #fff; color: var(--ink); }
+.page--notes::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(8,118,169,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8,118,169,0.04) 1px, transparent 1px);
+  background-size: 0.4in 0.4in;
+  pointer-events: none;
+}
+.page--notes .notes__hdr {
+  position: absolute;
+  top: 0.7in; left: 0.7in;
+  z-index: 2;
+}
+.page--notes .notes__hdr .eyebrow { color: var(--gold); }
+.page--notes .notes__hdr h2 {
+  font-size: 44pt;
+  color: var(--navy);
+  margin-top: 0.06in;
+}
+.page--notes .notes__paper {
+  position: absolute;
+  top: 1.9in; left: 0.7in; right: 0.7in;
+  bottom: 0.9in;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 0.36in,
+      rgba(8,118,169,0.28) 0.36in,
+      rgba(8,118,169,0.28) calc(0.36in + 0.5pt)
+    );
+  z-index: 2;
+}
+.page--notes .notes__footer {
+  position: absolute;
+  bottom: 0.45in; left: 0.7in; right: 0.7in;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 8pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  z-index: 2;
+}
+
+/* ============================================================
+   PAGE 8 — BACK COVER (dark navy with grid)
+   ============================================================ */
+.page--back {
+  background: linear-gradient(140deg, var(--navy-ink) 0%, var(--navy-deep) 60%, var(--navy) 100%);
+  color: #fff;
+}
+.page--back::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(187,140,58,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(187,140,58,0.07) 1px, transparent 1px);
+  background-size: 0.4in 0.4in;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.page--back .back__hdr {
+  position: absolute;
+  top: 0.7in; left: 0.7in; right: 0.7in;
+  z-index: 3;
+}
+.page--back .back__hdr .eyebrow {
+  color: var(--gold-light);
+}
+.page--back .back__hdr h2 {
+  font-size: 36pt;
+  color: #fff;
+  margin-top: 0.06in;
+}
+
+.page--back .back__profile {
+  position: absolute;
+  top: 2.6in; left: 0.7in; right: 0.7in;
+  display: grid;
+  grid-template-columns: 1.7in 1fr;
+  gap: 0.36in;
+  align-items: center;
+  z-index: 3;
+}
+.page--back .back__profile .photo {
+  width: 1.7in; height: 1.7in;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3pt solid var(--gold);
+  box-shadow: 0 12pt 32pt rgba(0,0,0,0.4);
+}
+.page--back .back__profile .photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.page--back .back__profile .info .name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 28pt;
+  color: #fff;
+  line-height: 1.05;
+}
+.page--back .back__profile .info .role {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13pt;
+  letter-spacing: 0.22em;
+  color: var(--gold-light);
+  margin-top: 0.05in;
+  display: block;
+}
+.page--back .back__profile .info .quote {
+  margin-top: 0.16in;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 10pt;
+  color: rgba(236,244,249,0.84);
+  line-height: 1.55;
+  max-width: 4.0in;
+}
+
+.page--back .back__contacts {
+  position: absolute;
+  top: 5.0in; left: 0.7in; right: 0.7in;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.18in;
+  z-index: 3;
+}
+.contact-tile {
+  background: rgba(255,255,255,0.06);
+  border: 1pt solid rgba(187,140,58,0.32);
+  border-radius: 8pt;
+  padding: 0.22in 0.26in;
+}
+.contact-tile .h-eyebrow {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11pt;
+  letter-spacing: 0.22em;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 0.05in;
+}
+.contact-tile .val {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10pt;
+  color: #fff;
+  word-break: break-word;
+}
+
+.page--back .back__qr-block {
+  position: absolute;
+  bottom: 0.9in; left: 0.7in; right: 0.7in;
+  display: grid;
+  grid-template-columns: 1fr 1.5in;
+  gap: 0.4in;
+  align-items: center;
+  z-index: 3;
+}
+.page--back .back__qr-block .lcrl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08in;
+}
+.page--back .back__qr-block .lcrl img {
+  height: 0.6in; width: auto;
+}
+.page--back .back__qr-block .lcrl .tag {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7.5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(236,244,249,0.6);
+}
+
+.page--back .back__qr-block .qr-card {
+  background: #fff;
+  padding: 0.16in;
+  border-radius: 6pt;
+  text-align: center;
+  box-shadow: 0 8pt 24pt rgba(0,0,0,0.4);
+}
+.page--back .back__qr-block .qr-card img { width: 1.1in; height: 1.1in; }
+.page--back .back__qr-block .qr-card .lab {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 6.5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-top: 0.08in;
+}
+
+.page--back .back__url-strip {
+  position: absolute;
+  bottom: 0.4in; left: 0; right: 0;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10pt;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+  z-index: 3;
+}
+
+/* ============================================================
+   Web preview helpers
+   ============================================================ */
+@media screen {
+  body {
+    background: #2a2f36;
+    padding: 0.4in 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4in;
+  }
+  .page {
+    box-shadow: 0 0.3in 0.8in rgba(0,0,0,0.35);
+  }
+}

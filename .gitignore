@@ -1,2 +1,5 @@
 .DS_Store
 **/.DS_Store
+
+# Print build pipeline — Puppeteer install is ~300MB, do not commit
+print-build/node_modules/

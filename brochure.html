@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon-champions-network.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Brochure — Two Editions | Champions for Religious Liberty</title>
+<meta name="description" content="Two redesigned 8-page print brochures for the Champions for Religious Liberty Network — a painterly classical edition and a modern editorial edition built on the website's design system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="champions.css">
+<style>
+  /* ============= Brochure explainer styles ============= */
+  .b-hero {
+    position: relative;
+    background: linear-gradient(140deg, #021e2e 0%, #033f5c 60%, #055A81 100%);
+    color: #fff;
+    padding: 150px 0 90px;
+    overflow: hidden;
+  }
+  .b-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(187,140,58,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(187,140,58,.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+  .b-hero__inner {
+    position: relative;
+    text-align: center;
+  }
+  .b-hero .eyebrow { color: #BB8C3A; }
+  .b-hero h1 {
+    font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+    color: #fff;
+    margin: 12px auto 18px;
+    letter-spacing: 0.02em;
+    max-width: 900px;
+  }
+  .b-hero h1 em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    color: #d4a854;
+  }
+  .b-hero p.lead {
+    font-size: 1.1rem;
+    color: rgba(236,244,249,0.86);
+    max-width: 660px;
+    line-height: 1.7;
+    margin: 0 auto 40px;
+  }
+
+  .b-hero__covers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    max-width: 760px;
+    margin: 56px auto 0;
+    perspective: 1600px;
+  }
+  .b-cover {
+    text-align: center;
+    transition: transform .35s;
+  }
+  .b-cover:hover { transform: translateY(-6px); }
+  .b-cover img {
+    width: 100%;
+    aspect-ratio: 8.5 / 11;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .b-cover:nth-child(1) img { transform: rotateY(7deg) rotateX(2deg); transform-origin: right center; }
+  .b-cover:nth-child(2) img { transform: rotateY(-7deg) rotateX(2deg); transform-origin: left center; }
+  .b-cover .b-cover__tag {
+    display: inline-block;
+    margin-top: 22px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.22em;
+    color: #d4a854;
+    padding: 8px 18px;
+    border: 1px solid rgba(212,168,84,0.4);
+    border-radius: 99px;
+  }
+  .b-cover h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #fff;
+    font-size: 1.6rem;
+    letter-spacing: 0.06em;
+    margin-top: 14px;
+  }
+  .b-cover p {
+    font-size: 0.86rem;
+    color: rgba(236,244,249,0.7);
+    line-height: 1.6;
+    margin-top: 8px;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 720px) {
+    .b-hero__covers { grid-template-columns: 1fr; gap: 56px; }
+    .b-cover img { transform: none !important; }
+  }
+
+  /* ============= Section: rationale ============= */
+  .rationale-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+  }
+  .rationale-card {
+    background: #fff;
+    border-left: 4px solid #BB8C3A;
+    padding: 32px 28px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(5,90,129,0.10);
+  }
+  .rationale-card .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: #BB8C3A;
+    letter-spacing: 0.04em;
+  }
+  .rationale-card h3 { color: #055A81; margin: 8px 0 12px; }
+  .rationale-card p { font-size: 0.96rem; color: #3d5166; line-height: 1.7; }
+  @media (max-width: 880px) { .rationale-grid { grid-template-columns: 1fr; } }
+
+  /* ============= Section: editions side-by-side ============= */
+  .editions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 56px;
+  }
+  .edition {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(5,90,129,0.14);
+    display: flex;
+    flex-direction: column;
+  }
+  .edition__hero {
+    width: 100%;
+    aspect-ratio: 8.5 / 11;
+    overflow: hidden;
+    background: #ECF4F9;
+    border-bottom: 1px solid rgba(8,118,169,0.08);
+  }
+  .edition__hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .edition__body { padding: 28px 32px 32px; }
+  .edition__tag {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    padding: 6px 14px;
+    border-radius: 99px;
+    background: #ECF4F9;
+    color: #055A81;
+    margin-bottom: 12px;
+  }
+  .edition__tag.modern { background: #055A81; color: #d4a854; }
+  .edition__title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: #055A81;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .edition__desc { font-size: 0.94rem; color: #3d5166; line-height: 1.65; margin-bottom: 20px; }
+  .edition__meta {
+    list-style: none;
+    margin-bottom: 22px;
+    padding: 0;
+  }
+  .edition__meta li {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(8,118,169,0.1);
+    font-size: 0.85rem;
+    color: #3d5166;
+  }
+  .edition__meta li:last-child { border-bottom: none; }
+  .edition__meta li .k {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #BB8C3A;
+  }
+  .edition__meta li .v { color: #14202d; font-weight: 500; }
+  .edition__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #BB8C3A;
+    color: #021e2e;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    padding: 14px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background .25s;
+    width: 100%;
+    justify-content: center;
+  }
+  .edition__cta:hover { background: #d4a854; color: #021e2e; }
+  .edition__view {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    color: #055A81;
+    text-decoration: none;
+  }
+  .edition__view:hover { color: #BB8C3A; }
+  @media (max-width: 880px) { .editions-grid { grid-template-columns: 1fr; } }
+
+  /* ============= Section: brand system ============= */
+  .brand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    margin-top: 48px;
+  }
+  .swatch-stack { display: flex; flex-direction: column; gap: 14px; }
+  .swatch {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 18px;
+    align-items: center;
+    padding: 14px 18px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(5,90,129,0.08);
+  }
+  .swatch__chip { width: 56px; height: 56px; border-radius: 6px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05); }
+  .swatch__name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    color: #055A81;
+  }
+  .swatch__hex { font-family: 'Poppins', monospace; font-size: 0.78rem; letter-spacing: 0.16em; color: #6b8099; text-transform: uppercase; }
+
+  .type-stack { display: flex; flex-direction: column; gap: 28px; }
+  .type-card { background: #fff; padding: 26px 28px; border-radius: 8px; box-shadow: 0 4px 18px rgba(5,90,129,0.08); }
+  .type-card .label { font-family: 'Poppins', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: #BB8C3A; font-weight: 600; margin-bottom: 10px; display: block; }
+  .type-bebas { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: #055A81; letter-spacing: 0.04em; line-height: 1.0; }
+  .type-poppins { font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 1.0rem; color: #14202d; line-height: 1.6; }
+  .type-playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 1.6rem; color: #BB8C3A; line-height: 1.3; }
+  @media (max-width: 880px) { .brand-grid { grid-template-columns: 1fr; } }
+
+  /* ============= Section: page tour with tabs ============= */
+  .tour-tabs {
+    display: inline-flex;
+    background: #fff;
+    border-radius: 99px;
+    padding: 6px;
+    margin: 36px auto 0;
+    box-shadow: 0 4px 16px rgba(5,90,129,0.10);
+  }
+  .tour-tab {
+    padding: 12px 28px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    color: #6b8099;
+    background: transparent;
+    border: none;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all .25s;
+  }
+  .tour-tab.active { background: #055A81; color: #fff; }
+  .tour-tab:hover:not(.active) { color: #055A81; }
+
+  .tour-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+  }
+  .tour-grid.hidden { display: none; }
+  .tour-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(5,90,129,0.14);
+    transition: transform .35s, box-shadow .35s;
+    display: flex;
+    flex-direction: column;
+  }
+  .tour-card:hover { transform: translateY(-6px); box-shadow: 0 22px 52px rgba(5,90,129,0.22); }
+  .tour-card__thumb { width: 100%; aspect-ratio: 8.5 / 11; background: #ECF4F9; overflow: hidden; border-bottom: 1px solid rgba(8,118,169,0.08); }
+  .tour-card__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tour-card__body { padding: 18px 20px 22px; }
+  .tour-card__num { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; color: #BB8C3A; letter-spacing: 0.18em; display: block; margin-bottom: 4px; }
+  .tour-card__title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: #055A81; line-height: 1.05; margin-bottom: 8px; letter-spacing: 0.04em; }
+  .tour-card__desc { font-size: 0.85rem; color: #3d5166; line-height: 1.55; }
+  @media (max-width: 1024px) { .tour-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .tour-grid { grid-template-columns: 1fr; } }
+
+  /* ============= Section: print specs ============= */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .spec { background: #fff; padding: 28px 24px; border-radius: 8px; border-top: 3px solid #BB8C3A; box-shadow: 0 4px 18px rgba(5,90,129,0.08); }
+  .spec .h-eyebrow { font-family: 'Poppins', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: #BB8C3A; font-weight: 600; margin-bottom: 8px; display: block; }
+  .spec h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: #055A81; letter-spacing: 0.04em; margin-bottom: 6px; }
+  .spec p { font-size: 0.85rem; color: #3d5166; line-height: 1.55; }
+  @media (max-width: 880px) { .specs-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ============= Section: download band ============= */
+  .download-band {
+    background: linear-gradient(135deg, #BB8C3A 0%, #9a7230 100%);
+    color: #fff;
+    padding: 90px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .download-band::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+    pointer-events: none;
+  }
+  .download-band h2 { font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 12px; }
+  .download-band p { color: rgba(255,255,255,0.86); max-width: 580px; margin: 0 auto 36px; }
+  .download-band__pair {
+    display: inline-flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .dl-card {
+    background: #021e2e;
+    color: #fff;
+    border-radius: 10px;
+    padding: 24px 28px;
+    text-align: left;
+    text-decoration: none;
+    min-width: 280px;
+    transition: transform .25s, background .25s;
+    border: 1px solid rgba(212,168,84,0.4);
+  }
+  .dl-card:hover { transform: translateY(-3px); background: #033f5c; }
+  .dl-card .dl-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    color: #d4a854;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .dl-card .dl-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.06em;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .dl-card .dl-meta {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 14px;
+  }
+  .dl-card .dl-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.92rem;
+    letter-spacing: 0.14em;
+    color: #d4a854;
+  }
+  .dl-card svg { width: 16px; height: 16px; }
+
+  .download-band__divider {
+    width: 60px; height: 1px;
+    background: rgba(255,255,255,0.4);
+    margin: 36px auto 28px;
+  }
+  .order-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #021e2e;
+    color: #fff;
+    border: 2px solid #d4a854;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .25s;
+  }
+  .order-cta-btn:hover { background: #033f5c; transform: translateY(-2px); }
+  .order-cta-btn svg { width: 18px; height: 18px; }
+  .order-cta-note {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  /* ============= Order Modal ============= */
+  .om-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(2,30,46,0.78);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 9000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow-y: auto;
+  }
+  .om-overlay.open { display: flex; }
+  .om-modal {
+    background: #fff;
+    border-radius: 14px;
+    width: min(620px, 100%);
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.55);
+    position: relative;
+    border-top: 4px solid #BB8C3A;
+  }
+  .om-close {
+    position: absolute;
+    top: 18px; right: 18px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(8,118,169,0.08);
+    color: #055A81;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .om-close:hover { background: rgba(8,118,169,0.18); }
+  .om-header {
+    padding: 36px 40px 18px;
+    border-bottom: 1px solid rgba(8,118,169,0.1);
+  }
+  .om-header .eyebrow { color: #BB8C3A; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; }
+  .om-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.9rem;
+    color: #055A81;
+    letter-spacing: 0.04em;
+    margin: 6px 0 8px;
+  }
+  .om-header p { font-size: 0.92rem; color: #3d5166; line-height: 1.55; }
+
+  .om-body { padding: 28px 40px 36px; }
+  .om-disclaimer {
+    background: #ECF4F9;
+    border-left: 3px solid #BB8C3A;
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #055A81;
+    margin-bottom: 28px;
+    line-height: 1.55;
+  }
+  .om-disclaimer strong { color: #BB8C3A; font-weight: 700; }
+
+  .om-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .om-field { display: flex; flex-direction: column; }
+  .om-field.full { grid-column: 1 / -1; }
+  .om-field label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #BB8C3A;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  .om-field input,
+  .om-field select,
+  .om-field textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #14202d;
+    background: #fff;
+    border: 1px solid rgba(8,118,169,0.25);
+    border-radius: 6px;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .om-field input:focus,
+  .om-field select:focus,
+  .om-field textarea:focus {
+    border-color: #BB8C3A;
+    box-shadow: 0 0 0 3px rgba(187,140,58,0.15);
+  }
+  .om-field textarea { resize: vertical; min-height: 80px; }
+  .om-field .hint { font-size: 0.72rem; color: #6b8099; margin-top: 5px; }
+
+  .om-quantity { display: flex; flex-direction: column; gap: 8px; }
+  .om-quantity input { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; text-align: center; padding: 10px 14px; }
+  .om-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .om-preset {
+    background: #fff;
+    border: 1px solid rgba(8,118,169,0.25);
+    color: #055A81;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    padding: 7px 13px;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .om-preset:hover { border-color: #BB8C3A; color: #BB8C3A; }
+  .om-preset.active { background: #055A81; border-color: #055A81; color: #fff; }
+
+  .om-section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    color: #055A81;
+    margin: 24px 0 12px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(8,118,169,0.1);
+    grid-column: 1 / -1;
+  }
+
+  .om-actions {
+    margin-top: 28px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .om-submit {
+    flex: 1;
+    background: #BB8C3A;
+    color: #021e2e;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.14em;
+    padding: 15px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .25s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .om-submit:hover { background: #d4a854; }
+  .om-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+  .om-cancel {
+    background: transparent;
+    color: #6b8099;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.16em;
+    padding: 14px 18px;
+    border: none;
+    cursor: pointer;
+  }
+  .om-cancel:hover { color: #055A81; }
+
+  .om-success {
+    padding: 60px 40px;
+    text-align: center;
+    display: none;
+  }
+  .om-success.show { display: block; }
+  .om-success__icon {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: rgba(187,140,58,0.15);
+    color: #BB8C3A;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .om-success__icon svg { width: 38px; height: 38px; }
+  .om-success h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: #055A81;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+  }
+  .om-success p { color: #3d5166; line-height: 1.65; max-width: 420px; margin: 0 auto 24px; }
+  .om-success__close {
+    background: #055A81;
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .om-success__close:hover { background: #033f5c; }
+
+  .om-error {
+    background: rgba(232,112,112,0.1);
+    border-left: 3px solid #e87070;
+    color: #c14848;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-top: 16px;
+    display: none;
+  }
+  .om-error.show { display: block; }
+
+  body.om-locked { overflow: hidden; }
+
+  @media (max-width: 580px) {
+    .om-grid { grid-template-columns: 1fr; }
+    .om-header, .om-body { padding-left: 24px; padding-right: 24px; }
+    .om-header { padding-top: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Phantom form for Netlify build-time detection (the real form is rendered inside a modal,
+     and Netlify's bot scans static HTML, so this static copy guarantees registration). -->
+<form name="brochure-order" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="brochure-order" />
+  <input name="bot-field" /><input name="edition" /><input name="quantity" />
+  <input name="name" /><input name="email" /><input name="phone" /><input name="organization" />
+  <input name="address1" /><input name="address2" /><input name="city" />
+  <input name="state" /><input name="zip" /><input name="country" />
+  <textarea name="notes"></textarea>
+</form>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Champions Network Home">
+      <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network for Religious Liberty" height="40">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#mission">Mission</a></li>
+      <li><a href="index.html#two-kingdoms">2 Kingdoms</a></li>
+      <li><a href="index.html#journey">Journey</a></li>
+      <li><a href="index.html#academy">Academy</a></li>
+      <li><a href="index.html#sessions">Sessions</a></li>
+      <li><a href="brochure.html" aria-current="page">Brochure</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary btn-sm nav-cta" href="#download">Download PDF</a>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="b-hero">
+  <div class="container">
+    <div class="b-hero__inner">
+      <span class="eyebrow">Print collateral · 8 pages · US Letter</span>
+      <h1>Two editions. <em>One story.</em></h1>
+      <p class="lead">A complete redesign of the 8-page <em>Be a Champion for Religious Liberty</em> brochure &mdash; available in two distinct visual languages so you can match the audience and the moment.</p>
+
+      <div class="b-hero__covers">
+        <div class="b-cover">
+          <img src="assets/brochure/thumbs/v1/page-1.png" alt="v1 painterly cover preview">
+          <span class="b-cover__tag">v1 · Painterly</span>
+          <h3>The Classical Edition</h3>
+          <p>Painterly editorial illustrations. Chiaroscuro warmth. Reverent and timeless.</p>
+        </div>
+        <div class="b-cover">
+          <img src="assets/brochure/thumbs/v2/page-1.png" alt="v2 modern cover preview">
+          <span class="b-cover__tag">v2 · Modern</span>
+          <h3>The Editorial Edition</h3>
+          <p>Photographic. Card-based. Built on the website's design system &mdash; champions-network.com.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     RATIONALE
+     ============================================================ -->
+<section class="section section--light">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Why two editions</span>
+      <h2>Same Truth. Two Voices.</h2>
+      <div class="gold-rule"></div>
+      <p>Different settings call for different presence. The classical edition reads beautifully in a pew rack or church bulletin board. The modern edition holds its own in a corporate boardroom or campus event. Same story, same content &mdash; just dressed for the occasion.</p>
+    </div>
+    <div class="rationale-grid">
+      <div class="rationale-card">
+        <span class="num">01</span>
+        <h3>One Brand System, Two Vocabularies</h3>
+        <p>Both versions use Liberty Gold, Freedom Blue, Constitution Navy, and Gospel Light, with Bebas Neue, Poppins, and Playfair carrying every page. What differs is the visual posture &mdash; painterly vs. editorial.</p>
+      </div>
+      <div class="rationale-card">
+        <span class="num">02</span>
+        <h3>Two Image Sets</h3>
+        <p>v1 features painterly illustrations (Christ, scales of justice, two-kingdom diptych). v2 features modern editorial photography (a man in prayer, courthouse cross, Bible study around a table) generated with OpenAI's gpt-image-2.</p>
+      </div>
+      <div class="rationale-card">
+        <span class="num">03</span>
+        <h3>True Print-Ready Output</h3>
+        <p>Both built as HTML + CSS, rendered through Puppeteer with <code>preferCSSPageSize</code>. Pages are 8.75 × 11.25 in (US Letter trim plus 0.125" bleed) with crop marks rendered into the bleed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EDITIONS SIDE-BY-SIDE
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Choose Your Edition</span>
+      <h2>Two Files, Both Print-Ready.</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="editions-grid">
+      <div class="edition">
+        <div class="edition__hero"><img src="assets/brochure/thumbs/v1/page-1.png" alt="v1 painterly cover"></div>
+        <div class="edition__body">
+          <span class="edition__tag">v1 · Painterly Classical</span>
+          <h3 class="edition__title">The Classical Edition</h3>
+          <p class="edition__desc">Painterly editorial illustrations in a chiaroscuro style &mdash; Christ teaching beside the scales of justice, a wooden cross at the edge of a stormy Capitol. Reverent. Timeless. At home in any church setting.</p>
+          <ul class="edition__meta">
+            <li><span class="k">Imagery</span><span class="v">Painterly Illustration</span></li>
+            <li><span class="k">Tone</span><span class="v">Reverent · Classical</span></li>
+            <li><span class="k">Best For</span><span class="v">Church narthex · pew rack</span></li>
+            <li><span class="k">File Size</span><span class="v">9.5 MB · 8 pages</span></li>
+          </ul>
+          <a class="edition__cta" href="champions-brochure-print-ready.pdf" download>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download v1 PDF
+          </a>
+          <a class="edition__view" href="brochure-print.html" target="_blank" rel="noopener">View Web Layout →</a>
+        </div>
+      </div>
+
+      <div class="edition">
+        <div class="edition__hero"><img src="assets/brochure/thumbs/v2/page-1.png" alt="v2 modern cover"></div>
+        <div class="edition__body">
+          <span class="edition__tag modern">v2 · Modern Editorial</span>
+          <h3 class="edition__title">The Editorial Edition</h3>
+          <p class="edition__desc">Photographic editorial built on the website's design system &mdash; navy gradients with gold-grid overlays, white card components, generous whitespace. Same story, modern presence. At home in a campus event or corporate setting.</p>
+          <ul class="edition__meta">
+            <li><span class="k">Imagery</span><span class="v">Editorial Photography</span></li>
+            <li><span class="k">Tone</span><span class="v">Modern · Confident</span></li>
+            <li><span class="k">Best For</span><span class="v">Conferences · digital handoff</span></li>
+            <li><span class="k">File Size</span><span class="v">5.7 MB · 8 pages</span></li>
+          </ul>
+          <a class="edition__cta" href="champions-brochure-modern-print-ready.pdf" download>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download v2 PDF
+          </a>
+          <a class="edition__view" href="brochure-modern-print.html" target="_blank" rel="noopener">View Web Layout →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BRAND SYSTEM
+     ============================================================ -->
+<section class="section section--light">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The Visual System</span>
+      <h2>Color &amp; Type</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="brand-grid">
+      <div>
+        <span class="eyebrow" style="display:block; margin-bottom:18px;">Palette</span>
+        <div class="swatch-stack">
+          <div class="swatch"><span class="swatch__chip" style="background:#BB8C3A;"></span><span class="swatch__name">Liberty Gold</span><span class="swatch__hex">#BB8C3A</span></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#0876A9;"></span><span class="swatch__name">Freedom Blue</span><span class="swatch__hex">#0876A9</span></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#055A81;"></span><span class="swatch__name">Constitution Navy</span><span class="swatch__hex">#055A81</span></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#ECF4F9;"></span><span class="swatch__name">Gospel Light</span><span class="swatch__hex">#ECF4F9</span></div>
+          <div class="swatch"><span class="swatch__chip" style="background:#FFFFFF; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);"></span><span class="swatch__name">Pure White</span><span class="swatch__hex">#FFFFFF</span></div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow" style="display:block; margin-bottom:18px;">Typography</span>
+        <div class="type-stack">
+          <div class="type-card">
+            <span class="label">Bebas Neue · Display</span>
+            <div class="type-bebas">BE A CHAMPION</div>
+          </div>
+          <div class="type-card">
+            <span class="label">Poppins 300 · Body</span>
+            <div class="type-poppins">We need champions in the church who will stand up for our God-given rights as citizens of this country.</div>
+          </div>
+          <div class="type-card">
+            <span class="label">Playfair Display Italic · Accent</span>
+            <div class="type-playfair">Stand up for freedom before it&rsquo;s too late.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE TOUR (TABBED)
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Page by Page</span>
+      <h2>The 8-Page Tour</h2>
+      <div class="gold-rule"></div>
+      <p>Same content, two visual languages. Toggle between the editions to see how each one frames the story.</p>
+      <div class="tour-tabs" role="tablist">
+        <button class="tour-tab active" data-tour="v1" type="button">v1 · Classical</button>
+        <button class="tour-tab" data-tour="v2" type="button">v2 · Modern</button>
+      </div>
+    </div>
+
+    <!-- v1 painterly grid -->
+    <div class="tour-grid" id="tour-v1">
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v1/page-1.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 01</span><div class="tour-card__title">The Cover</div><p class="tour-card__desc">Christ + scales of justice with the title band locked at the top edge. Tagline beneath the network logo lockup.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v1/page-2.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 02</span><div class="tour-card__title">The Problem</div><p class="tour-card__desc">&ldquo;Christianity Criminalized? It&rsquo;s true.&rdquo; Storm-cloud Capitol behind a lone cross.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v1/page-3.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 03</span><div class="tour-card__title">The Theology</div><p class="tour-card__desc">A diptych pairs altar with Capitol &mdash; the two ways God works.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v1/page-4.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 04</span><div class="tour-card__title">The Solution</div><p class="tour-card__desc">Three Champions ascend the steps together. Below: Academy, Church, Network as three structural pillars.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v1/page-5.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 05</span><div class="tour-card__title">Get Started</div><p class="tour-card__desc">Three numbered steps with QR codes &mdash; subscribe, host, or book a Zoom.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v1/page-6.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 06</span><div class="tour-card__title">Render Unto Caesar</div><p class="tour-card__desc">Matthew 22:21 paired with a Two-Kingdom diagram of God&rsquo;s left and right hands.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v1/page-7.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 07</span><div class="tour-card__title">Notes</div><p class="tour-card__desc">A clean ruled spread for retreat use, framed by gold geometric corners.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v1/page-8.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 08</span><div class="tour-card__title">Back Cover</div><p class="tour-card__desc">Rev. Mark Frith&rsquo;s contact card on a gold-cream backdrop with LCRL lockup and Calendly QR.</p></div></div>
+    </div>
+
+    <!-- v2 modern grid -->
+    <div class="tour-grid hidden" id="tour-v2">
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v2/page-1.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 01</span><div class="tour-card__title">The Cover</div><p class="tour-card__desc">Photographic hero (man in prayer at golden hour) above a navy gradient + grid block. &ldquo;Be a Champion <em>for freedom.</em>&rdquo;</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v2/page-2.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 02</span><div class="tour-card__title">The Problem</div><p class="tour-card__desc">Cross on courthouse steps as a feature card. White card below splits the lists into two clean columns.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v2/page-3.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 03</span><div class="tour-card__title">The Theology</div><p class="tour-card__desc">Bible &amp; American flag still-life on a Gospel-Light background. Two kingdom cards below with role labels.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v2/page-4.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 04</span><div class="tour-card__title">The Solution</div><p class="tour-card__desc">Diverse small group around a Bible. Three pillar cards below numbered 01/02/03. Dark CTA strip ties it together.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v2/page-5.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 05</span><div class="tour-card__title">Get Started</div><p class="tour-card__desc">Three step cards with massive numerals, gold left-borders, and QR codes &mdash; clean and conversion-focused.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v2/page-6.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 06</span><div class="tour-card__title">Render Unto Caesar</div><p class="tour-card__desc">Centered scripture above two stark kingdom cards with chip-style example tags.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v2/page-7.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 07</span><div class="tour-card__title">Notes &amp; Action Items</div><p class="tour-card__desc">Subtle grid pattern with finer ruled lines. Quietly elegant.</p></div></div>
+      <div class="tour-card"><div class="tour-card__thumb"><img src="assets/brochure/thumbs/v2/page-8.png" alt=""></div><div class="tour-card__body"><span class="tour-card__num">Page 08</span><div class="tour-card__title">Let&rsquo;s Talk</div><p class="tour-card__desc">Dark navy + grid back cover. Mark&rsquo;s photo, four contact tiles, LCRL lockup, Calendly QR card.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SPECS
+     ============================================================ -->
+<section class="section section--light">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Print Specifications</span>
+      <h2>Built for the Press</h2>
+      <div class="gold-rule"></div>
+      <p>Both editions share the same print specs. Hand either PDF to any North American print shop.</p>
+    </div>
+    <div class="specs-grid">
+      <div class="spec"><span class="h-eyebrow">Trim Size</span><h3>8.5 × 11 in</h3><p>US Letter &mdash; the standard pew-rack and direct-mail format.</p></div>
+      <div class="spec"><span class="h-eyebrow">Bleed</span><h3>0.125 in</h3><p>Full bleed all four sides; full page measures 8.75 × 11.25 in.</p></div>
+      <div class="spec"><span class="h-eyebrow">Safe Margin</span><h3>0.25 in</h3><p>All text safely inside the trim. Total edge-to-text: 0.375 in.</p></div>
+      <div class="spec"><span class="h-eyebrow">Crop Marks</span><h3>Included</h3><p>Drawn into the bleed at all four corners, ready for the cutter.</p></div>
+      <div class="spec"><span class="h-eyebrow">Page Count</span><h3>8 Pages</h3><p>Two saddle-stitched sheets folded &mdash; one signature, no spine.</p></div>
+      <div class="spec"><span class="h-eyebrow">Color Mode</span><h3>RGB → CMYK</h3><p>Source built in RGB; ask your printer to convert to CMYK on output.</p></div>
+      <div class="spec"><span class="h-eyebrow">Image DPI</span><h3>300 ppi</h3><p>Hero imagery rendered at 1024 × 1536, downsampled cleanly to print scale.</p></div>
+      <div class="spec"><span class="h-eyebrow">Build Tool</span><h3>Puppeteer</h3><p>Headless Chromium with <code>preferCSSPageSize</code>. <code>node print-build/build-pdf.js</code> regenerates both PDFs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DOWNLOAD BAND
+     ============================================================ -->
+<section class="download-band" id="download">
+  <div class="container">
+    <h2>Take it to print.</h2>
+    <p>Both files are saddle-stitch booklet ready. Pick the edition that fits your audience and hand it to any commercial printer.</p>
+    <div class="download-band__pair">
+      <a class="dl-card" href="champions-brochure-print-ready.pdf" download>
+        <span class="dl-tag">v1 · Painterly</span>
+        <div class="dl-title">The Classical Edition</div>
+        <div class="dl-meta">9.5 MB · 8 pages · with bleed &amp; crop marks</div>
+        <span class="dl-action">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Print-Ready PDF
+        </span>
+      </a>
+      <a class="dl-card" href="champions-brochure-modern-print-ready.pdf" download>
+        <span class="dl-tag">v2 · Modern</span>
+        <div class="dl-title">The Editorial Edition</div>
+        <div class="dl-meta">5.7 MB · 8 pages · with bleed &amp; crop marks</div>
+        <span class="dl-action">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Print-Ready PDF
+        </span>
+      </a>
+    </div>
+
+    <div class="download-band__divider"></div>
+    <button type="button" class="order-cta-btn" data-om-open>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Order Printed Copies
+    </button>
+    <div class="order-cta-note">A price quote will be provided before any printing begins.</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ORDER PRINTS MODAL
+     ============================================================ -->
+<div class="om-overlay" id="om-overlay" role="dialog" aria-modal="true" aria-labelledby="om-title">
+  <div class="om-modal">
+    <button type="button" class="om-close" aria-label="Close" data-om-close>&times;</button>
+
+    <!-- Form view -->
+    <div class="om-form-view">
+      <div class="om-header">
+        <span class="eyebrow">Print Order Request</span>
+        <h2 id="om-title">Order Printed Copies</h2>
+        <p>Tell us which edition, how many, and where to ship. We&rsquo;ll come back with a price quote within one business day.</p>
+      </div>
+
+      <div class="om-body">
+        <div class="om-disclaimer">
+          <strong>No charge until you approve.</strong> Submitting this form starts a conversation with our preferred printer. You will receive a price quote (including shipping) before any printing begins.
+        </div>
+
+        <form
+          name="brochure-order"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          id="om-form"
+        >
+          <input type="hidden" name="form-name" value="brochure-order" />
+          <p style="display:none;"><label>Don&rsquo;t fill this out: <input name="bot-field" /></label></p>
+
+          <div class="om-grid">
+            <div class="om-field full">
+              <label for="om-edition">Edition</label>
+              <select id="om-edition" name="edition" required>
+                <option value="">Select an edition…</option>
+                <option value="v1-classical">v1 — The Classical Edition (painterly)</option>
+                <option value="v2-modern">v2 — The Editorial Edition (modern)</option>
+                <option value="both">Both editions</option>
+              </select>
+            </div>
+
+            <div class="om-field full">
+              <label for="om-quantity">Quantity</label>
+              <div class="om-quantity">
+                <input type="number" id="om-quantity" name="quantity" min="25" step="25" placeholder="e.g. 100" required>
+                <div class="om-presets" role="group" aria-label="Quick quantities">
+                  <button type="button" class="om-preset" data-qty="25">25</button>
+                  <button type="button" class="om-preset" data-qty="50">50</button>
+                  <button type="button" class="om-preset" data-qty="100">100</button>
+                  <button type="button" class="om-preset" data-qty="250">250</button>
+                  <button type="button" class="om-preset" data-qty="500">500</button>
+                  <button type="button" class="om-preset" data-qty="1000">1,000</button>
+                </div>
+                <span class="hint">Minimum 25. If ordering both editions, this is the total per edition.</span>
+              </div>
+            </div>
+
+            <div class="om-section-label">Contact</div>
+
+            <div class="om-field">
+              <label for="om-name">Full Name</label>
+              <input type="text" id="om-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="om-field">
+              <label for="om-email">Email</label>
+              <input type="email" id="om-email" name="email" autocomplete="email" required>
+            </div>
+            <div class="om-field">
+              <label for="om-phone">Phone <span style="color:#6b8099; text-transform:none; letter-spacing:0; font-weight:400;">(optional)</span></label>
+              <input type="tel" id="om-phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="om-field">
+              <label for="om-org">Organization <span style="color:#6b8099; text-transform:none; letter-spacing:0; font-weight:400;">(optional)</span></label>
+              <input type="text" id="om-org" name="organization" autocomplete="organization">
+            </div>
+
+            <div class="om-section-label">Ship To</div>
+
+            <div class="om-field full">
+              <label for="om-address1">Street Address</label>
+              <input type="text" id="om-address1" name="address1" autocomplete="address-line1" required>
+            </div>
+            <div class="om-field full">
+              <label for="om-address2">Address Line 2 <span style="color:#6b8099; text-transform:none; letter-spacing:0; font-weight:400;">(optional)</span></label>
+              <input type="text" id="om-address2" name="address2" autocomplete="address-line2">
+            </div>
+            <div class="om-field">
+              <label for="om-city">City</label>
+              <input type="text" id="om-city" name="city" autocomplete="address-level2" required>
+            </div>
+            <div class="om-field">
+              <label for="om-state">State / Province</label>
+              <input type="text" id="om-state" name="state" autocomplete="address-level1" required>
+            </div>
+            <div class="om-field">
+              <label for="om-zip">ZIP / Postal</label>
+              <input type="text" id="om-zip" name="zip" autocomplete="postal-code" required>
+            </div>
+            <div class="om-field">
+              <label for="om-country">Country</label>
+              <input type="text" id="om-country" name="country" autocomplete="country-name" value="United States" required>
+            </div>
+
+            <div class="om-section-label">Notes</div>
+
+            <div class="om-field full">
+              <label for="om-notes">Special Requests <span style="color:#6b8099; text-transform:none; letter-spacing:0; font-weight:400;">(optional)</span></label>
+              <textarea id="om-notes" name="notes" placeholder="Paper preference, target arrival date, event timing, etc."></textarea>
+            </div>
+          </div>
+
+          <div class="om-error" id="om-error">Something went wrong submitting your request. Please try again or email gary.ricke@orbisdesign.com directly.</div>
+
+          <div class="om-actions">
+            <button type="button" class="om-cancel" data-om-close>Cancel</button>
+            <button type="submit" class="om-submit" id="om-submit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>
+              <span>Request Quote</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success view -->
+    <div class="om-success" id="om-success">
+      <div class="om-success__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h2>Request Received.</h2>
+      <p>Thanks &mdash; we&rsquo;ll send a price quote (including shipping) within one business day. No charge will be applied until you approve the quote.</p>
+      <button type="button" class="om-success__close" data-om-close>Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer style="background:#021e2e; color:rgba(255,255,255,0.6); padding:48px 0; text-align:center; font-size:0.85rem;">
+  <div class="container">
+    <p>An initiative of the <a href="https://www.lcrlfreedom.org" style="color:#BB8C3A;" target="_blank" rel="noopener">Lutheran Center for Religious Liberty</a> · Champions for Religious Liberty Network</p>
+    <p style="margin-top:12px;"><a href="index.html" style="color:rgba(255,255,255,0.5);">← Back to main site</a> · champions-network.com</p>
+  </div>
+</footer>
+
+<script>
+// Tour tab switching
+document.querySelectorAll('.tour-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tour;
+    document.querySelectorAll('.tour-tab').forEach(b => b.classList.toggle('active', b.dataset.tour === target));
+    document.querySelectorAll('.tour-grid').forEach(g => g.classList.toggle('hidden', g.id !== 'tour-' + target));
+  });
+});
+
+// ============= Order Prints modal =============
+(function () {
+  const overlay = document.getElementById('om-overlay');
+  const form = document.getElementById('om-form');
+  const formView = document.querySelector('.om-form-view');
+  const successView = document.getElementById('om-success');
+  const submitBtn = document.getElementById('om-submit');
+  const errorBox = document.getElementById('om-error');
+  const qtyInput = document.getElementById('om-quantity');
+  if (!overlay || !form) return;
+
+  function openModal() {
+    overlay.classList.add('open');
+    document.body.classList.add('om-locked');
+    setTimeout(() => document.getElementById('om-edition').focus(), 100);
+  }
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.classList.remove('om-locked');
+    // reset to form view after close animation
+    setTimeout(() => {
+      formView.style.display = '';
+      successView.classList.remove('show');
+      errorBox.classList.remove('show');
+    }, 250);
+  }
+
+  document.querySelectorAll('[data-om-open]').forEach(b => b.addEventListener('click', openModal));
+  document.querySelectorAll('[data-om-close]').forEach(b => b.addEventListener('click', closeModal));
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
+
+  // Quantity preset chips
+  document.querySelectorAll('.om-preset').forEach(p => {
+    p.addEventListener('click', () => {
+      qtyInput.value = p.dataset.qty;
+      document.querySelectorAll('.om-preset').forEach(x => x.classList.remove('active'));
+      p.classList.add('active');
+    });
+  });
+  qtyInput.addEventListener('input', () => {
+    document.querySelectorAll('.om-preset').forEach(p => p.classList.toggle('active', p.dataset.qty === qtyInput.value));
+  });
+
+  // Submit via fetch so we can show a custom success state without leaving the page
+  function encode(data) {
+    return Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorBox.classList.remove('show');
+    submitBtn.disabled = true;
+    submitBtn.querySelector('span').textContent = 'Sending…';
+
+    const fd = new FormData(form);
+    const data = {};
+    fd.forEach((v, k) => { data[k] = v; });
+
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(data),
+      });
+      if (!res.ok) throw new Error('Submission failed: ' + res.status);
+      formView.style.display = 'none';
+      successView.classList.add('show');
+    } catch (err) {
+      console.error(err);
+      errorBox.classList.add('show');
+      submitBtn.disabled = false;
+      submitBtn.querySelector('span').textContent = 'Request Quote';
+    }
+  });
+})();
+</script>
+<script src="champions.js"></script>
+</body>
+</html>

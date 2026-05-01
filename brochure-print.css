@@ -1,0 +1,897 @@
+/* ============================================================
+   Champions for Religious Liberty — 8-Page Print Brochure
+   Trim: 8.5 × 11 in | Bleed: 0.125 in | Safe: 0.25 in inside trim
+   Fonts: Bebas Neue (display) | Poppins 300 (body)
+          Playfair Display Bold Italic (scripture/script accents)
+   ============================================================ */
+
+@page {
+  size: 8.75in 11.25in; /* trim 8.5 × 11 + 0.125 bleed each side */
+  margin: 0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #BB8C3A;
+  --gold-light: #d4a854;
+  --gold-dark: #9a7230;
+  --gold-pale: #f1e2c2;
+  --blue: #0876A9;
+  --navy: #055A81;
+  --navy-deep: #033f5c;
+  --navy-ink: #021e2e;
+  --light: #ECF4F9;
+  --white: #FFFFFF;
+  --ink: #14202d;
+
+  --bleed: 0.125in;
+  --safe: 0.25in;       /* additional safe margin inside trim */
+  --edge: 0.375in;      /* bleed + safe = 0.375 in from physical edge */
+}
+
+html, body {
+  background: #fff;
+  color: var(--ink);
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  line-height: 1.55;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- Page frame ---------- */
+.page {
+  width: 8.75in;
+  height: 11.25in;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  background: #fff;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+/* Crop marks — drawn inside bleed at trim corners */
+.crops i {
+  position: absolute;
+  background: #000;
+  z-index: 999;
+}
+.crops .tl-h, .crops .tr-h, .crops .bl-h, .crops .br-h { width: 0.1in; height: 0.5pt; }
+.crops .tl-v, .crops .tr-v, .crops .bl-v, .crops .br-v { width: 0.5pt; height: 0.1in; }
+.crops .tl-h { top: 0.125in; left: 0; }
+.crops .tl-v { top: 0; left: 0.125in; }
+.crops .tr-h { top: 0.125in; right: 0; }
+.crops .tr-v { top: 0; right: 0.125in; }
+.crops .bl-h { bottom: 0.125in; left: 0; }
+.crops .bl-v { bottom: 0; left: 0.125in; }
+.crops .br-h { bottom: 0.125in; right: 0; }
+.crops .br-v { bottom: 0; right: 0.125in; }
+
+/* Hide crop marks when explicitly disabled (web view) */
+body.no-crops .crops { display: none; }
+
+/* ---------- Shared elements ---------- */
+.bleed { position: absolute; inset: 0; }
+.safe  { position: absolute; inset: var(--edge); }
+
+.bg-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.tri-mark {
+  position: absolute;
+  width: 0; height: 0;
+  border-left: 0.6in solid transparent;
+  border-right: 0.6in solid transparent;
+  border-bottom: 0.55in solid var(--gold);
+}
+.tri-outline {
+  position: absolute;
+  width: 0; height: 0;
+  border-left: 0.5in solid transparent;
+  border-right: 0.5in solid transparent;
+  border-bottom: 0.46in solid transparent;
+  filter: drop-shadow(0 0 0 var(--gold));
+}
+
+/* Triangle as SVG-shaped element (more robust) */
+.tri {
+  position: absolute;
+  display: block;
+}
+.tri svg { width: 100%; height: 100%; display: block; }
+
+/* ---------- Type ---------- */
+.display, h1, h2, h3 {
+  font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 0.95;
+}
+.script {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+}
+.eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 9pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+p { font-size: 10.5pt; line-height: 1.55; }
+strong { font-weight: 600; color: var(--navy); }
+ul.bullets { padding-left: 1.1em; }
+ul.bullets li { font-size: 10.5pt; line-height: 1.6; margin: 0.05in 0; list-style: disc; }
+
+/* ============================================================
+   PAGE 1 — COVER
+   ============================================================ */
+.page--cover { background: var(--navy-ink); color: #fff; }
+
+.cover__hero {
+  position: absolute;
+  inset: 0;
+}
+.cover__hero img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Tonal navy overlay over photo for legibility + brand consistency */
+.cover__overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2,30,46,0.55) 0%, rgba(2,30,46,0.05) 35%, rgba(2,30,46,0.05) 60%, rgba(2,30,46,0.85) 100%);
+}
+
+.cover__title-band {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 0.7in 0.7in 0.4in;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: #fff;
+  text-align: center;
+}
+.cover__title-band h1 {
+  font-size: 64pt;
+  line-height: 0.92;
+  letter-spacing: 0.015em;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.18);
+}
+.cover__title-band .triangle-mark {
+  position: absolute;
+  width: 0.7in; height: 0.6in;
+}
+.cover__title-band .triangle-mark.tl { top: 0.05in; left: 0.4in; transform: rotate(-12deg); }
+.cover__title-band .triangle-mark.tr { top: 0.05in; right: 0.4in; transform: rotate(12deg); }
+
+.cover__lockup {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5in;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2in;
+  text-align: center;
+}
+.cover__network-logo {
+  width: 3.6in;
+  height: auto;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.45));
+}
+.cover__tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 22pt;
+  color: var(--gold-light);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.55);
+}
+
+.cover__footer {
+  position: absolute;
+  bottom: 0.55in; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.7in;
+  color: rgba(236,244,249,0.85);
+  font-size: 10pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.cover__footer .left { font-weight: 600; color: var(--gold-light); }
+
+/* ============================================================
+   PAGE 2 — CHRISTIANITY CRIMINALIZED
+   ============================================================ */
+.page--problem { background: var(--navy); color: #fff; }
+.page--problem .problem__hero {
+  position: absolute;
+  top: 0; right: 0;
+  width: 5.5in; height: 5.0in;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+  overflow: hidden;
+}
+.page--problem .problem__hero img { width: 100%; height: 100%; object-fit: cover; }
+
+.page--problem .problem__gold {
+  position: absolute;
+  top: 0; left: 0;
+  width: 4.2in; height: 5.4in;
+  background: var(--gold);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.page--problem .problem__capitol {
+  position: absolute;
+  top: 0.9in; left: 0.6in;
+  width: 1.5in;
+  opacity: 0.95;
+}
+
+.page--problem .problem__title {
+  position: absolute;
+  top: 3.4in; left: 0.6in;
+  color: #fff;
+}
+.page--problem .problem__title h2 {
+  font-size: 56pt;
+  line-height: 0.92;
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.22);
+}
+.page--problem .problem__title .accent {
+  display: inline-block;
+  margin-top: 0.06in;
+  font-size: 28pt;
+  color: var(--gold-light);
+}
+
+.page--problem .problem__card {
+  position: absolute;
+  left: 0.6in; right: 0.6in;
+  bottom: 0.55in;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.4in 0.45in;
+  border-radius: 6pt;
+  box-shadow: 0 6pt 22pt rgba(0,0,0,0.18);
+}
+.page--problem .problem__card p { color: var(--ink); font-size: 10.5pt; }
+.page--problem .problem__card .h-eyebrow {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  font-size: 16pt;
+  margin: 0.18in 0 0.06in;
+}
+.page--problem .problem__card .closing {
+  margin-top: 0.18in;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--navy-deep);
+  border-left: 3pt solid var(--gold);
+  padding-left: 0.18in;
+}
+.page--problem .problem__card .closing strong {
+  color: var(--gold-dark);
+}
+.page--problem .triangle-deco {
+  position: absolute;
+  bottom: 4.0in;
+  left: 0.4in;
+  width: 0.8in; height: 0.7in;
+}
+
+/* ============================================================
+   PAGE 3 — ENGAGING IN CULTURE GOD'S WAY
+   ============================================================ */
+.page--theology {
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: #fff;
+}
+.page--theology .theology__hero {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 6.4in;
+  overflow: hidden;
+  z-index: 1;
+}
+.page--theology .theology__hero img { width: 100%; height: 100%; object-fit: cover; }
+.page--theology .theology__hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2,30,46,0.45) 0%, rgba(2,30,46,0) 30%, rgba(2,30,46,0) 60%, var(--navy) 100%);
+}
+
+.page--theology .theology__title {
+  position: absolute;
+  top: 0.7in;
+  left: 0.7in;
+  z-index: 3;
+}
+.page--theology .theology__title h2 {
+  font-size: 60pt;
+  line-height: 0.92;
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.3);
+}
+.page--theology .theology__title .script {
+  display: block;
+  margin-top: 0.06in;
+  font-size: 30pt;
+  color: var(--gold-light);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.55);
+}
+
+.page--theology .theology__intro {
+  position: absolute;
+  top: 6.5in;
+  left: 0.7in; right: 0.7in;
+  z-index: 3;
+  text-align: center;
+}
+.page--theology .theology__intro p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14pt;
+  line-height: 1.5;
+  color: var(--gold-light);
+  max-width: 6.5in;
+  margin: 0 auto;
+}
+
+.page--theology .theology__divider {
+  position: absolute;
+  top: 8.0in;
+  left: 1.5in; right: 1.5in;
+  height: 1pt;
+  background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+  z-index: 3;
+}
+
+.page--theology .theology__copy {
+  position: absolute;
+  top: 8.3in;
+  left: 0.7in; right: 0.7in;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45in;
+  z-index: 3;
+}
+.page--theology .theology__copy .col h3 {
+  font-size: 22pt;
+  color: var(--gold-light);
+  margin-bottom: 0.1in;
+  letter-spacing: 0.04em;
+  line-height: 1.0;
+}
+.page--theology .theology__copy .col h3 .small {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(236,244,249,0.7);
+  margin-bottom: 0.06in;
+}
+.page--theology .theology__copy p { color: rgba(236,244,249,0.92); font-size: 10.5pt; line-height: 1.55; }
+.page--theology .theology__copy strong { color: #fff; }
+
+/* ============================================================
+   PAGE 4 — BECOMING A CHAMPION
+   ============================================================ */
+.page--solution { background: var(--gold); color: #fff; }
+
+.page--solution .solution__hero {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 6.0in;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  overflow: hidden;
+}
+.page--solution .solution__hero img { width: 100%; height: 100%; object-fit: cover; }
+.page--solution .solution__hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(2,30,46,0) 40%, rgba(187,140,58,0.35) 100%);
+}
+
+.page--solution .solution__title {
+  position: absolute;
+  top: 5.7in;
+  left: 0.6in;
+  color: #fff;
+}
+.page--solution .solution__title h2 {
+  font-size: 60pt;
+  line-height: 0.92;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(0,0,0,0.25);
+}
+
+.page--solution .solution__copy {
+  position: absolute;
+  top: 7.2in;
+  left: 0.6in; right: 0.6in;
+  color: #fff;
+}
+.page--solution .solution__copy p { font-size: 10.5pt; line-height: 1.6; margin-bottom: 0.16in; }
+.page--solution .solution__copy strong {
+  color: var(--navy-ink);
+  font-weight: 700;
+}
+
+.page--solution .solution__pillars {
+  position: absolute;
+  bottom: 0.65in; left: 0.6in; right: 0.6in;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.18in;
+}
+.page--solution .pillar {
+  background: rgba(255,255,255,0.18);
+  border: 1pt solid rgba(255,255,255,0.45);
+  padding: 0.22in 0.18in;
+  border-radius: 4pt;
+  color: #fff;
+  text-align: center;
+}
+.page--solution .pillar .label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13pt;
+  letter-spacing: 0.06em;
+  display: block;
+  color: var(--navy-ink);
+  margin-bottom: 0.04in;
+}
+.page--solution .pillar .desc {
+  font-size: 8.5pt;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.95);
+}
+
+/* ============================================================
+   PAGE 5 — GET STARTED
+   ============================================================ */
+.page--get-started { background: #fff; color: var(--ink); }
+
+.page--get-started .gs__header {
+  position: absolute;
+  top: 0.7in; left: 0.6in;
+}
+.page--get-started .gs__header h2 {
+  color: var(--navy);
+  font-size: 56pt;
+}
+.page--get-started .gs__header .script {
+  font-size: 22pt;
+  color: var(--gold);
+  display: block;
+  margin-top: 0.05in;
+}
+
+.page--get-started .gs__triangle {
+  position: absolute;
+  top: 0.45in; right: 0.6in;
+  width: 1.6in; height: 1.4in;
+}
+
+.page--get-started .gs__steps {
+  position: absolute;
+  top: 2.5in;
+  left: 0.6in; right: 0.6in;
+  display: flex;
+  flex-direction: column;
+  gap: 0.22in;
+}
+.gs__step {
+  display: grid;
+  grid-template-columns: 1.2in 1fr 1.3in;
+  gap: 0.3in;
+  align-items: center;
+  background: var(--light);
+  border-left: 4pt solid var(--gold);
+  padding: 0.25in 0.3in;
+  border-radius: 4pt;
+}
+.gs__step .num {
+  width: 1.0in; height: 1.0in;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38pt;
+  letter-spacing: 0;
+}
+.gs__step .body h3 {
+  font-size: 18pt;
+  color: var(--navy);
+  margin-bottom: 0.04in;
+  letter-spacing: 0.04em;
+}
+.gs__step .body p { font-size: 10pt; line-height: 1.5; color: var(--ink); }
+.gs__step .qr {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0.06in;
+}
+.gs__step .qr img { width: 1.1in; height: 1.1in; }
+.gs__step .qr .qr-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.page--get-started .gs__footer {
+  position: absolute;
+  bottom: 0.55in; left: 0.6in; right: 0.6in;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.18in;
+  border-top: 1pt solid rgba(8,118,169,0.25);
+  font-size: 9pt;
+  color: var(--navy);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   PAGE 6 — SCRIPTURE + TWO-KINGDOMS DIAGRAM
+   ============================================================ */
+.page--scripture { background: var(--light); color: var(--ink); }
+
+.page--scripture .scripture__head {
+  position: absolute;
+  top: 0.7in; left: 0; right: 0;
+  text-align: center;
+}
+.page--scripture .scripture__head .eyebrow {
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.06in;
+}
+.page--scripture .scripture__head h2 {
+  font-size: 44pt;
+  color: var(--navy);
+}
+
+.page--scripture .scripture__quote {
+  position: absolute;
+  top: 1.85in;
+  left: 0.9in; right: 0.9in;
+  text-align: center;
+}
+.page--scripture .scripture__quote blockquote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 17pt;
+  line-height: 1.45;
+  color: var(--navy);
+  position: relative;
+  padding: 0 0.4in;
+}
+.page--scripture .scripture__quote blockquote::before,
+.page--scripture .scripture__quote blockquote::after {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 50pt;
+  line-height: 1;
+  position: absolute;
+}
+.page--scripture .scripture__quote blockquote::before { content: '\201C'; top: -0.1in; left: -0.05in; }
+.page--scripture .scripture__quote blockquote::after  { content: '\201D'; bottom: -0.35in; right: -0.05in; }
+.page--scripture .scripture__quote cite {
+  display: block;
+  margin-top: 0.35in;
+  font-style: normal;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 10pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+
+.page--scripture .scripture__diagram {
+  position: absolute;
+  top: 4.0in;
+  left: 0.6in; right: 0.6in;
+  bottom: 0.7in;
+  display: grid;
+  grid-template-columns: 1fr 0.4in 1fr;
+  gap: 0.22in;
+  align-items: stretch;
+}
+.kingdom {
+  padding: 0.4in 0.36in;
+  border-radius: 6pt;
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.kingdom__chips {
+  list-style: none;
+  margin-top: 0.18in;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.06in 0.06in;
+}
+.kingdom__chips li {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7.5pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.12);
+  border: 0.5pt solid rgba(255,255,255,0.32);
+  padding: 0.07in 0.13in;
+  border-radius: 99pt;
+}
+.kingdom .marker {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 50pt;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.12in;
+  opacity: 0.85;
+}
+.kingdom .h-eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 8pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 0.08in;
+  color: rgba(255,255,255,0.7);
+}
+.kingdom h3 {
+  font-size: 22pt;
+  margin-bottom: 0.12in;
+  color: #fff;
+}
+.kingdom p { font-size: 9.5pt; line-height: 1.55; color: rgba(255,255,255,0.92); }
+.kingdom .role {
+  margin-top: auto;
+  padding-top: 0.16in;
+  border-top: 1pt solid rgba(255,255,255,0.3);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16pt;
+  letter-spacing: 0.05em;
+  color: var(--gold-light);
+}
+.kingdom--left  { background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%); }
+.kingdom--right { background: linear-gradient(180deg, var(--blue) 0%, var(--navy) 100%); }
+.kingdom__bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16pt;
+  color: var(--gold);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.18em;
+}
+
+/* ============================================================
+   PAGE 7 — NOTES
+   ============================================================ */
+.page--notes { background: #fff; color: var(--ink); }
+.page--notes .notes__band-top {
+  position: absolute;
+  top: 0; right: 0;
+  width: 5.0in; height: 1.4in;
+  background: var(--gold);
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+}
+.page--notes .notes__band-bottom {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 4.2in; height: 1.0in;
+  background: var(--gold);
+  clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+}
+.page--notes .notes__title {
+  position: absolute;
+  top: 0.7in; left: 0.7in;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 38pt;
+  color: var(--navy);
+}
+.page--notes .notes__paper {
+  position: absolute;
+  top: 1.7in; left: 0.7in; right: 0.7in;
+  bottom: 1.4in;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 0.34in,
+      rgba(8,118,169,0.28) 0.34in,
+      rgba(8,118,169,0.28) calc(0.34in + 0.5pt)
+    );
+}
+
+/* ============================================================
+   PAGE 8 — BACK COVER (CONTACT)
+   ============================================================ */
+.page--back {
+  background: linear-gradient(155deg, #f5e9cf 0%, #e7d5ad 60%, #d4b97c 100%);
+  color: var(--navy);
+}
+.page--back .back__overlay {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.4) 0%, transparent 40%),
+    radial-gradient(circle at 10% 90%, rgba(187,140,58,0.25) 0%, transparent 50%);
+}
+.page--back .back__triangle-tr {
+  position: absolute;
+  top: 0; right: 0;
+  width: 3.0in; height: 3.0in;
+  background: var(--blue);
+  clip-path: polygon(40% 0, 100% 0, 100% 60%);
+}
+.page--back .back__triangle-bl {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 2.6in; height: 2.6in;
+  background: var(--gold);
+  clip-path: polygon(0 40%, 0 100%, 60% 100%);
+}
+
+.page--back .back__photo {
+  position: absolute;
+  top: 1.0in; left: 0.7in;
+  width: 1.9in; height: 1.9in;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4pt solid #fff;
+  box-shadow: 0 6pt 24pt rgba(0,0,0,0.22);
+}
+.page--back .back__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.page--back .back__name {
+  position: absolute;
+  top: 1.4in; left: 2.9in;
+  text-align: left;
+}
+.page--back .back__name .script {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 32pt;
+  color: var(--navy);
+  display: block;
+  line-height: 1.05;
+}
+.page--back .back__name .role {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16pt;
+  letter-spacing: 0.18em;
+  color: var(--gold-dark);
+  display: block;
+  margin-top: 0.06in;
+}
+
+.page--back .back__card {
+  position: absolute;
+  top: 3.7in; left: 0.7in; right: 0.7in;
+  background: var(--navy);
+  color: #fff;
+  padding: 0.45in 0.55in 0.55in;
+  border-radius: 6pt;
+  box-shadow: 0 8pt 28pt rgba(0,0,0,0.25);
+}
+.page--back .back__card p.lead {
+  font-size: 11pt;
+  line-height: 1.55;
+  margin-bottom: 0.3in;
+  color: #fff;
+}
+.page--back .back__card .marker {
+  display: inline-block;
+  margin-bottom: 0.2in;
+  width: 0.5in; height: 0.4in;
+  background: var(--gold);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+.page--back .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.22in 0.5in;
+}
+.contact-grid .row .h-eyebrow {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12pt;
+  letter-spacing: 0.18em;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 0.04in;
+}
+.contact-grid .row .val {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10pt;
+  color: #fff;
+  word-break: break-word;
+}
+
+.page--back .back__qr {
+  position: absolute;
+  bottom: 0.95in; right: 0.85in;
+  width: 1.5in; height: 1.5in;
+  padding: 0.1in;
+  background: #fff;
+  border-radius: 6pt;
+  box-shadow: 0 6pt 20pt rgba(0,0,0,0.2);
+}
+.page--back .back__qr img { width: 100%; height: 100%; }
+.page--back .back__qr-caption {
+  position: absolute;
+  bottom: 0.6in; right: 0.85in;
+  width: 1.5in;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.page--back .back__lcrl {
+  position: absolute;
+  bottom: 0.6in; left: 0.85in;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05in;
+}
+.page--back .back__lcrl img { width: 1.3in; }
+.page--back .back__lcrl .tag {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+/* ============================================================
+   Web preview helpers (when viewing brochure-print.html in browser)
+   ============================================================ */
+@media screen {
+  body {
+    background: #2a2f36;
+    padding: 0.4in 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4in;
+  }
+  .page {
+    box-shadow: 0 0.3in 0.8in rgba(0,0,0,0.35);
+  }
+}
