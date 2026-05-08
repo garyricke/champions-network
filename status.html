@@ -288,15 +288,15 @@
   <article class="entry">
     <div class="dot"></div>
     <div class="date">May 8<span class="y">2026</span></div>
-    <h3>Internal area + password-gated review docs</h3>
+    <h3>Discreet admin entry + password-gated review docs</h3>
     <div class="tags">
       <span class="tag internal">Internal</span>
       <span class="tag feature">Feature</span>
     </div>
     <ul>
-      <li>Removed <code>Brochure</code> from the top nav (desktop + mobile) — it's an internal review document, not a public navigation item.</li>
-      <li>Added an <strong>Internal</strong> column to the main site footer linking Brochure, Brand Guide, and Status.</li>
-      <li>Password-gated <code>brochure.html</code>, <code>brand-standards.html</code>, and <code>status.html</code> with the same dark / gold-grid gate the site used pre-launch (sessionStorage <code>cn_auth</code> · password <code>markrules</code>).</li>
+      <li>Removed <code>Brochure</code> from the top nav (desktop + mobile) — internal review document, not a public destination.</li>
+      <li>Added a discreet <strong>"A" badge</strong> (bottom-right, ~32px circle, low opacity until hover) on <code>index.html</code>. Click reveals a small popover with three links: Brochure · Brand Guide · Status. No labels or footer copy that calls it out.</li>
+      <li>Password-gated <code>brochure.html</code>, <code>brand-standards.html</code>, and <code>status.html</code> with the same dark / gold-grid gate the site used pre-launch (sessionStorage <code>cn_auth</code> · password <code>markrules</code>). Clicking a link from the A-popover lands on the gate.</li>
       <li>Created this Status page (<code>status.html</code>) as the engineering changelog.</li>
       <li>Triggered a Netlify rebuild via empty commit so Forms Detection rescans <code>champions-consultation</code> and <code>brochure-order</code>.</li>
     </ul>

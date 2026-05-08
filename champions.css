@@ -1194,21 +1194,67 @@ p { font-size: 1rem; font-weight: 300; line-height: 1.75; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
-  gap: 2.25rem;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
   margin-bottom: 3rem;
 }
-.footer-col--internal h5 { color: rgba(187,140,58,0.7); }
-.footer-col--internal ul a {
-  font-size: 0.84rem;
-  color: rgba(236,244,249,0.5);
+
+/* Discreet admin badge (bottom-right) — opens popover with internal links */
+#adm {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 900;
+  font-family: 'Bebas Neue', sans-serif;
 }
-.footer-internal-note {
-  font-size: 0.7rem;
-  color: rgba(236,244,249,0.32);
-  margin-top: 0.9rem;
+#adm-btn {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(187,140,58,0.35);
+  background: rgba(2,30,46,0.4);
+  color: rgba(187,140,58,0.55);
+  font-size: 0.95rem;
+  cursor: pointer;
+  opacity: 0.35;
+  transition: opacity .25s, color .25s, border-color .25s, background .25s, transform .25s;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0; line-height: 1;
+}
+#adm-btn:hover, #adm-btn:focus-visible, #adm.open #adm-btn {
+  opacity: 1;
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(2,30,46,0.9);
+  outline: none;
+}
+#adm-pop {
+  position: absolute;
+  bottom: 44px; right: 0;
+  min-width: 160px;
+  background: rgba(2,30,46,0.96);
+  border: 1px solid rgba(187,140,58,0.3);
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+  display: flex; flex-direction: column; gap: 2px;
+  font-family: 'Poppins', sans-serif;
+  animation: admFade .18s ease-out;
+}
+@keyframes admFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#adm-pop a {
+  font-size: 0.82rem;
+  color: rgba(236,244,249,0.75);
+  padding: 8px 14px;
+  border-radius: 4px;
   letter-spacing: 0.04em;
-  font-style: italic;
+  transition: background .15s, color .15s;
+}
+#adm-pop a:hover {
+  background: rgba(187,140,58,0.12);
+  color: var(--gold);
 }
 .footer-brand img { height: 44px; margin-bottom: 1.25rem; }
 .footer-brand p { font-size: 0.88rem; line-height: 1.75; color: rgba(236,244,249,0.6); max-width: 300px; }

@@ -1088,15 +1088,6 @@
           <li><a href="https://www.lcrlfreedom.org/donate" target="_blank" rel="noopener">Donate</a></li>
         </ul>
       </div>
-      <div class="footer-col footer-col--internal">
-        <h5>Internal</h5>
-        <ul>
-          <li><a href="brochure.html">Brochure</a></li>
-          <li><a href="brand-standards.html">Brand Guide</a></li>
-          <li><a href="status.html">Status</a></li>
-        </ul>
-        <p class="footer-internal-note">Password protected. Team use only.</p>
-      </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Champions for Religious Liberty Network — An Initiative of the Lutheran Center for Religious Liberty. All rights reserved.</p>
@@ -1305,6 +1296,28 @@
     </div>
   </div>
 </div>
+
+<!-- Discreet admin entry — popover with internal links -->
+<div id="adm">
+  <button id="adm-btn" type="button" aria-label="A" aria-haspopup="true" aria-expanded="false">A</button>
+  <div id="adm-pop" role="menu" hidden>
+    <a href="brochure.html" role="menuitem">Brochure</a>
+    <a href="brand-standards.html" role="menuitem">Brand Guide</a>
+    <a href="status.html" role="menuitem">Status</a>
+  </div>
+</div>
+<script>
+(function(){
+  var wrap=document.getElementById('adm');
+  if(!wrap)return;
+  var btn=document.getElementById('adm-btn'),pop=document.getElementById('adm-pop');
+  function open(){pop.hidden=false;wrap.classList.add('open');btn.setAttribute('aria-expanded','true');}
+  function close(){pop.hidden=true;wrap.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  btn.addEventListener('click',function(e){e.stopPropagation();pop.hidden?open():close();});
+  document.addEventListener('click',function(e){if(!pop.hidden&&!wrap.contains(e.target))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!pop.hidden)close();});
+})();
+</script>
 
 <script src="champions.js"></script>
 </body>
