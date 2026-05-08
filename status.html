@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon-champions-network.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Status — Champions Network</title>
+<meta name="description" content="Internal build log for the Champions for Religious Liberty Network site. Reverse-chronological record of changes by date.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --gold:#BB8C3A;
+    --gold-light:#d4a04a;
+    --blue:#0876A9;
+    --navy:#055A81;
+    --navy-dark:#021e2e;
+    --light:#ECF4F9;
+    --text:#1a2b38;
+    --muted:rgba(236,244,249,.6);
+    --hairline:rgba(187,140,58,.18);
+  }
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins',sans-serif;
+    font-weight:300;
+    background:var(--navy-dark);
+    color:var(--light);
+    line-height:1.7;
+    min-height:100vh;
+  }
+  a{color:var(--gold-light);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--gold);}
+
+  /* ── Top bar ── */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(2,30,46,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--hairline);
+    padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .topbar a.back{
+    font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+    color:rgba(236,244,249,.7);
+  }
+  .topbar a.back:hover{color:var(--gold);}
+  .topbar .pill{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.7rem;letter-spacing:.08em;
+    padding:4px 10px;border-radius:999px;
+    background:rgba(187,140,58,.12);color:var(--gold);
+    border:1px solid var(--hairline);
+  }
+
+  /* ── Hero ── */
+  .hero{
+    position:relative;padding:90px 28px 60px;
+    text-align:center;overflow:hidden;
+    background:linear-gradient(140deg,#021e2e 0%,#033f5c 60%,#055A81 100%);
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background-image:linear-gradient(rgba(187,140,58,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(187,140,58,.06) 1px,transparent 1px);
+    background-size:48px 48px;pointer-events:none;
+  }
+  .hero-inner{position:relative;max-width:760px;margin:0 auto;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:'Bebas Neue',sans-serif;font-weight:400;
+    font-size:clamp(2.8rem,6vw,4.6rem);
+    color:#fff;letter-spacing:.02em;line-height:1;
+    margin-bottom:18px;
+  }
+  .hero p.lede{
+    font-size:1.05rem;color:var(--muted);max-width:540px;margin:0 auto;
+  }
+
+  /* ── Stats strip ── */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--hairline);
+    border-top:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+  }
+  .stat{
+    background:var(--navy-dark);
+    padding:22px 18px;text-align:center;
+  }
+  .stat .num{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2.2rem;color:var(--gold);line-height:1;
+  }
+  .stat .lbl{
+    font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+    color:rgba(236,244,249,.45);margin-top:6px;
+  }
+
+  /* ── Timeline ── */
+  .timeline{
+    max-width:880px;margin:0 auto;
+    padding:60px 28px 80px;
+  }
+  .entry{
+    position:relative;
+    padding:30px 0 30px 130px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+  }
+  .entry:last-child{border-bottom:0;}
+  .entry::before{
+    content:'';position:absolute;left:104px;top:38px;bottom:-1px;
+    width:1px;background:var(--hairline);
+  }
+  .entry:last-child::before{bottom:30px;}
+  .entry .dot{
+    position:absolute;left:99px;top:36px;
+    width:11px;height:11px;border-radius:50%;
+    background:var(--gold);box-shadow:0 0 0 4px var(--navy-dark),0 0 0 5px var(--hairline);
+  }
+  .entry .date{
+    position:absolute;left:0;top:32px;
+    width:90px;text-align:right;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.1rem;letter-spacing:.06em;
+    color:var(--gold);line-height:1.1;
+  }
+  .entry .date .y{
+    display:block;font-size:.7rem;letter-spacing:.14em;
+    color:rgba(236,244,249,.4);font-family:'JetBrains Mono',monospace;
+    margin-top:4px;
+  }
+  .entry h3{
+    font-family:'Bebas Neue',sans-serif;font-weight:400;
+    font-size:1.55rem;color:#fff;letter-spacing:.04em;
+    margin:0 0 10px;line-height:1.15;
+  }
+  .entry .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.65rem;letter-spacing:.1em;
+    padding:3px 8px;border-radius:4px;
+    text-transform:uppercase;
+  }
+  .tag.launch{background:rgba(187,140,58,.18);color:var(--gold-light);border:1px solid rgba(187,140,58,.3);}
+  .tag.feature{background:rgba(8,118,169,.2);color:#7cc5ea;border:1px solid rgba(8,118,169,.35);}
+  .tag.content{background:rgba(120,180,140,.15);color:#a8d4b6;border:1px solid rgba(120,180,140,.3);}
+  .tag.internal{background:rgba(255,255,255,.05);color:rgba(236,244,249,.55);border:1px solid rgba(255,255,255,.1);}
+  .tag.fix{background:rgba(220,120,80,.15);color:#f0b89c;border:1px solid rgba(220,120,80,.3);}
+  .entry ul{list-style:none;padding:0;}
+  .entry ul li{
+    position:relative;padding-left:18px;
+    font-size:.92rem;color:rgba(236,244,249,.72);
+    margin-bottom:6px;line-height:1.6;
+  }
+  .entry ul li::before{
+    content:'›';position:absolute;left:0;top:-1px;
+    color:var(--gold);font-weight:700;
+  }
+  .entry ul li code{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.82em;background:rgba(255,255,255,.05);
+    padding:1px 6px;border-radius:3px;color:var(--gold-light);
+  }
+  .entry .commit{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;color:rgba(236,244,249,.35);
+    margin-top:10px;letter-spacing:.04em;
+  }
+
+  /* ── Footer ── */
+  footer.foot{
+    border-top:1px solid var(--hairline);
+    padding:30px 28px;
+    text-align:center;
+    font-size:.78rem;color:rgba(236,244,249,.45);
+    letter-spacing:.04em;
+  }
+  footer.foot p{margin:4px 0;}
+
+  @media (max-width:640px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .timeline{padding:40px 18px 60px;}
+    .entry{padding:24px 0 24px 84px;}
+    .entry::before{left:60px;top:32px;}
+    .entry .dot{left:55px;top:30px;}
+    .entry .date{width:50px;font-size:.95rem;top:26px;}
+    .entry h3{font-size:1.3rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PASSWORD GATE — Internal document. Key: cn_auth
+     ============================================================ -->
+<style>
+  #pw-gate{position:fixed;inset:0;z-index:9999;background:#021e2e;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;}
+  #pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(187,140,58,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(187,140,58,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+  #pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(187,140,58,.25);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5);}
+  #pw-box img{height:48px;margin-bottom:24px;display:block;margin-inline:auto;}
+  #pw-box h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#BB8C3A;letter-spacing:.08em;margin:0 0 8px;}
+  #pw-box .sub{font-size:.85rem;color:rgba(236,244,249,.55);margin:0 0 28px;letter-spacing:.02em;}
+  #pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid rgba(187,140,58,.3);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s;}
+  #pw-input:focus{border-color:#BB8C3A;}
+  #pw-btn{margin-top:14px;width:100%;padding:12px;background:#BB8C3A;color:#021e2e;border:0;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;cursor:pointer;transition:background .2s;}
+  #pw-btn:hover{background:#d4a04a;}
+  #pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em;}
+  .pw-shake{animation:pwShake .35s;}
+  @keyframes pwShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+</style>
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network">
+    <h2>Internal Document</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='cn_auth',PASS='markrules',gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function attempt(){
+    if(document.getElementById('pw-input').value===PASS){
+      sessionStorage.setItem(KEY,'1');
+      document.body.style.overflow='';
+      gate.style.display='none';
+    } else {
+      document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+      var box=document.getElementById('pw-box');
+      box.classList.remove('pw-shake');
+      void box.offsetWidth;
+      box.classList.add('pw-shake');
+    }
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+</script>
+
+<!-- ============================================================
+     TOP BAR
+     ============================================================ -->
+<div class="topbar">
+  <a class="back" href="index.html">← Main Site</a>
+  <span class="pill">INTERNAL · BUILD STATUS</span>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Champions Network · Engineering Log</div>
+    <h1>Build Status</h1>
+    <p class="lede">Reverse-chronological record of what's shipped on the Champions for Religious Liberty Network site. Updated as work lands.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS STRIP
+     ============================================================ -->
+<div class="stats">
+  <div class="stat"><div class="num">5</div><div class="lbl">Live Pages</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">Brochure Editions</div></div>
+  <div class="stat"><div class="num">1</div><div class="lbl">Live since May 1</div></div>
+  <div class="stat"><div class="num">∞</div><div class="lbl">Two Kingdoms</div></div>
+</div>
+
+<!-- ============================================================
+     TIMELINE
+     ============================================================ -->
+<div class="timeline">
+
+  <!-- ── 2026-05-08 ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">May 8<span class="y">2026</span></div>
+    <h3>Internal area + password-gated review docs</h3>
+    <div class="tags">
+      <span class="tag internal">Internal</span>
+      <span class="tag feature">Feature</span>
+    </div>
+    <ul>
+      <li>Removed <code>Brochure</code> from the top nav (desktop + mobile) — it's an internal review document, not a public navigation item.</li>
+      <li>Added an <strong>Internal</strong> column to the main site footer linking Brochure, Brand Guide, and Status.</li>
+      <li>Password-gated <code>brochure.html</code>, <code>brand-standards.html</code>, and <code>status.html</code> with the same dark / gold-grid gate the site used pre-launch (sessionStorage <code>cn_auth</code> · password <code>markrules</code>).</li>
+      <li>Created this Status page (<code>status.html</code>) as the engineering changelog.</li>
+      <li>Triggered a Netlify rebuild via empty commit so Forms Detection rescans <code>champions-consultation</code> and <code>brochure-order</code>.</li>
+    </ul>
+    <div class="commit">main · current</div>
+  </article>
+
+  <!-- ── 2026-05-01 ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">May 1<span class="y">2026</span></div>
+    <h3>Site goes live · 8-page print brochure (two editions)</h3>
+    <div class="tags">
+      <span class="tag launch">Launch</span>
+      <span class="tag feature">Feature</span>
+    </div>
+    <ul>
+      <li>Removed pre-launch password gate from <code>index.html</code>, <code>laa-podcast.html</code>, and <code>session-002.html</code>. Site is now public at <strong>champions-network.com</strong>.</li>
+      <li>Shipped 8-page print brochure in two editions: <em>v1 painterly</em> (<code>brochure-print.html</code>, ~9.5 MB PDF) and <em>v2 modern editorial</em> (<code>brochure-modern-print.html</code>, ~5.7 MB PDF) matching the website's design system.</li>
+      <li>Built the Puppeteer dual-PDF pipeline (<code>print-build/build-pdf.js</code>) — produces both print-ready PDFs in one run.</li>
+      <li>Added public-facing brochure explainer page (<code>brochure.html</code>) with tabbed page-tour. (Now password-gated as of May 8.)</li>
+    </ul>
+    <div class="commit">6050172 · Add 8-page print brochure (two editions) and take site live</div>
+  </article>
+
+  <!-- ── 2026-04-03 (Bio) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Apr 3<span class="y">2026</span></div>
+    <h3>Mark Frith bio · full vocational history</h3>
+    <div class="tags">
+      <span class="tag content">Content</span>
+    </div>
+    <ul>
+      <li>Updated Rev. Mark Frith's leadership bio on <code>index.html</code> with his full vocational history.</li>
+    </ul>
+    <div class="commit">2ec58df · Update Rev. Mark Frith bio</div>
+  </article>
+
+  <!-- ── 2026-04-03 (Leadership) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Apr 3<span class="y">2026</span></div>
+    <h3>Leadership images · third team card · Knight tier photo</h3>
+    <div class="tags">
+      <span class="tag content">Content</span>
+      <span class="tag feature">Feature</span>
+    </div>
+    <ul>
+      <li>Refreshed leadership headshots on the landing page.</li>
+      <li>Added a third team card to the Leadership section.</li>
+      <li>Replaced the Knight First Class tier photo on the Journey carousel.</li>
+    </ul>
+    <div class="commit">afe1c57 · Update leadership images, add third team card, replace Knight tier photo</div>
+  </article>
+
+  <!-- ── 2026-04-03 (Session 002 video) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Apr 3<span class="y">2026</span></div>
+    <h3>Session 002 hero video</h3>
+    <div class="tags">
+      <span class="tag feature">Feature</span>
+    </div>
+    <ul>
+      <li>Replaced the static Session 002 hero image with a looping video.</li>
+    </ul>
+    <div class="commit">a4ed8aa · Replace session 002 hero image with looping video</div>
+  </article>
+
+  <!-- ── 2026-04-03 (Sessions section) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Apr 3<span class="y">2026</span></div>
+    <h3>Sessions section + nav link</h3>
+    <div class="tags">
+      <span class="tag feature">Feature</span>
+    </div>
+    <ul>
+      <li>Added a Sessions section to the landing page surfacing the Year One study sessions.</li>
+      <li>Added <code>Sessions</code> to the top nav (desktop + mobile).</li>
+    </ul>
+    <div class="commit">0b7c506 · Add Sessions section and nav link to main page</div>
+  </article>
+
+  <!-- ── 2026-04-03 (Session 002 study guide) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Apr 3<span class="y">2026</span></div>
+    <h3>Session 002 interactive study guide</h3>
+    <div class="tags">
+      <span class="tag feature">Feature</span>
+    </div>
+    <ul>
+      <li>Built <code>session-002.html</code> + <code>session-002.css</code> + <code>session-002.js</code>: video hero, accordions, tabs, six modals, ten-question quiz.</li>
+    </ul>
+    <div class="commit">1f5f996 · Add Session 002 interactive study guide</div>
+  </article>
+
+  <!-- ── 2026-04-03 (UI polish) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Apr 3<span class="y">2026</span></div>
+    <h3>UI polish · nav, footer, hero video, favicons, logo, quote fonts</h3>
+    <div class="tags">
+      <span class="tag fix">Polish</span>
+    </div>
+    <ul>
+      <li>Nav refinements; footer restructured with Network / Get Involved / LCRL columns.</li>
+      <li>Replaced static hero with looping video on landing page.</li>
+      <li>Standardized favicons to <code>favicon-champions-network.svg</code> across pages.</li>
+      <li>Logo + quote treatment finalized: Playfair Display Bold Italic for scripture, Bold upright for proclamation/First Amendment quotes.</li>
+    </ul>
+    <div class="commit">a84764b · UI updates: nav, footer, hero video, favicons, logo, quote fonts</div>
+  </article>
+
+  <!-- ── 2026-03 ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Mar<span class="y">2026</span></div>
+    <h3>Initial build · brand standards · landing page · LAA podcast</h3>
+    <div class="tags">
+      <span class="tag launch">Launch</span>
+    </div>
+    <ul>
+      <li>Brand Standards Guide authored in markdown + rendered as <code>brand-standards.html</code>.</li>
+      <li>Landing page built (<code>index.html</code> + <code>champions.css</code> + <code>champions.js</code>).</li>
+      <li>4-part Liberty Action Alert podcast page (<code>laa-podcast.html</code>) with audio players, tabs, accordions, modals, promo section.</li>
+      <li>Repo initialized at <a href="https://github.com/garyricke/champions-network" target="_blank" rel="noopener">github.com/garyricke/champions-network</a>.</li>
+    </ul>
+    <div class="commit">966c8e7 · Initial commit — Champions Network site</div>
+  </article>
+
+</div>
+
+<footer class="foot">
+  <p>Champions Network — Internal Build Log</p>
+  <p>An Initiative of the Lutheran Center for Religious Liberty</p>
+</footer>
+
+</body>
+</html>
