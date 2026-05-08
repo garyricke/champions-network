@@ -1050,6 +1050,36 @@ p { font-size: 1rem; font-weight: 300; line-height: 1.75; }
 }
 .leader-contact a:hover { color: var(--white); }
 
+/* Click affordance for leader cards (Greg + Mark) */
+.leader-cta {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: -0.25rem 0 1.25rem;
+  transition: color var(--transition);
+}
+.leader-cta::after {
+  content: '→';
+  margin-left: 0.5rem;
+  display: inline-block;
+  transition: transform var(--transition);
+}
+.leader-card:hover .leader-cta { color: var(--gold-light); }
+.leader-card:hover .leader-cta::after { transform: translateX(4px); }
+
+/* Inactive leader card (no modal yet) — disable click affordances */
+.leader-card--inactive { cursor: default; }
+.leader-card--inactive:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(187,140,58,0.2);
+}
+.leader-card--inactive:hover .leader-img img { transform: none; }
+
 /* ============================================================
    EVENTS
    ============================================================ */
