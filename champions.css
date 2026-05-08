@@ -1240,6 +1240,7 @@ p { font-size: 1rem; font-weight: 300; line-height: 1.75; }
   font-family: 'Poppins', sans-serif;
   animation: admFade .18s ease-out;
 }
+#adm-pop[hidden] { display: none; }
 @keyframes admFade {
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
