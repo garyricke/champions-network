@@ -205,7 +205,12 @@ ul.bullets li { font-size: 10.5pt; line-height: 1.6; margin: 0.05in 0; list-styl
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
-.cover__footer .left { font-weight: 600; color: var(--gold-light); }
+.cover__footer .left {
+  font-weight: 700;
+  color: var(--gold-light);
+  font-size: 13pt;
+  letter-spacing: 0.22em;
+}
 
 /* ============================================================
    PAGE 2 — CHRISTIANITY CRIMINALIZED

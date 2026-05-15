@@ -208,10 +208,21 @@ ul.bullets li::marker { color: var(--gold); }
 }
 .page--cover .cover__footer .lockup {
   display: flex; align-items: center;
+  gap: 0.22in;
 }
 .page--cover .cover__footer .lockup img {
   height: 0.5in; width: auto;
   opacity: 0.95;
+}
+.page--cover .cover__footer .lockup__tag {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  border-left: 1pt solid rgba(187,140,58,0.45);
+  padding-left: 0.22in;
+  line-height: 1;
 }
 .page--cover .cover__footer .url {
   font-family: 'Bebas Neue', sans-serif;
