@@ -104,6 +104,22 @@
     color:rgba(236,244,249,.45);margin-top:6px;
   }
 
+  /* ── Open items ── */
+  .open{max-width:880px;margin:0 auto;padding:56px 28px 6px;}
+  .open h2{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:2rem;color:#fff;letter-spacing:.04em;margin-bottom:6px;}
+  .open .open-sub{font-size:.88rem;color:var(--muted);margin-bottom:26px;}
+  .open-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .open-card{background:rgba(255,255,255,.03);border:1px solid var(--hairline);border-radius:12px;padding:22px 22px 16px;}
+  .open-card h4{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:1.25rem;color:var(--gold);letter-spacing:.04em;margin-bottom:14px;}
+  .open-card ul{list-style:none;padding:0;}
+  .open-card li{position:relative;padding-left:18px;font-size:.85rem;color:rgba(236,244,249,.74);margin-bottom:11px;line-height:1.55;}
+  .open-card li:last-child{margin-bottom:4px;}
+  .open-card li::before{content:'▸';position:absolute;left:0;top:0;color:var(--gold);}
+  .open-card li code{font-family:'JetBrains Mono',monospace;font-size:.82em;background:rgba(255,255,255,.05);padding:1px 6px;border-radius:3px;color:var(--gold-light);}
+  .who{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:1px 7px;border-radius:4px;margin-left:4px;background:rgba(187,140,58,.14);color:var(--gold-light);border:1px solid var(--hairline);vertical-align:middle;white-space:nowrap;}
+  .who.gary{background:rgba(8,118,169,.18);color:#7cc5ea;border-color:rgba(8,118,169,.35);}
+  .who.mark{background:rgba(120,180,140,.15);color:#a8d4b6;border-color:rgba(120,180,140,.3);}
+
   /* ── Timeline ── */
   .timeline{
     max-width:880px;margin:0 auto;
@@ -273,11 +289,39 @@
      STATS STRIP
      ============================================================ -->
 <div class="stats">
-  <div class="stat"><div class="num">5</div><div class="lbl">Live Pages</div></div>
-  <div class="stat"><div class="num">2</div><div class="lbl">Brochure Editions</div></div>
-  <div class="stat"><div class="num">1</div><div class="lbl">Live since May 1</div></div>
+  <div class="stat"><div class="num">6</div><div class="lbl">Live Pages</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">Brochure Editions</div></div>
+  <div class="stat"><div class="num">3</div><div class="lbl">Academy Sessions</div></div>
   <div class="stat"><div class="num">∞</div><div class="lbl">Two Kingdoms</div></div>
 </div>
+
+<!-- ============================================================
+     OPEN ITEMS / DECISIONS NEEDED
+     ============================================================ -->
+<section class="open">
+  <h2>Open Items &amp; Decisions Needed</h2>
+  <p class="open-sub">Current as of May 29, 2026 — what's waiting on input or queued next.</p>
+  <div class="open-grid">
+    <div class="open-card">
+      <h4>⏳ Inputs &amp; Decisions Needed</h4>
+      <ul>
+        <li>Email forwarding: create <code>Carly@champions-network.com</code> (and Mark's, if wanted) forwarding to the Champions Network Office Gmail <span class="who gary">Gary · registrar</span></li>
+        <li>Mom &amp; Pop Paper online links — need the URLs to wire download buttons on Session 003 <span class="who mark">Mark</span></li>
+        <li>Session teaching / devotion video URLs, incl. a Session 003 hero video <span class="who mark">Mark</span></li>
+        <li>Brochure final review — confirm OK to send all three editions to the printer <span class="who mark">Mark</span></li>
+        <li>Carly bio — Mark to veto / approve any of Carly's self-edits <span class="who mark">Mark</span></li>
+      </ul>
+    </div>
+    <div class="open-card">
+      <h4>🛠 Queued &amp; Upcoming</h4>
+      <ul>
+        <li>2027 March for Life planning guide — print + web, to drive DC attendance in January <span class="who">Next up</span></li>
+        <li>Subscriber / paid Champions Academy section (Stripe) — needs an LCRL bank account + a board oversight report; target end of summer <span class="who">Summer '26</span></li>
+        <li>Session 004+ study guides as Mark supplies source docs <span class="who">As provided</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      TIMELINE
