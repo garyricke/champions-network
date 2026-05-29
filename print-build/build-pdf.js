@@ -25,6 +25,12 @@ const variants = [
     pdfFile: 'champions-brochure-modern-print-ready.pdf',
     label: 'v2 modern',
   },
+  {
+    key: 'v4',
+    htmlFile: 'brochure-4page.html',
+    pdfFile: 'champions-brochure-4page-print-ready.pdf',
+    label: '4-page condensed',
+  },
 ];
 
 async function buildVariant(browser, v) {

@@ -1,0 +1,402 @@
+/* ============================================================
+   Champions for Religious Liberty — 4-Page Print Brochure
+   Condensed edition. Modern visual language (matches website
+   + the v2 8-page brochure): navy gradient, gold accents,
+   white card system, editorial photography.
+   Trim 8.5×11 + 0.125" bleed = 8.75×11.25 page size.
+   Layout: 4 pages (prints as one double-sided letter sheet).
+     1 Cover · 2 Problem + Theology · 3 Solution + Get Started · 4 Contact
+   ============================================================ */
+
+@page { size: 8.75in 11.25in; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #BB8C3A;
+  --gold-light: #d4a854;
+  --gold-dark: #9a7230;
+  --gold-pale: #f1e2c2;
+  --blue: #0876A9;
+  --navy: #055A81;
+  --navy-deep: #033f5c;
+  --navy-ink: #021e2e;
+  --light: #ECF4F9;
+  --white: #FFFFFF;
+  --ink: #14202d;
+  --ink-mid: #3d5166;
+  --ink-soft: #6b8099;
+}
+
+html, body {
+  background: #fff;
+  color: var(--ink);
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  line-height: 1.55;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 8.75in;
+  height: 11.25in;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  background: #fff;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+/* Inner safe content frame (0.5in inside trim → 0.625in from page edge) */
+.frame {
+  position: absolute;
+  inset: 0.625in;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Crop marks */
+.crops i { position: absolute; background: #000; z-index: 999; }
+.crops .tl-h, .crops .tr-h, .crops .bl-h, .crops .br-h { width: 0.1in; height: 0.5pt; }
+.crops .tl-v, .crops .tr-v, .crops .bl-v, .crops .br-v { width: 0.5pt; height: 0.1in; }
+.crops .tl-h { top: 0.125in; left: 0; }
+.crops .tl-v { top: 0; left: 0.125in; }
+.crops .tr-h { top: 0.125in; right: 0; }
+.crops .tr-v { top: 0; right: 0.125in; }
+.crops .bl-h { bottom: 0.125in; left: 0; }
+.crops .bl-v { bottom: 0; left: 0.125in; }
+.crops .br-h { bottom: 0.125in; right: 0; }
+.crops .br-v { bottom: 0; right: 0.125in; }
+body.no-crops .crops { display: none; }
+
+/* ----- Shared tokens ----- */
+.bg-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(187,140,58,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(187,140,58,0.07) 1px, transparent 1px);
+  background-size: 0.4in 0.4in;
+  pointer-events: none;
+}
+.eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+}
+.gold-rule {
+  width: 0.45in; height: 2pt;
+  background: var(--gold);
+  border-radius: 1pt;
+  display: block;
+  margin: 0.1in 0 0.16in;
+}
+h1, h2, h3, h4 {
+  font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 0.96;
+}
+p { font-size: 10pt; line-height: 1.6; color: var(--ink-mid); }
+strong { font-weight: 600; color: var(--navy); }
+.accent {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ============================================================
+   PAGE 1 — COVER
+   ============================================================ */
+.page--cover { background: var(--navy-ink); color: #fff; }
+.page--cover .cover__photo {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6.6in;
+  overflow: hidden;
+}
+.page--cover .cover__photo img { width: 100%; height: 100%; object-fit: cover; }
+.page--cover .cover__photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(2,30,46,0.15) 0%, rgba(2,30,46,0.55) 70%, var(--navy-ink) 100%);
+}
+.page--cover .cover__lower {
+  position: absolute;
+  bottom: 1.5in; left: 0.7in; right: 0.7in;
+  z-index: 2;
+}
+.page--cover h1 {
+  font-size: 52pt;
+  line-height: 0.92;
+  color: #fff;
+}
+.page--cover h1 .accent { display: block; }
+.page--cover .cover__sub {
+  font-size: 11pt;
+  color: rgba(236,244,249,0.85);
+  margin-top: 0.18in;
+  max-width: 6in;
+}
+.page--cover .cover__footer {
+  position: absolute;
+  bottom: 0.6in; left: 0.7in; right: 0.7in;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.16in;
+  border-top: 1pt solid rgba(187,140,58,0.32);
+  z-index: 3;
+}
+.page--cover .lockup { display: flex; align-items: center; gap: 0.2in; }
+.page--cover .lockup img { height: 0.5in; width: auto; }
+.page--cover .lockup .lockup__tag {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  border-left: 1pt solid rgba(187,140,58,0.45);
+  padding-left: 0.2in;
+  line-height: 1;
+}
+.page--cover .lockup .lockup__lcrl { height: 0.32in; margin-left: 0.06in; opacity: 0.9; }
+.page--cover .url {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+/* ============================================================
+   PAGE 2 — PROBLEM + THEOLOGY
+   ============================================================ */
+.page--why .frame { gap: 0.28in; }
+.section-hdr h2 { font-size: 30pt; color: var(--navy); }
+.section-hdr h2 .accent { font-size: 24pt; }
+
+.why__lede { font-size: 11pt; color: var(--ink-mid); }
+.why__lede strong { color: var(--navy); }
+
+.why__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3in; }
+.why__cols h3 {
+  font-size: 13pt;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.06in;
+}
+.why__cols ul { list-style: none; }
+.why__cols li {
+  font-size: 9.5pt;
+  color: var(--ink-mid);
+  padding-left: 0.22in;
+  position: relative;
+  margin: 0.05in 0;
+}
+.why__cols li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.07in;
+  width: 0.1in; height: 0.1in;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+.why__closing {
+  font-size: 10pt;
+  color: var(--ink);
+  border-left: 3pt solid var(--gold);
+  padding-left: 0.18in;
+}
+.why__closing strong { color: var(--navy); }
+
+.theo__band {
+  margin-top: auto;
+  background: linear-gradient(140deg, var(--navy-ink) 0%, var(--navy-deep) 60%, var(--navy) 100%);
+  border-radius: 8pt;
+  padding: 0.32in;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.theo__band .eyebrow { color: var(--gold-light); }
+.theo__band h3 { font-size: 20pt; color: #fff; margin-bottom: 0.16in; }
+.theo__band h3 .accent { color: var(--gold-light); }
+.theo__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.28in; }
+.theo-card h4 {
+  font-size: 13pt;
+  color: var(--gold-light);
+  letter-spacing: 0.03em;
+}
+.theo-card .h-eyebrow {
+  font-size: 7pt; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(236,244,249,0.6); display: block; margin-bottom: 0.02in;
+}
+.theo-card p { font-size: 8.8pt; color: rgba(236,244,249,0.82); line-height: 1.5; margin-top: 0.04in; }
+.theo-card p strong { color: #fff; }
+
+/* ============================================================
+   PAGE 3 — SOLUTION + GET STARTED
+   ============================================================ */
+.page--how .frame { gap: 0.26in; }
+.how__lede { font-size: 10.5pt; color: var(--ink-mid); }
+
+.how__pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.2in; }
+.pillar {
+  border: 1pt solid rgba(8,118,169,0.25);
+  border-top: 3pt solid var(--gold);
+  border-radius: 6pt;
+  padding: 0.2in 0.18in;
+  background: var(--light);
+}
+.pillar .num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16pt; color: var(--gold-dark);
+}
+.pillar h3 { font-size: 14pt; color: var(--navy); margin: 0.02in 0 0.06in; }
+.pillar p { font-size: 8.8pt; line-height: 1.5; }
+
+.gs { margin-top: 0.05in; }
+.gs__steps { display: flex; flex-direction: column; gap: 0.16in; }
+.gs__step {
+  display: grid;
+  grid-template-columns: 0.5in 1fr 0.95in;
+  align-items: center;
+  gap: 0.2in;
+  border-bottom: 1pt solid rgba(8,118,169,0.15);
+  padding-bottom: 0.16in;
+}
+.gs__step:last-child { border-bottom: none; }
+.gs__step .num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26pt;
+  color: var(--blue);
+  line-height: 1;
+  text-align: center;
+}
+.gs__step h3 { font-size: 13pt; color: var(--navy); }
+.gs__step p { font-size: 9pt; line-height: 1.45; margin-top: 0.02in; }
+.gs__step .qr { text-align: center; }
+.gs__step .qr img { width: 0.85in; height: 0.85in; }
+.gs__step .qr span {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 6.5pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-top: 0.03in;
+}
+
+/* ============================================================
+   PAGE 4 — CONTACT / BACK
+   ============================================================ */
+.page--back {
+  background: linear-gradient(140deg, var(--navy-ink) 0%, var(--navy-deep) 60%, var(--navy) 100%);
+  color: #fff;
+}
+.page--back .back__hdr h2 { font-size: 34pt; color: #fff; }
+.page--back .back__hdr .eyebrow { color: var(--gold-light); }
+
+.page--back .back__profile {
+  display: flex;
+  align-items: center;
+  gap: 0.3in;
+  margin-top: 0.3in;
+}
+.page--back .back__profile .photo {
+  width: 1.5in; height: 1.5in;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2pt solid var(--gold);
+  flex: 0 0 auto;
+}
+.page--back .back__profile .photo img { width: 100%; height: 100%; object-fit: cover; }
+.page--back .back__profile .name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 22pt;
+  color: #fff;
+  display: block;
+}
+.page--back .back__profile .role {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  display: block;
+  margin-top: 0.02in;
+}
+.page--back .back__profile .quote {
+  font-size: 9.5pt;
+  color: rgba(236,244,249,0.82);
+  margin-top: 0.1in;
+  max-width: 4.2in;
+}
+
+.page--back .back__contacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2in;
+  margin-top: 0.4in;
+}
+.page--back .contact-tile {
+  background: rgba(236,244,249,0.06);
+  border: 1pt solid rgba(187,140,58,0.25);
+  border-radius: 6pt;
+  padding: 0.18in 0.2in;
+}
+.page--back .contact-tile .h-eyebrow {
+  font-size: 7pt; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold-light); display: block; margin-bottom: 0.04in;
+}
+.page--back .contact-tile .val { font-size: 10.5pt; color: #fff; }
+
+.page--back .back__foot {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.page--back .back__foot .logos { display: flex; flex-direction: column; gap: 0.08in; }
+.page--back .back__foot .logos .champ { height: 0.72in; width: auto; }
+.page--back .back__foot .logos .lcrl { height: 0.5in; width: auto; }
+.page--back .back__foot .logos .tag {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(236,244,249,0.6);
+}
+.page--back .back__foot .qr-card {
+  background: #fff;
+  padding: 0.14in;
+  border-radius: 6pt;
+  text-align: center;
+}
+.page--back .back__foot .qr-card img { width: 1.05in; height: 1.05in; }
+.page--back .back__foot .qr-card .lab {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 6pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-top: 0.06in;
+}
+
+/* Web preview helper: stack pages with a soft backdrop when viewed in-browser */
+@media screen {
+  body { background: #e9eef3; padding: 0.4in 0; }
+  .page { margin: 0 auto 0.4in; box-shadow: 0 6px 30px rgba(0,0,0,0.18); }
+}

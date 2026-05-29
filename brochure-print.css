@@ -206,11 +206,15 @@ ul.bullets li { font-size: 10.5pt; line-height: 1.6; margin: 0.05in 0; list-styl
   text-transform: uppercase;
 }
 .cover__footer .left {
+  display: flex;
+  align-items: center;
+  gap: 0.12in;
   font-weight: 700;
   color: var(--gold-light);
   font-size: 13pt;
   letter-spacing: 0.22em;
 }
+.cover__footer .lcrl-mini { height: 0.28in; width: auto; }
 
 /* ============================================================
    PAGE 2 — CHRISTIANITY CRIMINALIZED
@@ -463,8 +467,8 @@ ul.bullets li { font-size: 10.5pt; line-height: 1.6; margin: 0.05in 0; list-styl
   margin-bottom: 0.04in;
 }
 .page--solution .pillar .desc {
-  font-size: 8.5pt;
-  line-height: 1.4;
+  font-size: 10pt;
+  line-height: 1.45;
   color: rgba(255,255,255,0.95);
 }
 
@@ -875,6 +879,7 @@ ul.bullets li { font-size: 10.5pt; line-height: 1.6; margin: 0.05in 0; list-styl
   gap: 0.05in;
 }
 .page--back .back__lcrl img { width: 1.3in; }
+.page--back .back__lcrl .champ { width: 1.9in; margin-bottom: 0.12in; }
 .page--back .back__lcrl .tag {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;

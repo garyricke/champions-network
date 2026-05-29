@@ -224,6 +224,11 @@ ul.bullets li::marker { color: var(--gold); }
   padding-left: 0.22in;
   line-height: 1;
 }
+.page--cover .cover__footer .lockup .lockup__lcrl {
+  height: 0.34in; width: auto;
+  opacity: 0.9;
+  margin-left: 0.18in;
+}
 .page--cover .cover__footer .url {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 14pt;
@@ -494,7 +499,7 @@ ul.bullets li::marker { color: var(--gold); }
   margin-bottom: 0.1in;
   line-height: 1.0;
 }
-.pillar-card p { font-size: 9.5pt; line-height: 1.55; color: var(--ink-mid); }
+.pillar-card p { font-size: 10.5pt; line-height: 1.55; color: var(--ink-mid); }
 
 .page--solution .solution__cta {
   position: absolute;
@@ -933,6 +938,10 @@ ul.bullets li::marker { color: var(--gold); }
 }
 .page--back .back__qr-block .lcrl img {
   height: 0.6in; width: auto;
+}
+.page--back .back__qr-block .lcrl .champ {
+  height: 0.78in; width: auto;
+  margin-bottom: 0.1in;
 }
 .page--back .back__qr-block .lcrl .tag {
   font-family: 'Poppins', sans-serif;
