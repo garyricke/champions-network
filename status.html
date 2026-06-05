@@ -119,6 +119,43 @@
   .who{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:1px 7px;border-radius:4px;margin-left:4px;background:rgba(187,140,58,.14);color:var(--gold-light);border:1px solid var(--hairline);vertical-align:middle;white-space:nowrap;}
   .who.gary{background:rgba(8,118,169,.18);color:#7cc5ea;border-color:rgba(8,118,169,.35);}
   .who.mark{background:rgba(120,180,140,.15);color:#a8d4b6;border-color:rgba(120,180,140,.3);}
+  .who.carly{background:rgba(187,140,58,.16);color:var(--gold-light);border-color:rgba(187,140,58,.4);}
+
+  /* ── Deep-dive button + modal ── */
+  .deepdive-btn{
+    display:inline-block;margin-left:6px;
+    font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.04em;
+    background:rgba(187,140,58,.12);color:var(--gold-light);
+    border:1px solid var(--hairline);border-radius:999px;
+    padding:5px 14px;cursor:pointer;transition:background .2s,color .2s,border-color .2s;
+  }
+  .deepdive-btn:hover{background:rgba(187,140,58,.22);color:#fff;border-color:var(--gold);}
+  .modal-overlay{
+    position:fixed;inset:0;z-index:2000;display:none;
+    align-items:flex-start;justify-content:center;
+    background:rgba(2,12,20,.78);backdrop-filter:blur(6px);
+    padding:48px 20px;overflow-y:auto;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-card{
+    position:relative;background:#04263a;border:1px solid var(--hairline);
+    border-radius:16px;max-width:720px;width:100%;
+    padding:40px 38px 34px;box-shadow:0 30px 90px rgba(0,0,0,.6);
+  }
+  .modal-card .modal-close{
+    position:absolute;top:16px;right:18px;background:none;border:0;
+    color:rgba(236,244,249,.5);font-size:1.6rem;line-height:1;cursor:pointer;transition:color .2s;
+  }
+  .modal-card .modal-close:hover{color:var(--gold);}
+  .modal-card .modal-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  .modal-card h3{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:2rem;color:#fff;letter-spacing:.03em;margin-bottom:8px;line-height:1.05;}
+  .modal-card .modal-lede{font-size:.92rem;color:var(--muted);margin-bottom:24px;}
+  .modal-card h5{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:1.2rem;color:var(--gold-light);letter-spacing:.04em;margin:22px 0 10px;}
+  .modal-card ul{list-style:none;padding:0;margin:0;}
+  .modal-card li{position:relative;padding-left:20px;font-size:.88rem;color:rgba(236,244,249,.78);margin-bottom:9px;line-height:1.55;}
+  .modal-card li::before{content:'▸';position:absolute;left:0;top:0;color:var(--gold);}
+  .modal-card li code{font-family:'JetBrains Mono',monospace;font-size:.82em;background:rgba(255,255,255,.06);padding:1px 6px;border-radius:3px;color:var(--gold-light);}
+  .modal-card .phase{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(8,118,169,.2);color:#7cc5ea;border:1px solid rgba(8,118,169,.35);border-radius:4px;padding:2px 7px;margin-right:6px;}
 
   /* ── Timeline ── */
   .timeline{
@@ -299,24 +336,52 @@
      OPEN ITEMS / DECISIONS NEEDED
      ============================================================ -->
 <section class="open">
-  <h2>Open Items &amp; Decisions Needed</h2>
-  <p class="open-sub">Current as of May 29, 2026 — what's waiting on input or queued next.</p>
+  <h2>Check-In To-Dos &amp; Open Items</h2>
+  <p class="open-sub">From the May 29, 2026 weekly check-in (Gary · Mark · Carly). <button class="deepdive-btn" id="open-academy-modal" type="button">View the Subscriber Academy build plan →</button></p>
   <div class="open-grid">
     <div class="open-card">
-      <h4>⏳ Inputs &amp; Decisions Needed</h4>
+      <h4>👤 Gary's To-Dos</h4>
       <ul>
-        <li>Email forwarding: create <code>Carly@champions-network.com</code> (and Mark's, if wanted) forwarding to the Champions Network Office Gmail <span class="who gary">Gary · registrar</span></li>
-        <li>Mom &amp; Pop Paper online links — need the URLs to wire download buttons on Session 003 <span class="who mark">Mark</span></li>
-        <li>Session teaching / devotion video URLs, incl. a Session 003 hero video <span class="who mark">Mark</span></li>
-        <li>Brochure final review — confirm OK to send all three editions to the printer <span class="who mark">Mark</span></li>
-        <li>Carly bio — Mark to veto / approve any of Carly's self-edits <span class="who mark">Mark</span></li>
+        <li>Set up <code>Carly@champions-network.com</code> forwarding → <code>championsnetworkoffice@gmail.com</code> (registrar task; "done soon") <span class="who gary">Gary</span></li>
+        <li><s>Wire the teaching / devotion <strong>video URLs</strong> into Session 003</s> — ✅ done June 5; Mark supplied 9 Vimeo links, all embedded <span class="who gary">Gary · done</span></li>
+        <li><s>Wire the <strong>Mom &amp; Pop Paper #2 / #3 / #4</strong> links on Session 003</s> — ✅ done June 5; "Read Online" buttons link to Mark's Google Drive PDFs <span class="who gary">Gary · done</span></li>
+        <li>Add a <em>Read</em> <strong>Free to Believe</strong> link (Amazon) for the chapters Session 003 references <span class="who gary">Gary</span></li>
+        <li>Fix the Modern <strong>4-page brochure</strong> cover (layout gap / "cover problem"), add the 4-pager to <code>brochure.html</code>, then send Mark the review link <span class="who gary">Gary</span></li>
+        <li>Write internal docs for setting up <strong>Stripe</strong> + taking payments (501(c)(3) + designated bank account) <span class="who gary">Gary</span></li>
+        <li>Build the Subscriber Academy shell + admin backend <span class="who gary">Gary</span></li>
+        <li>If wanted: get print pricing through Gary's printer <span class="who gary">Optional</span></li>
+      </ul>
+    </div>
+    <div class="open-card">
+      <h4>👤 Mark &amp; Carly's To-Dos</h4>
+      <ul>
+        <li><s>Share Gary the Mom &amp; Pop Paper PDFs (#2 / #3 / #4) + session video URLs</s> — ✅ provided June 5; all wired into Session 003 <span class="who mark">Mark · done</span></li>
+        <li><strong>Final review of the 8-page brochure</strong> → approve to send to the printer; decide own printer vs. Gary's printer <span class="who mark">Mark</span></li>
+        <li>Veto / approve any of <strong>Carly's bio self-edits</strong> <span class="who mark">Mark</span></li>
+        <li>Check with <strong>St. Louis</strong> on protocols before taking payments / standing up a merchant account — avoid "landmines" <span class="who mark">Mark</span></li>
+        <li>Confirm the <strong>LCRL 501(c)(3) bank account</strong> designated for Academy revenue <span class="who mark">Mark</span></li>
+        <li>Bio is confirmed <strong>live</strong> on <code>index.html</code> — resolved on the call <span class="who carly">Carly · done</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="open-grid" style="margin-top:18px;">
+    <div class="open-card">
+      <h4>✅ Decisions Made (May 29)</h4>
+      <ul>
+        <li>Move forward building the <strong>Subscriber / Paid Academy</strong> shell <em>now</em>.</li>
+        <li><strong>Charge for it</strong> (take payment up front) — but enable beta / free / discounted access via <strong>coupon codes</strong>.</li>
+        <li>Pricing: set a perceived-value price; <strong>monthly or annual</strong> recurring, annual discounted.</li>
+        <li><strong>Gift subscriptions</strong> — a donor can cover seats for a church (e.g. $1,000 → 20 subscribers). Mark: "Memento does that."</li>
+        <li><strong>Admin backend</strong> so Mark can grant access by email, decoupled from payment (e.g. donors who give via the St. Louis donation office).</li>
+        <li>New <strong>gated "Subscriber Academy" tab</strong>; Sessions 2 &amp; 3 stay public for now.</li>
+        <li>Brochure artwork approved (radiant cross, full-staff flag); <em>"Cultural Servants"</em> language confirmed.</li>
       </ul>
     </div>
     <div class="open-card">
       <h4>🛠 Queued &amp; Upcoming</h4>
       <ul>
-        <li>2027 March for Life planning guide — print + web, to drive DC attendance in January <span class="who">Next up</span></li>
-        <li>Subscriber / paid Champions Academy section (Stripe) — needs an LCRL bank account + a board oversight report; target end of summer <span class="who">Summer '26</span></li>
+        <li><strong>2027 March for Life</strong> planning guide — print + web, to drive DC attendance in January <span class="who">Next up</span></li>
+        <li><strong>Subscriber Academy</strong> launch — needs LCRL bank account + board oversight report; target end of summer <span class="who">Summer '26</span></li>
         <li>Session 004+ study guides as Mark supplies source docs <span class="who">As provided</span></li>
       </ul>
     </div>
@@ -327,6 +392,40 @@
      TIMELINE
      ============================================================ -->
 <div class="timeline">
+
+  <!-- ── 2026-06-05 (Session 003 videos) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Jun 5<span class="y">2026</span></div>
+    <h3>Session 003 — teaching videos + Mom &amp; Pop links wired</h3>
+    <div class="tags">
+      <span class="tag content">Content</span>
+      <span class="tag feature">Feature</span>
+    </div>
+    <ul>
+      <li>Mark supplied <strong>9 Session 003 Vimeo links</strong>; embedded each as a responsive 16:9 player (new <code>.s3-video</code> style in <code>session-003.css</code>) in its matching section.</li>
+      <li><strong>Introduction</strong> (overview) · <strong>"Honor Everyone"</strong> video devotion (devotional accordion) · <strong>Pillar: Devoted to Prayer</strong> (pillars section) · <strong>Three Core Principles</strong> (principles section) · <strong>Mom &amp; Pop #2 / #3 / #4</strong> highlights (each paper tab) · <strong>Chapter 4 summary</strong> (Free to Believe Ch. 4 tab) · <strong>Reviewing the Study Recommendations</strong> (Personal Study section).</li>
+      <li>Added <strong>"Read Online" buttons</strong> to all three Mom &amp; Pop Paper tabs (#2 / #3 / #4), linking to Mark's Google Drive PDFs. Resolves both the video and the paper-link placeholders.</li>
+    </ul>
+    <div class="commit">main · pending</div>
+  </article>
+
+  <!-- ── 2026-05-29 (Weekly check-in) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">May 29<span class="y">2026</span></div>
+    <h3>Weekly check-in — walkthrough &amp; direction set</h3>
+    <div class="tags">
+      <span class="tag internal">Check-In</span>
+    </div>
+    <ul>
+      <li>Walked Mark &amp; Carly through the new <strong>Session 003 guide</strong>, the <strong>regenerated brochure artwork</strong>, and the <strong>4-page edition</strong> (still to be added to <code>brochure.html</code>; Modern cover has a layout gap to fix).</li>
+      <li>Confirmed <strong>Carly's bio is live</strong> on <code>index.html</code> (Mark/Carly had been seeing a cached version).</li>
+      <li><strong>Greenlit the Subscriber / Paid Academy.</strong> Decided to charge up front via Stripe, with coupon codes for free/beta/discounted access, monthly or annual recurring, gift subscriptions for churches, and an admin backend to grant access by email (decoupled from payment). See the build-plan deep dive in Open Items above.</li>
+      <li>Action items captured in <strong>Check-In To-Dos</strong> above: Mark to share Google-Drive PDFs (Mom &amp; Pop Papers + video URLs) and check St. Louis on payment protocols; Gary to wire those links into Session 003, fix &amp; publish the 4-pager, set up Carly's email forwarding, and start the Academy shell + Stripe docs.</li>
+    </ul>
+    <div class="commit">Source: Champions-Weekly-Checkin_29may2026</div>
+  </article>
 
   <!-- ── 2026-05-29 (Session 003) ── -->
   <article class="entry">
@@ -538,6 +637,63 @@
   <p>Champions Network — Internal Build Log</p>
   <p>An Initiative of the Lutheran Center for Religious Liberty</p>
 </footer>
+
+<!-- ============================================================
+     SUBSCRIBER ACADEMY — deep-dive modal
+     ============================================================ -->
+<div class="modal-overlay" id="academy-modal" role="dialog" aria-modal="true" aria-labelledby="academy-modal-title">
+  <div class="modal-card">
+    <button class="modal-close" id="close-academy-modal" aria-label="Close">&times;</button>
+    <div class="modal-eyebrow">Deep Dive · From the May 29 Check-In</div>
+    <h3 id="academy-modal-title">Subscriber / Paid Academy — Build Plan</h3>
+    <p class="modal-lede">Mark greenlit building the paid Academy shell now. Below is what was decided on the call and the open work to stand it up. Target launch: <strong>end of summer 2026</strong>.</p>
+
+    <h5>What was decided</h5>
+    <ul>
+      <li><strong>Charge up front.</strong> Yes to taking money on signup — but pair it with discounting so people still grasp the value.</li>
+      <li><strong>Coupon codes</strong> for free / beta / discounted access — useful for beta-testing on a first cohort without giving up a posted price.</li>
+      <li><strong>Recurring billing</strong> — monthly or annual, with the annual plan discounted.</li>
+      <li><strong>Gift subscriptions</strong> — a donor can buy seats for a church (Mark's example: $1,000 covers ~20 subscribers). "Memento does that."</li>
+      <li><strong>Gated "Subscriber Academy" tab</strong> alongside Two Kingdoms · Journey · Academy. Sessions 2 &amp; 3 stay public for now; new uploads go behind the gate.</li>
+    </ul>
+
+    <h5>Admin backend</h5>
+    <ul>
+      <li>Give Mark a back-admin to <strong>grant a membership by email</strong> on someone's behalf — decoupled from the Stripe transaction.</li>
+      <li>Covers donors who give through the <strong>St. Louis donation office</strong> (the main-page "donut" donation goes there, not to a Champions merchant account) — grant access without tying it to the payment.</li>
+    </ul>
+
+    <h5>Compliance &amp; money plumbing</h5>
+    <ul>
+      <li>LCRL is a <strong>501(c)(3)</strong>; payments need a bank account designated for that entity locked into the Stripe setup.</li>
+      <li><strong>Mark to check with St. Louis</strong> on protocols before standing up the merchant account — confirm no "landmines."</li>
+      <li><strong>Gary to write internal docs</strong> on the Stripe setup + how to start taking money.</li>
+      <li>Launch also needs a <strong>board oversight report</strong> (per prior planning).</li>
+    </ul>
+
+    <h5>Build sequence</h5>
+    <ul>
+      <li><span class="phase">1</span> Stripe account + designated 501(c)(3) bank account <span class="who mark">Mark</span><span class="who gary">Gary docs</span></li>
+      <li><span class="phase">2</span> Subscriber-gated Academy shell + new nav tab <span class="who gary">Gary</span></li>
+      <li><span class="phase">3</span> Checkout (monthly/annual) + coupon codes + gift subscriptions <span class="who gary">Gary</span></li>
+      <li><span class="phase">4</span> Admin backend (grant access by email) <span class="who gary">Gary</span></li>
+      <li><span class="phase">5</span> Move new session content behind the gate &amp; beta-test <span class="who gary">Gary</span><span class="who mark">Mark</span></li>
+    </ul>
+  </div>
+</div>
+<script>
+(function(){
+  var modal=document.getElementById('academy-modal'),
+      openBtn=document.getElementById('open-academy-modal'),
+      closeBtn=document.getElementById('close-academy-modal');
+  function open(){modal.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){modal.classList.remove('open');document.body.style.overflow='';}
+  if(openBtn)openBtn.addEventListener('click',open);
+  if(closeBtn)closeBtn.addEventListener('click',close);
+  modal.addEventListener('click',function(e){if(e.target===modal)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))close();});
+})();
+</script>
 
 </body>
 </html>
