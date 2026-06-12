@@ -403,6 +403,23 @@
      ============================================================ -->
 <div class="timeline">
 
+  <!-- ── 2026-06-12 (Admin panel) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Jun 12<span class="y">2026</span></div>
+    <h3>Admin entry — password gate + slide-in panel</h3>
+    <div class="tags">
+      <span class="tag internal">Internal</span>
+      <span class="tag feature">Feature</span>
+    </div>
+    <ul>
+      <li>Reworked the discreet <strong>"A" badge</strong> on <code>index.html</code>: clicking it now opens a <strong>password modal</strong> (same <code>cn_auth</code> / <code>markrules</code> gate) instead of exposing the links — public visitors no longer see the internal URLs.</li>
+      <li>On success, a <strong>full-height panel slides in from the right</strong> with the internal links, each with a <strong>branded gold icon</strong> and a short descriptor (Status · March for Life · Newsletter Sample · Brochure · Brand Guide). Roomier than the old popover, so it scales as links are added.</li>
+      <li>Includes a <strong>"Lock &amp; sign out"</strong> control, scrim/Esc to close, and reduced-motion fallbacks. Unlocking here carries into the gated pages (shared session key).</li>
+    </ul>
+    <div class="commit">main · pending</div>
+  </article>
+
   <!-- ── 2026-06-12 (March for Life guide) ── -->
   <article class="entry">
     <div class="dot"></div>
