@@ -416,6 +416,7 @@
       <li>Reworked the discreet <strong>"A" badge</strong> on <code>index.html</code>: clicking it now opens a <strong>password modal</strong> (same <code>cn_auth</code> / <code>markrules</code> gate) instead of exposing the links — public visitors no longer see the internal URLs.</li>
       <li>On success, a <strong>full-height panel slides in from the right</strong> with the internal links, each with a <strong>branded gold icon</strong> and a short descriptor (Status · March for Life · Newsletter Sample · Brochure · Brand Guide). Roomier than the old popover, so it scales as links are added.</li>
       <li>Includes a <strong>"Lock &amp; sign out"</strong> control, scrim/Esc to close, and reduced-motion fallbacks. Unlocking here carries into the gated pages (shared session key).</li>
+      <li>Added the per-page gate to <code>newsletter-concept.html</code> so it can't be opened by direct URL (the March for Life guide stays public-ready). Packaged the whole pattern as a reusable <code>admin-panel</code> Claude skill for other sites.</li>
     </ul>
     <div class="commit">main · pending</div>
   </article>
