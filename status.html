@@ -207,6 +207,7 @@
   .tag.content{background:rgba(120,180,140,.15);color:#a8d4b6;border:1px solid rgba(120,180,140,.3);}
   .tag.internal{background:rgba(255,255,255,.05);color:rgba(236,244,249,.55);border:1px solid rgba(255,255,255,.1);}
   .tag.fix{background:rgba(220,120,80,.15);color:#f0b89c;border:1px solid rgba(220,120,80,.3);}
+  .tag.print{background:rgba(187,140,58,.12);color:#d4a854;border:1px solid rgba(187,140,58,.28);}
   .entry ul{list-style:none;padding:0;}
   .entry ul li{
     position:relative;padding-left:18px;
@@ -346,7 +347,7 @@
         <li>Pull together <strong>budget / cost-to-build numbers</strong> for the Champions Academy so Mark can put them in his <strong>June 18 board report</strong> (current scope has outgrown the original podcast-posting retainer) <span class="who gary">Gary · before Jun 18</span></li>
         <li>Evaluate whether the <strong>"Champions Advocate Weekly"</strong> newsletter (currently hand-built in MailChimp — a weekly religious-liberty news digest, 2–3 stories + "Let Us Pray" advocacy sections) can be produced <strong>faster/better with AI</strong>. <strong>Concept mockup built</strong> (<code>newsletter-concept.html</code>) from the Vol.&nbsp;2 No.&nbsp;21 content — present at <strong>Friday 11 a.m.</strong>; next: nail down the production workflow w/ Shelly on story cultivation <span class="who gary">Gary · concept done</span></li>
         <li>Stand up the <strong>drip email system</strong> — free tool (~2,000 addresses), AI-built branded emails, auto-enroll on signup, scheduled cadence across the curriculum <span class="who gary">Gary</span></li>
-        <li>Build the <strong>2027 March for Life planning guide</strong> (print + web) from Mark's emailed planning doc <span class="who gary">Gary</span></li>
+        <li><s>Build the <strong>2027 March for Life planning guide</strong> (print + web) from Mark's emailed planning doc</s> — ✅ done June 12; 8-page print PDF (<code>champions-march-for-life-2027-planning-guide.pdf</code>) + responsive web page (<code>march-for-life-2027.html</code>). Pending: Mark's review + link placement on <code>index.html</code> <span class="who gary">Gary · done</span></li>
         <li>Write <strong>process documentation</strong> (the "hit by a bus" safeguard) so an intern can run the AI workflow end-to-end <span class="who gary">Gary</span></li>
         <li>Set up <strong>Mark's <code>@champions-network.com</code> email</strong> right after the call — Mark confirmed he wants one; he just needs to approve it, then Gary updates the site <span class="who gary">Gary</span></li>
         <li>Explore an <strong>auto-transcription agent</strong> for Dr. Seltz's Liberty Action Alerts / podcasts (drop file → transcript cleaned &amp; posted); offer transcript downloads in the Academy <span class="who gary">Gary · explore</span></li>
@@ -388,7 +389,7 @@
       <h4>🛠 Queued &amp; Upcoming</h4>
       <ul>
         <li><strong>Lecture-first pipeline proposal</strong> + Academy budget numbers — for Mark's June 18 board report <span class="who">Before Jun 18</span></li>
-        <li><strong>2027 March for Life</strong> planning guide — print + web, to drive DC attendance in January <span class="who">Next up</span></li>
+        <li><s><strong>2027 March for Life</strong> planning guide — print + web</s> — built June 12; awaiting Mark's review + a link on the main site <span class="who">Review</span></li>
         <li><strong>Drip email</strong> onboarding system — wire to signup once the Academy shell lands <span class="who">With Academy</span></li>
         <li><strong>Subscriber Academy</strong> launch — needs LCRL bank account + board oversight report; target end of summer <span class="who">Summer '26</span></li>
         <li>New lessons re-recorded as lectures, starting Lesson 1 <span class="who">Sept '26</span></li>
@@ -401,6 +402,26 @@
      TIMELINE
      ============================================================ -->
 <div class="timeline">
+
+  <!-- ── 2026-06-12 (March for Life guide) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Jun 12<span class="y">2026</span></div>
+    <h3>2027 March for Life — planning guide (print + web)</h3>
+    <div class="tags">
+      <span class="tag feature">Feature</span>
+      <span class="tag print">Print</span>
+      <span class="tag content">Content</span>
+    </div>
+    <ul>
+      <li>Built from Mark &amp; Carly's source doc into an <strong>8-page print guide</strong> on the brochure pipeline — <code>march-for-life-2027-print.html</code> + <code>.css</code> → <code>champions-march-for-life-2027-planning-guide.pdf</code> (8.75×11.25, crop marks). Added as the <code>mfl</code> variant in <code>print-build/build-pdf.js</code> (now supports <code>BUILD_ONLY=&lt;key&gt;</code>).</li>
+      <li>Pages: Cover · Invitation + 7-things-to-plan · hour-by-hour Schedule · Lodging (Westin group rate) &amp; March-day logistics · Travel &amp; Meals · Costs table + Rose Dinner/Young Professionals · DC attractions, Attire &amp; Conduct · Back-cover CTA.</li>
+      <li>Built a matching <strong>responsive web guide</strong> — <code>march-for-life-2027.html</code> + <code>.css</code> — with a "Download the print PDF" button and an email "I'm coming" CTA.</li>
+      <li>Three editorial photos generated (march-to-Capitol cover, Supreme Court, National Mall at dawn — no readable signs / identifiable faces), hosted on Cloudinary.</li>
+      <li><strong>Open:</strong> Mark/Carly review, confirm 2027 specifics (rates, route, events — currently flagged as based on 2026), then add a link from <code>index.html</code>.</li>
+    </ul>
+    <div class="commit">main · pending · source: 2027 National March for Life Planning Guide.md</div>
+  </article>
 
   <!-- ── 2026-06-12 (Newsletter concept) ── -->
   <article class="entry">

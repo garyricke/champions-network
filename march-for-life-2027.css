@@ -1,0 +1,154 @@
+/* ============================================================
+   2027 National March for Life — Champions Network
+   Web Planning Guide (responsive). Companion to the print PDF.
+   Brand: Bebas Neue / Poppins / Playfair · navy + Liberty Gold.
+   ============================================================ */
+:root{
+  --gold:#BB8C3A; --gold-light:#d4a854; --gold-dark:#9a7230; --gold-pale:#f1e2c2;
+  --blue:#0876A9; --navy:#055A81; --navy-deep:#033f5c; --navy-ink:#021e2e;
+  --light:#ECF4F9; --white:#fff; --ink:#14202d; --ink-mid:#3d5166; --ink-soft:#6b8099;
+  --maxw:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;font-weight:300;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6}
+h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.02em;line-height:.98;color:var(--ink)}
+a{color:inherit}
+.accent{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:var(--gold)}
+.eyebrow{font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block}
+strong{font-weight:600;color:var(--navy)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:40;background:rgba(3,30,46,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(187,140,58,.3)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav .brand{display:flex;align-items:center;gap:10px}
+.nav .brand img{height:30px}
+.nav .brand span{font-family:'Bebas Neue',sans-serif;letter-spacing:.14em;font-size:15px;color:#cfe2ee}
+.nav .actions{display:flex;align-items:center;gap:14px}
+.nav a.ghost{color:#cfe2ee;text-decoration:none;font-size:13.5px;letter-spacing:.02em}
+.nav a.ghost:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;font-size:15px;padding:10px 18px;border-radius:6px;transition:transform .15s ease,box-shadow .15s ease}
+.btn svg{width:15px;height:15px}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;box-shadow:0 8px 20px -8px rgba(187,140,58,.7)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{border-color:var(--gold-light);color:var(--gold-light)}
+@media(max-width:640px){.nav a.ghost{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,30,46,.15) 0%,rgba(2,30,46,.35) 45%,rgba(2,30,46,.92) 92%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:64px;padding-top:120px}
+.hero .datebadge{display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.06em;color:var(--navy-ink);background:var(--gold);padding:5px 14px;border-radius:4px;margin-bottom:18px}
+.hero h1{font-size:clamp(64px,13vw,150px);line-height:.82;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.hero h1 .accent{display:block;color:var(--gold-light);font-size:clamp(34px,7vw,76px);line-height:1.05}
+.hero p.sub{font-size:clamp(16px,2.4vw,21px);color:#dce9f1;max-width:640px;margin:22px 0 28px;font-weight:300}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+
+/* section scaffolding */
+section{padding:84px 0}
+.sec-head{max-width:680px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(36px,5.5vw,58px);color:var(--navy);margin-top:10px}
+.sec-head p{color:var(--ink-mid);font-size:17px;margin-top:14px}
+.tint{background:var(--light)}
+.dark{background:linear-gradient(160deg,var(--navy),var(--navy-ink));color:#fff}
+.dark h2,.dark h3,.dark h4{color:#fff}
+.dark .sec-head p,.dark p{color:#cfe2ee}
+.dark .eyebrow{color:var(--gold-light)}
+
+/* invitation / 7 things */
+.invite-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:start}
+.invite-lede{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:23px;line-height:1.35;color:var(--navy);margin-bottom:16px}
+.datecard{background:linear-gradient(135deg,var(--navy),var(--navy-deep));color:#fff;border-radius:12px;padding:24px;display:flex;gap:20px;align-items:center}
+.datecard .d{font-family:'Bebas Neue',sans-serif;font-size:54px;line-height:.82;color:var(--gold-light);text-align:center}
+.datecard .m strong{display:block;font-size:18px;color:#fff}
+.datecard .m span{display:block;font-size:13px;color:#cfe2ee}
+.plan7{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;margin-top:34px}
+.plan7 .it{display:flex;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px dashed rgba(5,90,129,.2)}
+.plan7 .it .n{font-family:'Bebas Neue',sans-serif;color:var(--gold);font-size:22px;width:26px;flex:none}
+.plan7 .it b{font-weight:500;color:var(--ink);font-size:16px}
+.plan7 .it small{display:block;color:var(--ink-soft);font-size:13px;font-weight:300}
+.scripture{margin-top:40px;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:26px;color:var(--navy)}
+.scripture span{display:block;font-family:'Poppins',sans-serif;font-style:normal;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dark);margin-top:12px}
+
+/* timeline */
+.timeline{position:relative;margin-left:8px;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),rgba(187,140,58,.25))}
+.tl{position:relative;padding-bottom:30px}
+.tl::before{content:"";position:absolute;left:-34px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--gold)}
+.dark .tl::before{background:var(--navy-ink)}
+.tl .day{font-family:'Bebas Neue',sans-serif;font-size:21px;color:var(--gold-light);letter-spacing:.04em}
+.tl .day .time{color:#fff;opacity:.8;font-size:16px;margin-left:8px}
+.tl h4{font-size:20px;margin:4px 0 6px}
+.tl ul{margin:6px 0 0 18px}
+.tl li{font-size:15px;margin:3px 0}
+.opt{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-ink);background:var(--gold-light);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:2px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.cards.three{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid rgba(5,90,129,.14);border-radius:14px;padding:28px;box-shadow:0 10px 30px -18px rgba(5,90,129,.4)}
+.card h3{font-size:24px;color:var(--navy);margin-bottom:10px}
+.card h4{font-size:17px;color:var(--ink);margin:16px 0 6px}
+.card p,.card li{font-size:15px;color:var(--ink-mid);line-height:1.6}
+.card ul{list-style:none;margin-top:6px}
+.card ul li{position:relative;padding-left:22px;margin:7px 0}
+.card ul li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border:1.5px solid var(--gold);border-radius:50%}
+.card.lead{background:linear-gradient(135deg,var(--navy),var(--navy-deep));color:#fff;border:none}
+.card.lead h3,.card.lead h4{color:#fff}
+.card.lead p,.card.lead li{color:#d7e6ef}
+.card.lead ul li::before{border-color:var(--gold-light)}
+.ratebox{margin-top:14px;background:rgba(255,255,255,.08);border-radius:8px;padding:14px 16px}
+.ratebox .r{display:flex;justify-content:space-between;color:#cfe2ee;font-size:15px;padding:3px 0}
+.ratebox .r.total{border-top:1px solid rgba(255,255,255,.25);margin-top:6px;padding-top:8px;font-weight:600;color:#fff}
+.ratebox .r.total span:last-child{color:var(--gold-light)}
+.note{font-size:13.5px;color:var(--ink-soft);font-style:italic;margin-top:10px}
+.card.lead .note{color:#bcd4e2}
+
+/* budget table */
+.budget{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px -18px rgba(5,90,129,.4)}
+.budget th{text-align:left;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.06em;color:var(--gold-dark);background:var(--gold-pale);padding:16px 22px}
+.budget th:last-child,.budget td:last-child{text-align:right}
+.budget td{padding:15px 22px;border-bottom:1px solid rgba(5,90,129,.1);font-size:16px;color:var(--ink-mid)}
+.budget td:last-child{font-weight:600;color:var(--navy);white-space:nowrap}
+.budget td .sub{display:block;font-size:12.5px;color:var(--ink-soft);font-weight:300}
+.budget tr:last-child td{border-bottom:none}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.chip{font-size:14px;color:var(--navy);background:var(--light);border:1px solid rgba(8,118,169,.22);border-radius:30px;padding:7px 16px}
+.chip.star{background:var(--gold-pale);border-color:var(--gold);color:var(--gold-dark);font-weight:600}
+.attire{columns:2;column-gap:28px;margin-top:8px}
+.attire li{break-inside:avoid}
+
+/* image band */
+.imgband{height:340px;border-radius:16px;overflow:hidden;position:relative;margin-top:36px}
+.imgband img{width:100%;height:100%;object-fit:cover}
+.imgband .cap{position:absolute;left:22px;bottom:16px;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.04em;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+
+/* final CTA */
+.final{position:relative;overflow:hidden;text-align:center}
+.final img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.final::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,30,46,.78),rgba(2,30,46,.92))}
+.final .wrap{position:relative;z-index:2}
+.final h2{font-size:clamp(42px,7vw,80px);color:#fff}
+.final h2 .accent{color:var(--gold-light)}
+.final p{color:#dce9f1;max-width:600px;margin:18px auto 30px;font-size:18px}
+.final .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.final .scripture{color:var(--gold-pale);margin-top:46px;font-size:22px}
+.final .scripture span{color:#9fc0d2}
+
+/* footer */
+.foot{background:var(--navy-ink);color:#9fc0d2;padding:40px 0;text-align:center}
+.foot img{height:32px;margin-bottom:12px}
+.foot p{font-size:13px;color:#7fa3b6;line-height:1.7}
+.foot .disclaim{font-size:11.5px;font-style:italic;margin-top:14px;max-width:680px;margin-left:auto;margin-right:auto}
+.foot a{color:var(--gold-light);text-decoration:none}
+
+@media(max-width:820px){
+  .invite-grid{grid-template-columns:1fr;gap:30px}
+  .cards,.cards.three{grid-template-columns:1fr}
+  .plan7{grid-template-columns:1fr}
+}

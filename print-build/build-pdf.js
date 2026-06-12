@@ -31,6 +31,12 @@ const variants = [
     pdfFile: 'champions-brochure-4page-print-ready.pdf',
     label: '4-page condensed',
   },
+  {
+    key: 'mfl',
+    htmlFile: 'march-for-life-2027-print.html',
+    pdfFile: 'champions-march-for-life-2027-planning-guide.pdf',
+    label: 'March for Life 2027 guide',
+  },
 ];
 
 async function buildVariant(browser, v) {
@@ -96,7 +102,9 @@ async function buildVariant(browser, v) {
     args: ['--no-sandbox', '--font-render-hinting=none'],
   });
 
+  const only = process.env.BUILD_ONLY; // e.g. BUILD_ONLY=mfl builds just that variant
   for (const v of variants) {
+    if (only && v.key !== only) continue;
     await buildVariant(browser, v);
   }
 
