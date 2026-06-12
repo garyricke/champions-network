@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Champions Advocate Weekly — AI Concept</title>
+<link rel="icon" href="favicon-champions-network.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#BB8C3A;
+  --gold-deep:#9a7028;
+  --blue:#0876A9;
+  --navy:#055A81;
+  --navy-deep:#033c56;
+  --light:#ECF4F9;
+  --white:#FFFFFF;
+  --ink:#15303d;
+  --muted:#5a7380;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  font-weight:300;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(8,118,169,.35), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.015) 0 2px, transparent 2px 7px),
+    linear-gradient(160deg, #04293b 0%, #033c56 45%, #022e43 100%);
+  background-attachment:fixed;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============ CONCEPT FRAME / ANNOTATION ============ */
+.concept-bar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(3,33,48,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(187,140,58,.4);
+  color:#dce9f1;
+  padding:11px 22px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.02em;
+}
+.concept-bar .tag{
+  font-family:'Bebas Neue',sans-serif;letter-spacing:.12em;font-size:14px;
+  background:var(--gold);color:#241a06;padding:3px 11px;border-radius:3px;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.concept-bar b{color:#fff;font-weight:600}
+.concept-bar .dim{color:#8fb0c2}
+
+.intro{
+  max-width:720px;margin:0 auto;padding:54px 26px 14px;color:#e7f1f7;text-align:center;
+}
+.intro .eyebrow{
+  font-family:'Bebas Neue',sans-serif;letter-spacing:.28em;font-size:15px;
+  color:var(--gold);margin-bottom:14px;
+}
+.intro h1{
+  font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.01em;
+  font-size:clamp(34px,6vw,56px);line-height:.98;color:#fff;margin-bottom:18px;
+}
+.intro h1 em{font-style:normal;color:var(--gold)}
+.intro p{font-size:16px;line-height:1.7;color:#bcd4e2;max-width:600px;margin:0 auto}
+
+/* how-it-works chips */
+.how{
+  max-width:720px;margin:26px auto 0;padding:0 26px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+}
+.how .chip{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(187,140,58,.25);
+  border-radius:12px;padding:16px 14px;text-align:left;
+}
+.how .chip .n{
+  font-family:'Bebas Neue',sans-serif;color:var(--gold);font-size:22px;letter-spacing:.05em;
+}
+.how .chip h4{font-weight:600;font-size:13px;color:#fff;margin:4px 0 5px}
+.how .chip p{font-size:12px;line-height:1.5;color:#9fbccd}
+@media(max-width:680px){.how{grid-template-columns:repeat(2,1fr)}}
+
+.frame-label{
+  max-width:680px;margin:46px auto 0;padding:0 26px;
+  display:flex;align-items:center;gap:14px;color:#7fa3b6;font-size:12px;letter-spacing:.18em;
+  text-transform:uppercase;font-weight:500;
+}
+.frame-label::before,.frame-label::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(127,163,182,.5),transparent)}
+
+/* ============ EMAIL CANVAS ============ */
+.email{
+  max-width:680px;margin:22px auto;background:var(--white);
+  border-radius:6px;overflow:hidden;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06);
+}
+
+/* masthead */
+.masthead{
+  background:
+    radial-gradient(600px 300px at 80% -40%, rgba(187,140,58,.25), transparent 70%),
+    linear-gradient(155deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color:#fff;padding:34px 40px 30px;position:relative;
+}
+.masthead::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--blue),var(--gold));
+}
+.brandrow{display:flex;align-items:center;gap:11px;margin-bottom:22px}
+.brandrow .mark{
+  width:34px;height:34px;border:2px solid var(--gold);border-radius:50%;
+  display:grid;place-items:center;flex:none;
+}
+.brandrow .mark svg{width:18px;height:18px}
+.brandrow .org{
+  font-family:'Bebas Neue',sans-serif;letter-spacing:.22em;font-size:13px;color:#cfe2ee;
+}
+.kicker-line{
+  display:flex;align-items:center;gap:12px;margin-bottom:8px;
+  font-family:'Bebas Neue',sans-serif;letter-spacing:.24em;font-size:13px;color:var(--gold);
+}
+.kicker-line .rule{height:2px;width:34px;background:var(--gold)}
+.masthead h2{
+  font-family:'Bebas Neue',sans-serif;font-weight:400;
+  font-size:clamp(40px,8vw,64px);line-height:.9;letter-spacing:.005em;margin-bottom:14px;
+}
+.issue{
+  display:flex;gap:18px;align-items:center;flex-wrap:wrap;
+  font-size:13px;color:#bcd4e2;font-weight:300;
+}
+.issue .v{font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;font-size:16px;color:#fff}
+.issue .dot{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+
+/* intro blurb */
+.digest-intro{padding:30px 40px 6px}
+.digest-intro p{font-size:15px;line-height:1.75;color:var(--muted)}
+.digest-intro .lead{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:600;
+  font-size:19px;line-height:1.5;color:var(--navy);margin-bottom:14px;
+}
+
+/* story */
+.story{padding:30px 40px 0}
+.story-head{display:flex;align-items:baseline;gap:14px;margin-bottom:16px}
+.story-num{
+  font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:.8;color:var(--light);
+  -webkit-text-stroke:1px var(--gold);flex:none;
+}
+.story-cat{
+  display:inline-block;font-family:'Bebas Neue',sans-serif;letter-spacing:.16em;
+  font-size:12px;color:#fff;background:var(--blue);padding:5px 11px;border-radius:3px;margin-bottom:9px;
+}
+.story h3{
+  font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.01em;
+  font-size:30px;line-height:1.02;color:var(--ink);
+}
+.story h3 + .sub{font-size:15px;color:var(--muted);margin-top:5px;font-style:italic}
+
+/* photo placeholder */
+.photo{
+  margin:20px 0 8px;border-radius:8px;overflow:hidden;position:relative;
+  border:1px solid rgba(5,90,129,.12);
+}
+.photo svg{display:block;width:100%;height:auto}
+.photo img{display:block;width:100%;height:auto}
+.photo .cap{
+  position:absolute;left:12px;bottom:12px;
+  background:rgba(3,33,48,.78);color:#dce9f1;font-size:11px;letter-spacing:.04em;
+  padding:4px 9px;border-radius:4px;backdrop-filter:blur(3px);
+}
+.credit{font-size:11px;color:#9aabb4;letter-spacing:.02em;margin:0 0 16px}
+
+.story p.body{font-size:14.5px;line-height:1.8;color:#33505d;margin-bottom:14px}
+.story p.body .src{color:var(--muted);font-style:italic}
+
+.readbtn{
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  font-family:'Bebas Neue',sans-serif;letter-spacing:.12em;font-size:15px;
+  color:#fff;background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  padding:11px 20px;border-radius:5px;margin-bottom:6px;
+  box-shadow:0 8px 20px -8px rgba(187,140,58,.7);transition:transform .15s ease,box-shadow .15s ease;
+}
+.readbtn:hover{transform:translateY(-2px);box-shadow:0 14px 26px -10px rgba(187,140,58,.8)}
+.readbtn svg{width:15px;height:15px}
+
+/* pray panel */
+.pray{
+  margin:22px 0 6px;background:var(--light);
+  border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+  padding:22px 26px;position:relative;
+}
+.pray .ph{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
+  font-size:21px;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:10px;
+}
+.pray .ph svg{width:20px;height:20px;color:var(--gold)}
+.pray ul{list-style:none}
+.pray li{
+  font-size:14px;line-height:1.6;color:#3a5663;padding:7px 0 7px 26px;position:relative;
+}
+.pray li::before{
+  content:"";position:absolute;left:6px;top:14px;width:7px;height:7px;
+  border:1.5px solid var(--gold);border-radius:50%;
+}
+.pray li + li{border-top:1px dashed rgba(5,90,129,.14)}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(5,90,129,.18),transparent);margin:34px 40px 0}
+
+/* annotation tag inside email */
+.ai-note{
+  margin:18px 40px 0;display:flex;gap:11px;align-items:flex-start;
+  background:rgba(8,118,169,.06);border:1px dashed rgba(8,118,169,.3);
+  border-radius:8px;padding:12px 14px;font-size:12.5px;line-height:1.55;color:var(--blue);
+}
+.ai-note svg{width:17px;height:17px;flex:none;margin-top:1px}
+.ai-note b{font-weight:600}
+
+/* subscribe band */
+.band{
+  margin-top:36px;padding:34px 40px;text-align:center;color:#fff;
+  background:
+    radial-gradient(500px 240px at 20% 0%, rgba(187,140,58,.3), transparent 60%),
+    linear-gradient(135deg,var(--blue),var(--navy));
+}
+.band h4{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.04em;margin-bottom:8px}
+.band p{font-size:13.5px;color:#cfe6f2;max-width:430px;margin:0 auto 18px;line-height:1.6}
+.band a.cta{
+  display:inline-block;text-decoration:none;font-family:'Bebas Neue',sans-serif;
+  letter-spacing:.14em;font-size:16px;color:var(--navy-deep);background:#fff;
+  padding:13px 30px;border-radius:6px;transition:transform .15s ease;
+}
+.band a.cta:hover{transform:translateY(-2px)}
+
+/* workshop */
+.workshop{padding:30px 40px;background:#fbfcfd;border-top:1px solid #eef3f6}
+.workshop .wk-cat{font-family:'Bebas Neue',sans-serif;letter-spacing:.16em;font-size:13px;color:var(--gold);margin-bottom:8px}
+.workshop h4{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:10px;line-height:1.05}
+.workshop p{font-size:13.5px;line-height:1.7;color:var(--muted);margin-bottom:14px}
+.workshop a.link{
+  text-decoration:none;color:var(--blue);font-weight:600;font-size:13.5px;border-bottom:2px solid rgba(8,118,169,.3);padding-bottom:1px;
+}
+
+/* footer */
+.foot{background:var(--navy-deep);color:#9fc0d2;padding:28px 40px;text-align:center}
+.foot .fmark{font-family:'Bebas Neue',sans-serif;letter-spacing:.2em;font-size:15px;color:#fff;margin-bottom:6px}
+.foot p{font-size:12px;line-height:1.7;color:#7fa3b6}
+.foot a{color:var(--gold);text-decoration:none}
+
+.closing{max-width:680px;margin:14px auto 70px;padding:0 26px;text-align:center;color:#7fa3b6;font-size:12.5px;letter-spacing:.04em}
+
+@media(max-width:560px){
+  .masthead,.digest-intro,.story,.band,.workshop,.foot{padding-left:24px;padding-right:24px}
+  .divider,.ai-note{margin-left:24px;margin-right:24px}
+  .pray{padding-left:20px;padding-right:18px}
+}
+</style>
+</head>
+<body>
+
+<!-- concept bar -->
+<div class="concept-bar">
+  <span class="tag">◆ Concept</span>
+  <span><b>AI-produced mockup</b> of <i>The Champions Advocate Weekly</i> — built from the Vol.&nbsp;2 No.&nbsp;21 content Mark sent.</span>
+  <span class="dim">Representative AI photos (no real people) · swap for licensed photos before sending</span>
+</div>
+
+<!-- intro -->
+<section class="intro">
+  <div class="eyebrow">For Mark, Carly &amp; Shelly · Champions Network</div>
+  <h1>What if the weekly digest <em>built itself?</em></h1>
+  <p>Same voice, same Two-Kingdoms heart — but the curation, drafting, formatting, and layout are handled by the AI tool chest. Here's the same issue you publish in MailChimp, re-imagined as a faster, more polished workflow.</p>
+</section>
+
+<!-- how it works -->
+<div class="how">
+  <div class="chip"><div class="n">01</div><h4>Cultivate</h4><p>Shelly drops raw story links &amp; clippings into a shared folder.</p></div>
+  <div class="chip"><div class="n">02</div><h4>Curate</h4><p>AI summarizes each story in the Advocate's voice + flags the liberty angle.</p></div>
+  <div class="chip"><div class="n">03</div><h4>Pray</h4><p>It drafts the "Let Us Pray…" petitions for Mark to approve &amp; edit.</p></div>
+  <div class="chip"><div class="n">04</div><h4>Publish</h4><p>Formatted layout ready to paste into MailChimp — or the new email engine.</p></div>
+</div>
+
+<div class="frame-label">The newsletter</div>
+
+<!-- ===================== EMAIL ===================== -->
+<div class="email">
+
+  <!-- masthead -->
+  <header class="masthead">
+    <div class="brandrow">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#BB8C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 5 5.5.8-4 3.9.95 5.5L12 20.6 7.1 17.2 8 11.7l-4-3.9 5.5-.8z"/></svg>
+      </span>
+      <span class="org">LCRL · Champions for Religious Liberty</span>
+    </div>
+    <div class="kicker-line"><span class="rule"></span> Two Kingdoms &amp; the Champions Network</div>
+    <h2>The Champions<br>Advocate Weekly</h2>
+    <div class="issue">
+      <span class="v">Vol. 2 · No. 21</span>
+      <span class="dot"></span>
+      <span>June 10, 2026</span>
+      <span class="dot"></span>
+      <span>Inform · Pray · Advocate</span>
+    </div>
+  </header>
+
+  <!-- intro blurb -->
+  <div class="digest-intro">
+    <p class="lead">"Not just a brief news digest, but an opportunity for informing, praying, and advocacy."</p>
+    <p>A weekly digest of a few curated news items related to religious liberty, primarily in the United States — produced by the staff of the LCRL Champions Network, sponsored by The Lutheran Center for Religious Liberty in Washington&nbsp;D.C.</p>
+  </div>
+
+  <!-- STORY 1 -->
+  <article class="story">
+    <div class="story-head">
+      <span class="story-num">1</span>
+      <div>
+        <span class="story-cat">Educational Freedom</span>
+        <h3>Illinois Parent Sues School Over Secret Transition</h3>
+        <p class="sub">A district is accused of socially transitioning a minor without telling her mother.</p>
+      </div>
+    </div>
+
+    <div class="photo">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1360/champions-network/advocate-weekly-vol2-21-school-hallway.jpg"
+           alt="An empty American public high school hallway with lockers and a U.S. flag in morning light" loading="lazy">
+      <span class="cap">Representative editorial image</span>
+    </div>
+    <p class="credit">Representative image · in production, swap for The Lion's licensed photo · <em>The LION — May 26, 2026</em></p>
+
+    <p class="body">
+      <span class="src">St. Louis, Mo —</span> An Illinois school district is facing a federal class-action lawsuit over claims it secretly transitioned a minor student's gender identity at school. The mother of a high school student enrolled in Community Unit School District 300 filed the suit in federal court against the district and the superintendent.
+    </p>
+    <p class="body">
+      The mother says school employees began using an alternate name and pronouns for her child in 2022 without informing her. The suit alleges the child's mental health plummeted during this time, sending the student to the hospital after experiencing thoughts of suicide…
+    </p>
+
+    <a class="readbtn" href="#" onclick="return false;">
+      Read “Mom vs. School”
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+
+    <div class="pray">
+      <div class="ph">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7M12 10c0 4-3 5-3 8a3 3 0 0 0 6 0c0-3-3-4-3-8z"/><path d="M9 6.5C7 7 6 8.5 6 8.5M15 6.5c2 .5 3 2 3 2"/></svg>
+        Let Us Pray…
+      </div>
+      <ul>
+        <li>…for this mother and her child, and other parents and children caught in this.</li>
+        <li>…for school administrators who feel it is their duty to usurp parental authority.</li>
+        <li>…for the Church to teach and preach on God's provision for parental authority.</li>
+        <li>…for attorney Ajay Gupta and others willing to defend parents and children.</li>
+      </ul>
+    </div>
+  </article>
+
+  <div class="divider"></div>
+
+  <!-- STORY 2 -->
+  <article class="story">
+    <div class="story-head">
+      <span class="story-num">2</span>
+      <div>
+        <span class="story-cat">Educational Freedom</span>
+        <h3>West Virginia Transgender Athlete Wins Girls' State Title</h3>
+        <p class="sub">A sophomore takes the state shot put crown as the Supreme Court weighs the case.</p>
+      </div>
+    </div>
+
+    <div class="photo">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1360/champions-network/advocate-weekly-vol2-21-track-shotput.jpg"
+           alt="An empty high school running track at golden hour with a shot put resting on the infield grass" loading="lazy">
+      <span class="cap">Representative editorial image</span>
+    </div>
+    <p class="credit">Representative image · in production, swap for The Lion's licensed photo</p>
+
+    <p class="body">
+      A Bridgeport High School sophomore won the West Virginia Class AAA girls' shot put state championship this past weekend while awaiting a U.S. Supreme Court ruling in a case challenging the state's girls' sports law. The biological male won the event with a personal-best throw of 38 feet, 11.75 inches, and finished fourth in discus with a throw of 112 feet.
+    </p>
+    <p class="body">
+      The athlete is the lead plaintiff in <em>West Virginia v. B.P.J.</em>, a Supreme Court case addressing whether states may bar males who identify as transgender from competing in girls' sports. West Virginia lawmakers passed the Save Women's Sports Act in 2021, requiring teams in middle school, high school and college to be…
+    </p>
+    <p class="body" style="font-size:13.5px;color:#5a7380">
+      <em>Editor's note —</em> A linked Associated Press story reports the student has publicly identified as a girl since age 8, and at home since age 3, beginning puberty blockers at the onset of puberty. One does not sense a militant agenda from the student or mother — which is what makes adjudicating such lawsuits so challenging.
+    </p>
+
+    <a class="readbtn" href="#" onclick="return false;">
+      Read “West Virginia v. B.P.J.”
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+
+    <div class="pray">
+      <div class="ph">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7M12 10c0 4-3 5-3 8a3 3 0 0 0 6 0c0-3-3-4-3-8z"/><path d="M9 6.5C7 7 6 8.5 6 8.5M15 6.5c2 .5 3 2 3 2"/></svg>
+        Let Us Pray…
+      </div>
+      <ul>
+        <li>…for all involved in this lawsuit — for the student, the mother, and the officials.</li>
+        <li>…for the effect the notoriety of this case will have on the local community.</li>
+        <li>…for the officials and parents in the area to work through this with grace and truth.</li>
+        <li>…for care and protection for the minor who is under intense scrutiny.</li>
+        <li>…for the health and well-being of the student through the trial.</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- AI note -->
+  <div class="ai-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-3.5 3 1 4.8L12 14.5 7.9 16.8l1-4.8L5.5 9l4.6-1.4z"/></svg>
+    <span><b>How this issue was assembled:</b> story summaries condensed by AI from the source articles in the Advocate's house voice, the "Let&nbsp;Us&nbsp;Pray" petitions drafted for staff approval, and the whole layout generated ready to paste into MailChimp. A human (Mark) still reviews and blesses every word.</span>
+  </div>
+
+  <!-- subscribe -->
+  <section class="band">
+    <h4>Subscribe to the Champions Advocate Weekly</h4>
+    <p>If a friend forwarded this to you, join our free weekly email digest and stand watch with us — informing, praying, and advocating for religious liberty.</p>
+    <a class="cta" href="#" onclick="return false;">Sign Me Up →</a>
+  </section>
+
+  <!-- workshop -->
+  <section class="workshop">
+    <div class="wk-cat">Bring It To Your Church</div>
+    <h4>Two Kingdoms &amp; Champions Network Introduction Workshop</h4>
+    <p>If you'd like your church to consider hosting an Introductory Workshop, simply email us and we'll provide information for your consideration. Remember us in your prayers as we continue to support the many Champion Chapters that are beginning.</p>
+    <a class="link" href="#" onclick="return false;">Email the Champions Network →</a>
+  </section>
+
+  <!-- footer -->
+  <footer class="foot">
+    <div class="fmark">Champions for Religious Liberty</div>
+    <p>An initiative of the Lutheran Center for Religious Liberty · Washington, D.C.<br>
+    Rev. Mark T. Frith, Network Director · <a href="#" onclick="return false;">LCRLFreedom.org</a></p>
+  </footer>
+
+</div><!-- /email -->
+
+<p class="closing">Concept mockup for the Friday 11&nbsp;a.m. discussion · Champions Network · Orbis Design</p>
+
+</body>
+</html>
