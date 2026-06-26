@@ -281,9 +281,29 @@ document.getElementById('pw-input').focus();})();
     <p class="body">Double-opt-in confirmation emails use Resend's <strong>Transactional</strong> side, which is free up to <strong>3,000 emails/month</strong> (100/day). We'd send a handful a week — comfortably free. Only matters if we ever do a huge one-time import.</p>
   </section>
 
+  <!-- MEASUREMENT -->
+  <section class="blk">
+    <h2><span class="ix">5</span> What we can measure</h2>
+    <p class="lead">Yes — Resend tracks <strong>opens and click-throughs</strong> on every broadcast. This directly answers Shelly's question from the June 12 call about reader behavior.</p>
+    <ul class="clean">
+      <li><strong>Per broadcast:</strong> delivered, <strong>open rate</strong>, <strong>click rate</strong>, unsubscribes, and bounces — right in the dashboard.</li>
+      <li><strong>Per person:</strong> exactly who opened, and who clicked which link, with timestamps. (Opens use a tracking pixel; clicks use link redirects — both standard, and toggleable.)</li>
+      <li><strong>Live events:</strong> Resend can stream open/click/bounce events to a webhook, so we could even surface stats on the site later.</li>
+      <li><strong>On-brand tracking:</strong> a custom tracking domain (<code>news.champions-network.com</code>) keeps the tracking links on our domain, which also helps deliverability.</li>
+    </ul>
+    <div class="callout gold">
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg> The bigger win</h4>
+      <p>Because each story now lands on <strong>our site</strong> first, we get true <strong>on-site analytics</strong> too — which stories get read, how long, and onward clicks to the source. That's the real engagement signal the old "link straight out" emails could never measure. We'd see both the email numbers <em>and</em> what people actually do.</p>
+    </div>
+    <div class="callout warn">
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> One honest caveat</h4>
+      <p>Apple Mail (Privacy Protection) pre-loads images, which <strong>inflates open rates</strong> across every email tool — so treat opens as directional, not exact. <strong>Clicks</strong> and on-site visits are the trustworthy numbers.</p>
+    </div>
+  </section>
+
   <!-- ROLLOUT -->
   <section class="blk">
-    <h2><span class="ix">5</span> Suggested rollout &amp; open decisions</h2>
+    <h2><span class="ix">6</span> Suggested rollout &amp; open decisions</h2>
     <h3>Phases</h3>
     <ol class="steps">
       <li><h4>Prove it (test mode)</h4><p>Build the <code>send-advocate</code> function + button; send test issues only to ourselves and a small internal group.</p></li>
