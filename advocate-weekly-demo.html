@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Advocate Weekly — On-Site &amp; Approval Demo</title>
+<link rel="icon" href="favicon-champions-network.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="advocate-weekly-demo.css">
+</head>
+<body>
+
+<!-- ============================================================
+     PASSWORD GATE — Internal document. Key: cn_auth
+     ============================================================ -->
+<style>
+  #pw-gate{position:fixed;inset:0;z-index:9999;background:#021e2e;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;}
+  #pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(187,140,58,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(187,140,58,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+  #pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(187,140,58,.25);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5);}
+  #pw-box img{height:48px;margin-bottom:24px;display:block;margin-inline:auto;}
+  #pw-box h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#BB8C3A;letter-spacing:.08em;margin:0 0 8px;}
+  #pw-box .sub{font-size:.85rem;color:rgba(236,244,249,.55);margin:0 0 28px;letter-spacing:.02em;}
+  #pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid rgba(187,140,58,.3);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s;}
+  #pw-input:focus{border-color:#BB8C3A;}
+  #pw-btn{margin-top:14px;width:100%;padding:12px;background:#BB8C3A;color:#021e2e;border:0;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;cursor:pointer;transition:background .2s;}
+  #pw-btn:hover{background:#d4a04a;}
+  #pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em;}
+  .pw-shake{animation:pwShake .35s;}
+  @keyframes pwShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+</style>
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network">
+    <h2>Internal Document</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='cn_auth',PASS='markrules',gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function attempt(){
+    if(document.getElementById('pw-input').value===PASS){
+      sessionStorage.setItem(KEY,'1');document.body.style.overflow='';gate.style.display='none';
+    } else {
+      document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+      var box=document.getElementById('pw-box');box.classList.remove('pw-shake');void box.offsetWidth;box.classList.add('pw-shake');
+    }
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+  document.getElementById('pw-input').focus();
+})();
+</script>
+
+<!-- concept bar -->
+<div class="concept-bar">
+  <span class="tag">◆ Concept</span>
+  <span><b>Working demo</b> — how the Advocate Weekly could live <i>on champions-network.com</i>, plus a click-through of the <b>approval workflow</b>.</span>
+  <span class="dim">Front-end simulation · nothing is published · safe to forward</span>
+</div>
+
+<!-- ============ INTRO ============ -->
+<section class="intro">
+  <div class="eyebrow">For Mark, Carly, Shelly &amp; Legal</div>
+  <h1>Give the Advocate Weekly <em>a home of its own.</em></h1>
+  <p>Right now every story in the email sends readers straight off to someone else’s site. This demo shows the same digest making a <strong>stop on our own property</strong> first — where readers meet our podcasts, lessons and chapters on the way — and a one-click <strong>approval flow</strong> that keeps Mark in charge of every word.</p>
+</section>
+
+<!-- ============ WHY ============ -->
+<div class="why">
+  <div class="col now">
+    <h4><span class="badge">Today</span> The email gives traffic away</h4>
+    <p>Each story links straight out to ADF, Becket, BYU Law Center or a news site. It informs people — but:</p>
+    <ul>
+      <li>100% of the click goes to someone else’s site.</li>
+      <li>No reason to ever land on champions-network.com.</li>
+      <li>Almost nothing measurable comes back to us for the effort.</li>
+    </ul>
+  </div>
+  <div class="col next">
+    <h4><span class="badge">Proposed</span> The site becomes the stop</h4>
+    <p>The email gets shorter and points to a story page on our site. From there the reader still reaches the source — but first they:</p>
+    <ul>
+      <li>Land on our property and see who we are.</li>
+      <li>Meet related, already-approved Champions &amp; LCRL content.</li>
+      <li>Become trackable, and one step from subscribing.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ THE FLOW ============ -->
+<section class="section">
+  <div class="frame-label"><span class="n">1</span> The reader’s path</div>
+  <div class="flow">
+    <div class="step">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+      <h5>Thin Email</h5>
+      <p>One short paragraph + one image. “Read the rest on the site.”</p>
+    </div>
+    <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="step">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+      <h5>The Site (the stop)</h5>
+      <p>Fuller story + “Related on our properties” + a big button to the source.</p>
+    </div>
+    <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="step">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div>
+      <h5>The Source</h5>
+      <p>They still reach ADF / Becket / the news site — exactly as today.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKFLOW CONSOLE ============ -->
+<section class="section">
+  <div class="frame-label"><span class="n">2</span> The approval workflow — try it</div>
+  <div class="console">
+    <div class="console-bar">
+      <span class="dotset"><i></i><i></i><i></i></span>
+      <span class="ttl"><b>Advocate Weekly</b> &nbsp;/&nbsp; build a story</span>
+    </div>
+
+    <!-- step 1: paste source -->
+    <div class="wf-step">
+      <div class="lab"><span class="num">1</span><h4>Paste the source</h4><span class="hint">staff drops in a clipping &amp; link</span></div>
+      <textarea class="src-box" spellcheck="false">An Illinois school district is facing a federal class-action lawsuit over claims it secretly transitioned a minor student's gender identity at school. The mother of a high school student enrolled in Community Unit School District 300 filed the suit in federal court against the district and the superintendent. The mother says school employees began using an alternate name and pronouns for her child in 2022 without informing her.</textarea>
+      <div class="src-meta">
+        <input type="text" value="Source: The LION" aria-label="Source name">
+        <input type="text" value="https://readlion.com/…" aria-label="Source URL">
+      </div>
+    </div>
+
+    <!-- step 2: choose mode -->
+    <div class="wf-step">
+      <div class="lab"><span class="num">2</span><h4>Choose how much we add</h4><span class="hint">this decides whether legal review is needed</span></div>
+      <div class="modes">
+        <button class="mode on" data-mode="curate" type="button">
+          <div class="mt"><span class="rad"></span><h5>Curate only</h5></div>
+          <p>Verbatim quote in quotation marks + a button to the source. We add no words of our own.</p>
+          <span class="rev none">✓ No doctrinal review</span>
+        </button>
+        <button class="mode" data-mode="enhance" type="button">
+          <div class="mt"><span class="rad"></span><h5>AI-enhance</h5></div>
+          <p>AI condenses it and ties in our Two-Kingdoms framing in the Advocate’s voice.</p>
+          <span class="rev need">⚑ Needs Mark’s review</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- step 3: generate -->
+    <div class="wf-step">
+      <div class="lab"><span class="num">3</span><h4>Generate the draft</h4></div>
+      <div class="wf-actions">
+        <button class="btn" id="wf-generate" type="button">
+          Generate with AI
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-3.5 3 1 4.8L12 14.5 7.9 16.8l1-4.8L5.5 9l4.6-1.4z"/></svg>
+        </button>
+        <div class="thinking" id="wf-thinking"><span class="spin"></span> Reading the source &amp; drafting in the house voice…</div>
+      </div>
+
+      <!-- draft result -->
+      <div class="draft" id="wf-draft" style="margin-top:18px">
+        <div class="draft-card">
+          <div class="draft-top">
+            <span class="pip">AI draft · preview</span>
+            <span class="reviewflag none" id="d-flag">No doctrinal review required</span>
+          </div>
+          <div class="draft-body">
+            <span class="cat" id="d-cat">Educational Freedom</span>
+            <h3 id="d-headline">Headline</h3>
+            <div id="d-body"></div>
+          </div>
+        </div>
+
+        <!-- reviewer bar -->
+        <div class="reviewer">
+          <div class="rl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M9 12l2 2 4-4"/></svg>
+            <h5>Reviewer view</h5>
+          </div>
+          <p id="wf-reviewer-copy">One look, one click — nothing else changes — and it’s live.</p>
+          <p style="font-size:11.5px;color:#7fa3b6;font-style:italic" id="d-note"></p>
+          <div class="wf-actions" style="margin-top:12px">
+            <button class="btn ok" id="wf-approve" type="button">Approve &amp; Publish <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+            <button class="btn ghost" id="wf-request" type="button">Request changes</button>
+          </div>
+        </div>
+
+        <!-- published -->
+        <div class="published" id="wf-published">
+          <div class="pl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+            <h5>Live on champions-network.com</h5>
+          </div>
+          <p>The story page is published and the thin email is queued. <a href="#the-site-page" id="jump-live">See the page a reader lands on ↓</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE SITE PAGE ============ -->
+<section class="section" id="the-site-page">
+  <div class="frame-label"><span class="n">3</span> What the reader lands on</div>
+  <div class="sitepage">
+    <div class="sp-nav">
+      <span class="logo">Champions Network</span>
+      <span class="crumbs">Advocate Weekly · <span>Educational Freedom</span></span>
+    </div>
+    <div class="sp-hero">
+      <span class="cat">Educational Freedom</span>
+      <h2>Illinois Parent Sues School Over Secret Transition</h2>
+      <div class="meta">Curated June 10, 2026 · Source: <em>The LION</em> · Advocate Weekly Vol. 2 No. 21</div>
+    </div>
+    <div class="sp-photo">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1360/champions-network/advocate-weekly-vol2-21-school-hallway.jpg"
+           alt="An empty American public high school hallway with lockers and a U.S. flag in morning light" loading="lazy">
+    </div>
+    <div class="sp-body">
+      <p><span class="src">St. Louis, Mo —</span> “An Illinois school district is facing a federal class-action lawsuit over claims it secretly transitioned a minor student’s gender identity at school. The mother of a high school student enrolled in Community Unit School District 300 filed the suit in federal court against the district and the superintendent.”</p>
+      <p>“The mother says school employees began using an alternate name and pronouns for her child in 2022 without informing her. The suit alleges the child’s mental health plummeted during this time…”</p>
+    </div>
+    <div class="sp-source-row">
+      <a class="readbtn" href="#" onclick="return false;">Read the full story at The LION
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <span class="note">Excerpt shown in quotation marks · full article lives at the source</span>
+    </div>
+
+    <div class="sp-pray">
+      <b>Let Us Pray…</b>
+      <ul>
+        <li>…for this mother and her child, and other parents and children caught in this.</li>
+        <li>…for school administrators who feel it is their duty to usurp parental authority.</li>
+        <li>…for the Church to teach and preach on God’s provision for parental authority.</li>
+      </ul>
+    </div>
+
+    <!-- the strategic payload: related approved content -->
+    <div class="related">
+      <div class="rh">Related on our properties</div>
+      <div class="rs">Auto-matched from content we’ve <b>already published &amp; approved</b> — so it needs no new review, and it keeps the reader with us a little longer.</div>
+      <div class="rel-grid">
+        <a class="rel-card" href="laa-podcast.html">
+          <span class="kind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10a7 7 0 0 1-14 0M12 19v3"/></svg> Podcast</span>
+          <h5>Liberty Action Alert — Parents &amp; Schools</h5>
+          <p>Dr. Seltz on parental authority in the Left-Hand Kingdom.</p>
+          <div class="go">Listen on our site →</div>
+        </a>
+        <a class="rel-card" href="session-002.html">
+          <span class="kind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Academy Lesson</span>
+          <h5>Two Kingdoms &amp; the Christian Citizen</h5>
+          <p>The framework for thinking about cases exactly like this one.</p>
+          <div class="go">Open the lesson →</div>
+        </a>
+        <a class="rel-card" href="index.html#academy">
+          <span class="kind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg> Get Involved</span>
+          <h5>Join a Champions Chapter</h5>
+          <p>Trained lay advocates standing watch in their own communities.</p>
+          <div class="go">See the chapters →</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="sp-foot">
+      An initiative of the Lutheran Center for Religious Liberty · Washington, D.C.<br>
+      <a href="#" onclick="return false;">Subscribe to the Advocate Weekly</a> · <a href="index.html">champions-network.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE THIN EMAIL ============ -->
+<section class="section">
+  <div class="frame-label"><span class="n">4</span> The thin email that points here</div>
+  <div class="email">
+    <div class="em-head">
+      <div class="org">LCRL · Champions for Religious Liberty</div>
+      <h3>The Advocate Weekly</h3>
+      <div class="iss">Vol. 2 · No. 21 — Inform · Pray · Advocate</div>
+    </div>
+    <div class="em-body">
+      <span class="ecat">Educational Freedom</span>
+      <h4>Illinois Parent Sues School Over Secret Transition</h4>
+      <p>A mother says her child was socially transitioned at school for two years — without her knowledge. We’ve gathered the story and a prayer alongside it.</p>
+      <a class="em-btn" href="#the-site-page" onclick="return false;">Read &amp; pray on our site
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="em-foot">2–4 stories each week · one tap each lands on champions-network.com</div>
+  </div>
+  <p class="em-tip"><b>Why shorter:</b> the email becomes a teaser, so the click comes <b>to us</b> — but we’ll confirm with Carly’s MailChimp read-rate data before trimming, so scanners don’t lose the gist.</p>
+</section>
+
+<!-- ============ OPEN QUESTIONS / FLAGS ============ -->
+<div class="flag">
+  <div class="inner">
+    <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4l1-1c2 0 4 1.5 7 0s5 0 7 1v10c-2-1-4-1.5-7 0s-5 0-7-1"/></svg> Open questions for the table</h4>
+    <div class="qa">
+      <div class="q">Does hosting an excerpt on our site (vs. only linking from email) change the copyright picture?</div>
+      <div class="a">“Curate only” mode keeps it to a short quotation + attribution + a button to the source — the same posture as today, just on a page instead of in an email. Still worth a quick check. <span class="who">Mark + Legal</span></div>
+    </div>
+    <div class="qa">
+      <div class="q">What’s the current click-through &amp; read-rate, so we know if a thinner email loses scanners?</div>
+      <div class="a">Pull the numbers from MailChimp before we commit to trimming the email. <span class="who">Carly</span></div>
+    </div>
+    <div class="qa">
+      <div class="q">Which stories warrant “AI-enhance” (and Mark’s review) vs. plain “curate only”?</div>
+      <div class="a">Default everything to curate-only (no review); reserve enhance for the one or two stories a week worth our own framing. <span class="who">Mark + Shelly</span></div>
+    </div>
+  </div>
+</div>
+
+<p class="closing">Front-end concept for the Champions Advocate Weekly · built for the Friday discussion &amp; legal review · Champions Network · Orbis Design</p>
+
+<script src="advocate-weekly-demo.js"></script>
+</body>
+</html>

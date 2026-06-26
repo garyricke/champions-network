@@ -104,6 +104,85 @@
     color:rgba(236,244,249,.45);margin-top:6px;
   }
 
+  /* ── Budget status ── */
+  .budget{max-width:880px;margin:0 auto;padding:52px 28px 6px;}
+  .budget .bhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
+  .budget h2{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:2rem;color:#fff;letter-spacing:.04em;}
+  .budget .live{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;display:inline-flex;align-items:center;gap:7px;color:rgba(236,244,249,.5);}
+  .budget .live .dotlive{width:8px;height:8px;border-radius:50%;background:#388E3C;box-shadow:0 0 0 0 rgba(56,142,60,.6);animation:pulse 2s infinite;}
+  .budget .live.err .dotlive{background:#F34538;animation:none;}
+  .budget .live.loading .dotlive{background:var(--gold);animation:pulse 1.2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(56,142,60,.5);}70%{box-shadow:0 0 0 7px rgba(56,142,60,0);}100%{box-shadow:0 0 0 0 rgba(56,142,60,0);}}
+  .budget .bsub{font-size:.86rem;color:var(--muted);margin-bottom:22px;}
+  .budget .bsub a.filelink code,.budget .bsub code{font-size:.8em;}
+  .budget-card{background:rgba(255,255,255,.03);border:1px solid var(--hairline);border-radius:16px;padding:26px 26px 22px;}
+
+  /* battery meter */
+  .meter{position:relative;height:46px;border:2px solid rgba(236,244,249,.25);border-radius:9px;background:rgba(0,0,0,.25);overflow:hidden;display:flex;align-items:center;}
+  .meter::after{content:'';position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:6px;height:18px;background:rgba(236,244,249,.25);border-radius:0 3px 3px 0;}
+  .meter-fill{height:100%;display:flex;align-items:center;padding-left:14px;font-family:'Bebas Neue',sans-serif;letter-spacing:.04em;font-size:1.25rem;color:#04263a;min-width:42px;transition:width 1s cubic-bezier(.22,1,.36,1),background .5s;white-space:nowrap;}
+  .meter-fill.z5{background:#388E3C;color:#fff;} /* 0-20% used */
+  .meter-fill.z4{background:#ACD864;}            /* 20-40% */
+  .meter-fill.z3{background:#FFC107;}            /* 40-60% */
+  .meter-fill.z2{background:#FE9700;}            /* 60-80% */
+  .meter-fill.z1{background:#F34538;color:#fff;} /* 80-100% */
+  .meter-fill.over{background:#F34538;color:#fff;animation:overpulse 1.4s infinite;}
+  @keyframes overpulse{0%,100%{opacity:1;}50%{opacity:.7;}}
+  .meter-cap{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:8px;display:flex;justify-content:space-between;}
+
+  /* stat tiles */
+  .btiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 4px;}
+  .btile{background:rgba(255,255,255,.03);border:1px solid var(--hairline);border-radius:12px;padding:16px 16px;text-align:center;}
+  .btile .bv{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;color:#fff;}
+  .btile .bv small{font-size:.95rem;color:var(--muted);}
+  .btile .bd{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--gold-light);margin-top:6px;}
+  .btile .bl{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(236,244,249,.45);margin-top:8px;}
+  .btile.used .bv{color:var(--gold);}
+  .btile.remain .bv{color:#7cc5ea;}
+
+  /* per-project rows */
+  .bproj{margin-top:18px;border-top:1px solid var(--hairline);padding-top:16px;}
+  .bproj .bprow{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.85rem;padding:7px 0;color:rgba(236,244,249,.78);}
+  .bproj .bprow + .bprow{border-top:1px dashed rgba(187,140,58,.16);}
+  .bproj .bprow .pn{display:flex;align-items:center;gap:9px;}
+  .bproj .bprow .pn b{width:9px;height:9px;border-radius:2px;display:inline-block;}
+  .bproj .bprow .ph{font-family:'JetBrains Mono',monospace;color:var(--gold-light);}
+  .bnote{font-size:.74rem;color:rgba(236,244,249,.4);margin-top:14px;line-height:1.6;}
+  .bnote.warn{color:#F3a538;}
+  @media(max-width:560px){.btiles{grid-template-columns:1fr;}}
+
+  /* ── Budget detail modal ── */
+  .bd-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px;}
+  .bd-summary .s{background:rgba(255,255,255,.04);border:1px solid var(--hairline);border-radius:10px;padding:13px 12px;text-align:center;}
+  .bd-summary .s .v{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#fff;line-height:1;}
+  .bd-summary .s.u .v{color:var(--gold);}
+  .bd-summary .s.r .v{color:#7cc5ea;}
+  .bd-summary .s .d{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--gold-light);margin-top:5px;}
+  .bd-summary .s .l{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(236,244,249,.45);margin-top:6px;}
+  @media(max-width:560px){.bd-summary{grid-template-columns:1fr 1fr;}}
+
+  /* monthly bars */
+  .bd-month{display:grid;grid-template-columns:92px 1fr 96px;align-items:center;gap:12px;padding:6px 0;font-size:.82rem;}
+  .bd-month .ml{color:rgba(236,244,249,.8);font-family:'JetBrains Mono',monospace;font-size:.74rem;}
+  .bd-month .mbar{height:18px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;}
+  .bd-month .mbar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .8s cubic-bezier(.22,1,.36,1);}
+  .bd-month.pre .mbar i{background:rgba(236,244,249,.22);}
+  .bd-month .mv{text-align:right;font-family:'JetBrains Mono',monospace;color:var(--gold-light);font-size:.74rem;}
+  .bd-month .mv .pretag{color:rgba(236,244,249,.4);}
+  .bd-pre-note{font-size:.72rem;color:rgba(236,244,249,.45);margin:4px 0 6px;}
+
+  /* per-project + recent tables */
+  .bd-table{width:100%;border-collapse:collapse;font-size:.82rem;}
+  .bd-table th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(236,244,249,.45);font-weight:400;padding:6px 8px;border-bottom:1px solid var(--hairline);}
+  .bd-table td{padding:8px 8px;border-bottom:1px solid rgba(187,140,58,.1);color:rgba(236,244,249,.8);}
+  .bd-table td.num,.bd-table th.num{text-align:right;font-family:'JetBrains Mono',monospace;color:var(--gold-light);}
+  .bd-table tr:last-child td{border-bottom:0;}
+  .bd-table .swatch{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:8px;vertical-align:middle;}
+  .bd-recent td.desc{color:rgba(236,244,249,.62);}
+  .bd-recent .out{opacity:.5;}
+  .bd-recent .out td.pday::after{content:' · pre';color:#F3a538;font-size:.7em;}
+  .bd-loading{text-align:center;color:var(--muted);padding:30px 0;font-family:'JetBrains Mono',monospace;font-size:.8rem;}
+
   /* ── Open items ── */
   .open{max-width:880px;margin:0 auto;padding:56px 28px 6px;}
   .open h2{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:2rem;color:#fff;letter-spacing:.04em;margin-bottom:6px;}
@@ -223,6 +302,16 @@
     font-size:.82em;background:rgba(255,255,255,.05);
     padding:1px 6px;border-radius:3px;color:var(--gold-light);
   }
+  /* clickable file/page references */
+  a.filelink{text-decoration:none;}
+  a.filelink code{
+    transition:background .15s,color .15s,box-shadow .15s;
+    border-bottom:1px dotted rgba(212,160,74,.5);
+  }
+  a.filelink:hover code{
+    background:rgba(187,140,58,.18);color:#fff;
+    box-shadow:0 0 0 1px rgba(187,140,58,.4);
+  }
   .entry .commit{
     font-family:'JetBrains Mono',monospace;
     font-size:.72rem;color:rgba(236,244,249,.35);
@@ -334,25 +423,83 @@
 </div>
 
 <!-- ============================================================
+     CURRENT BUDGET STATUS  (live from Clockify via Netlify fn)
+     ============================================================ -->
+<section class="budget">
+  <div class="bhead">
+    <h2>Current Budget Status</h2>
+    <span class="live loading" id="bgt-live"><span class="dotlive"></span><span id="bgt-live-txt">Loading live hours…</span></span>
+  </div>
+  <p class="bsub">
+    Combined time on <strong>LCRL Champions Network</strong> + <strong>LCRL Pod-2</strong>, tracked at <strong>$100/hr</strong>,
+    against the <strong>$6,000</strong> maintenance retainer (<strong>Mar 1 – Aug 2026</strong> · Invoice&nbsp;03043702) = a <strong>60-hour</strong> budget.
+    <button class="deepdive-btn" id="open-budget-modal" type="button">View detailed hours →</button>
+  </p>
+
+  <div class="budget-card">
+    <!-- battery meter -->
+    <div class="meter">
+      <div class="meter-fill z5" id="bgt-fill" style="width:0%">—</div>
+    </div>
+    <div class="meter-cap">
+      <span id="bgt-cap-left">0 of 60 hrs used</span>
+      <span id="bgt-cap-right">budget $6,000</span>
+    </div>
+
+    <!-- stat tiles -->
+    <div class="btiles">
+      <div class="btile used">
+        <div class="bv" id="bgt-used-h">—<small> hrs</small></div>
+        <div class="bd" id="bgt-used-d">$—</div>
+        <div class="bl">Used</div>
+      </div>
+      <div class="btile remain">
+        <div class="bv" id="bgt-remain-h">—<small> hrs</small></div>
+        <div class="bd" id="bgt-remain-d">$—</div>
+        <div class="bl">Remaining</div>
+      </div>
+      <div class="btile">
+        <div class="bv">60<small> hrs</small></div>
+        <div class="bd">$6,000</div>
+        <div class="bl">Retainer Budget</div>
+      </div>
+    </div>
+
+    <!-- per-project breakdown -->
+    <div class="bproj" id="bgt-proj">
+      <div class="bprow"><span class="pn"><b style="background:#0876A9"></b>LCRL Champions Network</span><span class="ph" data-proj="LCRL Champions Network">—</span></div>
+      <div class="bprow"><span class="pn"><b style="background:#BB8C3A"></b>LCRL Pod-2</span><span class="ph" data-proj="LCRL Pod-2">—</span></div>
+    </div>
+
+    <p class="bnote" id="bgt-note">
+      Pulled live from Clockify (key held in Netlify; never in the repo). The 60-hour budget is the $6,000 retainer ÷ $100/hr;
+      only time logged Mar 1 – Aug 2026 counts toward it.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
      OPEN ITEMS / DECISIONS NEEDED
      ============================================================ -->
 <section class="open">
   <h2>Check-In To-Dos &amp; Open Items</h2>
-  <p class="open-sub">From the June 5, 2026 weekly check-in (Gary · Mark · Carly). <button class="deepdive-btn" id="open-academy-modal" type="button">View the Subscriber Academy build plan →</button></p>
+  <p class="open-sub">From the June 5 &amp; June 12, 2026 weekly check-ins (Gary · Mark · Carly · Shelly Null). <button class="deepdive-btn" id="open-academy-modal" type="button">View the Subscriber Academy build plan →</button></p>
   <div class="open-grid">
     <div class="open-card">
       <h4>👤 Gary's To-Dos</h4>
       <ul>
         <li>Write up a <strong>plan/proposal for the new "lecture-first" production pipeline</strong> — Mark records a 30–50 min lecture per lesson → AI peels it into the structured page (chapters, cards, quiz, glossary) + a drip email. Show how it simplifies Mark's prep and scales across 5 years <span class="who gary">Gary · top priority</span></li>
         <li>Pull together <strong>budget / cost-to-build numbers</strong> for the Champions Academy so Mark can put them in his <strong>June 18 board report</strong> (current scope has outgrown the original podcast-posting retainer) <span class="who gary">Gary · before Jun 18</span></li>
-        <li>Evaluate whether the <strong>"Champions Advocate Weekly"</strong> newsletter (currently hand-built in MailChimp — a weekly religious-liberty news digest, 2–3 stories + "Let Us Pray" advocacy sections) can be produced <strong>faster/better with AI</strong>. <strong>Concept mockup built</strong> (<code>newsletter-concept.html</code>) from the Vol.&nbsp;2 No.&nbsp;21 content — present at <strong>Friday 11 a.m.</strong>; next: nail down the production workflow w/ Shelly on story cultivation <span class="who gary">Gary · concept done</span></li>
+        <li><s>Evaluate whether the <strong>"Champions Advocate Weekly"</strong> newsletter can be produced <strong>faster/better with AI</strong> — concept mockup (<a class="filelink" href="newsletter-concept.html"><code>newsletter-concept.html</code></a>)</s> — ✅ presented June 12. <strong>Next step done:</strong> built the <strong>on-site digest + click-through approval demo</strong> (<a class="filelink" href="advocate-weekly-demo.html"><code>advocate-weekly-demo.html</code></a>) Gary promised — forward to legal &amp; Mark. Then: wire a real story page on the live site + the thin-email send path once direction is confirmed <span class="who gary">Gary · demo done</span></li>
         <li>Stand up the <strong>drip email system</strong> — free tool (~2,000 addresses), AI-built branded emails, auto-enroll on signup, scheduled cadence across the curriculum <span class="who gary">Gary</span></li>
-        <li><s>Build the <strong>2027 March for Life planning guide</strong> (print + web) from Mark's emailed planning doc</s> — ✅ done June 12; 8-page print PDF (<code>champions-march-for-life-2027-planning-guide.pdf</code>) + responsive web page (<code>march-for-life-2027.html</code>). Pending: Mark's review + link placement on <code>index.html</code> <span class="who gary">Gary · done</span></li>
+        <li>Solve the <strong>email send path</strong> for the Advocate Weekly: paste-HTML vs. a <strong>one-click API push</strong> from the site. Compare <strong>MailChimp API</strong> vs. <strong>Email Octopus</strong> (free to ~2,000, better API) — factor in Mark’s plan to <em>merge into the larger “Abba Dabba” account</em> and drop the $20/mo MailChimp <span class="who gary">Gary</span></li>
+        <li>Add a <strong>feature to surface Advocate Weekly stories on the live site</strong> (today they exist only in the email) — index podcasts/lessons/blog so each story auto-shows related approved content <span class="who gary">Gary</span></li>
+        <li><s>Build the <strong>2027 March for Life planning guide</strong> (print + web) from Mark's emailed planning doc</s> — ✅ done June 12; 8-page print PDF (<a class="filelink" href="champions-march-for-life-2027-planning-guide.pdf"><code>champions-march-for-life-2027-planning-guide.pdf</code></a>) + responsive web page (<a class="filelink" href="march-for-life-2027.html"><code>march-for-life-2027.html</code></a>). Pending: Mark's review + link placement on <a class="filelink" href="index.html"><code>index.html</code></a> <span class="who gary">Gary · done</span></li>
         <li>Write <strong>process documentation</strong> (the "hit by a bus" safeguard) so an intern can run the AI workflow end-to-end <span class="who gary">Gary</span></li>
         <li>Set up <strong>Mark's <code>@champions-network.com</code> email</strong> right after the call — Mark confirmed he wants one; he just needs to approve it, then Gary updates the site <span class="who gary">Gary</span></li>
         <li>Explore an <strong>auto-transcription agent</strong> for Dr. Seltz's Liberty Action Alerts / podcasts (drop file → transcript cleaned &amp; posted); offer transcript downloads in the Academy <span class="who gary">Gary · explore</span></li>
         <li>Upload the <strong>Mom &amp; Pop papers</strong> to the site so champions can access them directly <span class="who gary">Gary</span></li>
-        <li>Fix the Modern <strong>4-page brochure</strong> cover (layout gap / "cover problem"), add the 4-pager to <code>brochure.html</code>, then send Mark the review link <span class="who gary">Gary</span></li>
+        <li>Fix the Modern <strong>4-page brochure</strong> cover (layout gap / "cover problem"), add the 4-pager to <a class="filelink" href="brochure.html"><code>brochure.html</code></a>, then send Mark the review link <span class="who gary">Gary</span></li>
         <li>Write internal docs for setting up <strong>Stripe</strong> + taking payments (501(c)(3) + designated bank account) <span class="who gary">Gary</span></li>
         <li>Build the Subscriber Academy shell + admin backend <span class="who gary">Gary</span></li>
       </ul>
@@ -363,7 +510,10 @@
         <li>Starting <strong>September</strong>, re-record <strong>Year 1, Lesson 1 onward</strong> as 30–50 min lectures in the new format; keep feeding lectures to Gary lesson-by-lesson <span class="who mark">Mark · Sept</span></li>
         <li>Present the <strong>Champions Network budget</strong> at the <strong>June 18 board meeting</strong> (also Seltz's retirement transition — contracting back 10–20 hrs/wk) <span class="who mark">Mark · Jun 18</span></li>
         <li>Email Gary the <strong>March for Life planning doc</strong> (link he mentioned) to turn into a planning guide <span class="who mark">Mark</span></li>
-        <li>Onboarding <strong>Shelly Null</strong> (retired P.A.) as a volunteer for <strong>Champions Advocate Weekly</strong> story cultivation — looped into the AI-newsletter discussion <span class="who mark">Mark</span></li>
+        <li>Onboarding <strong>Shelly Null</strong> (retired corporate counsel, Bloomington IL) as the volunteer partner on <strong>Champions Advocate Weekly</strong> — story cultivation + production notes; flagged getting <strong>expert copyright advice</strong> <span class="who mark">Mark · Shelly</span></li>
+        <li><strong>Check with legal / doctrinal</strong> on the copyright posture of hosting a short curated excerpt on the site vs. only linking from the email (Gary’s demo is built to forward) <span class="who mark">Mark + Legal</span></li>
+        <li><strong>Carly: pull MailChimp analytics</strong> — click-through &amp; read rates / reader behavior — so we know whether a thinner email loses scanners before we trim it <span class="who mark">Carly</span></li>
+        <li>Decide the <strong>email platform path</strong>: keep MailChimp ($20/mo, 500 cap, ~70 subs) or proceed with the merge into the larger <em>“Abba Dabba”</em> account (Lindy &amp; Pam) <span class="who mark">Mark</span></li>
         <li><strong>Approve</strong> the new <code>@champions-network.com</code> email once Gary sets it up <span class="who mark">Mark</span></li>
         <li>Select better <strong>Vimeo thumbnails</strong> for the session videos (cleans up the auto-grabbed frames) <span class="who mark">Mark</span></li>
         <li><strong>Final review of the 8-page brochure</strong> → approve to send to the printer; decide own printer vs. Gary's printer <span class="who mark">Mark</span></li>
@@ -403,6 +553,26 @@
      ============================================================ -->
 <div class="timeline">
 
+  <!-- ── 2026-06-26 (Advocate Weekly on-site + approval demo) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Jun 26<span class="y">2026</span></div>
+    <h3>Advocate Weekly — on-site demo + click-through approval flow</h3>
+    <div class="tags">
+      <span class="tag feature">Feature</span>
+      <span class="tag internal">Internal</span>
+      <span class="tag content">Content</span>
+    </div>
+    <ul>
+      <li>Built <a class="filelink" href="advocate-weekly-demo.html"><code>advocate-weekly-demo.html</code></a> (+ <code>.css</code> / <code>.js</code>, split per house rule) — the deliverable Gary promised Mark on the <strong>June 12 call</strong>: a forwardable demo showing how the digest could live <strong>on champions-network.com</strong>, with a working <strong>approval workflow</strong> Mark/legal can click through.</li>
+      <li><strong>Interactive console:</strong> paste a source → pick <em>Curate-only</em> (verbatim quote + link, ✓ no doctrinal review) or <em>AI-enhance</em> (our Two-Kingdoms framing, ⚑ needs Mark’s review) → Generate → reviewer view → one-click <em>Approve &amp; Publish</em> → “live” state. Pure front-end sim; nothing is published.</li>
+      <li><strong>The “stop on the site”</strong> page: fuller story, big <em>Read at the source</em> button, and a <em>Related on our properties</em> rail (podcast / lesson / chapters) — already-approved content, so no new review, and it keeps the reader with us. Plus the <strong>thin teaser email</strong> that drives the click back to us.</li>
+      <li>Closes with the <strong>open questions</strong> for the table: copyright of hosting an excerpt (Mark + Legal), pull MailChimp read-rates before trimming the email (Carly), and which stories warrant enhance vs. curate (Mark + Shelly).</li>
+      <li>Password-gated (<code>cn_auth</code> / <code>markrules</code>) and added to the admin slide-in panel.</li>
+    </ul>
+    <div class="commit">main · pending · source: June 12 weekly check-in + “Agenda Item” email</div>
+  </article>
+
   <!-- ── 2026-06-12 (Admin panel) ── -->
   <article class="entry">
     <div class="dot"></div>
@@ -413,10 +583,10 @@
       <span class="tag feature">Feature</span>
     </div>
     <ul>
-      <li>Reworked the discreet <strong>"A" badge</strong> on <code>index.html</code>: clicking it now opens a <strong>password modal</strong> (same <code>cn_auth</code> / <code>markrules</code> gate) instead of exposing the links — public visitors no longer see the internal URLs.</li>
+      <li>Reworked the discreet <strong>"A" badge</strong> on <a class="filelink" href="index.html"><code>index.html</code></a>: clicking it now opens a <strong>password modal</strong> (same <code>cn_auth</code> / <code>markrules</code> gate) instead of exposing the links — public visitors no longer see the internal URLs.</li>
       <li>On success, a <strong>full-height panel slides in from the right</strong> with the internal links, each with a <strong>branded gold icon</strong> and a short descriptor (Status · March for Life · Newsletter Sample · Brochure · Brand Guide). Roomier than the old popover, so it scales as links are added.</li>
       <li>Includes a <strong>"Lock &amp; sign out"</strong> control, scrim/Esc to close, and reduced-motion fallbacks. Unlocking here carries into the gated pages (shared session key).</li>
-      <li>Added the per-page gate to <code>newsletter-concept.html</code> so it can't be opened by direct URL (the March for Life guide stays public-ready). Packaged the whole pattern as a reusable <code>admin-panel</code> Claude skill for other sites.</li>
+      <li>Added the per-page gate to <a class="filelink" href="newsletter-concept.html"><code>newsletter-concept.html</code></a> so it can't be opened by direct URL (the March for Life guide stays public-ready). Packaged the whole pattern as a reusable <code>admin-panel</code> Claude skill for other sites.</li>
     </ul>
     <div class="commit">main · pending</div>
   </article>
@@ -432,11 +602,11 @@
       <span class="tag content">Content</span>
     </div>
     <ul>
-      <li>Built from Mark &amp; Carly's source doc into an <strong>8-page print guide</strong> on the brochure pipeline — <code>march-for-life-2027-print.html</code> + <code>.css</code> → <code>champions-march-for-life-2027-planning-guide.pdf</code> (8.75×11.25, crop marks). Added as the <code>mfl</code> variant in <code>print-build/build-pdf.js</code> (now supports <code>BUILD_ONLY=&lt;key&gt;</code>).</li>
+      <li>Built from Mark &amp; Carly's source doc into an <strong>8-page print guide</strong> on the brochure pipeline — <a class="filelink" href="march-for-life-2027-print.html"><code>march-for-life-2027-print.html</code></a> + <code>.css</code> → <a class="filelink" href="champions-march-for-life-2027-planning-guide.pdf"><code>champions-march-for-life-2027-planning-guide.pdf</code></a> (8.75×11.25, crop marks). Added as the <code>mfl</code> variant in <code>print-build/build-pdf.js</code> (now supports <code>BUILD_ONLY=&lt;key&gt;</code>).</li>
       <li>Pages: Cover · Invitation + 7-things-to-plan · hour-by-hour Schedule · Lodging (Westin group rate) &amp; March-day logistics · Travel &amp; Meals · Costs table + Rose Dinner/Young Professionals · DC attractions, Attire &amp; Conduct · Back-cover CTA.</li>
-      <li>Built a matching <strong>responsive web guide</strong> — <code>march-for-life-2027.html</code> + <code>.css</code> — with a "Download the print PDF" button and an email "I'm coming" CTA.</li>
+      <li>Built a matching <strong>responsive web guide</strong> — <a class="filelink" href="march-for-life-2027.html"><code>march-for-life-2027.html</code></a> + <code>.css</code> — with a "Download the print PDF" button and an email "I'm coming" CTA.</li>
       <li>Three editorial photos generated (march-to-Capitol cover, Supreme Court, National Mall at dawn — no readable signs / identifiable faces), hosted on Cloudinary.</li>
-      <li><strong>Open:</strong> Mark/Carly review, confirm 2027 specifics (rates, route, events — currently flagged as based on 2026), then add a link from <code>index.html</code>.</li>
+      <li><strong>Open:</strong> Mark/Carly review, confirm 2027 specifics (rates, route, events — currently flagged as based on 2026), then add a link from <a class="filelink" href="index.html"><code>index.html</code></a>.</li>
     </ul>
     <div class="commit">main · pending · source: 2027 National March for Life Planning Guide.md</div>
   </article>
@@ -451,7 +621,7 @@
       <span class="tag content">Content</span>
     </div>
     <ul>
-      <li>Built <code>newsletter-concept.html</code> — a brand-styled re-imagining of the weekly digest, using the real <strong>Vol. 2 No. 21</strong> content (Illinois secret-transition lawsuit + WV <em>B.P.J.</em> SCOTUS case, with their verbatim "Let Us Pray…" petitions).</li>
+      <li>Built <a class="filelink" href="newsletter-concept.html"><code>newsletter-concept.html</code></a> — a brand-styled re-imagining of the weekly digest, using the real <strong>Vol. 2 No. 21</strong> content (Illinois secret-transition lawsuit + WV <em>B.P.J.</em> SCOTUS case, with their verbatim "Let Us Pray…" petitions).</li>
       <li>Frames the proposed AI workflow as a 4-step strip — <strong>Cultivate → Curate → Pray → Publish</strong> — with the human (Mark) reviewing every word; sets up the Friday 11 a.m. discussion.</li>
       <li>Two <strong>representative editorial photos</strong> (empty school hallway + flag; empty track w/ shot put) generated with no real people/minors, hosted on Cloudinary (<code>f_auto,q_auto</code>), captioned to swap for licensed photos in production.</li>
       <li>Added <code>print-build/cloudinary-upload.js</code> — a signed-upload helper (reads gitignored <code>.env</code>) for future image pushes.</li>
@@ -505,7 +675,7 @@
     </div>
     <ul>
       <li><code>Carly@champions-network.com</code> forwarding to <code>championsnetworkoffice@gmail.com</code> is set up and Carly confirmed receipt.</li>
-      <li>Updated Carly's "Get in touch" address in her leadership modal on <code>index.html</code> from the generic <code>info@LCRLfreedom.org</code> to <code>Carly@champions-network.com</code>.</li>
+      <li>Updated Carly's "Get in touch" address in her leadership modal on <a class="filelink" href="index.html"><code>index.html</code></a> from the generic <code>info@LCRLfreedom.org</code> to <code>Carly@champions-network.com</code>.</li>
       <li>Mark's matching <code>@champions-network.com</code> forwarding is still open — Gary to set up once Mark confirms he wants it (for a consistent corporate look).</li>
     </ul>
     <div class="commit">main · pending</div>
@@ -537,8 +707,8 @@
       <span class="tag internal">Check-In</span>
     </div>
     <ul>
-      <li>Walked Mark &amp; Carly through the new <strong>Session 003 guide</strong>, the <strong>regenerated brochure artwork</strong>, and the <strong>4-page edition</strong> (still to be added to <code>brochure.html</code>; Modern cover has a layout gap to fix).</li>
-      <li>Confirmed <strong>Carly's bio is live</strong> on <code>index.html</code> (Mark/Carly had been seeing a cached version).</li>
+      <li>Walked Mark &amp; Carly through the new <strong>Session 003 guide</strong>, the <strong>regenerated brochure artwork</strong>, and the <strong>4-page edition</strong> (still to be added to <a class="filelink" href="brochure.html"><code>brochure.html</code></a>; Modern cover has a layout gap to fix).</li>
+      <li>Confirmed <strong>Carly's bio is live</strong> on <a class="filelink" href="index.html"><code>index.html</code></a> (Mark/Carly had been seeing a cached version).</li>
       <li><strong>Greenlit the Subscriber / Paid Academy.</strong> Decided to charge up front via Stripe, with coupon codes for free/beta/discounted access, monthly or annual recurring, gift subscriptions for churches, and an admin backend to grant access by email (decoupled from payment). See the build-plan deep dive in Open Items above.</li>
       <li>Action items captured in <strong>Check-In To-Dos</strong> above: Mark to share Google-Drive PDFs (Mom &amp; Pop Papers + video URLs) and check St. Louis on payment protocols; Gary to wire those links into Session 003, fix &amp; publish the 4-pager, set up Carly's email forwarding, and start the Academy shell + Stripe docs.</li>
     </ul>
@@ -555,11 +725,11 @@
       <span class="tag content">Content</span>
     </div>
     <ul>
-      <li>Built <code>session-003.html</code> + <code>session-003.css</code> + <code>session-003.js</code> from Mark's 4 source docs (Group Study, Home Study, and <em>Free to Believe</em> Ch. 4 &amp; 5 review guides), reusing the Session 002 <code>s2-*</code> design system.</li>
+      <li>Built <a class="filelink" href="session-003.html"><code>session-003.html</code></a> + <code>session-003.css</code> + <code>session-003.js</code> from Mark's 4 source docs (Group Study, Home Study, and <em>Free to Believe</em> Ch. 4 &amp; 5 review guides), reusing the Session 002 <code>s2-*</code> design system.</li>
       <li>Theme: <strong>Two-Kingdom Citizens</strong> — Pillar Two (Prayer), the devotional "Honor Everyone" (1 Peter 2:15–17), and the <strong>Three Core Principles</strong> (Dynamic Differentiation · Reformation Restraint · Vocational Respect).</li>
       <li>Sections: hero, overview, devotional, pillars (Prayer active) with a home-study prayer reflection, Three Core Principles cards + deep-dive modals, Mom &amp; Pop Papers #2/#3/#4 (tabbed), <em>Free to Believe</em> Ch. 4–5 (tabbed, with case modals: Smith, Obergefell, Amos, Hosanna-Tabor), current events/engagement + action checklist, and a 10-question quiz.</li>
       <li>Hero uses the brightened prayer image as a static background (no Session 3 video yet).</li>
-      <li>Linked from the Sessions section + footer on <code>index.html</code>. Public page (<code>noindex</code>).</li>
+      <li>Linked from the Sessions section + footer on <a class="filelink" href="index.html"><code>index.html</code></a>. Public page (<code>noindex</code>).</li>
     </ul>
     <div class="commit">main · pending</div>
   </article>
@@ -578,9 +748,9 @@
       <li><strong>Page 4</strong> pillar bullet copy enlarged for legibility (Classical 8.5pt → 10pt; Modern 9.5pt → 10.5pt).</li>
       <li>Added a <strong>micro LCRL logo</strong> beside "An Initiative of LCRL" on both covers, and brought the <strong>new Champions Network logo</strong> onto the back panel (Page 8) of both editions so Champions reads as the focus with LCRL as the parent initiative.</li>
       <li>Regenerated 4 brochure images (Nano Banana Pro, 2K, painterly/photographic style preserved): raised the U.S. flag to <em>full staff</em> on the Classical theology diptych; replaced the folded/mourning flag on the Modern theology page with a proudly displayed flag; <em>brightened</em> the dark Christ-and-scales cover; and replaced the Capitol dome in the "Becoming a Champion" image with a <em>radiant cross</em> so the three figures walk toward Christ, not government (per Carly's note). Refreshed the Modern Bible-study image.</li>
-      <li>Built a new <strong>4-page condensed edition</strong> (<code>brochure-4page.html</code> + <code>brochure-4page.css</code>) in the modern visual language — Cover · Problem+Theology · Solution+Get Started · Contact — and added it to the Puppeteer pipeline as <code>champions-brochure-4page-print-ready.pdf</code> (~2 MB).</li>
+      <li>Built a new <strong>4-page condensed edition</strong> (<a class="filelink" href="brochure-4page.html"><code>brochure-4page.html</code></a> + <code>brochure-4page.css</code>) in the modern visual language — Cover · Problem+Theology · Solution+Get Started · Contact — and added it to the Puppeteer pipeline as <a class="filelink" href="champions-brochure-4page-print-ready.pdf"><code>champions-brochure-4page-print-ready.pdf</code></a> (~2 MB).</li>
       <li>Rebuilt all three PDFs via <code>node print-build/build-pdf.js</code> and refreshed page thumbnails under <code>assets/brochure/thumbs/v1|v2|v4/</code>.</li>
-      <li>Pushed the pending bio + brochure-copy commits live so the Carly Smith leadership bio is now public on <code>index.html</code>.</li>
+      <li>Pushed the pending bio + brochure-copy commits live so the Carly Smith leadership bio is now public on <a class="filelink" href="index.html"><code>index.html</code></a>.</li>
     </ul>
     <div class="commit">main · pending</div>
   </article>
@@ -598,8 +768,8 @@
       <li>Applied Mark Frith's editorial revisions to <strong>both</strong> brochures (Classical + Modern): rebuffed → <em>culturally challenged</em>, nice → <em>kind</em>, Right of Conscience → <em>Marriage as Institution</em>, Public Servants → <em>Cultural Servants</em>, "powerful solution" → <em>"faithful solution"</em>, expanded Left/Right-Hand Kingdom copy (added "etc.", "His Spirit", "His death and resurrection"), and reworked the Network pillar wording ("Groups within churches" / "Citizens and Church Groups").</li>
       <li>Classical cover (Page 1): tagline expanded to <em>"Stand up for religious freedom before it's too late — your constitutional freedoms depend on it."</em> Bumped <strong>"An Initiative of LCRL"</strong> footer text from 10pt → 13pt with tighter tracking for readability.</li>
       <li>Modern cover (Page 1): added <strong>"An Initiative of LCRL"</strong> caption next to the lockup (Bebas Neue, 12pt, gold-light, gold hairline separator) so both editions carry the LCRL attribution.</li>
-      <li>Rebuilt both PDFs via <code>node print-build/build-pdf.js</code>: <code>champions-brochure-print-ready.pdf</code> (~9.6 MB) and <code>champions-brochure-modern-print-ready.pdf</code> (~5.7 MB). All 16 page thumbnails refreshed under <code>assets/brochure/thumbs/v1|v2/</code>.</li>
-      <li>Re-enabled the Carly Smith leadership modal on <code>index.html</code> and populated her full bio from the May 15 interview transcript (20 years mortgage processing, 5 years at Redeemer Lutheran Olathe, dual role at Champions Network, "no freak out" ethos from Pastor Kale).</li>
+      <li>Rebuilt both PDFs via <code>node print-build/build-pdf.js</code>: <a class="filelink" href="champions-brochure-print-ready.pdf"><code>champions-brochure-print-ready.pdf</code></a> (~9.6 MB) and <a class="filelink" href="champions-brochure-modern-print-ready.pdf"><code>champions-brochure-modern-print-ready.pdf</code></a> (~5.7 MB). All 16 page thumbnails refreshed under <code>assets/brochure/thumbs/v1|v2/</code>.</li>
+      <li>Re-enabled the Carly Smith leadership modal on <a class="filelink" href="index.html"><code>index.html</code></a> and populated her full bio from the May 15 interview transcript (20 years mortgage processing, 5 years at Redeemer Lutheran Olathe, dual role at Champions Network, "no freak out" ethos from Pastor Kale).</li>
     </ul>
     <div class="commit">main · pending</div>
   </article>
@@ -615,8 +785,8 @@
     </div>
     <ul>
       <li>Removed <code>Brochure</code> from the top nav (desktop + mobile) — internal review document, not a public destination.</li>
-      <li>Added a discreet <strong>"A" badge</strong> (bottom-right, ~32px circle, low opacity until hover) on <code>index.html</code>. Click reveals a small popover with three links: Brochure · Brand Guide · Status. No labels or footer copy that calls it out.</li>
-      <li>Password-gated <code>brochure.html</code>, <code>brand-standards.html</code>, and <code>status.html</code> with the same dark / gold-grid gate the site used pre-launch (sessionStorage <code>cn_auth</code> · password <code>markrules</code>). Clicking a link from the A-popover lands on the gate.</li>
+      <li>Added a discreet <strong>"A" badge</strong> (bottom-right, ~32px circle, low opacity until hover) on <a class="filelink" href="index.html"><code>index.html</code></a>. Click reveals a small popover with three links: Brochure · Brand Guide · Status. No labels or footer copy that calls it out.</li>
+      <li>Password-gated <a class="filelink" href="brochure.html"><code>brochure.html</code></a>, <a class="filelink" href="brand-standards.html"><code>brand-standards.html</code></a>, and <code>status.html</code> with the same dark / gold-grid gate the site used pre-launch (sessionStorage <code>cn_auth</code> · password <code>markrules</code>). Clicking a link from the A-popover lands on the gate.</li>
       <li>Created this Status page (<code>status.html</code>) as the engineering changelog.</li>
       <li>Triggered a Netlify rebuild via empty commit so Forms Detection rescans <code>champions-consultation</code> and <code>brochure-order</code>.</li>
     </ul>
@@ -633,10 +803,10 @@
       <span class="tag feature">Feature</span>
     </div>
     <ul>
-      <li>Removed pre-launch password gate from <code>index.html</code>, <code>laa-podcast.html</code>, and <code>session-002.html</code>. Site is now public at <strong>champions-network.com</strong>.</li>
-      <li>Shipped 8-page print brochure in two editions: <em>v1 painterly</em> (<code>brochure-print.html</code>, ~9.5 MB PDF) and <em>v2 modern editorial</em> (<code>brochure-modern-print.html</code>, ~5.7 MB PDF) matching the website's design system.</li>
+      <li>Removed pre-launch password gate from <a class="filelink" href="index.html"><code>index.html</code></a>, <a class="filelink" href="laa-podcast.html"><code>laa-podcast.html</code></a>, and <a class="filelink" href="session-002.html"><code>session-002.html</code></a>. Site is now public at <strong>champions-network.com</strong>.</li>
+      <li>Shipped 8-page print brochure in two editions: <em>v1 painterly</em> (<a class="filelink" href="brochure-print.html"><code>brochure-print.html</code></a>, ~9.5 MB PDF) and <em>v2 modern editorial</em> (<a class="filelink" href="brochure-modern-print.html"><code>brochure-modern-print.html</code></a>, ~5.7 MB PDF) matching the website's design system.</li>
       <li>Built the Puppeteer dual-PDF pipeline (<code>print-build/build-pdf.js</code>) — produces both print-ready PDFs in one run.</li>
-      <li>Added public-facing brochure explainer page (<code>brochure.html</code>) with tabbed page-tour. (Now password-gated as of May 8.)</li>
+      <li>Added public-facing brochure explainer page (<a class="filelink" href="brochure.html"><code>brochure.html</code></a>) with tabbed page-tour. (Now password-gated as of May 8.)</li>
     </ul>
     <div class="commit">6050172 · Add 8-page print brochure (two editions) and take site live</div>
   </article>
@@ -650,7 +820,7 @@
       <span class="tag content">Content</span>
     </div>
     <ul>
-      <li>Updated Rev. Mark Frith's leadership bio on <code>index.html</code> with his full vocational history.</li>
+      <li>Updated Rev. Mark Frith's leadership bio on <a class="filelink" href="index.html"><code>index.html</code></a> with his full vocational history.</li>
     </ul>
     <div class="commit">2ec58df · Update Rev. Mark Frith bio</div>
   </article>
@@ -710,7 +880,7 @@
       <span class="tag feature">Feature</span>
     </div>
     <ul>
-      <li>Built <code>session-002.html</code> + <code>session-002.css</code> + <code>session-002.js</code>: video hero, accordions, tabs, six modals, ten-question quiz.</li>
+      <li>Built <a class="filelink" href="session-002.html"><code>session-002.html</code></a> + <code>session-002.css</code> + <code>session-002.js</code>: video hero, accordions, tabs, six modals, ten-question quiz.</li>
     </ul>
     <div class="commit">1f5f996 · Add Session 002 interactive study guide</div>
   </article>
@@ -741,9 +911,9 @@
       <span class="tag launch">Launch</span>
     </div>
     <ul>
-      <li>Brand Standards Guide authored in markdown + rendered as <code>brand-standards.html</code>.</li>
-      <li>Landing page built (<code>index.html</code> + <code>champions.css</code> + <code>champions.js</code>).</li>
-      <li>4-part Liberty Action Alert podcast page (<code>laa-podcast.html</code>) with audio players, tabs, accordions, modals, promo section.</li>
+      <li>Brand Standards Guide authored in markdown + rendered as <a class="filelink" href="brand-standards.html"><code>brand-standards.html</code></a>.</li>
+      <li>Landing page built (<a class="filelink" href="index.html"><code>index.html</code></a> + <code>champions.css</code> + <code>champions.js</code>).</li>
+      <li>4-part Liberty Action Alert podcast page (<a class="filelink" href="laa-podcast.html"><code>laa-podcast.html</code></a>) with audio players, tabs, accordions, modals, promo section.</li>
       <li>Repo initialized at <a href="https://github.com/garyricke/champions-network" target="_blank" rel="noopener">github.com/garyricke/champions-network</a>.</li>
     </ul>
     <div class="commit">966c8e7 · Initial commit — Champions Network site</div>
@@ -810,6 +980,221 @@
   if(closeBtn)closeBtn.addEventListener('click',close);
   modal.addEventListener('click',function(e){if(e.target===modal)close();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))close();});
+})();
+</script>
+
+<!-- ── Budget detail modal ── -->
+<div class="modal-overlay" id="budget-modal" role="dialog" aria-modal="true" aria-labelledby="budget-modal-title">
+  <div class="modal-card">
+    <button class="modal-close" id="close-budget-modal" aria-label="Close">&times;</button>
+    <div class="modal-eyebrow">Live · Clockify · $100/hr</div>
+    <h3 id="budget-modal-title">Detailed Hours Summary</h3>
+    <p class="modal-lede">Combined <strong>LCRL Champions Network</strong> + <strong>LCRL Pod-2</strong> against the $6,000 retainer (Mar&nbsp;1&nbsp;–&nbsp;Aug&nbsp;2026 · Invoice&nbsp;03043702).</p>
+
+    <div id="bd-body">
+      <div class="bd-loading" id="bd-loading">Loading detailed hours…</div>
+
+      <div id="bd-content" style="display:none">
+        <!-- summary tiles -->
+        <div class="bd-summary">
+          <div class="s u"><div class="v" id="bd-used">—</div><div class="d" id="bd-used-d">$—</div><div class="l">In-Period Used</div></div>
+          <div class="s r"><div class="v" id="bd-remain">—</div><div class="d" id="bd-remain-d">$—</div><div class="l">Remaining</div></div>
+          <div class="s"><div class="v">60</div><div class="d">$6,000</div><div class="l">Budget</div></div>
+          <div class="s"><div class="v" id="bd-pct">—</div><div class="d" id="bd-elapsed">—</div><div class="l">Used / Elapsed</div></div>
+        </div>
+
+        <h5>By Month</h5>
+        <p class="bd-pre-note" id="bd-pre-note" style="display:none"></p>
+        <div id="bd-months"></div>
+
+        <h5>By Project <span style="font-size:.7rem;color:rgba(236,244,249,.4)">(in-period)</span></h5>
+        <table class="bd-table" id="bd-proj-table">
+          <thead><tr><th>Project</th><th class="num">Hours</th><th class="num">Amount</th><th class="num">Entries</th><th class="num">Last</th></tr></thead>
+          <tbody></tbody>
+        </table>
+
+        <h5>Recent Entries</h5>
+        <table class="bd-table bd-recent" id="bd-recent-table">
+          <thead><tr><th>Date</th><th>Project</th><th>Description</th><th class="num">Hrs</th></tr></thead>
+          <tbody></tbody>
+        </table>
+
+        <p class="bnote" id="bd-foot" style="margin-top:18px"></p>
+      </div>
+
+      <div class="bd-loading" id="bd-error" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Budget status: live fetch from the Clockify proxy function ── -->
+<script>
+(function(){
+  var RATE=100, BUDGET_HOURS=60;
+  var live=document.getElementById('bgt-live'), liveTxt=document.getElementById('bgt-live-txt');
+  var fill=document.getElementById('bgt-fill'), note=document.getElementById('bgt-note');
+  var DATA=null, IS_SNAPSHOT=false;
+
+  // Dated fallback so the panel + modal are never empty when the live
+  // function can't be reached (e.g. opening this file locally).
+  var SNAPSHOT={
+    asOf:'Jun 26, 2026',
+    rate:100, retainer:{start:'2026-03-01',end:'2026-09-01',hours:60,dollars:6000},
+    usedHours:47.15, allTrackedHours:50.38, preRetainerHours:3.23,
+    projects:[
+      {name:'LCRL Champions Network',inHours:30.83,allHours:34.07,inDollars:3083,count:16,first:'2025-10-30',last:'2026-06-12'},
+      {name:'LCRL Pod-2',inHours:16.32,allHours:16.32,inDollars:1632,count:15,first:'2026-03-11',last:'2026-06-24'}
+    ],
+    months:[
+      {key:'2025-10',label:'Oct 2025',hours:1,inRetainer:false},
+      {key:'2025-11',label:'Nov 2025',hours:2.23,inRetainer:false},
+      {key:'2026-03',label:'Mar 2026',hours:10.68,inRetainer:true},
+      {key:'2026-04',label:'Apr 2026',hours:12.28,inRetainer:true},
+      {key:'2026-05',label:'May 2026',hours:15.62,inRetainer:true},
+      {key:'2026-06',label:'Jun 2026',hours:8.57,inRetainer:true}
+    ],
+    recent:[
+      {date:'2026-06-24',project:'LCRL Pod-2',desc:'6/24/26',hours:0.97,inRetainer:true},
+      {date:'2026-06-17',project:'LCRL Pod-2',desc:'6/17/26',hours:1.25,inRetainer:true},
+      {date:'2026-06-12',project:'LCRL Champions Network',desc:'6/12/26',hours:1.65,inRetainer:true},
+      {date:'2026-06-10',project:'LCRL Pod-2',desc:'6/10/26',hours:1.68,inRetainer:true},
+      {date:'2026-06-05',project:'LCRL Champions Network',desc:'6/4/26',hours:2.25,inRetainer:true},
+      {date:'2026-06-03',project:'LCRL Pod-2',desc:'6/3/26',hours:0.77,inRetainer:true},
+      {date:'2026-05-29',project:'LCRL Champions Network',desc:'5/29/26',hours:3.3,inRetainer:true},
+      {date:'2026-05-27',project:'LCRL Pod-2',desc:'5/27/26',hours:0.95,inRetainer:true},
+      {date:'2026-05-15',project:'LCRL Champions Network',desc:'5/15/26',hours:2.5,inRetainer:true},
+      {date:'2026-05-08',project:'LCRL Champions Network',desc:'5/8/26',hours:4.03,inRetainer:true}
+    ]
+  };
+
+  function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+  function r1(n){return Math.round(n*10)/10;}
+  function pcol(name){return /champ/i.test(name)?'#0876A9':'#BB8C3A';}
+  function zone(pct){
+    if(pct>100)return 'over';
+    if(pct>=80)return 'z1'; if(pct>=60)return 'z2'; if(pct>=40)return 'z3'; if(pct>=20)return 'z4';
+    return 'z5';
+  }
+  function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function setLive(state,txt){live.className='live '+state;liveTxt.textContent=txt;}
+
+  // ---- meter (top panel) ----
+  function renderMeter(d){
+    var used=d.usedHours||0;
+    var pct=(used/BUDGET_HOURS)*100;
+    var remaining=Math.max(0, BUDGET_HOURS-used);
+
+    fill.className='meter-fill '+zone(pct);
+    fill.style.width=Math.min(100,Math.max(4,pct))+'%';
+    fill.textContent=Math.round(pct)+'%';
+
+    document.getElementById('bgt-cap-left').textContent=r1(used)+' of '+BUDGET_HOURS+' hrs used';
+    document.getElementById('bgt-used-h').innerHTML=r1(used)+'<small> hrs</small>';
+    document.getElementById('bgt-used-d').textContent=money(used*RATE);
+    document.getElementById('bgt-remain-h').innerHTML=r1(remaining)+'<small> hrs</small>';
+    document.getElementById('bgt-remain-d').textContent=money(remaining*RATE);
+
+    (d.projects||[]).forEach(function(p){
+      document.querySelectorAll('.ph[data-proj]').forEach(function(node){
+        if(node.getAttribute('data-proj').replace(/[^a-z0-9]/gi,'').toLowerCase()===p.name.replace(/[^a-z0-9]/gi,'').toLowerCase()){
+          node.textContent=r1(p.inHours)+' hrs · '+money(p.inHours*RATE)+' ('+p.count+' entries)';
+        }
+      });
+    });
+  }
+
+  // ---- detail modal ----
+  function elapsedFraction(){
+    // fraction of the Mar 1 – Sep 1 retainer window elapsed as of today
+    var s=new Date('2026-03-01'), e=new Date('2026-09-01'), now=new Date();
+    var f=(now-s)/(e-s); return Math.max(0,Math.min(1,f));
+  }
+  function renderDetail(d){
+    document.getElementById('bd-loading').style.display='none';
+    document.getElementById('bd-content').style.display='';
+    var used=d.usedHours||0, remaining=Math.max(0,BUDGET_HOURS-used), pct=Math.round(used/BUDGET_HOURS*100);
+
+    document.getElementById('bd-used').textContent=r1(used)+'h';
+    document.getElementById('bd-used-d').textContent=money(used*RATE);
+    document.getElementById('bd-remain').textContent=r1(remaining)+'h';
+    document.getElementById('bd-remain-d').textContent=money(remaining*RATE);
+    document.getElementById('bd-pct').textContent=pct+'%';
+    document.getElementById('bd-elapsed').textContent=Math.round(elapsedFraction()*100)+'% time';
+
+    // months
+    var maxH=Math.max.apply(null,(d.months||[{hours:1}]).map(function(m){return m.hours;}));
+    document.getElementById('bd-months').innerHTML=(d.months||[]).map(function(m){
+      var w=Math.max(3,(m.hours/maxH)*100);
+      return '<div class="bd-month'+(m.inRetainer?'':' pre')+'">'+
+        '<span class="ml">'+m.label+'</span>'+
+        '<span class="mbar"><i style="width:'+w+'%"></i></span>'+
+        '<span class="mv">'+r1(m.hours)+'h · '+money(m.hours*RATE)+(m.inRetainer?'':' <span class="pretag">(pre)</span>')+'</span></div>';
+    }).join('');
+    var pre=d.preRetainerHours||0;
+    var pn=document.getElementById('bd-pre-note');
+    if(pre>0){pn.style.display='';pn.innerHTML='Oct–Nov 2025 ('+r1(pre)+'h / '+money(pre*RATE)+') predates the Mar 1 retainer and is <strong>not</strong> counted against the 60-hour budget.';}
+    else{pn.style.display='none';}
+
+    // per-project
+    document.querySelector('#bd-proj-table tbody').innerHTML=(d.projects||[]).map(function(p){
+      return '<tr><td><span class="swatch" style="background:'+pcol(p.name)+'"></span>'+esc(p.name)+'</td>'+
+        '<td class="num">'+r1(p.inHours)+'h</td>'+
+        '<td class="num">'+money(p.inHours*RATE)+'</td>'+
+        '<td class="num">'+p.count+'</td>'+
+        '<td class="num">'+(p.last||'—')+'</td></tr>';
+    }).join('');
+
+    // recent
+    document.querySelector('#bd-recent-table tbody').innerHTML=(d.recent||[]).map(function(e){
+      return '<tr class="'+(e.inRetainer?'':'out')+'">'+
+        '<td class="pday">'+e.date+'</td>'+
+        '<td><span class="swatch" style="background:'+pcol(e.project)+'"></span>'+esc(e.project.replace('LCRL ',''))+'</td>'+
+        '<td class="desc">'+esc(e.desc)+'</td>'+
+        '<td class="num">'+r1(e.hours)+'</td></tr>';
+    }).join('');
+
+    var foot=document.getElementById('bd-foot');
+    foot.textContent='All-time tracked on these projects: '+r1(d.allTrackedHours||used)+'h across '+(d.entryCount||(d.recent||[]).length)+'+ entries.'+
+      (IS_SNAPSHOT?' (Snapshot — live on the deployed site.)':'');
+  }
+
+  // ---- load ----
+  function apply(d,snapshot){
+    DATA=d; IS_SNAPSHOT=!!snapshot;
+    renderMeter(d);
+    if(snapshot){
+      setLive('err','Snapshot · '+SNAPSHOT.asOf);
+      note.className='bnote warn';
+      note.innerHTML='Showing the last snapshot ('+SNAPSHOT.asOf+'). Live hours update automatically on the deployed site '+
+        '(champions-network.com), where the Clockify function runs — opening this file locally can’t reach it.';
+    } else {
+      var when=new Date(d.generatedAt||Date.now());
+      setLive('','Live · Clockify · '+when.toLocaleDateString()+' '+when.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}));
+      if(d.missing&&d.missing.length){note.className='bnote warn';note.textContent='Heads up: couldn’t find these project(s) in Clockify — check the names: '+d.missing.join(', ')+'.';}
+    }
+    if(document.getElementById('budget-modal').classList.contains('open')) renderDetail(DATA);
+  }
+
+  setLive('loading','Loading live hours…');
+  fetch('/.netlify/functions/budget',{headers:{'Accept':'application/json'}})
+    .then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});})
+    .then(function(res){ if(res.ok&&res.j&&res.j.ok){apply(res.j,false);} else {apply(SNAPSHOT,true);} })
+    .catch(function(){apply(SNAPSHOT,true);});
+
+  // ---- modal wiring ----
+  var modal=document.getElementById('budget-modal'),
+      openBtn=document.getElementById('open-budget-modal'),
+      closeBtn=document.getElementById('close-budget-modal');
+  function openModal(){
+    modal.classList.add('open');document.body.style.overflow='hidden';
+    if(DATA){renderDetail(DATA);}
+    else{document.getElementById('bd-loading').style.display='';document.getElementById('bd-content').style.display='none';}
+  }
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
+  if(openBtn)openBtn.addEventListener('click',openModal);
+  if(closeBtn)closeBtn.addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
 })();
 </script>
 

@@ -1,0 +1,5 @@
+# Champions Network — static site + serverless functions
+# Publish the repo root as-is; run the Clockify budget proxy as a function.
+[build]
+  publish = "."
+  functions = "netlify/functions"
