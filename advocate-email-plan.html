@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Advocate Weekly — Email Delivery Plan (Resend)</title>
+<link rel="icon" href="favicon-champions-network.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --gold:#BB8C3A;--gold-light:#d4a04a;--blue:#0876A9;--navy:#055A81;
+    --navy-dark:#021e2e;--light:#ECF4F9;--ok:#3fa66a;
+    --muted:rgba(236,244,249,.6);--hairline:rgba(187,140,58,.18);
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Poppins',sans-serif;font-weight:300;background:var(--navy-dark);color:var(--light);line-height:1.7;min-height:100vh;}
+  a{color:var(--gold-light);text-decoration:none;}a:hover{color:var(--gold);}
+  code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:rgba(255,255,255,.06);padding:1px 6px;border-radius:3px;color:var(--gold-light);}
+  strong{font-weight:600;color:#fff;}
+
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(2,30,46,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--hairline);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .topbar a.back{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(236,244,249,.7);}
+  .topbar .pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.08em;padding:4px 10px;border-radius:999px;background:rgba(187,140,58,.12);color:var(--gold);border:1px solid var(--hairline);}
+
+  .hero{position:relative;padding:80px 28px 46px;text-align:center;overflow:hidden;background:linear-gradient(140deg,#021e2e 0%,#033f5c 60%,#055A81 100%);}
+  .hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(187,140,58,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(187,140,58,.06) 1px,transparent 1px);background-size:48px 48px;}
+  .hero-inner{position:relative;max-width:780px;margin:0 auto;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+  .hero h1{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(2.6rem,6vw,4.2rem);color:#fff;letter-spacing:.02em;line-height:1;margin-bottom:16px;}
+  .hero p{font-size:1.02rem;color:#cfe2ee;max-width:600px;margin:0 auto;}
+
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px;}
+  section.blk{padding:46px 0 6px;border-bottom:1px solid rgba(187,140,58,.1);}
+  section.blk:last-of-type{border-bottom:0;}
+  h2{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:1.9rem;color:#fff;letter-spacing:.03em;margin-bottom:6px;display:flex;align-items:center;gap:12px;}
+  h2 .ix{font-family:'Bebas Neue',sans-serif;background:var(--gold);color:var(--navy-dark);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;flex:none;}
+  .lead{font-size:.95rem;color:var(--muted);margin-bottom:22px;}
+  h3{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:1.25rem;color:var(--gold-light);letter-spacing:.03em;margin:22px 0 10px;}
+  p.body{font-size:.92rem;color:rgba(236,244,249,.8);margin-bottom:12px;}
+
+  ul.clean{list-style:none;padding:0;margin:0 0 12px;}
+  ul.clean li{position:relative;padding-left:20px;font-size:.9rem;color:rgba(236,244,249,.8);margin-bottom:9px;line-height:1.6;}
+  ul.clean li::before{content:'▸';position:absolute;left:0;top:0;color:var(--gold);}
+
+  /* callout */
+  .callout{background:rgba(63,166,106,.1);border:1px solid rgba(63,166,106,.4);border-radius:14px;padding:20px 22px;margin:20px 0;}
+  .callout.gold{background:rgba(187,140,58,.1);border-color:rgba(187,140,58,.4);}
+  .callout.warn{background:rgba(243,69,56,.08);border-color:rgba(243,69,56,.35);}
+  .callout h4{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.03em;color:#fff;margin-bottom:6px;display:flex;align-items:center;gap:9px;}
+  .callout p{font-size:.88rem;color:rgba(236,244,249,.82);}
+  .callout svg{width:20px;height:20px;flex:none;}
+
+  /* flow */
+  .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch;gap:8px;margin:18px 0;}
+  .flow .node{background:rgba(255,255,255,.04);border:1px solid var(--hairline);border-radius:12px;padding:14px 12px;text-align:center;}
+  .flow .node b{display:block;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.03em;color:#fff;margin-bottom:4px;}
+  .flow .node span{font-size:.72rem;color:var(--muted);line-height:1.4;}
+  .flow .ar{display:grid;place-items:center;color:var(--gold);font-size:1.2rem;}
+  @media(max-width:680px){.flow{grid-template-columns:1fr;}.flow .ar{transform:rotate(90deg);}}
+
+  /* steps */
+  ol.steps{list-style:none;counter-reset:s;padding:0;margin:8px 0 4px;}
+  ol.steps>li{position:relative;counter-increment:s;padding:0 0 18px 46px;}
+  ol.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:rgba(187,140,58,.14);border:1px solid var(--hairline);color:var(--gold-light);font-family:'JetBrains Mono',monospace;font-size:.9rem;display:grid;place-items:center;}
+  ol.steps>li::after{content:'';position:absolute;left:14px;top:30px;bottom:0;width:1px;background:rgba(187,140,58,.18);}
+  ol.steps>li:last-child::after{display:none;}
+  ol.steps h4{font-family:'Poppins';font-weight:600;font-size:.98rem;color:#fff;margin-bottom:4px;}
+  ol.steps p{font-size:.86rem;color:rgba(236,244,249,.74);line-height:1.6;}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;font-size:.86rem;margin:14px 0 6px;}
+  th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:rgba(236,244,249,.5);font-weight:400;padding:9px 12px;border-bottom:1px solid var(--hairline);}
+  td{padding:11px 12px;border-bottom:1px solid rgba(187,140,58,.1);color:rgba(236,244,249,.82);vertical-align:top;}
+  td.num{font-family:'JetBrains Mono',monospace;text-align:right;color:var(--gold-light);white-space:nowrap;}
+  tr.free td{background:rgba(63,166,106,.06);}
+  tr.free td.num{color:#7fd6a0;}
+  .tnote{font-size:.74rem;color:rgba(236,244,249,.45);margin-top:8px;}
+
+  /* calculator */
+  .calc{background:rgba(255,255,255,.03);border:1px solid var(--hairline);border-radius:16px;padding:24px;margin:20px 0;}
+  .calc .row{display:flex;gap:24px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .calc label{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;}
+  .calc input[type=range]{width:100%;accent-color:var(--gold);}
+  .calc .field{flex:1;min-width:240px;}
+  .calc .val{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#fff;}
+  .calc .seg{display:flex;gap:6px;flex-wrap:wrap;}
+  .calc .seg button{font-family:'JetBrains Mono',monospace;font-size:.74rem;background:rgba(255,255,255,.05);border:1px solid var(--hairline);color:rgba(236,244,249,.7);border-radius:8px;padding:7px 12px;cursor:pointer;transition:.15s;}
+  .calc .seg button.on{background:var(--gold);color:var(--navy-dark);border-color:var(--gold);}
+  .calc .out{border-top:1px solid var(--hairline);padding-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .calc .out .o{text-align:center;}
+  .calc .out .o .ov{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;}
+  .calc .out .o .ol{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(236,244,249,.45);margin-top:6px;}
+  .calc .verdict{margin-top:14px;font-size:.84rem;color:#cfe2ee;text-align:center;}
+  @media(max-width:560px){.calc .out{grid-template-columns:1fr;gap:10px;}}
+
+  footer.foot{border-top:1px solid var(--hairline);padding:30px 28px;text-align:center;font-size:.78rem;color:rgba(236,244,249,.45);margin-top:30px;}
+</style>
+</head>
+<body>
+
+<!-- ── password gate ── -->
+<style>
+  #pw-gate{position:fixed;inset:0;z-index:9999;background:#021e2e;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;}
+  #pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(187,140,58,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(187,140,58,.06) 1px,transparent 1px);background-size:40px 40px;}
+  #pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(187,140,58,.25);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5);}
+  #pw-box img{height:48px;margin-bottom:24px;}
+  #pw-box h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#BB8C3A;letter-spacing:.08em;margin:0 0 8px;}
+  #pw-box .sub{font-size:.85rem;color:rgba(236,244,249,.55);margin:0 0 28px;}
+  #pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid rgba(187,140,58,.3);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;}
+  #pw-input:focus{border-color:#BB8C3A;}
+  #pw-btn{margin-top:14px;width:100%;padding:12px;background:#BB8C3A;color:#021e2e;border:0;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;cursor:pointer;}
+  #pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em;}
+  .pw-shake{animation:pwShake .35s;}@keyframes pwShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+</style>
+<div id="pw-gate"><div id="pw-box">
+  <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network">
+  <h2>Internal Document</h2><p class="sub">This page is password protected.</p>
+  <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+  <button id="pw-btn">Enter</button><p id="pw-error"></p>
+</div></div>
+<script>
+(function(){var KEY='cn_auth',PASS='markrules',gate=document.getElementById('pw-gate');
+if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}document.body.style.overflow='hidden';
+function attempt(){if(document.getElementById('pw-input').value===PASS){sessionStorage.setItem(KEY,'1');document.body.style.overflow='';gate.style.display='none';}else{document.getElementById('pw-error').textContent='Incorrect password. Try again.';var b=document.getElementById('pw-box');b.classList.remove('pw-shake');void b.offsetWidth;b.classList.add('pw-shake');}}
+document.getElementById('pw-btn').addEventListener('click',attempt);
+document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+document.getElementById('pw-input').focus();})();
+</script>
+
+<div class="topbar">
+  <a class="back" href="index.html">← Main Site</a>
+  <span class="pill">Internal · Planning Doc</span>
+</div>
+
+<section class="hero"><div class="hero-inner">
+  <div class="eyebrow">Champions Advocate Weekly · Email Delivery</div>
+  <h1>Sending the Advocate Weekly with Resend</h1>
+  <p>How we'd send the newsletter straight from champions-network.com — no logging into a separate email app — plus how we'd hold the contact list and what it costs as we grow.</p>
+</div></section>
+
+<div class="wrap">
+
+  <!-- WHY -->
+  <section class="blk">
+    <h2><span class="ix">★</span> The goal &amp; why Resend</h2>
+    <p class="lead">Build the issue on the site, hit one button, it goes out. We looked at EmailOctopus first — but its API can't create or send a broadcast (it only manages contacts and fires pre-built automations). Resend's API can.</p>
+    <ul class="clean">
+      <li><strong>Send from the site:</strong> Resend has a real Broadcasts API — create the email with our HTML and send it to the list, all over the API.</li>
+      <li><strong>Same secure pattern we already proved:</strong> the API key lives in a Netlify environment variable (like the Clockify budget tool), never in the website code.</li>
+      <li><strong>Billed by contacts, not by sends:</strong> sending more often costs nothing extra (more on this in Costs).</li>
+      <li><strong>Built-in compliance:</strong> automatic unsubscribe links + one-click List-Unsubscribe, bounce/complaint suppression, and domain authentication.</li>
+    </ul>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="blk">
+    <h2><span class="ix">1</span> How it works</h2>
+    <p class="lead">The piece we already built (build &amp; approve an issue on the site) feeds a small Netlify function that talks to Resend. Mark still blesses every send.</p>
+    <div class="flow">
+      <div class="node"><b>Build on site</b><span>Issue assembled in the Advocate composer</span></div>
+      <div class="ar">→</div>
+      <div class="node"><b>Approve</b><span>Mark reviews &amp; clicks Send</span></div>
+      <div class="ar">→</div>
+      <div class="node"><b>Netlify function</b><span>Holds the Resend key, calls the API</span></div>
+      <div class="ar">→</div>
+      <div class="node"><b>Resend → inbox</b><span>Broadcast to the contact list</span></div>
+    </div>
+    <div class="callout gold">
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 8v5M12 16h.01"/></svg> Safety rail</h4>
+      <p>The Send button always opens a <strong>test send to ourselves first</strong> and a confirm step before the real blast — so no issue goes out by accident.</p>
+    </div>
+  </section>
+
+  <!-- SETUP -->
+  <section class="blk">
+    <h2><span class="ix">2</span> One-time setup</h2>
+    <p class="lead">A few hours of setup, most of it DNS that propagates on its own. Roughly in order:</p>
+    <ol class="steps">
+      <li><h4>Create the Resend account</h4><p>One account for the Champions Network / LCRL. Free to start (see Costs).</p></li>
+      <li><h4>Verify a sending domain</h4><p>Add Resend's DNS records (SPF, DKIM, DMARC, and a return-path) to a subdomain like <code>news.champions-network.com</code>. Using a subdomain protects the main domain's reputation. This is the single most important step for landing in inboxes, not spam.</p></li>
+      <li><h4>Create an Audience</h4><p>Resend's term for a contact list. This becomes the one home for Advocate subscribers.</p></li>
+      <li><h4>Generate a restricted API key</h4><p>A send-only key, stored in Netlify as <code>RESEND_API_KEY</code> — exactly like <code>CLOCKIFY_API_KEY</code>. Never committed to the site code.</p></li>
+      <li><h4>Build the send function + button</h4><p>A <code>send-advocate</code> Netlify function plus a "Send this issue" button on the composer. One-time build on our side.</p></li>
+      <li><h4>Wire the signup form</h4><p>Point the site's "Subscribe" form at a small function that adds the person to the Audience (double opt-in — see next section).</p></li>
+    </ol>
+  </section>
+
+  <!-- CONTACTS -->
+  <section class="blk">
+    <h2><span class="ix">3</span> The contact list — setup &amp; upkeep</h2>
+    <p class="lead">One source of truth, kept clean and compliant. This also resolves the current split between MailChimp and the larger "Abba Dabba" account.</p>
+
+    <h3>Getting the list in</h3>
+    <ul class="clean">
+      <li><strong>Import the current ~70</strong> from MailChimp: export a CSV, import into the Resend Audience. (Confirm these folks already opted in — they did, as Champions participants.)</li>
+      <li><strong>Decide on the "Abba Dabba" merge</strong> before importing, so we load the right master list once and retire the $20/mo MailChimp.</li>
+    </ul>
+
+    <h3>Growing it from the site</h3>
+    <ul class="clean">
+      <li><strong>Subscribe form</strong> on champions-network.com → adds to the Audience automatically.</li>
+      <li><strong>Double opt-in</strong> (recommended): new sign-ups get a "confirm your email" click first. Slightly fewer sign-ups, much better deliverability and a clean legal record of consent.</li>
+      <li><strong>Tags / segments</strong> for chapters (Olathe, Michigan, Cedar Rapids…) so we can send to everyone or to one chapter.</li>
+    </ul>
+
+    <h3>Keeping it healthy</h3>
+    <ul class="clean">
+      <li><strong>Unsubscribes</strong> are handled automatically by Resend — every email carries an unsubscribe link and they're removed without us touching anything.</li>
+      <li><strong>Bounces &amp; complaints</strong> are auto-suppressed so we stop emailing dead or hostile addresses (protects our sender reputation).</li>
+      <li><strong>One master list</strong> — the site is the only thing that writes to it, so we never drift back into two-tools-out-of-sync.</li>
+      <li><strong>Compliance (CAN-SPAM):</strong> a real physical mailing address in the footer + a working unsubscribe. Both are built in.</li>
+    </ul>
+    <div class="callout">
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Doctrinal review is unaffected</h4>
+      <p>None of this changes the review posture — curated/quoted news still needs no review; only our own added words do. Resend is just the delivery pipe.</p>
+    </div>
+  </section>
+
+  <!-- COSTS -->
+  <section class="blk">
+    <h2><span class="ix">4</span> What it costs</h2>
+    <p class="lead">The newsletter uses Resend's <strong>Marketing / Broadcasts</strong> product, which is priced by <strong>number of contacts</strong> — with <strong>unlimited sends</strong>. That's the headline.</p>
+
+    <div class="callout gold">
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Frequency is free</h4>
+      <p>Because you pay per contact, sending <strong>weekly, twice a week, or daily costs exactly the same</strong>. The only thing that moves the price is how many people are on the list.</p>
+    </div>
+
+    <h3>Cost by list size (the newsletter)</h3>
+    <table>
+      <thead><tr><th>Contacts</th><th>Resend plan</th><th class="num">Monthly</th><th>Sends included</th></tr></thead>
+      <tbody>
+        <tr class="free"><td>Up to 1,000</td><td>Free</td><td class="num">$0</td><td>Unlimited</td></tr>
+        <tr><td>Up to 5,000</td><td>Pro (Marketing)</td><td class="num">$40</td><td>Unlimited</td></tr>
+        <tr><td>5,000 → 150,000</td><td>Scale tiers</td><td class="num">$40 → $650</td><td>Unlimited</td></tr>
+      </tbody>
+    </table>
+    <p class="tnote">Pricing scales with contacts between the $40 and $650 anchors; exact intermediate tiers are on Resend's pricing page. Today's ~70 and even a 1,000-person list cost <strong>$0</strong>.</p>
+
+    <h3>What we'd actually pay</h3>
+    <table>
+      <thead><tr><th>Scenario</th><th>List size</th><th>Frequency</th><th class="num">Resend</th><th class="num">vs MailChimp</th></tr></thead>
+      <tbody>
+        <tr class="free"><td>Today</td><td>~70</td><td>Weekly</td><td class="num">$0</td><td class="num">$20/mo</td></tr>
+        <tr class="free"><td>Old MailChimp cap</td><td>500</td><td>Weekly or daily</td><td class="num">$0</td><td class="num">$20/mo</td></tr>
+        <tr class="free"><td>Healthy growth</td><td>1,000</td><td>Weekly or daily</td><td class="num">$0</td><td class="num">~$26/mo</td></tr>
+        <tr><td>Network scales up</td><td>2,500</td><td>Any</td><td class="num">$40/mo</td><td class="num">~$45/mo</td></tr>
+        <tr><td>Big</td><td>5,000</td><td>Any</td><td class="num">$40/mo</td><td class="num">~$75/mo</td></tr>
+      </tbody>
+    </table>
+
+    <h3>The interactive version</h3>
+    <div class="calc">
+      <div class="row">
+        <div class="field">
+          <label>Contacts: <span class="val" id="c-num">500</span></label>
+          <input type="range" id="c-range" min="50" max="10000" step="50" value="500">
+        </div>
+        <div class="field">
+          <label>Send frequency</label>
+          <div class="seg" id="c-freq">
+            <button data-f="4.3" class="on">Weekly</button>
+            <button data-f="8.6">2× / week</button>
+            <button data-f="30">Daily</button>
+          </div>
+        </div>
+      </div>
+      <div class="out">
+        <div class="o"><div class="ov" id="c-cost">$0</div><div class="ol">Resend / month</div></div>
+        <div class="o"><div class="ov" id="c-sends">~2,150</div><div class="ol">Emails / month</div></div>
+        <div class="o"><div class="ov" id="c-tier">Free</div><div class="ol">Plan tier</div></div>
+      </div>
+      <div class="verdict" id="c-verdict"></div>
+    </div>
+
+    <h3>Sign-up confirmations (a separate, tiny cost)</h3>
+    <p class="body">Double-opt-in confirmation emails use Resend's <strong>Transactional</strong> side, which is free up to <strong>3,000 emails/month</strong> (100/day). We'd send a handful a week — comfortably free. Only matters if we ever do a huge one-time import.</p>
+  </section>
+
+  <!-- ROLLOUT -->
+  <section class="blk">
+    <h2><span class="ix">5</span> Suggested rollout &amp; open decisions</h2>
+    <h3>Phases</h3>
+    <ol class="steps">
+      <li><h4>Prove it (test mode)</h4><p>Build the <code>send-advocate</code> function + button; send test issues only to ourselves and a small internal group.</p></li>
+      <li><h4>Verify the domain &amp; warm up</h4><p>Set DNS on <code>news.champions-network.com</code>; send a few real issues to the current ~70 to establish reputation.</p></li>
+      <li><h4>Switch fully off MailChimp</h4><p>Once deliverability looks good, retire the $20/mo MailChimp and move signups to the site form.</p></li>
+    </ol>
+    <div class="callout warn">
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> Decisions needed</h4>
+      <p><strong>1.</strong> Subdomain to send from (<code>news.</code> vs <code>email.</code>). &nbsp;<strong>2.</strong> Double opt-in: yes/no. &nbsp;<strong>3.</strong> Resolve the "Abba Dabba" account merge before importing the master list. &nbsp;<strong>4.</strong> Who owns list upkeep day-to-day (Carly / Shelly).</p>
+    </div>
+  </section>
+
+</div>
+
+<footer class="foot">
+  Internal planning doc · Champions Advocate Weekly · prepared for Mark, Carly &amp; Shelly · Orbis Design<br>
+  Pricing per Resend's published tiers (June 2026) — verify current numbers at resend.com/pricing before committing.
+</footer>
+
+<script>
+(function(){
+  var range=document.getElementById('c-range'),num=document.getElementById('c-num'),
+      freqWrap=document.getElementById('c-freq'),
+      cost=document.getElementById('c-cost'),sends=document.getElementById('c-sends'),
+      tier=document.getElementById('c-tier'),verdict=document.getElementById('c-verdict');
+  var freq=4.3;
+  function planFor(contacts){
+    if(contacts<=1000)return {cost:0,name:'Free'};
+    if(contacts<=5000)return {cost:40,name:'Pro (Marketing)'};
+    // linear-ish estimate between the $40 (5k) and $650 (150k) anchors
+    var est=40+Math.round((contacts-5000)/(150000-5000)*(650-40)/10)*10;
+    return {cost:est,name:'Scale'};
+  }
+  function fmt(n){return n.toLocaleString('en-US');}
+  function update(){
+    var c=+range.value;
+    num.textContent=fmt(c);
+    var p=planFor(c);
+    cost.textContent='$'+p.cost;
+    tier.textContent=p.name;
+    sends.textContent='~'+fmt(Math.round(c*freq));
+    verdict.innerHTML=(p.cost===0)
+      ? 'At <strong>'+fmt(c)+'</strong> contacts you stay on the <strong>free</strong> plan — and the '+fmt(Math.round(c*freq))+' emails/month don’t cost a thing.'
+      : 'At <strong>'+fmt(c)+'</strong> contacts you’d be about <strong>$'+p.cost+'/mo</strong> — and you could send daily at no extra charge.';
+  }
+  range.addEventListener('input',update);
+  freqWrap.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    freq=+b.getAttribute('data-f');
+    freqWrap.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);});
+    update();
+  });
+  update();
+})();
+</script>
+
+</body>
+</html>

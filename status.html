@@ -166,10 +166,7 @@
   .bd-month .ml{color:rgba(236,244,249,.8);font-family:'JetBrains Mono',monospace;font-size:.74rem;}
   .bd-month .mbar{height:18px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;}
   .bd-month .mbar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .8s cubic-bezier(.22,1,.36,1);}
-  .bd-month.pre .mbar i{background:rgba(236,244,249,.22);}
   .bd-month .mv{text-align:right;font-family:'JetBrains Mono',monospace;color:var(--gold-light);font-size:.74rem;}
-  .bd-month .mv .pretag{color:rgba(236,244,249,.4);}
-  .bd-pre-note{font-size:.72rem;color:rgba(236,244,249,.45);margin:4px 0 6px;}
 
   /* per-project + recent tables */
   .bd-table{width:100%;border-collapse:collapse;font-size:.82rem;}
@@ -179,8 +176,6 @@
   .bd-table tr:last-child td{border-bottom:0;}
   .bd-table .swatch{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:8px;vertical-align:middle;}
   .bd-recent td.desc{color:rgba(236,244,249,.62);}
-  .bd-recent .out{opacity:.5;}
-  .bd-recent .out td.pday::after{content:' · pre';color:#F3a538;font-size:.7em;}
   .bd-loading{text-align:center;color:var(--muted);padding:30px 0;font-family:'JetBrains Mono',monospace;font-size:.8rem;}
 
   /* ── Open items ── */
@@ -1003,8 +998,7 @@
           <div class="s"><div class="v" id="bd-pct">—</div><div class="d" id="bd-elapsed">—</div><div class="l">Used / Elapsed</div></div>
         </div>
 
-        <h5>By Month</h5>
-        <p class="bd-pre-note" id="bd-pre-note" style="display:none"></p>
+        <h5>By Month <span style="font-size:.7rem;color:rgba(236,244,249,.4)">(Mar 1 2026 onward)</span></h5>
         <div id="bd-months"></div>
 
         <h5>By Project <span style="font-size:.7rem;color:rgba(236,244,249,.4)">(in-period)</span></h5>
@@ -1040,30 +1034,28 @@
   var SNAPSHOT={
     asOf:'Jun 26, 2026',
     rate:100, retainer:{start:'2026-03-01',end:'2026-09-01',hours:60,dollars:6000},
-    usedHours:47.15, allTrackedHours:50.38, preRetainerHours:3.23,
+    usedHours:47.15,
     projects:[
-      {name:'LCRL Champions Network',inHours:30.83,allHours:34.07,inDollars:3083,count:16,first:'2025-10-30',last:'2026-06-12'},
-      {name:'LCRL Pod-2',inHours:16.32,allHours:16.32,inDollars:1632,count:15,first:'2026-03-11',last:'2026-06-24'}
+      {name:'LCRL Champions Network',inHours:30.83,inDollars:3083,count:13,first:'2026-03-06',last:'2026-06-12'},
+      {name:'LCRL Pod-2',inHours:16.32,inDollars:1632,count:15,first:'2026-03-11',last:'2026-06-24'}
     ],
     months:[
-      {key:'2025-10',label:'Oct 2025',hours:1,inRetainer:false},
-      {key:'2025-11',label:'Nov 2025',hours:2.23,inRetainer:false},
-      {key:'2026-03',label:'Mar 2026',hours:10.68,inRetainer:true},
-      {key:'2026-04',label:'Apr 2026',hours:12.28,inRetainer:true},
-      {key:'2026-05',label:'May 2026',hours:15.62,inRetainer:true},
-      {key:'2026-06',label:'Jun 2026',hours:8.57,inRetainer:true}
+      {key:'2026-03',label:'Mar 2026',hours:10.68},
+      {key:'2026-04',label:'Apr 2026',hours:12.28},
+      {key:'2026-05',label:'May 2026',hours:15.62},
+      {key:'2026-06',label:'Jun 2026',hours:8.57}
     ],
     recent:[
-      {date:'2026-06-24',project:'LCRL Pod-2',desc:'6/24/26',hours:0.97,inRetainer:true},
-      {date:'2026-06-17',project:'LCRL Pod-2',desc:'6/17/26',hours:1.25,inRetainer:true},
-      {date:'2026-06-12',project:'LCRL Champions Network',desc:'6/12/26',hours:1.65,inRetainer:true},
-      {date:'2026-06-10',project:'LCRL Pod-2',desc:'6/10/26',hours:1.68,inRetainer:true},
-      {date:'2026-06-05',project:'LCRL Champions Network',desc:'6/4/26',hours:2.25,inRetainer:true},
-      {date:'2026-06-03',project:'LCRL Pod-2',desc:'6/3/26',hours:0.77,inRetainer:true},
-      {date:'2026-05-29',project:'LCRL Champions Network',desc:'5/29/26',hours:3.3,inRetainer:true},
-      {date:'2026-05-27',project:'LCRL Pod-2',desc:'5/27/26',hours:0.95,inRetainer:true},
-      {date:'2026-05-15',project:'LCRL Champions Network',desc:'5/15/26',hours:2.5,inRetainer:true},
-      {date:'2026-05-08',project:'LCRL Champions Network',desc:'5/8/26',hours:4.03,inRetainer:true}
+      {date:'2026-06-24',project:'LCRL Pod-2',desc:'6/24/26',hours:0.97},
+      {date:'2026-06-17',project:'LCRL Pod-2',desc:'6/17/26',hours:1.25},
+      {date:'2026-06-12',project:'LCRL Champions Network',desc:'6/12/26',hours:1.65},
+      {date:'2026-06-10',project:'LCRL Pod-2',desc:'6/10/26',hours:1.68},
+      {date:'2026-06-05',project:'LCRL Champions Network',desc:'6/4/26',hours:2.25},
+      {date:'2026-06-03',project:'LCRL Pod-2',desc:'6/3/26',hours:0.77},
+      {date:'2026-05-29',project:'LCRL Champions Network',desc:'5/29/26',hours:3.3},
+      {date:'2026-05-27',project:'LCRL Pod-2',desc:'5/27/26',hours:0.95},
+      {date:'2026-05-15',project:'LCRL Champions Network',desc:'5/15/26',hours:2.5},
+      {date:'2026-05-08',project:'LCRL Champions Network',desc:'5/8/26',hours:4.03}
     ]
   };
 
@@ -1121,19 +1113,15 @@
     document.getElementById('bd-pct').textContent=pct+'%';
     document.getElementById('bd-elapsed').textContent=Math.round(elapsedFraction()*100)+'% time';
 
-    // months
+    // months (all are within the retainer period — Mar 1 onward)
     var maxH=Math.max.apply(null,(d.months||[{hours:1}]).map(function(m){return m.hours;}));
     document.getElementById('bd-months').innerHTML=(d.months||[]).map(function(m){
       var w=Math.max(3,(m.hours/maxH)*100);
-      return '<div class="bd-month'+(m.inRetainer?'':' pre')+'">'+
+      return '<div class="bd-month">'+
         '<span class="ml">'+m.label+'</span>'+
         '<span class="mbar"><i style="width:'+w+'%"></i></span>'+
-        '<span class="mv">'+r1(m.hours)+'h · '+money(m.hours*RATE)+(m.inRetainer?'':' <span class="pretag">(pre)</span>')+'</span></div>';
+        '<span class="mv">'+r1(m.hours)+'h · '+money(m.hours*RATE)+'</span></div>';
     }).join('');
-    var pre=d.preRetainerHours||0;
-    var pn=document.getElementById('bd-pre-note');
-    if(pre>0){pn.style.display='';pn.innerHTML='Oct–Nov 2025 ('+r1(pre)+'h / '+money(pre*RATE)+') predates the Mar 1 retainer and is <strong>not</strong> counted against the 60-hour budget.';}
-    else{pn.style.display='none';}
 
     // per-project
     document.querySelector('#bd-proj-table tbody').innerHTML=(d.projects||[]).map(function(p){
@@ -1146,7 +1134,7 @@
 
     // recent
     document.querySelector('#bd-recent-table tbody').innerHTML=(d.recent||[]).map(function(e){
-      return '<tr class="'+(e.inRetainer?'':'out')+'">'+
+      return '<tr>'+
         '<td class="pday">'+e.date+'</td>'+
         '<td><span class="swatch" style="background:'+pcol(e.project)+'"></span>'+esc(e.project.replace('LCRL ',''))+'</td>'+
         '<td class="desc">'+esc(e.desc)+'</td>'+
@@ -1154,8 +1142,8 @@
     }).join('');
 
     var foot=document.getElementById('bd-foot');
-    foot.textContent='All-time tracked on these projects: '+r1(d.allTrackedHours||used)+'h across '+(d.entryCount||(d.recent||[]).length)+'+ entries.'+
-      (IS_SNAPSHOT?' (Snapshot — live on the deployed site.)':'');
+    foot.textContent=r1(used)+'h logged across '+(d.entryCount||(d.recent||[]).length)+' entries in the retainer period (Mar 1 2026 onward).'+
+      (IS_SNAPSHOT?' Snapshot — live on the deployed site.':'');
   }
 
   // ---- load ----

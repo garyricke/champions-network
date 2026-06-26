@@ -19,9 +19,15 @@ const TARGET_PROJECTS = ['LCRL Champions Network', 'LCRL Pod-2'];
 
 const RETAINER = { start: '2026-03-01', end: '2026-09-01', hours: 60, dollars: 6000 }; // end exclusive
 
-// Clockify caps the detailed report at a 1-year range; entries on these
-// projects begin Oct 2025, so a rolling 1-year window captures them all.
-function rangeStart() { return new Date(Date.now() - 364 * 864e5).toISOString(); }
+// The budget only covers Mar 1 2026 onward — nothing before March is
+// fetched or counted. Cap the end at the retainer close so post-Aug work
+// can't sneak in either. (Both inside Clockify's 1-year report window.)
+function rangeStart() { return RETAINER.start + 'T00:00:00.000Z'; }
+function rangeEnd() {
+  const now = new Date().toISOString();
+  const end = RETAINER.end + 'T00:00:00.000Z';
+  return now < end ? now : end;
+}
 
 // Detailed-report entries carry duration as NUMERIC SECONDS. Handle both
 // that and the ISO-8601 string form the projects endpoint uses → hours.
@@ -81,7 +87,7 @@ exports.handler = async function () {
         headers: { 'X-Api-Key': key, 'Content-Type': 'application/json' },
         body: JSON.stringify({
           dateRangeStart: rangeStart(),
-          dateRangeEnd: new Date().toISOString(),
+          dateRangeEnd: rangeEnd(),
           detailedFilter: { page: rpage, pageSize: 1000 },
           exportType: 'JSON',
           projects: { ids },
@@ -96,45 +102,40 @@ exports.handler = async function () {
       rpage++;
     }
 
-    // aggregate
+    // aggregate — everything here is already Mar 1 2026 onward. We still
+    // guard with inRetainer() so no stray pre-March entry can slip in.
     const months = {}; // key -> hours
-    const proj = {};   // name -> { inHours, allHours, count, first, last }
-    TARGET_PROJECTS.forEach((n) => { proj[n] = { name: n, inHours: 0, allHours: 0, count: 0, first: null, last: null }; });
+    const proj = {};   // name -> { hours, count, first, last }
+    TARGET_PROJECTS.forEach((n) => { proj[n] = { name: n, hours: 0, count: 0, first: null, last: null }; });
     const recent = [];
-    let inPeriodHours = 0, allTrackedHours = 0;
+    let usedHours = 0;
 
     entries.forEach((e) => {
       const start = e.timeInterval && e.timeInterval.start;
+      const day = start ? start.slice(0, 10) : null;
+      if (!day || !inRetainer(day)) return; // hard exclude anything before Mar 1
       const hrs = durHours(e.timeInterval && e.timeInterval.duration);
       const name = idToName[e.projectId] || e.projectName || 'Unknown';
-      const day = start ? start.slice(0, 10) : null;
-      allTrackedHours += hrs;
-      if (proj[name]) { proj[name].allHours += hrs; proj[name].count += 1; }
-      if (day) {
-        const mk = day.slice(0, 7);
-        months[mk] = (months[mk] || 0) + hrs;
-        if (proj[name]) {
-          if (!proj[name].first || day < proj[name].first) proj[name].first = day;
-          if (!proj[name].last || day > proj[name].last) proj[name].last = day;
-        }
-        if (inRetainer(day)) {
-          inPeriodHours += hrs;
-          if (proj[name]) proj[name].inHours += hrs;
-        }
+
+      usedHours += hrs;
+      months[day.slice(0, 7)] = (months[day.slice(0, 7)] || 0) + hrs;
+      if (proj[name]) {
+        proj[name].hours += hrs;
+        proj[name].count += 1;
+        if (!proj[name].first || day < proj[name].first) proj[name].first = day;
+        if (!proj[name].last || day > proj[name].last) proj[name].last = day;
       }
       recent.push({ start, day, project: name, desc: e.description || '(no description)', hours: +hrs.toFixed(2) });
     });
 
     const monthList = Object.keys(months).sort().map((k) => ({
-      key: k, label: monthLabel(k), hours: +months[k].toFixed(2),
-      dollars: Math.round(months[k] * 100), inRetainer: (k >= RETAINER.start.slice(0, 7) && k < RETAINER.end.slice(0, 7)),
+      key: k, label: monthLabel(k), hours: +months[k].toFixed(2), dollars: Math.round(months[k] * 100),
     }));
 
     const projects = TARGET_PROJECTS.map((n) => ({
       name: n,
-      inHours: +proj[n].inHours.toFixed(2),
-      allHours: +proj[n].allHours.toFixed(2),
-      inDollars: Math.round(proj[n].inHours * 100),
+      inHours: +proj[n].hours.toFixed(2),
+      inDollars: Math.round(proj[n].hours * 100),
       count: proj[n].count,
       first: proj[n].first,
       last: proj[n].last,
@@ -142,7 +143,7 @@ exports.handler = async function () {
 
     recent.sort((a, b) => (b.start || '').localeCompare(a.start || ''));
     const recentTop = recent.slice(0, 15).map((r) => ({
-      date: r.day || '—', project: r.project, desc: r.desc, hours: r.hours, inRetainer: r.day ? inRetainer(r.day) : false,
+      date: r.day || '—', project: r.project, desc: r.desc, hours: r.hours,
     }));
 
     return {
@@ -152,13 +153,11 @@ exports.handler = async function () {
         ok: true,
         rate: 100,
         retainer: RETAINER,
-        usedHours: +inPeriodHours.toFixed(2),     // drives the meter (in-period)
-        allTrackedHours: +allTrackedHours.toFixed(2),
-        preRetainerHours: +(allTrackedHours - inPeriodHours).toFixed(2),
+        usedHours: +usedHours.toFixed(2),   // in-period only (Mar 1 →)
         projects,
         months: monthList,
         recent: recentTop,
-        entryCount: entries.length,
+        entryCount: recent.length,
         missing,
         generatedAt: new Date().toISOString(),
       }),
