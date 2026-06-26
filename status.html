@@ -487,7 +487,7 @@
         <li>Pull together <strong>budget / cost-to-build numbers</strong> for the Champions Academy so Mark can put them in his <strong>June 18 board report</strong> (current scope has outgrown the original podcast-posting retainer) <span class="who gary">Gary · before Jun 18</span></li>
         <li><s>Evaluate whether the <strong>"Champions Advocate Weekly"</strong> newsletter can be produced <strong>faster/better with AI</strong> — concept mockup (<a class="filelink" href="newsletter-concept.html"><code>newsletter-concept.html</code></a>)</s> — ✅ presented June 12. <strong>Next step done:</strong> built the <strong>on-site digest + click-through approval demo</strong> (<a class="filelink" href="advocate-weekly-demo.html"><code>advocate-weekly-demo.html</code></a>) Gary promised — forward to legal &amp; Mark. Then: wire a real story page on the live site + the thin-email send path once direction is confirmed <span class="who gary">Gary · demo done</span></li>
         <li>Stand up the <strong>drip email system</strong> — free tool (~2,000 addresses), AI-built branded emails, auto-enroll on signup, scheduled cadence across the curriculum <span class="who gary">Gary</span></li>
-        <li>Solve the <strong>email send path</strong> for the Advocate Weekly: paste-HTML vs. a <strong>one-click API push</strong> from the site. Compare <strong>MailChimp API</strong> vs. <strong>Email Octopus</strong> (free to ~2,000, better API) — factor in Mark’s plan to <em>merge into the larger “Abba Dabba” account</em> and drop the $20/mo MailChimp <span class="who gary">Gary</span></li>
+        <li><strong>Email send path — decided: Resend.</strong> Email Octopus’s API <em>can’t</em> create/send a broadcast (contacts + pre-built automations only), so it can’t send from the site. <strong>Resend can</strong> (Broadcasts API), billed by <em>contacts not sends</em> (so frequency is free), with built-in <strong>open &amp; click tracking</strong>. Full write-up in <a class="filelink" href="advocate-email-plan.html"><code>advocate-email-plan.html</code></a>. Next: build the <code>send-advocate</code> Netlify function + verify the <code>news.</code> sending domain; still resolve the <em>“Abba Dabba” account merge</em> and drop the $20/mo MailChimp <span class="who gary">Gary · plan done</span></li>
         <li>Add a <strong>feature to surface Advocate Weekly stories on the live site</strong> (today they exist only in the email) — index podcasts/lessons/blog so each story auto-shows related approved content <span class="who gary">Gary</span></li>
         <li><s>Build the <strong>2027 March for Life planning guide</strong> (print + web) from Mark's emailed planning doc</s> — ✅ done June 12; 8-page print PDF (<a class="filelink" href="champions-march-for-life-2027-planning-guide.pdf"><code>champions-march-for-life-2027-planning-guide.pdf</code></a>) + responsive web page (<a class="filelink" href="march-for-life-2027.html"><code>march-for-life-2027.html</code></a>). Pending: Mark's review + link placement on <a class="filelink" href="index.html"><code>index.html</code></a> <span class="who gary">Gary · done</span></li>
         <li>Write <strong>process documentation</strong> (the "hit by a bus" safeguard) so an intern can run the AI workflow end-to-end <span class="who gary">Gary</span></li>
@@ -547,6 +547,24 @@
      TIMELINE
      ============================================================ -->
 <div class="timeline">
+
+  <!-- ── 2026-06-26 (Resend email plan + budget scope) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Jun 26<span class="y">2026</span></div>
+    <h3>Advocate Weekly email delivery plan (Resend) + budget scope fix</h3>
+    <div class="tags">
+      <span class="tag internal">Internal</span>
+      <span class="tag content">Planning</span>
+    </div>
+    <ul>
+      <li>Researched the send path: <strong>Email Octopus’s API can’t create or send a broadcast</strong> (contacts + pre-built automations only), so it can’t send from the site. <strong>Chose Resend</strong> — its Broadcasts API can, using the same Netlify-function/key-in-env pattern as the budget tool.</li>
+      <li>Wrote <a class="filelink" href="advocate-email-plan.html"><code>advocate-email-plan.html</code></a> (gated, in the admin panel): setup steps, contact-list setup &amp; upkeep, and a cost breakdown with a live calculator.</li>
+      <li>Key cost finding: Resend Broadcasts are billed by <strong>contacts, not sends</strong> → today’s ~70 and up to <strong>1,000 contacts are $0</strong>, $40/mo to 5,000, and <strong>send frequency is free</strong>. Open &amp; click tracking are built in.</li>
+      <li>Budget tracker: now counts <strong>only Mar 1 2026 onward</strong> — no pre-March / 2025 hours anywhere (meter, monthly breakdown, per-project, recent entries).</li>
+    </ul>
+    <div class="commit">main · 1f57d8d · source: June 12 check-in (Shelly’s click-through question)</div>
+  </article>
 
   <!-- ── 2026-06-26 (Advocate Weekly on-site + approval demo) ── -->
   <article class="entry">
