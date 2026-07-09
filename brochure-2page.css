@@ -1,0 +1,415 @@
+/* ============================================================
+   Champions Network — 2-Page Print Brochure
+   One sheet, printed double-sided. Modern visual language
+   (matches website + the v2 8-page and v4 4-page brochures):
+   navy gradient, gold accents, white card system.
+   Trim 8.5×11 + 0.125" bleed = 8.75×11.25 page size.
+     Side 1 Identity · Two Kingdoms · Who We Are
+     Side 2 Academy · Toolchest · Outcomes · Get Involved
+   ============================================================ */
+
+@page { size: 8.75in 11.25in; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #BB8C3A;
+  --gold-light: #d4a854;
+  --gold-dark: #9a7230;
+  --gold-pale: #f1e2c2;
+  --blue: #0876A9;
+  --navy: #055A81;
+  --navy-deep: #033f5c;
+  --navy-ink: #021e2e;
+  --light: #ECF4F9;
+  --white: #FFFFFF;
+  --ink: #14202d;
+  --ink-mid: #3d5166;
+  --ink-soft: #6b8099;
+}
+
+html, body {
+  background: #fff;
+  color: var(--ink);
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  line-height: 1.55;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 8.75in;
+  height: 11.25in;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  background: #fff;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+/* Inner safe content frame (0.5in inside trim → 0.625in from page edge) */
+.frame {
+  position: absolute;
+  inset: 0.625in;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Crop marks */
+.crops i { position: absolute; background: #000; z-index: 999; }
+.crops .tl-h, .crops .tr-h, .crops .bl-h, .crops .br-h { width: 0.1in; height: 0.5pt; }
+.crops .tl-v, .crops .tr-v, .crops .bl-v, .crops .br-v { width: 0.5pt; height: 0.1in; }
+.crops .tl-h { top: 0.125in; left: 0; }
+.crops .tl-v { top: 0; left: 0.125in; }
+.crops .tr-h { top: 0.125in; right: 0; }
+.crops .tr-v { top: 0; right: 0.125in; }
+.crops .bl-h { bottom: 0.125in; left: 0; }
+.crops .bl-v { bottom: 0; left: 0.125in; }
+.crops .br-h { bottom: 0.125in; right: 0; }
+.crops .br-v { bottom: 0; right: 0.125in; }
+body.no-crops .crops { display: none; }
+
+/* ----- Shared tokens ----- */
+.bg-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(187,140,58,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(187,140,58,0.07) 1px, transparent 1px);
+  background-size: 0.4in 0.4in;
+  pointer-events: none;
+}
+.eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 8pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+}
+.h-eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: block;
+}
+h1, h2, h3, h4 {
+  font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 0.96;
+}
+p { font-size: 9.5pt; line-height: 1.55; color: var(--ink-mid); }
+strong { font-weight: 600; color: var(--navy); }
+.accent {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--gold);
+}
+.section-hdr h2 { font-size: 22pt; color: var(--navy); margin-top: 0.04in; }
+.section-hdr h2 .accent { font-size: 18pt; }
+
+/* ============================================================
+   SIDE 1 — FRONT
+   ============================================================ */
+.page--front { display: flex; flex-direction: column; }
+
+/* --- Masthead --- */
+.fhdr {
+  background: linear-gradient(140deg, var(--navy-ink) 0%, var(--navy-deep) 62%, var(--navy) 100%);
+  color: #fff;
+  padding: 0.66in 0.625in 0.22in;   /* extra top absorbs the 0.125in bleed */
+  flex: 0 0 auto;
+}
+.fhdr__lockup { display: flex; align-items: center; gap: 0.22in; }
+.fhdr__champ { height: 0.62in; width: auto; }
+.fhdr__div { width: 1pt; height: 0.5in; background: rgba(187,140,58,0.45); }
+.fhdr__lcrl { display: flex; flex-direction: column; gap: 0.04in; }
+.fhdr__lcrl img { height: 0.36in; width: auto; opacity: 0.92; }
+.fhdr__tag {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 6.5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(236,244,249,0.6);
+}
+.fhdr h1 {
+  font-size: 38pt;
+  color: #fff;
+  margin-top: 0.16in;
+}
+.fhdr__sub {
+  font-size: 10pt;
+  color: rgba(236,244,249,0.85);
+  margin-top: 0.06in;
+  max-width: 5.6in;
+}
+
+/* --- Hero strip --- */
+.fhero {
+  position: relative;
+  height: 1.45in;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+.fhero img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
+.fhero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(2,30,46,0.78) 0%, rgba(2,30,46,0.35) 52%, rgba(2,30,46,0.05) 100%);
+}
+.fhero__cap {
+  position: absolute;
+  left: 0.625in; bottom: 0.22in;
+  z-index: 2;
+  max-width: 4.1in;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 10.5pt;
+  line-height: 1.42;
+  color: #fff;
+  border-left: 2.5pt solid var(--gold);
+  padding-left: 0.16in;
+}
+
+/* --- Body --- */
+.fbody {
+  flex: 1;
+  padding: 0.24in 0.625in 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2in;
+  min-height: 0;
+}
+/* Never let flex shrink a section below its natural height — .theo clips its own
+   overflow, so a shrink would silently swallow the two-kingdom cards. */
+.fbody > * { flex: 0 0 auto; }
+
+.mission p { font-size: 9.5pt; margin-top: 0.05in; }
+
+/* Two-kingdom band */
+.theo {
+  position: relative;
+  overflow: hidden;
+  background: var(--light);
+  border: 1pt solid rgba(8,118,169,0.2);
+  border-top: 3pt solid var(--gold);
+  border-radius: 8pt;
+  padding: 0.2in 0.22in 0.18in;
+}
+.theo__hdr h2 { font-size: 20pt; color: var(--navy); }
+.theo__hdr h2 .accent { font-size: 17pt; }
+.theo__lede { font-size: 8.6pt; margin-top: 0.06in; }
+.theo__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2in;
+  margin-top: 0.14in;
+}
+.theo-card {
+  background: #fff;
+  border-radius: 6pt;
+  padding: 0.15in 0.16in;
+  border-left: 3pt solid var(--blue);
+}
+.theo-card:last-child { border-left-color: var(--gold); }
+.theo-card .h-eyebrow { color: var(--ink-soft); margin-bottom: 0.03in; }
+.theo-card h3 { font-size: 15pt; color: var(--navy); }
+.theo-card p { font-size: 8.6pt; line-height: 1.48; margin-top: 0.05in; }
+.theo__foot {
+  text-align: center;
+  margin-top: 0.12in;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 11pt;
+  color: var(--navy);
+}
+.theo__foot em { color: var(--gold-dark); font-style: italic; }
+
+/* Who we are */
+.who__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.2in;
+  margin-top: 0.14in;
+}
+.who-card {
+  border-top: 2pt solid var(--gold);
+  padding-top: 0.12in;
+}
+.who-card h3 { font-size: 14pt; color: var(--blue); }
+.who-card p { font-size: 8.2pt; line-height: 1.46; margin-top: 0.04in; }
+
+/* Front footer */
+.ffoot {
+  flex: 0 0 auto;
+  margin: 0 0.625in;
+  padding: 0.16in 0 0.62in;   /* bottom absorbs bleed */
+  border-top: 1pt solid rgba(8,118,169,0.22);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.3in;
+}
+.ffoot__url {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+  flex: 0 0 auto;
+}
+.ffoot__line {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+/* ============================================================
+   SIDE 2 — BACK
+   ============================================================ */
+.page--back { background: #fff; }
+.page--back .frame { gap: 0.16in; }
+.page--back .frame > * { flex: 0 0 auto; }
+.section-hdr--top h2 { font-size: 26pt; }
+.section-hdr--top h2 .accent { font-size: 22pt; }
+.back__lede { font-size: 9.2pt; margin-top: 0.06in; }
+
+/* Academy trio */
+.acad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.16in; }
+.acad-card {
+  background: linear-gradient(140deg, var(--navy-ink) 0%, var(--navy-deep) 62%, var(--navy) 100%);
+  border-radius: 7pt;
+  padding: 0.17in 0.17in;
+  color: #fff;
+}
+.acad-card .num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26pt;
+  line-height: 0.9;
+  color: var(--gold-light);
+  display: block;
+}
+.acad-card h3 { font-size: 12.5pt; color: #fff; margin: 0.04in 0 0.05in; }
+.acad-card p { font-size: 7.9pt; line-height: 1.44; color: rgba(236,244,249,0.82); }
+.acad-card p strong { color: #fff; font-weight: 600; }
+
+/* Toolchest */
+.tools__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.17in;
+  margin-top: 0.1in;
+}
+.tool {
+  background: var(--light);
+  border-radius: 6pt;
+  border-left: 3pt solid var(--gold);
+  padding: 0.14in 0.15in;
+}
+.tool h3 { font-size: 12.5pt; color: var(--navy); }
+.tool p { font-size: 7.9pt; line-height: 1.44; margin-top: 0.03in; }
+
+/* Outcomes */
+.out__list { list-style: none; margin-top: 0.1in; display: grid; grid-template-columns: 1fr 1fr; gap: 0.07in 0.26in; }
+.out__list li {
+  font-size: 8.4pt;
+  line-height: 1.42;
+  color: var(--ink-mid);
+  padding-left: 0.24in;
+  position: relative;
+}
+.out__list li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.055in;
+  width: 0.1in; height: 0.1in;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+/* Get involved */
+.join {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3in;
+  gap: 0.24in;
+  background: linear-gradient(140deg, var(--navy-ink) 0%, var(--navy-deep) 62%, var(--navy) 100%);
+  border-radius: 8pt;
+  padding: 0.22in 0.24in;
+  color: #fff;
+}
+.join h2 { font-size: 18pt; color: #fff; margin-top: 0.03in; }
+.join h2 .accent { color: var(--gold-light); font-size: 15pt; }
+.join .eyebrow { color: var(--gold-light); }
+.join__copy > p {
+  font-size: 8.3pt;
+  line-height: 1.48;
+  color: rgba(236,244,249,0.82);
+  margin-top: 0.06in;
+}
+.join__contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2in;
+  margin-top: 0.12in;
+  padding-top: 0.11in;
+  border-top: 1pt solid rgba(187,140,58,0.3);
+}
+.join__contact .h-eyebrow { color: var(--gold-light); margin-bottom: 0.04in; }
+.join__contact .val { display: block; font-size: 8.6pt; color: #fff; line-height: 1.46; }
+.join__qr { display: flex; flex-direction: column; justify-content: center; }
+.qr-card {
+  background: #fff;
+  border-radius: 6pt;
+  padding: 0.1in 0.1in 0.07in;
+  text-align: center;
+}
+.qr-card img { width: 1.05in; height: 1.05in; display: block; margin: 0 auto; }
+.qr-card .lab {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 5.6pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-top: 0.05in;
+}
+
+/* Back footer — navy bar so the on-dark logo lockups read correctly */
+.bfoot {
+  flex: 0 0 auto;
+  margin-top: 0.14in;
+  padding: 0.13in 0.2in;
+  background: var(--navy-ink);
+  border-radius: 6pt;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.24in;
+}
+.bfoot__champ { height: 0.44in; width: auto; flex: 0 0 auto; }
+.bfoot__lcrl { height: 0.34in; width: auto; flex: 0 0 auto; opacity: 0.92; }
+.bfoot__line {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 8pt;
+  color: rgba(236,244,249,0.7);
+  text-align: center;
+  flex: 1;
+}
+
+/* Web preview helper: stack pages with a soft backdrop when viewed in-browser */
+@media screen {
+  body { background: #e9eef3; padding: 0.4in 0; }
+  .page { margin: 0 auto 0.4in; box-shadow: 0 6px 30px rgba(0,0,0,0.18); }
+}

@@ -32,6 +32,12 @@ const variants = [
     label: '4-page condensed',
   },
   {
+    key: 'v2page',
+    htmlFile: 'brochure-2page.html',
+    pdfFile: 'champions-brochure-2page-print-ready.pdf',
+    label: '2-page conference handout',
+  },
+  {
     key: 'mfl',
     htmlFile: 'march-for-life-2027-print.html',
     pdfFile: 'champions-march-for-life-2027-planning-guide.pdf',
