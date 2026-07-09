@@ -548,6 +548,24 @@
      ============================================================ -->
 <div class="timeline">
 
+  <!-- ── 2026-07-09 (Correspondence tab) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Jul 9<span class="y">2026</span></div>
+    <h3>Correspondence tab — every response email in one place</h3>
+    <div class="tags">
+      <span class="tag internal">Internal</span>
+      <span class="tag content">Admin</span>
+    </div>
+    <ul>
+      <li>New gated <a class="filelink" href="correspondence.html"><code>correspondence.html</code></a>, linked from the admin panel: each response email renders as a white “letter” card on the navy theme, newest first, with a jump index and a one-click <strong>Copy email</strong> button per letter.</li>
+      <li>Generated from <code>plan/*email*.html</code> — those files stay the source of truth. <strong>Never hand-edit <code>correspondence.html</code></strong>; it is rebuilt from scratch each run.</li>
+      <li>Rebuild with <code>python3 print-build/build-correspondence.py</code>. That wrapper runs the global <code>correspondence</code> skill, re-skins its output to Champions brand (navy/gold, Bebas + Poppins), and re-applies the <code>cn_auth</code> / <code>markrules</code> password gate — all three must be re-applied on every rebuild.</li>
+      <li>First letter in the archive: the Jul 9 reply to Mark about the 2-page conference brochure.</li>
+    </ul>
+    <div class="commit">main · source: “create a correspondence tab like other projects”</div>
+  </article>
+
   <!-- ── 2026-07-09 (2-page conference brochure) ── -->
   <article class="entry">
     <div class="dot"></div>
