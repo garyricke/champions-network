@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon-champions-network.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Year 1 · Session 001 — Champions Network Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="session-001.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Session navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network">
+    </a>
+    <a class="nav-back" href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Main Site
+    </a>
+    <span class="nav-badge">Year 1 · Session 001</span>
+    <a class="nav-cta" href="#quiz">Take the Quiz</a>
+  </div>
+</nav>
+
+<!-- HERO — podcast-first -->
+<section class="s2-hero">
+  <img class="s2-hero-bg" src="assets/brochure/v2-cover-prayer-light.png" alt="" aria-hidden="true">
+  <div class="s2-hero-overlay"></div>
+  <div class="s2-hero-content">
+    <div class="container">
+      <div class="hero-split">
+        <div>
+          <div class="s2-chips">
+            <span class="s2-chip">Champions Network</span>
+            <span class="s2-chip">Year 1</span>
+            <span class="s2-chip">Session 001</span>
+          </div>
+          <h1 class="s2-hero-title">Welcome to the<br><span>Champions Network</span></h1>
+          <p class="s2-hero-sub">An introduction to the Network &amp; the Academy</p>
+          <div class="s2-scripture">
+            <blockquote>"Live as people who are free, not using your freedom as a cover-up for evil, but living as servants of God. Honor everyone."</blockquote>
+            <cite>— 1 Peter 2:16–17</cite>
+          </div>
+        </div>
+
+        <!-- PODCAST PLAYER -->
+        <div class="pod">
+          <span class="pod-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+            Start Here · Teaching Podcast
+          </span>
+          <h2 class="pod-title">Introduction to the Champions Network</h2>
+          <p class="pod-meta">Session 001 main teaching · 19 min · a NotebookLM conversation on the lesson</p>
+
+          <audio id="pod-audio" preload="metadata" data-duration="1170"
+                 src="https://res.cloudinary.com/dsbllwpbh/video/upload/ac_mp3/champions-network/year-1/y1s1-podcast-intro-champions-network.mp3"></audio>
+
+          <div class="pod-transport">
+            <button class="pod-play" aria-label="Play or pause the teaching podcast">
+              <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg>
+              <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            </button>
+            <button class="pod-skip" data-skip="-15" aria-label="Skip back 15 seconds">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <span>15</span>
+            </button>
+            <button class="pod-skip" data-skip="30" aria-label="Skip forward 30 seconds">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              <span>30</span>
+            </button>
+            <button class="pod-rate" aria-label="Change playback speed">1×</button>
+          </div>
+
+          <div class="pod-scrub" role="slider" tabindex="0"
+               aria-label="Seek within the teaching podcast"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="pod-track">
+              <div class="pod-buffer"></div>
+              <div class="pod-fill"></div>
+            </div>
+            <div class="pod-knob"></div>
+          </div>
+          <div class="pod-times">
+            <span class="pod-cur">0:00</span>
+            <span class="pod-dur">19:30</span>
+          </div>
+
+          <div class="pod-foot">
+            <a class="pod-dl" href="https://res.cloudinary.com/dsbllwpbh/video/upload/ac_mp3/champions-network/year-1/y1s1-podcast-intro-champions-network.mp3" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download audio
+            </a>
+            <a class="pod-dl" href="#network">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              Read the introduction
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="s2-section s2-section--light" id="overview">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">What You'll Cover</span>
+      <h2>Session 001 at a Glance</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">Welcome to the Champions Academy. This first session is a thorough introduction to LCRL's Champions for Religious Liberty Network — who we are, how the Academy works, and what you're joining. Start with the teaching podcast above, then work through the introduction below.</p>
+    </div>
+    <div class="g3 reveal">
+      <div class="s2-card">
+        <h3>Start with the Podcast</h3>
+        <p>A 19-minute teaching podcast is the main tool for this session. Everything below unpacks it — listen first, then read on.</p>
+      </div>
+      <div class="s2-card">
+        <h3>The Two-Kingdom Idea</h3>
+        <p>God engages the world two ways — to bless and preserve the culture now, and to save individuals for eternity. This is the heart of everything ahead.</p>
+      </div>
+      <div class="s2-card">
+        <h3>Inside the Academy</h3>
+        <p>Learning modules, group discussions, community engagement, book groups, prayer, and Bible study — the six ways a Champions Chapter learns and engages.</p>
+      </div>
+      <div class="s2-card">
+        <h3>Why "Champions"</h3>
+        <p>We champion religious liberty for everyone — even those who aren't religious — with a servant's heart, not a crusader's sword.</p>
+      </div>
+      <div class="s2-card">
+        <h3>Vocabulary &amp; Theme Verse</h3>
+        <p>The terms every Champion should know (LCRL, LCMS, the Network) and our theme passage, 1 Peter 2:15–17, to learn by heart.</p>
+      </div>
+      <div class="s2-card">
+        <h3>Knowledge Check</h3>
+        <p>Ten questions to test and solidify what you've learned. Immediate feedback on every answer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THE NETWORK IS -->
+<section class="s2-section s2-section--dark" id="network">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">The Big Idea</span>
+      <h2>What the Champions Network Is</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">The Champions Network is a growing network of individuals and groups who come together around one truth: <strong>God engages the world in two distinct ways.</strong></p>
+    </div>
+
+    <div class="tk2 reveal">
+      <div class="tk2-card">
+        <div class="tk2-eyebrow">Left-Hand Kingdom</div>
+        <h3>To Bless &amp; Preserve</h3>
+        <p>God blesses the culture of this world in order to preserve it for now — using government, family, and society to keep the world ordered and safe. This is where civic life, moral law, and religious liberty belong.</p>
+      </div>
+      <div class="tk2-card save">
+        <div class="tk2-eyebrow">Right-Hand Kingdom</div>
+        <h3>To Save</h3>
+        <p>God saves individuals from sin, death, and the devil through the saving Word of the Gospel. Jesus lived, died, and rose again on the third day to save people and take them to be with Him for eternity.</p>
+      </div>
+    </div>
+
+    <div class="g2 center reveal" style="margin-top:34px;">
+      <div>
+        <p style="font-size:0.92rem;color:rgba(236,244,249,0.72);line-height:1.85;">The Champions Network equips people to understand God's two-kingdom engagement and then to live it out — being faithful civic citizens as God's ambassadors. There is a network of people learning how to engage, and then engaging fellow citizens and governing authorities locally, at the state level, and finally at the federal level.</p>
+        <p style="font-size:0.92rem;color:rgba(236,244,249,0.72);line-height:1.85;margin-top:12px;">We can do so much more by networking together than we can do apart.</p>
+        <button class="btn-outline" style="margin-top:20px;" data-modal="two-kingdoms">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Go Deeper: The Two Kingdoms
+        </button>
+      </div>
+      <div>
+        <div class="s2-accordion s2-accordion--dark">
+          <div class="s2-acc-item open">
+            <button class="s2-acc-trigger">
+              From Apprentice to Knight
+              <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="s2-acc-body">
+              <div class="s2-acc-inner">
+                <p>Everyone who signs up for the Champions Academy is called a <strong>Champion Apprentice</strong> — because, as in any trade or science, we learn before we do. From there, a <strong>5-Stage Journey</strong> leads toward becoming everything you can be as a Champion Knight.</p>
+                <p><button class="btn-outline" style="margin-top:6px;" data-modal="journey">See the 5-Stage Journey</button></p>
+              </div>
+            </div>
+          </div>
+          <div class="s2-acc-item">
+            <button class="s2-acc-trigger">
+              What's a Champions Chapter?
+              <svg class="s2-acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="s2-acc-body">
+              <div class="s2-acc-inner">
+                <p>A Champions Chapter is a local group of Apprentices and Facilitators who meet — normally once a month — to learn together and practice engaging. You join the Academy through a subscription and an access code from your local facilitators.</p>
+                <p>No local chapter yet? LCRL's national staff will help you join a Special Online Chapter until one is founded near you.</p>
+                <p><button class="btn-outline" style="margin-top:6px;" data-modal="chapter">More on Chapters</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE THE ACADEMY -->
+<section class="s2-section s2-section--white" id="academy">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">The Educational Hub</span>
+      <h2>Inside the Champions Academy</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">The Academy is the main educational hub for the Network. Almost everything you need is online; some sessions send you to a book or your local library. It's facilitated locally, in your Champions Chapter, through six kinds of learning.</p>
+    </div>
+
+    <div class="acad-grid reveal">
+      <div class="acad">
+        <div class="acad-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <h3>Individual Learning Modules</h3>
+        <p>Easy-to-follow modules you work through on your own, keeping pace with the other Apprentices in your chapter so discussion lands better.</p>
+      </div>
+      <div class="acad">
+        <div class="acad-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Group Discussion Sessions</h3>
+        <p>A once-a-month gathering to discuss what you learned, underscore the main points, and practice your conversation skills together.</p>
+      </div>
+      <div class="acad">
+        <div class="acad-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Community Engagement Plans</h3>
+        <p>We don't learn for learning's sake. Engagement Facilitators help you get involved in local civic affairs — slowly at first, then as God grows your confidence.</p>
+      </div>
+      <div class="acad">
+        <div class="acad-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Book Discussion Groups</h3>
+        <p>A Casual Reader and an Avid Reader list, organized by chapter Book Facilitators — often meeting at a local coffee house, which can turn out to be evangelistic too.</p>
+      </div>
+      <div class="acad">
+        <div class="acad-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <h3>Prayer &amp; Worship Opportunities</h3>
+        <p>National Days of Prayer, election seasons, legislative sessions — a chapter Prayer Facilitator helps coordinate prayer, including going out to pray over your community.</p>
+      </div>
+      <div class="acad">
+        <div class="acad-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3>Two-Kingdom Bible Study</h3>
+        <p>As your chapter grows in knowledge and confidence, you help facilitate healthy two-kingdom Bible study resources for others in your congregation.</p>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align:center;font-size:0.85rem;color:var(--text-mid);margin-top:26px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.75;">You access the Academy through a subscription, with an access code from your local facilitators. Remember — we are not just learning for learning's sake. We learn and grow so we can literally engage people in our own communities.</p>
+  </div>
+</section>
+
+<!-- WHY CHAMPIONS -->
+<section class="s2-section s2-section--light" id="why">
+  <div class="container">
+    <div class="g2 center">
+      <div class="reveal">
+        <span class="s2-eyebrow">The Objective</span>
+        <h2 style="font-size:clamp(2rem,4vw,3rem);color:var(--navy-dark);">Championing Liberty — For Others</h2>
+        <div class="gold-rule"></div>
+        <p style="font-size:0.92rem;color:var(--text-mid);line-height:1.85;">Being a champion for religious liberty is <strong>not</strong> about conquering the world for Christ, as if launching a new season of the crusades. It is about championing religious liberty <em>for others</em> — even for those who are not religious or God-fearing.</p>
+        <p style="font-size:0.92rem;color:var(--text-mid);line-height:1.85;margin-top:12px;">This reflects the Founding Fathers — Madison and Jefferson — who held that freedom of conscience is a natural, unalienable right underpinning all other civil liberties.</p>
+        <button class="btn-outline" style="margin-top:20px;" data-modal="for-others">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Go Deeper: A Servant's Posture
+        </button>
+      </div>
+      <div class="reveal">
+        <div class="s2-scripture" style="max-width:none;">
+          <blockquote style="color:var(--text);">"If the government can control what you believe, it can inevitably control what you say, write, and do."</blockquote>
+          <cite style="color:var(--gold);">The idea behind freedom of conscience</cite>
+        </div>
+        <p style="font-size:0.88rem;color:var(--text-mid);line-height:1.8;margin-top:18px;">Champions are servant-minded, with a Christlike posture. Some of us are eager to charge ahead — like Peter, quick with a sword. But Jesus, reattaching the servant's ear, says, <em>"No, not that way, Peter."</em> So we take time to learn principles like Dynamic Differentiation, Reformation Restraint, and Vocational Respect — slowing down to see what God is already doing in His left-hand kingdom before we act.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIVE-FOLD PURPOSE -->
+<section class="s2-section s2-section--white" id="purpose">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">Every Session</span>
+      <h2>The Five-Fold Purpose</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">Every Champions Academy session works toward five purposes — each one a part of your time together.</p>
+    </div>
+    <div class="purpose-list reveal">
+      <div class="purpose">
+        <div class="purpose-key">Inspirational</div>
+        <p><strong>Inspiring you</strong> to live out your calling as a champion for religious liberty.</p>
+      </div>
+      <div class="purpose">
+        <div class="purpose-key">Educational</div>
+        <p><strong>Helping you understand,</strong> navigate, and depoliticize the issues of the day.</p>
+      </div>
+      <div class="purpose">
+        <div class="purpose-key">Prayerful</div>
+        <p><strong>Guiding your learning</strong> into the Lord's calling for faithful, public living.</p>
+      </div>
+      <div class="purpose">
+        <div class="purpose-key">Social</div>
+        <p><strong>Supporting one another</strong> — and others — in two-kingdom engagement.</p>
+      </div>
+      <div class="purpose">
+        <div class="purpose-key">Missional</div>
+        <p><strong>Building an advocacy plan</strong> for your community, so everyone working small tasks together raises God's voice for the good of all.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section class="s2-section s2-section--dark" id="vocabulary">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">Learning the Language</span>
+      <h2>Champions Vocabulary</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">A few terms every Champion should know from this first session.</p>
+    </div>
+    <div class="glossary reveal">
+      <div class="gloss">
+        <div class="gloss-term"><span class="gloss-abbr">LCRL</span><span class="gloss-full">Lutheran Center for Religious Liberty</span></div>
+        <p>Launched by the Lutheran Church—Missouri Synod in 2017. The Center provides education, advice, advocacy, and resources in the areas of life, marriage, and religious liberty — engaging in Washington, D.C. on behalf of our churches, schools, universities, and seminaries.</p>
+      </div>
+      <div class="gloss">
+        <div class="gloss-term"><span class="gloss-abbr">LCMS</span><span class="gloss-full">The Lutheran Church—Missouri Synod</span></div>
+        <p>A conservative confessional Lutheran denomination established in 1847 by German immigrants, headquartered in St. Louis. Its teachings align with the historic Lutheran confessions in the Book of Concord. It is the second-largest Lutheran denomination in the U.S., with over 2 million baptized members.</p>
+      </div>
+      <div class="gloss">
+        <div class="gloss-term"><span class="gloss-abbr">Champions Network</span><span class="gloss-full">LCRL's two-kingdom network of citizens</span></div>
+        <p>LCRL is the LCMS's advocacy voice in Washington, D.C. A growing, two-kingdom-minded network of citizens magnifies the impact of the Church's advocacy — in the nation's capital and at state capitals around the country.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THEME PASSAGE -->
+<section class="s2-section s2-section--navy" id="verse">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">Learn It by Heart</span>
+      <h2>Our Theme Passage</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">Begin learning the Champions Network's theme passage — <strong>1 Peter 2:15–17</strong> — by heart, one phrase at a time. Learn a phrase this week, add the next next week, and the third the week after. Say it over and over; then say it to your children, your parents, your neighbors.</p>
+    </div>
+    <div class="verse-card reveal">
+      <div class="verse-ref">1 Peter 2:15–17 (ESV)</div>
+      <p class="verse-text">
+        <span class="phrase wk">"For this is the will of God, that by doing good you should put to silence the ignorance of foolish people.</span>
+        <span class="phrase">Live as people who are free, not using your freedom as a cover-up for evil, but living as servants of God.</span>
+        <span class="phrase">Honor everyone. Love the brotherhood. Fear God. Honor the emperor."</span>
+      </p>
+      <div class="verse-plan">
+        <div class="verse-wk">
+          <div class="wk-num">Week 1</div>
+          <p>"For this is the will of God, that by doing good you should put to silence the ignorance of foolish people."</p>
+        </div>
+        <div class="verse-wk">
+          <div class="wk-num">Week 2 — add</div>
+          <p>"Live as people who are free… but living as servants of God."</p>
+        </div>
+        <div class="verse-wk">
+          <div class="wk-num">Week 3 — add</div>
+          <p>"Honor everyone. Love the brotherhood. Fear God. Honor the emperor."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES + THIS SESSION -->
+<section class="s2-section s2-section--light" id="resources">
+  <div class="container">
+    <div class="s2-section-header reveal">
+      <span class="s2-eyebrow">Go Further</span>
+      <h2>Review &amp; Resources</h2>
+      <div class="gold-rule"></div>
+      <p class="s2-lead">The podcast at the top is the main teaching. This short review video walks the same introduction again, and the full script is here to read or print.</p>
+    </div>
+
+    <div class="res-grid reveal">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          5-Minute Review Video
+        </div>
+        <div class="video-16x9">
+          <video controls playsinline preload="none"
+                 poster="https://res.cloudinary.com/dsbllwpbh/video/upload/so_3,w_900,f_auto,q_auto/champions-network/year-1/y1s1-review-video-session-1.jpg">
+            <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/f_auto,q_auto/champions-network/year-1/y1s1-review-video-session-1.mp4" type="video/mp4">
+            Your browser doesn't support embedded video.
+            <a href="https://res.cloudinary.com/dsbllwpbh/video/upload/champions-network/year-1/y1s1-review-video-session-1.mp4">Download the review video</a>.
+          </video>
+        </div>
+        <p style="font-size:0.8rem;color:var(--text-mid);margin-top:12px;line-height:1.7;">
+          <strong style="color:var(--navy);">Supplement Review — Session 1</strong> · a short walk back through the introduction.
+        </p>
+
+        <div class="res-rows">
+          <a class="res-row" href="https://res.cloudinary.com/dsbllwpbh/raw/upload/champions-network/year-1/y1s1-blog-intro-champions-network.pdf" target="_blank" rel="noopener">
+            <span class="res-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </span>
+            <span>
+              <span class="res-name">Introduction to the Champions Network</span><br>
+              <span class="res-sub">Full teaching text (PDF) · read or print</span>
+            </span>
+            <span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+          <a class="res-row" href="https://res.cloudinary.com/dsbllwpbh/video/upload/ac_mp3/champions-network/year-1/y1s1-podcast-intro-champions-network.mp3" download>
+            <span class="res-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </span>
+            <span>
+              <span class="res-name">Teaching Podcast (audio)</span><br>
+              <span class="res-sub">19 min MP3 · download to listen offline</span>
+            </span>
+            <span class="res-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+        </div>
+
+        <div class="ai-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <p>The teaching podcast is a NotebookLM conversation generated from Mark Frith's Session 1 script. The teaching is his; the podcast presentation is AI-assembled.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="commit">
+          <span class="s2-eyebrow" style="color:var(--gold);">This Session's Step</span>
+          <h3>Commit to Pray</h3>
+          <p>Consider a place in your community you can visit — a school, a courthouse, a statehouse, a neighborhood. Commit to praying for the people there and the work they do. Write it down so you can hold yourself to it:</p>
+          <div style="font-size:0.82rem;color:var(--navy);font-weight:500;margin-bottom:8px;">The place I'll pray over:</div>
+          <div class="commit-line"></div>
+          <div style="font-size:0.82rem;color:var(--navy);font-weight:500;margin-bottom:8px;">How I'll commit to praying for them:</div>
+          <div class="commit-line"></div>
+          <div class="commit-line"></div>
+          <p style="margin-top:18px;margin-bottom:0;font-size:0.82rem;">Everything we do is God's work — so we lean into prayer, seeking His guidance for how we engage the people around us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="s2-section s2-section--white" id="quiz">
+  <div class="container">
+    <div class="s2-section-header reveal" style="text-align:center;">
+      <span class="s2-eyebrow">Knowledge Check</span>
+      <h2>Session 001 Quiz</h2>
+      <div class="gold-rule" style="margin-left:auto;margin-right:auto;"></div>
+      <p class="s2-lead" style="margin-left:auto;margin-right:auto;">Ten questions on the introduction. You'll get feedback on every answer.</p>
+    </div>
+
+    <div class="quiz-wrap reveal">
+      <div class="quiz-progress-bar"><div class="quiz-fill" id="quiz-fill"></div></div>
+
+      <div class="quiz-q active">
+        <div class="quiz-num">Question 1 of 10</div>
+        <p class="quiz-question">The Champions Network is built on the truth that God engages the world in how many distinct ways?</p>
+        <div class="quiz-options">
+          <button class="quiz-opt">One — He saves</button>
+          <button class="quiz-opt">Two — to bless and preserve, and to save</button>
+          <button class="quiz-opt">Three — Father, Son, and Spirit each separately</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next</button></div>
+      </div>
+
+      <div class="quiz-q">
+        <div class="quiz-num">Question 2 of 10</div>
+        <p class="quiz-question">How does God accomplish His <em>saving</em> work?</p>
+        <div class="quiz-options">
+          <button class="quiz-opt">Through good government and just laws</button>
+          <button class="quiz-opt">Through the Gospel — Jesus's life, death, and resurrection</button>
+          <button class="quiz-opt">Through the moral effort of faithful citizens</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next</button></div>
+      </div>
+
+      <div class="quiz-q">
+        <div class="quiz-num">Question 3 of 10</div>
+        <p class="quiz-question">What is everyone who signs up for the Champions Academy called?</p>
+        <div class="quiz-options">
+          <button class="quiz-opt">A Champion Apprentice</button>
+          <button class="quiz-opt">A Champion Knight</button>
+          <button class="quiz-opt">A Chapter Facilitator</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next</button></div>
+      </div>
+
+      <div class="quiz-q">
+        <div class="quiz-num">Question 4 of 10</div>
+        <p class="quiz-question">The Academy lays out a journey toward becoming what?</p>
+        <div class="quiz-options">
+          <button class="quiz-opt">A licensed minister</button>
+          <button class="quiz-opt">A chapter president</button>
+          <button class="quiz-opt">A Champion Knight, through a 5-Stage Journey</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next</button></div>
+      </div>
+
+      <div class="quiz-q">
+        <div class="quiz-num">Question 5 of 10</div>
+        <p class="quiz-question">What is a Champions Chapter?</p>
+        <div class="quiz-options">
+          <button class="quiz-opt">The national LCRL office in Washington, D.C.</button>
+          <button class="quiz-opt">A local group of Apprentices and Facilitators who meet to learn and engage</button>
+          <button class="quiz-opt">An online-only video library</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next</button></div>
+      </div>
+
+      <div class="quiz-q">
+        <div class="quiz-num">Question 6 of 10</div>
+        <p class="quiz-question">Championing religious liberty means defending it for whom?</p>
+        <div class="quiz-options">
+          <button class="quiz-opt">Only for Christians and churches</button>
+          <button class="quiz-opt">For everyone — even those who aren't religious</button>
+          <button class="quiz-opt">Only for those who join the Network</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next</button></div>
+      </div>
+
+      <div class="quiz-q">
+        <div class="quiz-num">Question 7 of 10</div>
+        <p class="quiz-question">Which Founding-Father idea grounds the Champions' view of liberty?</p>
+        <div class="quiz-options">
+          <button class="quiz-opt">Freedom of conscience is a natural, unalienable right underpinning all other liberties</button>
+          <button class="quiz-opt">The government should establish an official church</button>
+          <button class="quiz-opt">Religious people deserve more rights than others</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next</button></div>
+      </div>
+
+      <div class="quiz-q">
+        <div class="quiz-num">Question 8 of 10</div>
+        <p class="quiz-question">Which is <em>not</em> one of the five-fold purposes of every session?</p>
+        <div class="quiz-options">
+          <button class="quiz-opt">Inspirational</button>
+          <button class="quiz-opt">Educational</button>
+          <button class="quiz-opt">Political</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next</button></div>
+      </div>
+
+      <div class="quiz-q">
+        <div class="quiz-num">Question 9 of 10</div>
+        <p class="quiz-question">What does <strong>LCRL</strong> stand for?</p>
+        <div class="quiz-options">
+          <button class="quiz-opt">Lutheran Congregations for Renewed Life</button>
+          <button class="quiz-opt">Lutheran Center for Religious Liberty</button>
+          <button class="quiz-opt">Local Chapters for Religious Learning</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">Next</button></div>
+      </div>
+
+      <div class="quiz-q">
+        <div class="quiz-num">Question 10 of 10</div>
+        <p class="quiz-question">What is the Champions Network's theme passage — the one to learn by heart?</p>
+        <div class="quiz-options">
+          <button class="quiz-opt">1 Peter 2:15–17</button>
+          <button class="quiz-opt">John 3:16</button>
+          <button class="quiz-opt">Romans 13:1</button>
+        </div>
+        <div class="quiz-feedback"></div>
+        <div class="quiz-nav"><button class="quiz-next">See Results</button></div>
+      </div>
+
+      <div class="quiz-score" id="quiz-score">
+        <div class="score-ring">
+          <div class="score-big"><span id="score-num">0</span></div>
+          <div class="score-of">out of 10</div>
+        </div>
+        <div class="score-msg" id="score-msg"></div>
+        <div class="score-sub" id="score-sub"></div>
+        <button class="btn-gold" id="quiz-retry">Retake the Quiz</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="s2-overlay" id="s2-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="s2-modal">
+    <div class="s2-modal-head">
+      <div>
+        <div class="s2-modal-tag" id="modal-tag"></div>
+        <div class="s2-modal-title" id="modal-title"></div>
+      </div>
+      <button class="s2-modal-x" id="modal-close" aria-label="Close">✕</button>
+    </div>
+    <div class="s2-modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="s2-footer">
+  <div class="container">
+    <p>Champions for Religious Liberty · Year 1 · Session 001 — <a href="index.html">Return to the main site</a></p>
+  </div>
+</footer>
+
+<script src="session-001.js"></script>
+</body>
+</html>
