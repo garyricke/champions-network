@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Chapter Kits — Champions Network</title>
+  <link rel="icon" type="image/svg+xml" href="favicon-champions-network.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --gold:#BB8C3A; --gold-soft:#d4a854; --ink:#f2f2f2; }
+    body { font-family:'Poppins',system-ui,sans-serif; font-weight:300; background:linear-gradient(165deg,#021e2e 0%,#033f5c 55%,#055A81 100%); color:var(--ink); min-height:100vh; padding:40px 20px 80px; }
+    .wrap { width:100%; max-width:1020px; margin:0 auto; }
+
+    .page-head { text-align:center; margin-bottom:30px; }
+    .page-head img { height:38px; margin:0 auto 16px; display:block; }
+    .page-head .eyebrow { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:8px; }
+    .page-head h1 { font-family:'Bebas Neue',sans-serif; font-size:30px; color:#fff; letter-spacing:0.02em; }
+    .page-head p.sub { font-size:13.5px; color:rgba(242,242,242,0.55); margin-top:8px; max-width:600px; margin-inline:auto; line-height:1.6; }
+    .backlink { display:inline-flex; align-items:center; gap:7px; margin-top:18px; font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(242,242,242,0.5); text-decoration:none; }
+    .backlink:hover { color:var(--gold); }
+    .backlink svg { width:13px; height:13px; }
+
+    .chap { border:1px solid rgba(255,255,255,0.09); background:rgba(255,255,255,0.035); border-radius:14px; padding:26px 26px 28px; margin-bottom:28px; }
+    .chap-head { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; flex-wrap:wrap; padding-bottom:18px; border-bottom:1px solid rgba(187,140,58,0.28); }
+    .chap-meta .eyebrow { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-soft); }
+    .chap-meta h2 { font-family:'Bebas Neue',sans-serif; font-size:26px; color:#fff; letter-spacing:0.02em; margin:3px 0 4px; }
+    .chap-meta .sub { font-size:13px; color:rgba(242,242,242,0.55); }
+    a.live { flex:none; display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:#021e2e; text-decoration:none; border-radius:8px; padding:10px 16px; font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:0.06em; transition:background .15s; }
+    a.live:hover { background:var(--gold-soft); }
+    a.live svg { width:14px; height:14px; }
+
+    .facts { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px 22px; padding:18px 0 22px; }
+    .facts .wide { grid-column:1/-1; }
+    .facts dt { font-family:'Bebas Neue',sans-serif; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,242,242,0.42); margin-bottom:3px; }
+    .facts dd { font-size:13.5px; color:#fff; line-height:1.5; }
+    .facts dd a { color:var(--gold-soft); }
+    .facts code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; background:rgba(0,0,0,0.3); padding:1px 6px; border-radius:4px; color:var(--gold-soft); }
+
+    .pieces { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:20px; }
+    .piece { background:rgba(0,0,0,0.22); border:1px solid rgba(255,255,255,0.07); border-radius:11px; overflow:hidden; display:flex; flex-direction:column; }
+    .piece > a { display:block; background:#0a2233; line-height:0; }
+    .piece img { width:100%; height:auto; display:block; transition:opacity .15s; }
+    .piece > a:hover img { opacity:0.86; }
+    .piece--qr img { padding:18px; background:#fff; }
+    .piece figcaption { padding:13px 14px 15px; display:flex; flex-direction:column; gap:5px; flex:1; }
+    .piece figcaption b { font-family:'Bebas Neue',sans-serif; font-size:14.5px; letter-spacing:0.04em; color:#fff; font-weight:400; }
+    .piece figcaption small { font-size:11.8px; line-height:1.5; color:rgba(242,242,242,0.55); }
+    .piece figcaption strong { color:var(--gold-soft); font-weight:600; }
+    a.dl { margin-top:auto; padding-top:9px; font-family:'Bebas Neue',sans-serif; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-soft); text-decoration:none; }
+    a.dl:hover { color:#fff; }
+
+    .howto { border:1px solid rgba(255,255,255,0.09); background:rgba(255,255,255,0.03); border-radius:14px; padding:24px 26px 26px; }
+    .howto .eyebrow { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-soft); }
+    .howto h2 { font-family:'Bebas Neue',sans-serif; font-size:22px; color:#fff; letter-spacing:0.02em; margin:4px 0 12px; }
+    .howto p { font-size:13.5px; line-height:1.65; color:rgba(242,242,242,0.72); }
+    .howto ol { margin:14px 0 0 18px; display:flex; flex-direction:column; gap:9px; }
+    .howto li { font-size:13.5px; line-height:1.6; color:rgba(242,242,242,0.72); }
+    .howto code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; background:rgba(0,0,0,0.34); padding:2px 7px; border-radius:4px; color:var(--gold-soft); }
+    .howto strong { color:#fff; font-weight:600; }
+    .note { margin-top:18px; border-left:3px solid var(--gold); background:rgba(187,140,58,0.1); border-radius:0 8px 8px 0; padding:13px 16px; font-size:13px; line-height:1.6; color:rgba(242,242,242,0.85); }
+
+    @media (max-width:620px) {
+      body { padding:28px 14px 60px; }
+      .chap { padding:20px 18px 22px; }
+      .chap-head { flex-direction:column; }
+      a.live { width:100%; justify-content:center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="page-head">
+      <a href="/" title="Back to champions-network.com"><img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network" onerror="this.style.display='none'" /></a>
+      <div class="eyebrow">Internal</div>
+      <h1>Chapter Kits</h1>
+      <p class="sub">Publicity for each Champions Chapter &mdash; poster, half-sheet handouts, social posts, QR, and a live RSVP page. Every piece below is generated from a single chapter file, so a new chapter is a rebuild, not a redesign.</p>
+      <a class="backlink" href="/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to the main site
+      </a>
+    </div>
+
+{{chapterCards}}
+
+    <div class="howto">
+      <div class="eyebrow">For the next one</div>
+      <h2>Starting a new chapter</h2>
+      <p>Mark expects Missouri next. Everything on this page regenerates from one JSON file per chapter &mdash; no layout work required.</p>
+      <ol>
+        <li>Upload the venue photo to Cloudinary:<br /><code>node print-build/cloudinary-upload.js ~/Downloads/photo.jpeg &lt;slug&gt;-venue</code></li>
+        <li>Copy <code>chapter-kit/chapters/boulder.json</code> to <code>&lt;slug&gt;.json</code> and edit the fields &mdash; venue, address, chapter lead, meeting day and time, and the session dates.</li>
+        <li>Run <code>node print-build/build-chapter-kit.js &lt;slug&gt;</code>.</li>
+        <li>Commit and push. Netlify serves the new landing page at <strong>champions-network.com/&lt;slug&gt;</strong>, and it appears on this page automatically.</li>
+      </ol>
+      <div class="note">
+        <strong>One-time setup still outstanding:</strong> every chapter RSVP posts to a single Netlify form named <code>chapter-rsvp</code>. Carly needs to be added as an email notification on that form in the Netlify dashboard &mdash; until then submissions are captured but nobody is notified.
+      </div>
+      <p style="margin-top:16px">Full documentation lives in <code>chapter-kit/README.md</code>.</p>
+    </div>
+
+  </div>
+
+<!-- ============================================================
+     PASSWORD GATE — Internal document. Key: cn_auth
+     Re-applied by print-build/build-chapter-kit.js on each rebuild.
+     ============================================================ -->
+<style>
+  #pw-gate{position:fixed;inset:0;z-index:9999;background:#021e2e;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;}
+  #pw-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(187,140,58,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(187,140,58,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+  #pw-box{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(187,140,58,.25);border-radius:16px;padding:48px 40px;text-align:center;width:min(400px,90vw);box-shadow:0 24px 80px rgba(0,0,0,.5);}
+  #pw-box img{height:48px;margin-bottom:24px;display:block;margin-inline:auto;}
+  #pw-box h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#BB8C3A;letter-spacing:.08em;margin:0 0 8px;}
+  #pw-box .sub{font-size:.85rem;color:rgba(236,244,249,.55);margin:0 0 28px;letter-spacing:.02em;}
+  #pw-input{width:100%;padding:12px 16px;background:rgba(0,0,0,.3);border:1px solid rgba(187,140,58,.3);border-radius:8px;color:#fff;font-size:.95rem;font-family:inherit;outline:none;transition:border-color .2s;}
+  #pw-input:focus{border-color:#BB8C3A;}
+  #pw-btn{margin-top:14px;width:100%;padding:12px;background:#BB8C3A;color:#021e2e;border:0;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;cursor:pointer;transition:background .2s;}
+  #pw-btn:hover{background:#d4a04a;}
+  #pw-error{font-size:.8rem;color:#ff7a7a;margin:12px 0 0;min-height:1.2em;}
+  .pw-shake{animation:pwShake .35s;}
+  @keyframes pwShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+</style>
+<div id="pw-gate">
+  <div id="pw-box">
+    <img src="logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network">
+    <h2>Internal Document</h2>
+    <p class="sub">This page is password protected.</p>
+    <input id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password">
+    <button id="pw-btn">Enter</button>
+    <p id="pw-error"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='cn_auth',PASS='markrules',gate=document.getElementById('pw-gate');
+  if(sessionStorage.getItem(KEY)==='1'){gate.style.display='none';return;}
+  document.body.style.overflow='hidden';
+  function attempt(){
+    if(document.getElementById('pw-input').value===PASS){
+      sessionStorage.setItem(KEY,'1');
+      document.body.style.overflow='';
+      gate.style.display='none';
+    } else {
+      document.getElementById('pw-error').textContent='Incorrect password. Try again.';
+      var box=document.getElementById('pw-box');
+      box.classList.remove('pw-shake');
+      void box.offsetWidth;
+      box.classList.add('pw-shake');
+    }
+  }
+  document.getElementById('pw-btn').addEventListener('click',attempt);
+  document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')attempt();});
+})();
+</script>
+</body>
+</html>

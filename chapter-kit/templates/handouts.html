@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{{chapterName}} — Half-Sheet Handouts (2-up)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<style>@page { size: 11.25in 8.75in; margin: 0; }</style>
+<link rel="stylesheet" href="../chapter-kit.css" />
+</head>
+<body class="handout">
+
+<!-- ============================================================
+     SHEET A — ADULT / NEIGHBORING CONGREGATIONS (2-up, identical)
+     Print, cut down the centre. Hand out at neighboring parishes.
+     ============================================================ -->
+<section class="sheet" id="page-1">
+  <div class="half half--left">
+    <header class="h-hdr">
+      <img class="champ" src="../../logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network" />
+      <span class="tag">An Initiative of the LCRL</span>
+    </header>
+    <div class="h-photo">
+      <img src="{{heroPhoto}}" alt="{{heroPhotoAlt}}" />
+      <div class="h-photo__scrim"></div>
+      <div class="h-photo__lab">{{venueName}}</div>
+    </div>
+    <div class="h-head">
+      <span class="eyebrow">An Invitation to Neighboring Congregations</span>
+      <h1>{{adultHeadlineHTML}}</h1>
+      <p class="h-sub">{{adultSubhead}}</p>
+    </div>
+    <div class="h-body">
+      <p>A student's calendar is rarely their own. A chapter made only of students empties out at midterms — and the handful still in the room lose heart. <strong>Your presence is what makes it hold.</strong></p>
+      <ul>
+        <li><strong>Support the students.</strong> Be the adults who show up every time, so they are never the only ones in the room.</li>
+        <li><strong>Get equipped yourself.</strong> Two-kingdom thinking, the First Amendment, life, marriage, and education.</li>
+        <li><strong>Bring it home.</strong> What you learn here, you carry back into your own congregation.</li>
+      </ul>
+    </div>
+    <div class="h-when">
+      <div class="h-when__col">
+        <span class="k">When</span>
+        <span class="v"><b>{{dayOfWeek}}, {{startTime}}</b><br />Beginning {{firstDateLong}}</span>
+      </div>
+      <div class="h-when__col">
+        <span class="k">Where</span>
+        <span class="v"><b>{{venueName}}</b><br />{{addressStreet}}, {{addressCity}}</span>
+      </div>
+    </div>
+    <div class="h-dates">
+      <span class="k">All 2026–27 Sessions</span>
+      {{datesInline}}
+    </div>
+    <div class="h-cta">
+      <div class="h-cta__qr"><img src="../../{{qrFile}}" alt="Scan to RSVP" /></div>
+      <div class="h-cta__copy">
+        <span class="k">Scan to RSVP</span>
+        <h3>Tell us you're coming</h3>
+        <div class="url">{{landingUrlDisplay}}</div>
+        <div class="ask">{{leaderName}}, {{leaderTitle}} · {{leaderPhone}}</div>
+      </div>
+    </div>
+    <footer class="h-foot">
+      <span>champions-network.com</span>
+      <span>Champions for Religious Liberty</span>
+    </footer>
+  </div>
+
+  <div class="half half--right">
+    <header class="h-hdr">
+      <img class="champ" src="../../logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network" />
+      <span class="tag">An Initiative of the LCRL</span>
+    </header>
+    <div class="h-photo">
+      <img src="{{heroPhoto}}" alt="{{heroPhotoAlt}}" />
+      <div class="h-photo__scrim"></div>
+      <div class="h-photo__lab">{{venueName}}</div>
+    </div>
+    <div class="h-head">
+      <span class="eyebrow">An Invitation to Neighboring Congregations</span>
+      <h1>{{adultHeadlineHTML}}</h1>
+      <p class="h-sub">{{adultSubhead}}</p>
+    </div>
+    <div class="h-body">
+      <p>A student's calendar is rarely their own. A chapter made only of students empties out at midterms — and the handful still in the room lose heart. <strong>Your presence is what makes it hold.</strong></p>
+      <ul>
+        <li><strong>Support the students.</strong> Be the adults who show up every time, so they are never the only ones in the room.</li>
+        <li><strong>Get equipped yourself.</strong> Two-kingdom thinking, the First Amendment, life, marriage, and education.</li>
+        <li><strong>Bring it home.</strong> What you learn here, you carry back into your own congregation.</li>
+      </ul>
+    </div>
+    <div class="h-when">
+      <div class="h-when__col">
+        <span class="k">When</span>
+        <span class="v"><b>{{dayOfWeek}}, {{startTime}}</b><br />Beginning {{firstDateLong}}</span>
+      </div>
+      <div class="h-when__col">
+        <span class="k">Where</span>
+        <span class="v"><b>{{venueName}}</b><br />{{addressStreet}}, {{addressCity}}</span>
+      </div>
+    </div>
+    <div class="h-dates">
+      <span class="k">All 2026–27 Sessions</span>
+      {{datesInline}}
+    </div>
+    <div class="h-cta">
+      <div class="h-cta__qr"><img src="../../{{qrFile}}" alt="Scan to RSVP" /></div>
+      <div class="h-cta__copy">
+        <span class="k">Scan to RSVP</span>
+        <h3>Tell us you're coming</h3>
+        <div class="url">{{landingUrlDisplay}}</div>
+        <div class="ask">{{leaderName}}, {{leaderTitle}} · {{leaderPhone}}</div>
+      </div>
+    </div>
+    <footer class="h-foot">
+      <span>champions-network.com</span>
+      <span>Champions for Religious Liberty</span>
+    </footer>
+  </div>
+
+  <div class="sheet__cut" aria-hidden="true"></div>
+  <div class="crops" aria-hidden="true">
+    <i class="tl-h"></i><i class="tl-v"></i><i class="tr-h"></i><i class="tr-v"></i>
+    <i class="bl-h"></i><i class="bl-v"></i><i class="br-h"></i><i class="br-v"></i>
+  </div>
+</section>
+
+<!-- ============================================================
+     SHEET B — STUDENT (2-up, identical)
+     For the ULC narthex, dorm tables, and student hand-offs.
+     ============================================================ -->
+<section class="sheet" id="page-2">
+  <div class="half half--left">
+    <header class="h-hdr">
+      <img class="champ" src="../../logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network" />
+      <span class="tag">An Initiative of the LCRL</span>
+    </header>
+    <div class="h-photo">
+      <img src="{{heroPhoto}}" alt="{{heroPhotoAlt}}" />
+      <div class="h-photo__scrim"></div>
+      <div class="h-photo__lab">{{venueName}}</div>
+    </div>
+    <div class="h-head">
+      <span class="eyebrow">For CU Students · You Are the Hosts</span>
+      <h1>{{studentHeadlineHTML}}</h1>
+      <p class="h-sub">{{studentSubhead}}</p>
+    </div>
+    <div class="h-body">
+      <p>You already know the moment: a class discussion turns, and you have about four seconds to decide whether to say anything. This chapter is where you get ready for that moment — <strong>before</strong> it comes.</p>
+      <ul>
+        <li><strong>Learn what you actually believe</strong> — and why the First Amendment protects it.</li>
+        <li><strong>Learn how to say it</strong> without being the person nobody wants to sit next to.</li>
+        <li><strong>Invite your congregation.</strong> ULC is the home, and you're the host — bring adults from area churches with you.</li>
+      </ul>
+    </div>
+    <div class="h-when">
+      <div class="h-when__col">
+        <span class="k">When</span>
+        <span class="v"><b>{{dayOfWeek}}, {{startTime}}</b><br />Beginning {{firstDateLong}}</span>
+      </div>
+      <div class="h-when__col">
+        <span class="k">Where</span>
+        <span class="v"><b>{{venueName}}</b><br />{{addressStreet}}, {{addressCity}}</span>
+      </div>
+    </div>
+    <div class="h-dates">
+      <span class="k">All 2026–27 Sessions</span>
+      {{datesInline}}
+    </div>
+    <div class="h-cta">
+      <div class="h-cta__qr"><img src="../../{{qrFile}}" alt="Scan to RSVP" /></div>
+      <div class="h-cta__copy">
+        <span class="k">Scan to RSVP</span>
+        <h3>Save your seat</h3>
+        <div class="url">{{landingUrlDisplay}}</div>
+        <div class="ask">{{leaderName}}, {{leaderTitle}} · {{leaderPhone}}</div>
+      </div>
+    </div>
+    <footer class="h-foot">
+      <span>champions-network.com</span>
+      <span>Champions for Religious Liberty</span>
+    </footer>
+  </div>
+
+  <div class="half half--right">
+    <header class="h-hdr">
+      <img class="champ" src="../../logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network" />
+      <span class="tag">An Initiative of the LCRL</span>
+    </header>
+    <div class="h-photo">
+      <img src="{{heroPhoto}}" alt="{{heroPhotoAlt}}" />
+      <div class="h-photo__scrim"></div>
+      <div class="h-photo__lab">{{venueName}}</div>
+    </div>
+    <div class="h-head">
+      <span class="eyebrow">For CU Students · You Are the Hosts</span>
+      <h1>{{studentHeadlineHTML}}</h1>
+      <p class="h-sub">{{studentSubhead}}</p>
+    </div>
+    <div class="h-body">
+      <p>You already know the moment: a class discussion turns, and you have about four seconds to decide whether to say anything. This chapter is where you get ready for that moment — <strong>before</strong> it comes.</p>
+      <ul>
+        <li><strong>Learn what you actually believe</strong> — and why the First Amendment protects it.</li>
+        <li><strong>Learn how to say it</strong> without being the person nobody wants to sit next to.</li>
+        <li><strong>Invite your congregation.</strong> ULC is the home, and you're the host — bring adults from area churches with you.</li>
+      </ul>
+    </div>
+    <div class="h-when">
+      <div class="h-when__col">
+        <span class="k">When</span>
+        <span class="v"><b>{{dayOfWeek}}, {{startTime}}</b><br />Beginning {{firstDateLong}}</span>
+      </div>
+      <div class="h-when__col">
+        <span class="k">Where</span>
+        <span class="v"><b>{{venueName}}</b><br />{{addressStreet}}, {{addressCity}}</span>
+      </div>
+    </div>
+    <div class="h-dates">
+      <span class="k">All 2026–27 Sessions</span>
+      {{datesInline}}
+    </div>
+    <div class="h-cta">
+      <div class="h-cta__qr"><img src="../../{{qrFile}}" alt="Scan to RSVP" /></div>
+      <div class="h-cta__copy">
+        <span class="k">Scan to RSVP</span>
+        <h3>Save your seat</h3>
+        <div class="url">{{landingUrlDisplay}}</div>
+        <div class="ask">{{leaderName}}, {{leaderTitle}} · {{leaderPhone}}</div>
+      </div>
+    </div>
+    <footer class="h-foot">
+      <span>champions-network.com</span>
+      <span>Champions for Religious Liberty</span>
+    </footer>
+  </div>
+
+  <div class="sheet__cut" aria-hidden="true"></div>
+  <div class="crops" aria-hidden="true">
+    <i class="tl-h"></i><i class="tl-v"></i><i class="tr-h"></i><i class="tr-v"></i>
+    <i class="bl-h"></i><i class="bl-v"></i><i class="br-h"></i><i class="br-v"></i>
+  </div>
+</section>
+
+</body>
+</html>

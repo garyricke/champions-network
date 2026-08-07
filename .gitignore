@@ -6,3 +6,9 @@ print-build/node_modules/
 
 # Local secrets
 .env
+
+# Local Netlify folder
+.netlify
+
+# Chapter kit — generated intermediate HTML (regenerate with build-chapter-kit.js)
+chapter-kit/build/

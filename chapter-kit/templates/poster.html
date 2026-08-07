@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{{chapterName}} — 8.5×11 Poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<style>@page { size: 8.75in 11.25in; margin: 0; }</style>
+<link rel="stylesheet" href="../chapter-kit.css" />
+</head>
+<body class="poster">
+
+<section class="page" id="page-1">
+  <div class="poster-frame">
+
+    <header class="p-hdr">
+      <img class="p-hdr__champ" src="../../logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network" />
+      <div class="p-hdr__right">
+        <span class="p-hdr__tag">An Initiative of the LCRL · Washington, D.C.</span>
+        <img class="p-hdr__lcrl" src="../../logo-lcrl-on-dark.svg" alt="Lutheran Center for Religious Liberty" />
+      </div>
+    </header>
+
+    <div class="p-head">
+      <span class="eyebrow">A New Champions Chapter · {{addressCity}}</span>
+      <h1>{{adultHeadlineHTML}}</h1>
+      <p class="p-sub">{{adultSubhead}}</p>
+    </div>
+
+    <div class="p-hero">
+      <img src="{{heroPhoto}}" alt="{{heroPhotoAlt}}" />
+      <div class="p-hero__scrim"></div>
+      <div class="p-hero__cap">
+        <div>
+          <div class="p-hero__venue">{{venueName}}</div>
+          <div class="p-hero__addr">{{addressStreet}} · {{addressCity}}</div>
+        </div>
+        <div class="p-hero__when">
+          <span class="k">Beginning</span>
+          <span class="v">{{firstDateLong}}</span>
+          <span class="v">{{startTime}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-body">
+      <div class="p-body__col">
+        <h2>Why the students need you</h2>
+        <p>A university campus is a lonely place to hold a biblical conviction — in the lecture hall, in the dorm, in conversations our students didn't choose.</p>
+        <p>They host this chapter. But a student's calendar is rarely their own, and a chapter of students alone empties out at midterms. <strong>Adults from neighboring congregations are what make it hold.</strong></p>
+        <p>The ask is simple: ten evenings on your calendar, and a seat in the room.</p>
+      </div>
+      <div class="p-body__col">
+        <h2>And you'll be equipped too</h2>
+        <p>The Champions Academy trains ordinary Christians to speak clearly about religious liberty — distinguishing God's <strong>left-hand kingdom</strong> from His <strong>right-hand kingdom</strong>, engaging the culture with humility rather than heat.</p>
+        <p>Ten guided evenings on life, marriage, education, and the First Amendment. No prior study required.</p>
+        <div class="p-verse">
+          <q>By doing good you should silence the ignorant talk of foolish people.</q>
+          <cite>1 Peter 2:15</cite>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-sched">
+      <div class="p-sched__hdr">
+        <span class="eyebrow">{{dayOfWeek}} at {{startTime}} · 2026–27 Sessions</span>
+        <span class="note">Put every date on your calendar now.</span>
+      </div>
+      <div class="p-sched__grid">
+        {{scheduleGrid}}
+      </div>
+      {{scheduleFlag}}
+    </div>
+
+    <div class="p-cta">
+      <div class="p-cta__qr"><img src="../../{{qrFile}}" alt="Scan to RSVP" /></div>
+      <div class="p-cta__copy">
+        <span class="eyebrow">Scan to RSVP</span>
+        <h3>Tell us you're coming</h3>
+        <div class="p-cta__url">{{landingUrlDisplay}}</div>
+        <p class="p-cta__who">{{audienceNote}} Questions? <b>{{leaderName}}</b>, {{leaderTitle}} · <b>{{leaderPhone}}</b></p>
+      </div>
+    </div>
+
+    <footer class="p-foot">
+      <span>Where champions are cultivated, connections are forged, and culture is shaped.</span>
+      <span><b>champions-network.com</b></span>
+    </footer>
+
+  </div>
+
+  <div class="crops" aria-hidden="true">
+    <i class="tl-h"></i><i class="tl-v"></i><i class="tr-h"></i><i class="tr-v"></i>
+    <i class="bl-h"></i><i class="bl-v"></i><i class="br-h"></i><i class="br-v"></i>
+  </div>
+</section>
+
+</body>
+</html>

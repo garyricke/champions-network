@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{{chapterName}} — Social Posts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../chapter-kit.css" />
+</head>
+<body class="social">
+
+<div class="social-label">Post 1 — 1080 × 1080 (feed square)</div>
+<div class="post post--sq" id="social-square">
+  <div class="s-pad">
+    <header class="s-hdr">
+      <img class="champ" src="../../logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network" />
+      <span class="tag">Champions for<br />Religious Liberty</span>
+    </header>
+
+    <div class="s-photo">
+      <img src="{{heroPhotoSocial}}" alt="{{heroPhotoAlt}}" />
+      <div class="s-photo__scrim"></div>
+      <div class="s-photo__lab">{{venueName}} · {{addressCity}}</div>
+    </div>
+
+    <div class="s-head">
+      <span class="eyebrow">A New Champions Chapter</span>
+      <h1>{{adultHeadlineHTML}}</h1>
+      <p class="s-sub">{{adultSubhead}}</p>
+    </div>
+
+    <div class="s-spacer"></div>
+
+    <div class="s-when">
+      <div class="s-when__qr"><img src="../../{{qrFile}}" alt="Scan to RSVP" /></div>
+      <div class="s-when__copy">
+        <div class="big">{{dayOfWeek}} · {{startTime}} · From {{firstDateShort}}</div>
+        <div class="loc">{{venueName}} — {{addressStreet}}, {{addressCity}}</div>
+        <div class="url">{{landingUrlDisplay}}</div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <span>Open to CU students &amp; neighboring congregations</span>
+      <img src="../../logo-lcrl-on-dark.svg" alt="Lutheran Center for Religious Liberty" />
+    </footer>
+  </div>
+</div>
+
+<div class="social-label">Post 2 — 1080 × 1350 (portrait / stories-safe)</div>
+<div class="post post--pt" id="social-portrait">
+  <div class="s-pad">
+    <header class="s-hdr">
+      <img class="champ" src="../../logo-champions-network-20mar2026-on-dark-background.svg" alt="Champions Network" />
+      <span class="tag">Champions for<br />Religious Liberty</span>
+    </header>
+
+    <div class="s-photo">
+      <img src="{{heroPhotoSocial}}" alt="{{heroPhotoAlt}}" />
+      <div class="s-photo__scrim"></div>
+      <div class="s-photo__lab">{{venueName}} · {{addressCity}}</div>
+    </div>
+
+    <div class="s-head">
+      <span class="eyebrow">Ten Thursday Evenings · Save the Dates</span>
+      <h1>{{studentHeadlineHTML}}</h1>
+      <p class="s-sub">{{studentSubhead}}</p>
+    </div>
+
+    <div class="s-spacer"></div>
+
+    <div class="s-dates">
+      <span class="k">2026–27 Sessions · {{dayOfWeek}} at {{startTime}}</span>
+      <div class="s-dates__grid">
+        {{datesSpans}}
+      </div>
+    </div>
+
+    <div class="s-when">
+      <div class="s-when__qr"><img src="../../{{qrFile}}" alt="Scan to RSVP" /></div>
+      <div class="s-when__copy">
+        <div class="big">Scan to RSVP</div>
+        <div class="loc">{{venueName}} — {{addressStreet}}, {{addressCity}}</div>
+        <div class="url">{{landingUrlDisplay}}</div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <span>Open to CU students &amp; neighboring congregations</span>
+      <img src="../../logo-lcrl-on-dark.svg" alt="Lutheran Center for Religious Liberty" />
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>

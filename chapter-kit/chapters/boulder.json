@@ -1,0 +1,51 @@
+{
+  "slug": "boulder",
+  "chapterName": "Boulder Champions Chapter",
+  "shortName": "Boulder",
+
+  "venueName": "University Lutheran Chapel",
+  "venueLine2": "Campus Ministry to the University of Colorado",
+  "addressStreet": "1202 Folsom St.",
+  "addressCity": "Boulder, CO 80302",
+
+  "leaderName": "Rev. Rob Jarvis",
+  "leaderTitle": "University Campus Pastor",
+  "leaderPhone": "763-280-4904",
+  "leaderEmail": "",
+
+  "dayOfWeek": "Thursdays",
+  "startTime": "7:00 PM",
+  "firstDateLong": "Thursday, September 10",
+  "firstDateShort": "Sept 10",
+
+  "sessions": [
+    { "date": "Sept 10", "note": "First session" },
+    { "date": "Sept 24", "note": "" },
+    { "date": "Oct 15",  "note": "Parents' Weekend — parents welcome" },
+    { "date": "Oct 29",  "note": "" },
+    { "date": "Nov 19",  "note": "" },
+    { "date": "Jan 14",  "note": "" },
+    { "date": "Jan 28",  "note": "" },
+    { "date": "Feb 18",  "note": "" },
+    { "date": "Mar 11",  "note": "" },
+    { "date": "Apr 8",   "note": "Final session of the year" }
+  ],
+
+  "photoId": "champions-network/boulder-ulc-chapel-front",
+  "photoGrade": "e_improve:outdoor/e_contrast:22/e_vibrance:38/co_rgb:ff9838,e_colorize:11/e_sharpen:40",
+  "heroPhotoAlt": "University Lutheran Chapel, Boulder, Colorado",
+
+  "landingUrl": "https://champions-network.com/boulder",
+  "landingUrlDisplay": "champions-network.com/boulder",
+  "qrFile": "assets/chapter-kit/qr-boulder.svg",
+
+  "audienceNote": "Open to University of Colorado students and to members of neighboring Lutheran congregations.",
+
+  "adultHeadline": "Stand with the students who are *standing for their faith.*",
+  "adultSubhead": "University Lutheran Chapel is starting a Champions for Religious Liberty chapter — and the students who host it are asking their neighbors to sit at the table with them.",
+
+  "studentHeadline": "Hold your ground. *You don't have to hold it alone.*",
+  "studentSubhead": "A Champions for Religious Liberty chapter at ULC — ten Thursday evenings to get equipped, and adults from around Boulder standing beside you.",
+
+  "conferenceNote": "Rev. Mark Frith speaks at the ULC conference on September 19."
+}

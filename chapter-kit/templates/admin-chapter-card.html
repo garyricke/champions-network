@@ -1,0 +1,92 @@
+    <article class="chap">
+      <header class="chap-head">
+        <div class="chap-meta">
+          <div class="eyebrow">{{addressCity}}</div>
+          <h2>{{chapterName}}</h2>
+          <p class="sub">{{venueName}} &middot; {{addressStreet}}, {{addressCity}}</p>
+        </div>
+        <a class="live" href="/{{slug}}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+          View live page
+        </a>
+      </header>
+
+      <dl class="facts">
+        <div><dt>Meets</dt><dd>{{dayOfWeek}} at {{startTime}}</dd></div>
+        <div><dt>First session</dt><dd>{{firstDateLong}}</dd></div>
+        <div><dt>Sessions</dt><dd>{{sessionCount}} across the year</dd></div>
+        <div><dt>Chapter lead</dt><dd>{{leaderName}} &middot; {{leaderPhone}}</dd></div>
+        <div class="wide"><dt>All dates</dt><dd>{{datesInline}}</dd></div>
+        <div class="wide"><dt>Landing page</dt><dd><a href="/{{slug}}" target="_blank" rel="noopener">{{landingUrlDisplay}}</a> &mdash; RSVPs go to Netlify &rarr; Forms &rarr; <code>chapter-rsvp</code></dd></div>
+      </dl>
+
+      <div class="pieces">
+
+        <figure class="piece">
+          <a href="assets/chapter-kit/{{slug}}-poster.pdf" target="_blank" rel="noopener">
+            <img src="assets/chapter-kit/thumbs/{{slug}}/{{slug}}-poster-page-1.png" alt="{{chapterName}} poster" loading="lazy" />
+          </a>
+          <figcaption>
+            <b>Poster &mdash; 8.5 &times; 11</b>
+            <small>Adult-facing. Narthex, bulletin boards, campus. Bleed + crop marks.</small>
+            <a class="dl" href="assets/chapter-kit/{{slug}}-poster.pdf" download>Download PDF</a>
+          </figcaption>
+        </figure>
+
+        <figure class="piece">
+          <a href="assets/chapter-kit/{{slug}}-handouts.pdf" target="_blank" rel="noopener">
+            <img src="assets/chapter-kit/thumbs/{{slug}}/{{slug}}-handouts-page-1.png" alt="{{chapterName}} adult half-sheet handout" loading="lazy" />
+          </a>
+          <figcaption>
+            <b>Handout Sheet 1 &mdash; Adult</b>
+            <small>For neighboring congregations. Two identical 5.5 &times; 8.5 halves &mdash; <strong>print, then cut down the centre.</strong></small>
+            <a class="dl" href="assets/chapter-kit/{{slug}}-handouts.pdf" download>Download PDF (both sheets)</a>
+          </figcaption>
+        </figure>
+
+        <figure class="piece">
+          <a href="assets/chapter-kit/{{slug}}-handouts.pdf" target="_blank" rel="noopener">
+            <img src="assets/chapter-kit/thumbs/{{slug}}/{{slug}}-handouts-page-2.png" alt="{{chapterName}} student half-sheet handout" loading="lazy" />
+          </a>
+          <figcaption>
+            <b>Handout Sheet 2 &mdash; Student</b>
+            <small>For the chapel narthex, dorm tables, and student hand-offs. Same cut line.</small>
+            <a class="dl" href="assets/chapter-kit/{{slug}}-handouts.pdf" download>Download PDF (both sheets)</a>
+          </figcaption>
+        </figure>
+
+        <figure class="piece piece--sq">
+          <a href="assets/chapter-kit/{{slug}}-social-square.png" target="_blank" rel="noopener">
+            <img src="assets/chapter-kit/{{slug}}-social-square.png" alt="{{chapterName}} square social post" loading="lazy" />
+          </a>
+          <figcaption>
+            <b>Social &mdash; 1080 &times; 1080</b>
+            <small>Feed post. Adult-facing headline.</small>
+            <a class="dl" href="assets/chapter-kit/{{slug}}-social-square.png" download>Download PNG</a>
+          </figcaption>
+        </figure>
+
+        <figure class="piece">
+          <a href="assets/chapter-kit/{{slug}}-social-portrait.png" target="_blank" rel="noopener">
+            <img src="assets/chapter-kit/{{slug}}-social-portrait.png" alt="{{chapterName}} portrait social post" loading="lazy" />
+          </a>
+          <figcaption>
+            <b>Social &mdash; 1080 &times; 1350</b>
+            <small>Portrait / stories-safe. Student-facing headline, all dates listed.</small>
+            <a class="dl" href="assets/chapter-kit/{{slug}}-social-portrait.png" download>Download PNG</a>
+          </figcaption>
+        </figure>
+
+        <figure class="piece piece--qr">
+          <a href="{{qrFile}}" target="_blank" rel="noopener">
+            <img src="{{qrFile}}" alt="QR code to {{landingUrlDisplay}}" loading="lazy" />
+          </a>
+          <figcaption>
+            <b>QR Code</b>
+            <small>Points to {{landingUrlDisplay}}. Vector SVG &mdash; scales to any print size.</small>
+            <a class="dl" href="{{qrFile}}" download>Download SVG</a>
+          </figcaption>
+        </figure>
+
+      </div>
+    </article>
