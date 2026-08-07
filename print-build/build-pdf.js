@@ -38,6 +38,12 @@ const variants = [
     label: '2-page conference handout',
   },
   {
+    key: 'proposal',
+    htmlFile: 'proposal.html',
+    pdfFile: 'champions-network-proposal-sept2026.pdf',
+    label: 'scope & engagement proposal',
+  },
+  {
     key: 'mfl',
     htmlFile: 'march-for-life-2027-print.html',
     pdfFile: 'champions-march-for-life-2027-planning-guide.pdf',
