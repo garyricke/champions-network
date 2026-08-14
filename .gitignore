@@ -12,3 +12,6 @@ print-build/node_modules/
 
 # Chapter kit — generated intermediate HTML (regenerate with build-chapter-kit.js)
 chapter-kit/build/
+
+# Working notes, client transcripts & source email — never publish to the public repo
+plan/
