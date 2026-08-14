@@ -257,6 +257,37 @@ details[open] summary .chev{transform:rotate(90deg);}
 .mo-b h5:first-child{margin-top:0;}
 .mo-b ul{font-size:13.2px;padding-left:19px;}
 .mo-b li{margin-bottom:6px;}
+/* how-to steps inside a modal */
+.howto{counter-reset:hstep;margin:0;padding:0;list-style:none;}
+.howto > li{position:relative;padding:0 0 16px 40px;counter-increment:hstep;}
+.howto > li::before{
+  content:counter(hstep);position:absolute;left:0;top:-1px;
+  width:26px;height:26px;border-radius:50%;background:var(--navy-dark);color:var(--gold-light);
+  font-family:'Bebas Neue',sans-serif;font-size:1rem;display:flex;align-items:center;justify-content:center;
+}
+.howto > li::after{
+  content:'';position:absolute;left:13px;top:29px;bottom:2px;width:1px;background:var(--rule);
+}
+.howto > li:last-child{padding-bottom:0;}
+.howto > li:last-child::after{display:none;}
+.howto b.st{display:block;font-weight:600;color:var(--text);margin-bottom:3px;line-height:1.4;}
+.howto .sd{color:var(--mid);font-size:12.9px;line-height:1.55;}
+.howto .sd b{color:var(--text);font-weight:600;}
+
+/* copy-ready settings block */
+.settings{background:var(--light);border-radius:9px;padding:11px 14px;margin:9px 0 2px;}
+.settings div{display:flex;gap:10px;padding:4px 0;font-size:12.6px;align-items:baseline;}
+.settings div + div{border-top:1px solid #dbe7f0;}
+.settings dt{flex:0 0 116px;color:var(--mid);font-weight:400;}
+.settings dd{margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.2px;
+             color:var(--navy);font-weight:500;word-break:break-all;}
+
+.mo-note{border-left:3px solid var(--gold);background:#fdf6e9;border-radius:0 8px 8px 0;
+         padding:11px 14px;font-size:12.9px;margin:14px 0;line-height:1.55;}
+.mo-note b{font-weight:600;color:#8a6416;}
+.mo-note.stop{border-left-color:#c9453d;background:#fdeceb;}
+.mo-note.stop b{color:#b42318;}
+
 .who-row{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule);font-size:13.2px;}
 .who-row:last-child{border-bottom:0;}
 .who-row b{font-weight:600;min-width:134px;flex-shrink:0;}

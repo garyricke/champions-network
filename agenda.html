@@ -34,7 +34,7 @@
     <div class="prog">
       <div class="prog-head">
         <div class="big" id="prog-label">0 of 0 complete</div>
-        <div class="stamp">Last updated <b>Fri, Aug 14 · 8:20 a.m. CDT</b></div>
+        <div class="stamp">Last updated <b>Fri, Aug 14 · 9:35 a.m. CDT</b></div>
       </div>
       <div class="bar"><i class="d"></i><i class="w"></i></div>
     </div>
@@ -376,11 +376,15 @@
             <div class="dt">Invitation sent Aug 7; goes live at <b>Shelly@champions-network.com</b> the moment he accepts. Confirm he did.</div>
           </div>
         </li>
-        <li class="item" data-status="open">
+        <li class="item" data-status="done">
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
           <div class="c">
-            <div class="hd"><span class="txt">&ldquo;Send as&rdquo; instructions for Mark and Carly</span> <span class="tag mine">Gary owes this</span></div>
-            <div class="dt">Mail already forwards <i>in</i>; the missing half is sending <i>out</i> as @champions-network.com. Promised last Friday — going out today.</div>
+            <div class="hd"><span class="txt">&ldquo;Send as&rdquo; instructions for Mark and Carly</span> <span class="tag done">Written up</span></div>
+            <div class="dt">
+              Mail already forwards <i>in</i>; the missing half is sending <i>out</i> as @champions-network.com.
+              <button class="modal-open" data-modal="m-sendas">Open the step-by-step →</button>
+            </div>
+            <div class="res"><b>Done —</b> full walkthrough is on this page, about ten minutes for Carly. One catch worth knowing about for Mark; it&rsquo;s in the popup.</div>
           </div>
         </li>
         <li class="item" data-status="waiting">
@@ -448,9 +452,12 @@
     </div>
     <div class="block-b">
       <ul class="items" style="margin-top:0;border-top:0">
-        <li class="item" data-status="open">
+        <li class="item" data-status="done">
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <div class="c"><div class="hd"><span class="txt">&ldquo;Send as&rdquo; instructions to Mark and Carly</span> <span class="tag mine">Today</span></div></div>
+          <div class="c">
+            <div class="hd"><span class="txt">&ldquo;Send as&rdquo; instructions to Mark and Carly</span> <span class="tag done">Done</span></div>
+            <div class="res"><b>Done —</b> written up as a walkthrough on this page. <button class="modal-open" data-modal="m-sendas" style="color:#0f4a22">Open it →</button></div>
+          </div>
         </li>
         <li class="item" data-status="open">
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
@@ -503,6 +510,100 @@
       <h5>Referenced earlier in the thread</h5>
       <div class="who-row"><b>Barbara Below</b><span>Assistant to the President — made the original introduction on June 10.</span></div>
       <div class="who-row"><b>Shane Smithson</b><span>Copied early on, hasn&rsquo;t appeared since.</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="m-sendas">
+  <div class="mo">
+    <div class="mo-h">
+      <h4>Sending as @champions-network.com</h4>
+      <button type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="mo-b">
+
+      <p style="margin-top:0;color:#556676">
+        Mail addressed to <b>@champions-network.com</b> already lands in your normal inbox — that part
+        is running. This is the other half: making your <i>replies</i> go out under that address instead
+        of your personal one. Roughly ten minutes, once.
+      </p>
+
+      <h5>Carly — Gmail</h5>
+      <ol class="howto">
+        <li>
+          <b class="st">Turn on 2-Step Verification</b>
+          <span class="sd">Google account → <b>Security</b> → <b>2-Step Verification</b>. Google won&rsquo;t issue the
+          password you need in step 2 without it. If it&rsquo;s already on, skip ahead.</span>
+        </li>
+        <li>
+          <b class="st">Create an App Password</b>
+          <span class="sd">Same Security page → <b>App passwords</b>. Name it <i>Champions Network</i>. Google shows a
+          <b>16-character password</b> once — copy it somewhere before closing the window. This is not your
+          normal Google password, and it only works for this one purpose.</span>
+        </li>
+        <li>
+          <b class="st">Add the address in Gmail</b>
+          <span class="sd">Gmail → gear icon → <b>See all settings</b> → <b>Accounts and Import</b> →
+          <b>Send mail as</b> → <b>Add another email address</b>. Enter your name and
+          <b>Carly@champions-network.com</b>, and leave &ldquo;Treat as an alias&rdquo; ticked.</span>
+        </li>
+        <li>
+          <b class="st">Enter these when it asks for a mail server</b>
+          <span class="sd">This is the only fiddly screen. Everything on it:</span>
+          <dl class="settings">
+            <div><dt>SMTP Server</dt><dd>smtp.gmail.com</dd></div>
+            <div><dt>Port</dt><dd>465</dd></div>
+            <div><dt>Username</dt><dd>your full Gmail address</dd></div>
+            <div><dt>Password</dt><dd>the 16-character App Password from step 2</dd></div>
+            <div><dt>Connection</dt><dd>Secured connection using SSL</dd></div>
+          </dl>
+        </li>
+        <li>
+          <b class="st">Confirm the code</b>
+          <span class="sd">Google emails a confirmation code to <b>Carly@champions-network.com</b>, which forwards
+          straight into your normal inbox a few seconds later. Paste the code in and you&rsquo;re verified.</span>
+        </li>
+        <li>
+          <b class="st">Make it the default, and set replies</b>
+          <span class="sd">Back on <b>Accounts and Import</b>, click <b>make default</b> next to the
+          champions-network.com address. Just below, choose
+          <b>&ldquo;Reply from the same address the message was sent to.&rdquo;</b> That second setting is the one
+          people forget — without it, replies to Champions mail still go out from the Gmail address.</span>
+        </li>
+      </ol>
+
+      <div class="mo-note">
+        <b>Worth knowing:</b> the message still travels through Google&rsquo;s servers, so a few recipients on
+        Outlook may see a small &ldquo;via gmail.com&rdquo; note beside your name. Everything else — the From
+        address, replies, your signature — reads as Champions Network. If that note ever becomes a problem,
+        there&rsquo;s a paid fix; it isn&rsquo;t worth doing yet.
+      </div>
+
+      <h5>Shelly — same steps</h5>
+      <p style="color:#556676;margin:0 0 4px">
+        Identical process once he accepts the invitation, using <b>Shelly@champions-network.com</b> and his
+        own Gmail App Password. Nothing to do until he&rsquo;s accepted.
+      </p>
+
+      <h5>Mark — this is the catch</h5>
+      <div class="mo-note stop">
+        <b>Outlook can&rsquo;t do this.</b> Microsoft only lets you send from an address that lives on your own
+        mail system, so <b>Mark.Frith@lcrlfreedom.org</b> cannot send as a champions-network.com address the
+        way Gmail can. It isn&rsquo;t a setting we&rsquo;ve missed — Outlook doesn&rsquo;t offer it.
+      </div>
+      <p style="color:#556676;margin:0">Three honest options, in the order I&rsquo;d suggest:</p>
+      <ul style="color:#556676;padding-left:19px;margin:8px 0 0">
+        <li><b>Keep using your LCRL address.</b> You <i>are</i> LCRL — for most correspondence that&rsquo;s the
+          right signature, and it costs nothing.</li>
+        <li><b>Point Mark@champions-network.com at a Gmail account</b> and follow Carly&rsquo;s steps there. Best
+          if you want Champions mail visibly separate from LCRL mail.</li>
+        <li><b>Ask LCMS IT to add champions-network.com to the LCRL mail system.</b> The cleanest result and the
+          slowest road — worth raising only if the Network keeps growing its own staff.</li>
+      </ul>
+      <p style="color:#556676;margin:14px 0 0">
+        Tell me which you&rsquo;d like and I&rsquo;ll set up whatever&rsquo;s needed on the domain side.
+      </p>
+
     </div>
   </div>
 </div>
