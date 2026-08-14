@@ -64,10 +64,21 @@ async function withTimeout(url, opts, label) {
   }
 }
 
+// A cold container has no memo to fall back on, and Clockify stalls just often
+// enough that one unlucky call would 502 the panel. The happy path is ~1.2s, so
+// a single retry fits comfortably inside the platform's time budget.
 async function api(path, key) {
-  const res = await withTimeout(BASE_URL + path, { headers: { 'X-Api-Key': key } }, path);
-  if (!res.ok) throw new Error(`Clockify ${res.status} on ${path}`);
-  return res.json();
+  let lastErr;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const res = await withTimeout(BASE_URL + path, { headers: { 'X-Api-Key': key } }, path);
+      if (!res.ok) throw new Error(`Clockify ${res.status} on ${path}`);
+      return await res.json();
+    } catch (err) {
+      lastErr = err;
+    }
+  }
+  throw lastErr;
 }
 
 // Warm-container memo. The figures move a few times a day at most, so serving
