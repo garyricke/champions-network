@@ -11,3 +11,10 @@
   from = "/advocate-sample"
   to = "/champions-advocate-weekly-sample.pdf"
   status = 200
+
+# The proposal PDF pairs with the /proposal page. Mark forwards this to the
+# board, so it should read as a sibling of the page, not as a filename.
+[[redirects]]
+  from = "/proposal.pdf"
+  to = "/champions-network-proposal-sept2026.pdf"
+  status = 200
