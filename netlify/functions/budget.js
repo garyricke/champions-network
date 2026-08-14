@@ -46,32 +46,72 @@ const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov
 function monthLabel(key) { const [y, m] = key.split('-'); return MONTHS[+m - 1] + ' ' + y; }
 function inRetainer(dateStr) { return dateStr >= RETAINER.start && dateStr < RETAINER.end; }
 
+// Clockify occasionally takes tens of seconds to answer. Netlify kills the
+// function long before that, so every call gets its own deadline and we fail
+// fast with a usable message instead of hanging until the platform 502s.
+const CALL_TIMEOUT_MS = 7000;
+
+async function withTimeout(url, opts, label) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), CALL_TIMEOUT_MS);
+  try {
+    return await fetch(url, { ...opts, signal: ctrl.signal });
+  } catch (err) {
+    if (err.name === 'AbortError') throw new Error(`Clockify timed out on ${label}`);
+    throw err;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function api(path, key) {
-  const res = await fetch(BASE_URL + path, { headers: { 'X-Api-Key': key } });
+  const res = await withTimeout(BASE_URL + path, { headers: { 'X-Api-Key': key } }, path);
   if (!res.ok) throw new Error(`Clockify ${res.status} on ${path}`);
   return res.json();
 }
 
+// Warm-container memo. The figures move a few times a day at most, so serving
+// a recent copy is both faster and kinder to Clockify's rate limits. Kept as
+// last-good too: if Clockify is down, stale numbers beat "Unavailable".
+const TTL_MS = 5 * 60 * 1000;
+let memo = null; // { at: epochMs, payload: object }
+
 exports.handler = async function () {
   const key = process.env.CLOCKIFY_API_KEY;
-  const headers = { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=300' };
+  const headers = {
+    'Content-Type': 'application/json',
+    // Browser holds 5 min; the CDN holds 10 and may serve a stale copy for a
+    // day while it refetches, so a Clockify blip never reaches the page.
+    'Cache-Control': 'public, max-age=300',
+    'Netlify-CDN-Cache-Control': 'public, s-maxage=600, stale-while-revalidate=86400',
+  };
   if (!key) return { statusCode: 500, headers, body: JSON.stringify({ ok: false, error: 'CLOCKIFY_API_KEY not configured' }) };
+
+  if (memo && Date.now() - memo.at < TTL_MS) {
+    return { statusCode: 200, headers, body: JSON.stringify({ ...memo.payload, cached: true }) };
+  }
+
+  const startedAt = Date.now();
 
   try {
     const workspaces = await api('/workspaces', key);
     if (!workspaces.length) return { statusCode: 200, headers, body: JSON.stringify({ ok: false, error: 'No workspaces' }) };
     const wid = workspaces[0].id;
 
-    // find the two target projects
+    // Find the two target projects. We only ever use id and name, so do NOT ask
+    // for hydrated projects — that expands memberships, tasks and estimates for
+    // every project in the workspace and was taking long enough to blow the
+    // function's time budget. Bigger pages, and stop as soon as both are found.
+    const wanted = TARGET_PROJECTS.map(norm);
     let all = [], page = 1;
-    while (true) {
-      const ps = await api(`/workspaces/${wid}/projects?page=${page}&page-size=50&hydrated=true`, key);
+    while (page <= 10) {
+      const ps = await api(`/workspaces/${wid}/projects?page=${page}&page-size=200&archived=false`, key);
       if (!ps || ps.length === 0) break;
       all = all.concat(ps);
-      if (ps.length < 50) break;
+      if (all.filter((p) => wanted.includes(norm(p.name))).length >= TARGET_PROJECTS.length) break;
+      if (ps.length < 200) break;
       page++;
     }
-    const wanted = TARGET_PROJECTS.map(norm);
     const matched = all.filter((p) => wanted.includes(norm(p.name)));
     const idToName = {};
     matched.forEach((p) => { idToName[p.id] = p.name; });
@@ -81,8 +121,8 @@ exports.handler = async function () {
 
     // pull every time entry for those projects (1-yr window) via detailed report
     let entries = [], rpage = 1;
-    while (ids.length) {
-      const res = await fetch(`${REPORTS_URL}/workspaces/${wid}/reports/detailed`, {
+    while (ids.length && rpage <= 10) {
+      const res = await withTimeout(`${REPORTS_URL}/workspaces/${wid}/reports/detailed`, {
         method: 'POST',
         headers: { 'X-Api-Key': key, 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -146,23 +186,37 @@ exports.handler = async function () {
       date: r.day || '—', project: r.project, desc: r.desc, hours: r.hours,
     }));
 
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({
-        ok: true,
-        rate: 100,
-        retainer: RETAINER,
-        usedHours: +usedHours.toFixed(2),   // in-period only (Mar 1 →)
-        projects,
-        months: monthList,
-        recent: recentTop,
-        entryCount: recent.length,
-        missing,
-        generatedAt: new Date().toISOString(),
-      }),
+    const payload = {
+      ok: true,
+      rate: 100,
+      retainer: RETAINER,
+      usedHours: +usedHours.toFixed(2),   // in-period only (Mar 1 →)
+      projects,
+      months: monthList,
+      recent: recentTop,
+      entryCount: recent.length,
+      missing,
+      generatedAt: new Date().toISOString(),
+      elapsedMs: Date.now() - startedAt,
     };
+    memo = { at: Date.now(), payload };
+
+    return { statusCode: 200, headers, body: JSON.stringify(payload) };
   } catch (err) {
+    // Clockify slow or down. Numbers from an hour ago are far more use to the
+    // page than an error, so serve the last good copy and say it's stale.
+    if (memo) {
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+          ...memo.payload,
+          stale: true,
+          staleSince: new Date(memo.at).toISOString(),
+          error: String(err.message || err),
+        }),
+      };
+    }
     return { statusCode: 502, headers, body: JSON.stringify({ ok: false, error: String(err.message || err) }) };
   }
 };

@@ -254,19 +254,29 @@
       }).join('');
   }
 
-  if (band) {
-    fetch('/.netlify/functions/budget')
+  // Clockify is occasionally slow enough that a single call fails. One retry
+  // costs nothing and spares Mark and Carly a scary red "Unavailable" panel
+  // over a blip that resolves itself.
+  function loadBudget(attempt) {
+    fetch('/.netlify/functions/budget', { cache: attempt > 1 ? 'reload' : 'default' })
       .then(function (r) { return r.json(); })
       .then(function (d) {
-        if (!d || !d.ok) throw new Error(d && d.error || 'budget unavailable');
+        if (!d || !d.ok) throw new Error((d && d.error) || 'budget unavailable');
         paintBudget(d);
+        if (d.stale) {
+          var flag = document.getElementById('bud-flag');
+          flag.textContent = flag.textContent + ' · last read a moment ago';
+        }
       })
       .catch(function () {
+        if (attempt < 2) { setTimeout(function () { loadBudget(attempt + 1); }, 2500); return; }
         band.dataset.state = 'error';
         document.getElementById('bud-flag').textContent = 'Unavailable';
         document.getElementById('bud-err').hidden = false;
       });
   }
+
+  if (band) loadBudget(1);
 
   paintProgress();
   applyFilter('all');
