@@ -1,0 +1,140 @@
+/* ============================================================
+   The Champions Advocate Weekly — sample issue, print master
+   Source for champions-advocate-weekly-sample.pdf (build-pdf.js).
+
+   This is the FORWARDABLE artefact: a clean representative issue
+   Mark can send to a source or agency. Deliberately carries none
+   of the internal concept framing from newsletter-concept.html —
+   no "built itself" pitch, no AI process strip, no assembly note.
+   ============================================================ */
+
+:root{
+  --gold:#BB8C3A; --gold-deep:#9a7028;
+  --blue:#0876A9; --navy:#055A81; --navy-deep:#033c56;
+  --light:#ECF4F9; --white:#FFFFFF;
+  --ink:#15303d; --muted:#5a7380;
+}
+
+@page{ size:letter; margin:0.45in; }
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Poppins',sans-serif;font-weight:300;color:var(--ink);background:#fff;
+  -webkit-font-smoothing:antialiased;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+
+.email{max-width:6.9in;margin:0 auto;background:var(--white);}
+
+/* ── masthead ───────────────────────────────────────────── */
+.masthead{
+  background:
+    radial-gradient(600px 300px at 80% -40%, rgba(187,140,58,.25), transparent 70%),
+    linear-gradient(155deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color:#fff;padding:30px 36px 26px;position:relative;
+}
+.masthead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--blue),var(--gold));}
+.brandrow{display:flex;align-items:center;gap:11px;margin-bottom:18px}
+.brandrow .mark{width:32px;height:32px;border:2px solid var(--gold);border-radius:50%;
+  display:grid;place-items:center;flex:none;}
+.brandrow .mark svg{width:17px;height:17px}
+.brandrow .org{font-family:'Bebas Neue',sans-serif;letter-spacing:.22em;font-size:12px;color:#cfe2ee;}
+.kicker-line{display:flex;align-items:center;gap:12px;margin-bottom:7px;
+  font-family:'Bebas Neue',sans-serif;letter-spacing:.24em;font-size:12px;color:var(--gold);}
+.kicker-line .rule{height:2px;width:32px;background:var(--gold)}
+.masthead h2{font-family:'Bebas Neue',sans-serif;font-weight:400;
+  font-size:50px;line-height:.9;letter-spacing:.005em;margin-bottom:12px;}
+.issue{display:flex;gap:15px;align-items:center;flex-wrap:wrap;
+  font-size:12px;color:#bcd4e2;font-weight:300;}
+.issue .v{font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;font-size:15px;color:#fff}
+.issue .dot{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+
+/* ── intro blurb ────────────────────────────────────────── */
+.digest-intro{padding:26px 36px 4px}
+.digest-intro p{font-size:13.5px;line-height:1.7;color:var(--muted)}
+.digest-intro .lead{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;
+  font-size:17.5px;line-height:1.5;color:var(--navy);margin-bottom:12px;}
+
+/* ── story ──────────────────────────────────────────────── */
+/* A whole story is taller than a page once the photo and prayer panel are in,
+   so it must be allowed to break. Keep the smaller units intact instead. */
+.story{padding:26px 36px 0;}
+.story p{orphans:3;widows:3;}
+.story-head{display:flex;align-items:baseline;gap:13px;margin-bottom:14px;break-after:avoid;}
+.story-num{font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:.8;color:var(--light);
+  -webkit-text-stroke:1px var(--gold);flex:none;}
+.story-cat{display:inline-block;font-family:'Bebas Neue',sans-serif;letter-spacing:.16em;
+  font-size:11px;color:#fff;background:var(--blue);padding:5px 10px;border-radius:3px;margin-bottom:8px;}
+.story h3{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.01em;
+  font-size:27px;line-height:1.02;color:var(--ink);}
+.story h3 + .sub{font-size:13.5px;color:var(--muted);margin-top:5px;font-style:italic}
+
+.photo{margin:18px 0 8px;border-radius:8px;overflow:hidden;position:relative;
+  border:1px solid rgba(5,90,129,.12);break-inside:avoid;}
+.photo img{display:block;width:100%;height:auto}
+.credit{font-size:10.5px;color:#9aabb4;letter-spacing:.02em;margin:0 0 14px}
+.credit b{color:var(--muted);font-weight:600}
+
+.story p.body{font-size:13.2px;line-height:1.75;color:#33505d;margin-bottom:12px}
+.story p.body .src{color:var(--muted);font-style:italic}
+.story p.note{font-size:12.4px;color:#5a7380;line-height:1.7;margin-bottom:12px}
+
+.readbtn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  font-family:'Bebas Neue',sans-serif;letter-spacing:.12em;font-size:14px;
+  color:#fff;background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  padding:10px 18px;border-radius:5px;margin-bottom:4px;}
+.readbtn svg{width:14px;height:14px}
+
+/* ── pray panel ─────────────────────────────────────────── */
+.pray{margin:20px 0 4px;background:var(--light);
+  border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+  padding:20px 24px;break-inside:avoid;}
+.pray .ph{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
+  font-size:19px;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.pray .ph svg{width:19px;height:19px;color:var(--gold)}
+.pray ul{list-style:none}
+.pray li{font-size:13px;line-height:1.6;color:#3a5663;padding:6px 0 6px 25px;position:relative;}
+.pray li::before{content:"";position:absolute;left:6px;top:13px;width:7px;height:7px;
+  border:1.5px solid var(--gold);border-radius:50%;}
+.pray li + li{border-top:1px dashed rgba(5,90,129,.14)}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(5,90,129,.18),transparent);
+  margin:30px 36px 0}
+
+/* ── subscribe band ─────────────────────────────────────── */
+.band{margin-top:32px;padding:30px 36px;text-align:center;color:#fff;break-inside:avoid;
+  background:
+    radial-gradient(500px 240px at 20% 0%, rgba(187,140,58,.3), transparent 60%),
+    linear-gradient(135deg,var(--blue),var(--navy));}
+.band h4{font-family:'Bebas Neue',sans-serif;font-size:25px;letter-spacing:.04em;margin-bottom:8px}
+.band p{font-size:12.8px;color:#cfe6f2;max-width:410px;margin:0 auto 16px;line-height:1.6}
+.band .cta{display:inline-block;font-family:'Bebas Neue',sans-serif;
+  letter-spacing:.14em;font-size:15px;color:var(--navy-deep);background:#fff;
+  padding:12px 28px;border-radius:6px;}
+
+/* ── workshop ───────────────────────────────────────────── */
+.workshop{padding:26px 36px;background:#fbfcfd;border-top:1px solid #eef3f6;break-inside:avoid;}
+.workshop .wk-cat{font-family:'Bebas Neue',sans-serif;letter-spacing:.16em;font-size:12px;
+  color:var(--gold);margin-bottom:8px}
+.workshop h4{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--ink);
+  margin-bottom:10px;line-height:1.05}
+.workshop p{font-size:12.8px;line-height:1.7;color:var(--muted);margin-bottom:12px}
+.workshop .link{color:var(--blue);font-weight:600;font-size:12.8px;
+  border-bottom:2px solid rgba(8,118,169,.3);padding-bottom:1px;}
+
+/* ── footer ─────────────────────────────────────────────── */
+.foot{background:var(--navy-deep);color:#9fc0d2;padding:26px 36px;text-align:center;break-inside:avoid;}
+.foot .fmark{font-family:'Bebas Neue',sans-serif;letter-spacing:.2em;font-size:14px;color:#fff;margin-bottom:6px}
+.foot p{font-size:11.5px;line-height:1.7;color:#7fa3b6}
+.foot a{color:var(--gold);text-decoration:none}
+
+/* ── about-this-sample colophon (last page) ─────────────── */
+.colophon{max-width:6.9in;margin:22px auto 0;padding:18px 22px;
+  border:1px solid #e3e9ee;border-left:3px solid var(--gold);border-radius:0 9px 9px 0;
+  background:#fbfcfd;break-inside:avoid;}
+.colophon .ct{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.06em;
+  color:var(--navy-deep);margin-bottom:7px;}
+.colophon p{font-size:11.6px;line-height:1.68;color:var(--muted);margin-bottom:7px}
+.colophon p:last-child{margin-bottom:0}
+.colophon b{color:var(--ink);font-weight:600}

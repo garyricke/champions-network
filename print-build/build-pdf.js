@@ -49,6 +49,14 @@ const variants = [
     pdfFile: 'champions-march-for-life-2027-planning-guide.pdf',
     label: 'March for Life 2027 guide',
   },
+  {
+    // Forwardable sample issue for source/agency outreach. Flows freely
+    // rather than paginating to fixed pages, so it produces no thumbnails.
+    key: 'newsletter',
+    htmlFile: 'newsletter-sample-print.html',
+    pdfFile: 'champions-advocate-weekly-sample.pdf',
+    label: 'Advocate Weekly sample issue',
+  },
 ];
 
 async function buildVariant(browser, v) {

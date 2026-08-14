@@ -3,3 +3,11 @@
 [build]
   publish = "."
   functions = "netlify/functions"
+
+# Short, speakable links for things that get shared or printed.
+# Mark forwards the Advocate Weekly sample to prospective sources and agencies —
+# he should never have to read out a filename with a .pdf on the end.
+[[redirects]]
+  from = "/advocate-sample"
+  to = "/champions-advocate-weekly-sample.pdf"
+  status = 200
