@@ -16,7 +16,7 @@
 body{
   margin:0;background:#eef2f6;
   font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  font-weight:300;color:var(--text);line-height:1.6;
+  font-weight:400;color:var(--text);line-height:1.6;
   -webkit-print-color-adjust:exact;print-color-adjust:exact;
 }
 
@@ -30,8 +30,8 @@ body{
 .mast .home:hover{color:var(--gold-light);}
 
 .mast h1{
-  font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:3rem;letter-spacing:.02em;
-  margin:22px 0 6px;line-height:.95;color:#fff;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:2.6rem;letter-spacing:-.01em;
+  margin:22px 0 6px;line-height:1.02;color:#fff;
 }
 .mast .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:24px;}
 .mast .when{font-size:15px;color:#cfe3ef;margin:0 0 4px;font-weight:400;}
@@ -42,7 +42,7 @@ body{
 .prog{background:rgba(255,255,255,.06);border:1px solid rgba(187,140,58,.28);border-radius:12px;
       padding:16px 20px;margin-bottom:26px;}
 .prog-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:11px;}
-.prog-head .big{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.03em;color:var(--gold-light);line-height:1;}
+.prog-head .big{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.35rem;letter-spacing:0;color:var(--gold-light);line-height:1;}
 .prog-head .stamp{font-size:11.5px;color:#87afc6;letter-spacing:.03em;}
 .prog-head .stamp b{color:#cfe3ef;font-weight:500;}
 .bar{height:7px;border-radius:20px;background:rgba(255,255,255,.12);overflow:hidden;display:flex;}
@@ -69,7 +69,7 @@ body{
 
 .bud-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:20px;}
 .bud-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;}
-.bud-head h2{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:1.9rem;letter-spacing:.02em;
+.bud-head h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.65rem;letter-spacing:-.005em;
              margin:5px 0 0;line-height:1;color:#fff;}
 .bud-flag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
           padding:7px 15px;border-radius:20px;white-space:nowrap;
@@ -79,12 +79,12 @@ body{
 
 .bud-nums{display:flex;align-items:baseline;gap:34px;flex-wrap:wrap;margin-bottom:16px;}
 .bud-big{display:flex;align-items:baseline;gap:9px;}
-.bud-big b{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:3.4rem;letter-spacing:.01em;
-           line-height:.9;color:#fff;}
+.bud-big b{font-family:'Oswald',sans-serif;font-weight:600;font-size:2.9rem;letter-spacing:-.015em;
+           line-height:.95;color:#fff;}
 .budget[data-state="over"] .bud-big b{color:#ff8d84;}
 .bud-big span{font-size:13px;color:#87afc6;}
-.bud-pct{margin-left:auto;font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.02em;
-         line-height:.9;color:var(--gold-light);}
+.bud-pct{margin-left:auto;font-family:'Oswald',sans-serif;font-weight:600;font-size:2.1rem;letter-spacing:-.01em;
+         line-height:.95;color:var(--gold-light);}
 .budget[data-state="over"] .bud-pct{color:#ff8d84;}
 
 .bud-bar{position:relative;height:16px;border-radius:20px;background:rgba(255,255,255,.09);
@@ -102,7 +102,7 @@ body{
 
 .bud-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:18px;}
 .bm{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:13px 16px;}
-.bm b{display:block;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:1.5rem;letter-spacing:.02em;
+.bm b{display:block;font-family:'Oswald',sans-serif;font-weight:600;font-size:1.35rem;letter-spacing:0;
       line-height:1;color:#fff;margin-bottom:5px;}
 .bm b.warn{color:#ff8d84;}
 .bm span{font-size:11.8px;color:#87afc6;line-height:1.45;display:block;}
@@ -149,9 +149,9 @@ main{padding:30px 0 60px;}
 
 .block-h{background:var(--navy-dark);color:#fff;padding:17px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
 .block-h.alt{background:var(--navy);}
-.clock{flex-shrink:0;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--gold-light);
-       letter-spacing:.03em;line-height:1;padding-right:16px;border-right:1px solid rgba(255,255,255,.2);}
-.block-h h2{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:1.65rem;letter-spacing:.02em;
+.clock{flex-shrink:0;font-family:'Oswald',sans-serif;font-weight:600;font-size:1.45rem;color:var(--gold-light);
+       letter-spacing:.01em;line-height:1;padding-right:16px;border-right:1px solid rgba(255,255,255,.2);}
+.block-h h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.5rem;letter-spacing:-.005em;
             margin:0;line-height:1.05;color:#fff;flex:1;min-width:200px;}
 .block-h .count{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9fc3d8;font-weight:500;white-space:nowrap;}
 .block-h .sub{font-size:12px;color:#9fc3d8;width:100%;margin-top:-2px;line-height:1.5;}
@@ -159,7 +159,7 @@ main{padding:30px 0 60px;}
 
 .block-b{padding:24px 26px 22px;}
 
-h3{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:1.28rem;letter-spacing:.03em;
+h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.18rem;letter-spacing:.005em;
    color:var(--navy);margin:26px 0 8px;line-height:1.1;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 h3:first-child{margin-top:0;}
 .lede{font-size:13.6px;color:var(--mid);margin:0 0 12px;}
@@ -213,7 +213,7 @@ li b,p b{font-weight:600;color:var(--text);}
 /* ── pipeline ───────────────────────────────────────────── */
 .step{display:flex;gap:15px;padding:9px 0;align-items:flex-start;}
 .step .k{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--light);color:var(--navy);
-         font-family:'Bebas Neue',sans-serif;font-size:1.05rem;display:flex;align-items:center;justify-content:center;
+         font-family:'Oswald',sans-serif;font-weight:600;font-size:1.05rem;display:flex;align-items:center;justify-content:center;
          border:1px solid #cfe0ec;margin-top:1px;}
 .step.gate .k{background:var(--amber-bg);color:var(--amber);border-color:var(--amber-line);}
 .step .s{flex:1;min-width:0;font-size:13.4px;}
@@ -247,7 +247,7 @@ details[open] summary .chev{transform:rotate(90deg);}
     box-shadow:0 24px 70px rgba(4,38,58,.35);}
 .mo-h{background:var(--navy-dark);color:#fff;padding:16px 22px;border-radius:14px 14px 0 0;
       display:flex;align-items:center;justify-content:space-between;gap:14px;position:sticky;top:0;z-index:1;}
-.mo-h h4{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:1.35rem;letter-spacing:.02em;margin:0;color:#fff;}
+.mo-h h4{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.25rem;letter-spacing:-.005em;margin:0;color:#fff;}
 .mo-h button{background:none;border:0;color:#9fc3d8;cursor:pointer;padding:2px;line-height:0;}
 .mo-h button:hover{color:#fff;}
 .mo-h svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;}
@@ -263,7 +263,7 @@ details[open] summary .chev{transform:rotate(90deg);}
 .howto > li::before{
   content:counter(hstep);position:absolute;left:0;top:-1px;
   width:26px;height:26px;border-radius:50%;background:var(--navy-dark);color:var(--gold-light);
-  font-family:'Bebas Neue',sans-serif;font-size:1rem;display:flex;align-items:center;justify-content:center;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:1rem;display:flex;align-items:center;justify-content:center;
 }
 .howto > li::after{
   content:'';position:absolute;left:13px;top:29px;bottom:2px;width:1px;background:var(--rule);
@@ -297,8 +297,8 @@ details[open] summary .chev{transform:rotate(90deg);}
 .empty{display:none;text-align:center;padding:44px 20px;color:var(--mid);font-size:13.5px;
        background:#fff;border-radius:14px;box-shadow:0 6px 24px rgba(4,38,58,.07);}
 .empty.on{display:block;}
-.empty b{display:block;font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--navy);
-         letter-spacing:.03em;margin-bottom:6px;font-weight:400;}
+.empty b{display:block;font-family:'Oswald',sans-serif;font-weight:600;font-size:1.35rem;color:var(--navy);
+         letter-spacing:0;margin-bottom:6px;font-weight:400;}
 
 /* ── footer ─────────────────────────────────────────────── */
 .foot{background:var(--navy-dark);color:#87afc6;padding:26px 0 34px;font-size:12.2px;}
