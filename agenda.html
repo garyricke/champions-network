@@ -48,6 +48,61 @@
   </div>
 </div>
 
+<!-- ══════════════════════ BUDGET BAND ══════════════════════ -->
+<section class="budget" id="budget" data-state="loading">
+  <div class="wrap">
+
+    <div class="bud-head">
+      <div>
+        <div class="bud-eyebrow">Maintenance retainer · Mar 1 – Aug 31, 2026</div>
+        <h2>Time used against budget</h2>
+      </div>
+      <div class="bud-flag" id="bud-flag">Reading Clockify…</div>
+    </div>
+
+    <div class="bud-body">
+      <div class="bud-nums">
+        <div class="bud-big"><b id="bud-hours">—</b><span>hours used<br>of 60</span></div>
+        <div class="bud-big"><b id="bud-dollars">—</b><span>billed at $100/hr<br>of $6,000</span></div>
+        <div class="bud-pct" id="bud-pct">—</div>
+      </div>
+
+      <div class="bud-bar">
+        <i class="in"  id="bud-in"   style="width:0"></i>
+        <i class="over" id="bud-over" style="width:0"></i>
+        <span class="tick" id="bud-tick" style="left:0"><em>60 hr · $6,000 budget</em></span>
+      </div>
+
+      <div class="bud-meta">
+        <div class="bm"><b id="bud-avg">—</b><span>average per month, against the 10 hr / month the retainer assumed</span></div>
+        <div class="bm"><b id="bud-proj">—</b><span>projected total at Aug 31 on this month&rsquo;s pace</span></div>
+        <div class="bm"><b id="bud-left">—</b><span>left in the retainer period, and today&rsquo;s two meetings aren&rsquo;t logged yet</span></div>
+      </div>
+
+      <p class="bud-note" id="bud-note"></p>
+
+      <details>
+        <summary><svg class="chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          Month by month, and where the hours went</summary>
+        <div class="det-b">
+          <div id="bud-months"></div>
+          <div id="bud-projects" style="margin-top:16px"></div>
+          <p style="font-size:12px;color:#87afc6;margin:16px 0 0">
+            Live from Clockify, covering the two LCRL projects the retainer pays for.
+            In-period only — nothing before Mar 1, 2026 is counted.
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <p class="bud-err" id="bud-err" hidden>
+      Couldn&rsquo;t reach Clockify just now. The figures are on the
+      <a href="status.html">Status page</a> instead.
+    </p>
+
+  </div>
+</section>
+
 <!-- ══════════════════════ BODY ══════════════════════ -->
 <main>
 <div class="wrap">
@@ -359,8 +414,8 @@
         <li class="item" data-status="waiting">
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
           <div class="c">
-            <div class="hd"><span class="txt">Scope proposal — board status</span> <span class="tag watch">Quiet, don&rsquo;t push</span></div>
-            <div class="dt">Sent Aug 7, and it&rsquo;s post-convention, so quiet is expected. Standing offer: anything Mark needs rebuilt or reframed for the board, Gary will do. Both of today&rsquo;s meetings feed it directly — session cadence and the subscription build are exactly what the tiers describe.</div>
+            <div class="hd"><span class="txt">Scope proposal — board status</span> <span class="tag decide">Now time-sensitive</span></div>
+            <div class="dt">Sent Aug 7, and it&rsquo;s post-convention, so quiet is understandable — but the retainer is now spent (see the budget bar above), so the decision has a clock on it. Standing offer: anything Mark needs rebuilt or reframed for the board, Gary will do. Both of today&rsquo;s meetings feed it directly — session cadence and the subscription build are exactly what the tiers describe.</div>
           </div>
         </li>
       </ul>
