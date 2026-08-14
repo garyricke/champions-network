@@ -24,7 +24,7 @@
 
     <div class="eyebrow">Working Agenda · Live Page</div>
     <h1>Friday, August 14</h1>
-    <p class="when">Two meetings, back to back — 10:30 a.m. and 11:00 a.m. CDT</p>
+    <p class="when">Two meetings, back to back — the 10:30 is done, the 11:00 is next</p>
     <p class="note">
       This page stays live and gets updated as items close, so you can come back to it
       any time rather than digging through email. <b>Refresh to see the latest.</b>
@@ -34,7 +34,7 @@
     <div class="prog">
       <div class="prog-head">
         <div class="big" id="prog-label">0 of 0 complete</div>
-        <div class="stamp">Last updated <b>Fri, Aug 14 · 10:40 a.m. CDT</b></div>
+        <div class="stamp">Last updated <b>Fri, Aug 14 · 11:55 a.m. CDT</b></div>
       </div>
       <div class="bar"><i class="d"></i><i class="w"></i></div>
     </div>
@@ -125,98 +125,112 @@
       <div class="clock">10:30</div>
       <h2>LCMS Accounting — Academy Subscription</h2>
       <div class="count"></div>
-      <div class="sub">Microsoft Teams · join from Sam Deitte&rsquo;s calendar invite (Aug 11)</div>
+      <div class="sub">Met · Sam Deitte, Jim Ehlers, Erica Lenhardt + Mark, Carly, Gary</div>
     </div>
     <div class="block-b">
 
-      <p class="lede">
-        Mark has been working this thread since <b>June 5</b>. Today is the first time the accounting
-        people, Mark, Carly and Gary are all in the same room. The website side is not the blocker —
-        <b>banking and ownership are.</b>
-        <button class="modal-open" data-modal="m-who">Who&rsquo;s in the room →</button>
+      <div class="ask" style="border-left-color:#1a7f37;background:#e6f4ea">
+        <span class="lbl" style="color:#1a7f37">Outcome — accounting says yes</span>
+        Mark&rsquo;s question was &ldquo;is this doable?&rdquo; and the answer was <b>yes, from the
+        accounting standpoint.</b> The shape is agreed: <b>LCRL gets its own Stripe account</b>, separate
+        from LCMS corporate, so charges carry the right entity. Nothing gets created until the
+        <b>LCRL board meets at the end of August</b> — Mark wants Georgia and Barb briefed first.
+        <button class="modal-open" data-modal="m-who">Who was in the room →</button>
         <button class="modal-open" data-modal="m-thread">How we got here →</button>
-      </p>
-
-      <div class="ask">
-        <span class="lbl">The one outcome to leave with</span>
-        A named <b>legal entity</b> for the merchant account, a named <b>bank account</b> for payouts,
-        and a named <b>person who reconciles it</b>. With those three, the subscription can be live in
-        days. Without them, nothing we build can accept a dollar.
       </div>
 
-      <h3>Their two open action items <span class="tag theirs">LCMS owns</span></h3>
-      <p class="lede" style="margin-bottom:4px">
-        Sam&rsquo;s July 31 update was encouraging: LCRL <b>already has a US Bank account</b>, and at low
-        volume the tracking may be simple. Jim floated a new <b>Org Code</b> for Champions Academy.
-        This may be smaller than anyone feared.
-      </p>
+      <h3>What was settled</h3>
       <ul class="items">
-        <li class="item" data-status="open">
+        <li class="item" data-status="done">
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <div class="c"><div class="hd"><span class="txt">Determine how funds flow into an LCMS bank account</span></div></div>
+          <div class="c">
+            <div class="hd"><span class="txt">Whose name goes on the merchant account</span></div>
+            <div class="res"><b>LCRL, its own account.</b> LCMS corporate already runs a Stripe account with about five things on it, but everyone agreed a separate one is cleaner — so the charge on a subscriber&rsquo;s statement reads as theirs, not as LCMS.</div>
+          </div>
         </li>
-        <li class="item" data-status="open">
+        <li class="item" data-status="done">
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <div class="c"><div class="hd"><span class="txt">Determine how it&rsquo;s properly accounted for on LCRL books and tracked</span></div></div>
+          <div class="c">
+            <div class="hd"><span class="txt">How subscriptions and donations stay apart on the books</span></div>
+            <div class="res"><b>Codes on the transactions.</b> Gary passes identifying codes with each payment so accounting can tell a subscription from a gift. Erica&rsquo;s test: &ldquo;as long as we can reconcile back from the website to the Stripe account.&rdquo; That works.</div>
+          </div>
+        </li>
+        <li class="item" data-status="done">
+          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div class="c">
+            <div class="hd"><span class="txt">Gross or net</span></div>
+            <div class="res"><b>Net.</b> Erica raised it before we did — Stripe pulls its fees and the deposit arrives net. Accounting is across it, so the reconciliation won&rsquo;t come as a surprise.</div>
+          </div>
+        </li>
+        <li class="item" data-status="done">
+          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div class="c">
+            <div class="hd"><span class="txt">How hard is the setup, really</span></div>
+            <div class="res"><b>Small.</b> Erica thinks it may need little more than the <b>EIN, which they already have</b>; Barb or Georgia can supply anything else. Roughly an hour to open, plus a day or two for the bank verification to clear. Gary gets invited onto it as a developer.</div>
+          </div>
         </li>
       </ul>
 
-      <h3>Questions to get answered <span class="tag mine">Gary asks</span></h3>
+      <h3>Still open after the meeting</h3>
+      <ul class="items">
+        <li class="item" data-status="waiting">
+          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div class="c">
+            <div class="hd"><span class="txt">Who signs on the LCRL US Bank account</span> <span class="tag theirs">Erica to pull up</span></div>
+            <div class="dt">Accounting can <i>see</i> the account online; statements go to Barb Below and Georgia in the executive wing, who don&rsquo;t have online access. The signers are a separate list Erica said she&rsquo;d have to look up. Needed before Stripe can be pointed at it.</div>
+          </div>
+        </li>
+        <li class="item" data-status="waiting">
+          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div class="c">
+            <div class="hd"><span class="txt">Refunds and cancellations — who, and how</span> <span class="tag theirs">Unresolved</span></div>
+            <div class="dt">Accounting doesn&rsquo;t currently refund through Stripe — their existing flow runs through another platform linked to it. &ldquo;We should be able to do that… we&rsquo;d have to figure it out.&rsquo;&rsquo; Fine to leave until there&rsquo;s an account, but a subscription service needs an answer before it takes real money.</div>
+          </div>
+        </li>
+        <li class="item" data-status="open">
+          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div class="c">
+            <div class="hd"><span class="txt">Who receipts the donations</span> <span class="tag decide">Never came up</span></div>
+            <div class="dt">If people can give &ldquo;thousands upon thousands&rdquo; through the same portal, someone has to issue year-end acknowledgments. Worth raising before the board rather than after.</div>
+          </div>
+        </li>
+        <li class="item" data-status="open">
+          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div class="c">
+            <div class="hd"><span class="txt">LCMS IT sign-off</span> <span class="tag watch">Nobody mentioned it</span></div>
+            <div class="dt">Sam floated IT back in July and it didn&rsquo;t surface today — which probably means it isn&rsquo;t needed, since Stripe is hosted and no card data touches our servers. Cheap to confirm, expensive to discover late.</div>
+          </div>
+        </li>
+      </ul>
+
+      <h3>Next steps, as agreed <span class="tag decide">Board, end of August</span></h3>
       <ul class="items">
         <li class="item" data-status="open">
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
           <div class="c">
-            <div class="hd"><span class="txt">Whose name goes on the merchant account — LCMS or LCRL?</span></div>
-            <div class="dt">That decides the EIN, the onboarding documents, and who signs. Stripe asks on day one.</div>
+            <div class="hd"><span class="txt">Gary supplies the build material for Mark&rsquo;s board packet</span> <span class="tag mine">Gary · before month end</span></div>
+            <div class="dt">Mark&rsquo;s words: &ldquo;Gary will supply that stuff from our side.&rdquo; The architecture, what gets built, and what it costs — written for a board, not for engineers. This is now the critical path.</div>
+          </div>
+        </li>
+        <li class="item" data-status="waiting">
+          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div class="c">
+            <div class="hd"><span class="txt">Mark briefs Barb, Georgia and Dr. Seltz, then the board</span> <span class="tag theirs">Mark</span></div>
+            <div class="dt">Several items are going to the same board meeting at the end of the month. Mark wants the internal conversations first — his phrase was wanting to be &ldquo;on my best behaviour&rdquo; before asking Georgia for anything.</div>
+          </div>
+        </li>
+        <li class="item" data-status="waiting">
+          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <div class="c">
+            <div class="hd"><span class="txt">Erica scopes what opening the Stripe account takes</span> <span class="tag theirs">LCMS</span></div>
+            <div class="dt">She offered to go in and see what&rsquo;s required without committing the entity. Actual creation waits for board approval.</div>
           </div>
         </li>
         <li class="item" data-status="open">
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
           <div class="c">
-            <div class="hd"><span class="txt">Which account receives payouts, and who can hand over the numbers?</span></div>
-            <div class="dt">The US Bank account Sam found, or a new one — from a person authorised to give it, not forwarded through email.</div>
-          </div>
-        </li>
-        <li class="item" data-status="open">
-          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <div class="c">
-            <div class="hd"><span class="txt">Gross or net on the books?</span></div>
-            <div class="dt">Stripe deposits <b>net of fees</b> (roughly 2.9% + 30¢). Accounting usually wants gross revenue with the fee booked as an expense. Whoever reconciles needs to know before the first deposit, not after.</div>
-          </div>
-        </li>
-        <li class="item" data-status="open">
-          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <div class="c">
-            <div class="hd"><span class="txt">Two revenue streams — do they need two codes?</span></div>
-            <div class="dt">Subscriptions and Mark&rsquo;s &ldquo;Donate Now&rdquo; are different animals: one is earned revenue, one is a gift and possibly restricted.</div>
-          </div>
-        </li>
-        <li class="item" data-status="open">
-          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <div class="c">
-            <div class="hd"><span class="txt">Who receipts the donations?</span></div>
-            <div class="dt">Does the LCMS donor system need these gift records for year-end acknowledgment, or does Champions handle it separately?</div>
-          </div>
-        </li>
-        <li class="item" data-status="open">
-          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <div class="c">
-            <div class="hd"><span class="txt">Refunds and cancellations — whose call?</span></div>
-            <div class="dt">Someone needs the authority to refund, and a one-line policy for the subscribe page.</div>
-          </div>
-        </li>
-        <li class="item" data-status="open">
-          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <div class="c">
-            <div class="hd"><span class="txt">Does LCMS IT need to sign off?</span></div>
-            <div class="dt">Sam raised IT back in July. Worth clearing now — a security review shouldn&rsquo;t appear after we&rsquo;ve built.</div>
-          </div>
-        </li>
-        <li class="item" data-status="open">
-          <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <div class="c">
-            <div class="hd"><span class="txt">How soon could we take a first payment?</span></div>
-            <div class="dt">Even a pilot with a handful of subscribers proves the plumbing. Ask for a target date and who owns the next step.</div>
+            <div class="hd"><span class="txt">Then: build, smoke test in developer mode, roll out</span> <span class="tag watch">After approval</span></div>
+            <div class="dt">Gary builds against the account once invited as a developer, tests every path in Stripe&rsquo;s developer mode before anyone sees it, and accounting runs test transactions through to confirm they can account for what arrives.</div>
           </div>
         </li>
       </ul>
@@ -424,7 +438,7 @@
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
           <div class="c">
             <div class="hd"><span class="txt">Scope proposal — board status</span> <span class="tag decide">Now time-sensitive</span></div>
-            <div class="dt">Sent Aug 7, and it&rsquo;s post-convention, so quiet is understandable — but the retainer is now spent (see the budget bar above), so the decision has a clock on it. Standing offer: anything Mark needs rebuilt or reframed for the board, Gary will do. Both of today&rsquo;s meetings feed it directly — session cadence and the subscription build are exactly what the tiers describe.</div>
+            <div class="dt">Now has a date. Mark is taking <b>several items to the LCRL board at the end of August</b> and briefing Barb, Georgia and Dr. Seltz first — so the proposal and the subscription approval can travel together rather than compete. The retainer is already spent (see the budget bar), so this is the meeting that matters.</div>
           </div>
         </li>
       </ul>
@@ -463,7 +477,10 @@
         </li>
         <li class="item" data-status="open">
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <div class="c"><div class="hd"><span class="txt">Stripe subscription build — starts the moment banking is named</span> <span class="tag watch">Gated on the 10:30</span></div></div>
+          <div class="c">
+            <div class="hd"><span class="txt">Stripe subscription build</span> <span class="tag watch">Gated on the board, not on us</span></div>
+            <div class="dt">Accounting cleared it this morning. Nothing gets built until the LCRL board approves at the end of August — but the board packet material is mine, and that&rsquo;s due first.</div>
+          </div>
         </li>
         <li class="item" data-status="open">
           <span class="mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
@@ -669,9 +686,10 @@
       <ul>
         <li><b>Aug 10</b> — Mark asks to schedule, and starts hunting for who controls the US Bank account.</li>
         <li><b>Aug 11</b> — Sam adds Jim and Erica. Meeting set for <b>today, 10:30 a.m. CDT</b>. Mark brings Carly and Gary in.</li>
+        <li><b>Aug 14</b> — The call happens. Accounting says the subscription is doable; <b>LCRL gets its own Stripe account</b> so charges carry the right entity; transaction codes keep subscriptions and gifts apart on the books. Creation waits for the <b>LCRL board at the end of August</b>.</li>
       </ul>
       <p style="color:#556676;font-size:12.6px;margin-top:16px">
-        Two months of email to get six people onto one call. Worth making the hour count.
+        Ten weeks of email to get six people onto one call — and it took twenty minutes to clear.
       </p>
     </div>
   </div>
