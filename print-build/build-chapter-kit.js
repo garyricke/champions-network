@@ -6,7 +6,9 @@
 // This renders that data through the shared templates and outputs:
 //
 //   assets/chapter-kit/<slug>-poster.pdf        8.5×11 poster (bleed + crops)
-//   assets/chapter-kit/<slug>-handouts.pdf      2 sheets, 5.5×8.5 half-sheets 2-up
+//   assets/chapter-kit/<slug>-handout-congregations.pdf  5.5×8.5 half-sheets 2-up
+//   assets/chapter-kit/<slug>-handout-students.pdf       5.5×8.5 half-sheets 2-up
+//   assets/chapter-kit/<slug>-handouts.pdf               both sheets in one file
 //   assets/chapter-kit/<slug>-social-square.png   1080×1080
 //   assets/chapter-kit/<slug>-social-portrait.png 1080×1350
 //   <slug>.html                                 landing page at /<slug>
@@ -102,6 +104,10 @@ function buildVars(c) {
     // slice the top off the tower.
     heroPhoto: photoUrl(c, 'w_1800'),
     heroPhotoSocial: photoUrl(c, 'w_1200'),
+    // Pieces that don't print the date list say "Select Thursdays" rather than a
+    // bare "Thursdays" — Pr. Jarvis, Aug 13. Chapters that really do meet every
+    // week just omit dayOfWeekLoose and fall through to the plain day.
+    dayOfWeekLoose: c.dayOfWeekLoose || c.dayOfWeek,
     adultHeadlineHTML: accentize(c.adultHeadline),
     studentHeadlineHTML: accentize(c.studentHeadline),
     scheduleGrid,
@@ -184,22 +190,29 @@ async function buildChapter(browser, slug) {
     {
       tpl: 'poster.html',
       out: `${slug}-poster.html`,
-      pdf: `${slug}-poster.pdf`,
-      pages: ['page-1'],
       guard: ['.poster-frame', '.p-body__col', '.p-sched'],
       label: 'poster 8.5×11',
       thumbW: 875,
       thumbH: 1125,
+      outputs: [{ pdf: `${slug}-poster.pdf`, pages: ['page-1'] }],
     },
     {
       tpl: 'handouts.html',
       out: `${slug}-handouts.html`,
-      pdf: `${slug}-handouts.pdf`,
-      pages: ['page-1', 'page-2'],
       guard: ['.half', '.h-body'],
       label: 'half-sheets 2-up',
       thumbW: 1125,
       thumbH: 875,
+      // One render, three files. Pr. Jarvis reported the two handouts were "the
+      // same document" — they never were, but both download buttons handed him
+      // the same 2-page PDF and he printed page 1. Each audience now gets its
+      // own file. The combined PDF keeps its original name because that link is
+      // already out in the wild.
+      outputs: [
+        { pdf: `${slug}-handout-congregations.pdf`, pages: ['page-1'], range: '1' },
+        { pdf: `${slug}-handout-students.pdf`, pages: ['page-2'], range: '2' },
+        { pdf: `${slug}-handouts.pdf`, pages: [] },
+      ],
     },
   ];
 
@@ -217,14 +230,19 @@ async function buildChapter(browser, slug) {
 
     if (!(await assertNoOverflow(page, job.guard, job.label))) ok = false;
 
-    const pdfPath = path.join(outDir, job.pdf);
-    await page.pdf({
-      path: pdfPath,
-      printBackground: true,
-      preferCSSPageSize: true,
-      displayHeaderFooter: false,
-      margin: { top: 0, right: 0, bottom: 0, left: 0 },
-    });
+    for (const out of job.outputs) {
+      const pdfPath = path.join(outDir, out.pdf);
+      await page.pdf({
+        path: pdfPath,
+        printBackground: true,
+        preferCSSPageSize: true,
+        displayHeaderFooter: false,
+        margin: { top: 0, right: 0, bottom: 0, left: 0 },
+        ...(out.range ? { pageRanges: out.range } : {}),
+      });
+      const mb = (fs.statSync(pdfPath).size / 1024 / 1024).toFixed(2);
+      console.log(`  → ${out.pdf} (${mb} MB)`);
+    }
 
     // trim-clipped preview thumbs
     const thumbDir = path.join(outDir, 'thumbs', slug);
@@ -236,24 +254,23 @@ async function buildChapter(browser, slug) {
     await page.setViewport({ width: job.thumbW, height: job.thumbH, deviceScaleFactor: 1 });
 
     const bleed = 12.5; // 0.125in at 100 CSS px/in
-    for (const id of job.pages) {
-      const el = await page.$('#' + id);
-      if (!el) continue;
-      const box = await el.boundingBox();
-      await page.screenshot({
-        path: path.join(thumbDir, `${job.pdf.replace('.pdf', '')}-${id}.png`),
-        clip: {
-          x: box.x + bleed,
-          y: box.y + bleed,
-          width: box.width - bleed * 2,
-          height: box.height - bleed * 2,
-        },
-      });
+    for (const out of job.outputs) {
+      for (const id of out.pages) {
+        const el = await page.$('#' + id);
+        if (!el) continue;
+        const box = await el.boundingBox();
+        await page.screenshot({
+          path: path.join(thumbDir, `${out.pdf.replace('.pdf', '')}-${id}.png`),
+          clip: {
+            x: box.x + bleed,
+            y: box.y + bleed,
+            width: box.width - bleed * 2,
+            height: box.height - bleed * 2,
+          },
+        });
+      }
     }
     await page.close();
-
-    const mb = (fs.statSync(pdfPath).size / 1024 / 1024).toFixed(2);
-    console.log(`  → ${job.pdf} (${mb} MB)`);
   }
 
   // 3. Social posts → PNG

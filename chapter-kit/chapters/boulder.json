@@ -14,6 +14,7 @@
   "leaderEmail": "",
 
   "dayOfWeek": "Thursdays",
+  "dayOfWeekLoose": "Select Thursdays",
   "startTime": "7:00 PM",
   "firstDateLong": "Thursday, September 10",
   "firstDateShort": "Sept 10",
@@ -39,13 +40,13 @@
   "landingUrlDisplay": "champions-network.com/boulder",
   "qrFile": "assets/chapter-kit/qr-boulder.svg",
 
-  "audienceNote": "Open to University of Colorado students and to members of neighboring Lutheran congregations.",
+  "audienceNote": "Open to University of Colorado students, high schoolers, and members of neighboring Lutheran congregations.",
 
   "adultHeadline": "Stand with the students who are *standing for their faith.*",
   "adultSubhead": "University Lutheran Chapel is starting a Champions for Religious Liberty chapter — and the students who host it are asking their neighbors to sit at the table with them.",
 
   "studentHeadline": "Hold your ground. *You don't have to hold it alone.*",
-  "studentSubhead": "A Champions for Religious Liberty chapter at ULC — ten Thursday evenings to get equipped, and adults from around Boulder standing beside you.",
+  "studentSubhead": "A Champions for Religious Liberty chapter at ULC — ten Thursday evenings to get equipped, and neighbors from around Boulder standing beside you.",
 
   "conferenceNote": "Rev. Mark Frith speaks at the ULC conference on September 19."
 }
