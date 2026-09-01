@@ -15,7 +15,7 @@ node build-chapter-kit.js             # every chapter in chapters/
 | Output | Purpose |
 |---|---|
 | `assets/chapter-kit/<slug>-poster.pdf` | 8.5×11 poster, bleed + crop marks. Narthex, bulletin boards, campus. |
-| `assets/chapter-kit/<slug>-handouts.pdf` | 2 sheets, letter landscape. Each holds two identical 5.5×8.5 half-sheets — **print, then cut down the dashed centre line.** Sheet 1 = adult / neighboring congregations. Sheet 2 = students. |
+| `assets/chapter-kit/<slug>-handouts.pdf` | 2 sheets, letter landscape. Each holds two identical 5.5×8.5 half-sheets — **print, then cut down the dashed centre line.** Sheet 1 = audience A, sheet 2 = audience B (see **Chapter copy**). |
 | `assets/chapter-kit/<slug>-social-square.png` | 1080×1080 feed post |
 | `assets/chapter-kit/<slug>-social-portrait.png` | 1080×1350 portrait / stories-safe |
 | `assets/chapter-kit/qr-<slug>.svg` | QR → the chapter landing page |
@@ -24,7 +24,8 @@ node build-chapter-kit.js             # every chapter in chapters/
 
 ## Starting a new chapter
 
-1. Copy `chapters/boulder.json` to `chapters/<slug>.json`.
+1. Copy the closest existing chapter to `chapters/<slug>.json` — `boulder.json` for a
+   campus chapter, `st-stephen.json` for a parish one.
 2. Upload the venue photo to Cloudinary and put its public ID in `photoId`. Never
    commit the raw photo.
    ```bash
@@ -35,9 +36,39 @@ node build-chapter-kit.js             # every chapter in chapters/
    - `adultHeadline` / `studentHeadline` — wrap the second half in `*asterisks*` to
      set it in gold. Keep both under ~55 characters or the poster headline runs long.
    - `landingUrl` / `landingUrlDisplay` / `qrFile` — all keyed to the slug.
-   - `photoGrade` — see below.
+   - `photoGrade` / `photoPosition` — see below.
+   - the copy blocks — see **Chapter copy**.
 4. `node build-chapter-kit.js <slug>`
 5. Commit and push. Netlify serves `/{slug}` from `<slug>.html` automatically.
+
+## Chapter copy
+
+The templates hold the layout and the Network's standing language. Everything that
+describes *this* chapter's people lives in the JSON, because chapters differ more
+than they look: Boulder is a campus chapter hosted by students who need neighboring
+congregations to fill the room; St. Stephen is a parish chapter inviting the rest of
+the Liberty area in. The same prose cannot serve both.
+
+| Field | Feeds |
+|---|---|
+| `posterColumns[2]` | The poster's two body columns — `{title, paras[]}` each. |
+| `audienceA` / `audienceB` | The two handout sheets and the two landing "invitation" cards. `A` also drives the poster and the square social post; `B` drives the portrait post. |
+| `audienceIntro` | The "Two invitations, one table" paragraph. Write the venue name out — a `{{token}}` inside a JSON value is **not** re-expanded. |
+| `metaAudience` · `audienceNote` · `socialFooter` | The one-line "who this is open to", in three registers: `<meta>` description, inline on the poster/RSVP, and the social footer. |
+| `socialPortraitEyebrow` | Eyebrow on the portrait post — usually "<N> <Day> Evenings · Save the Dates". |
+| `roleOptions[]` | The RSVP form's "I'm coming as" menu. |
+
+Inside any copy string, `**double asterisks**` set bold. (Single `*asterisks*` mean
+gold, and only work in the two headline fields.) Bullets are `{lead, text}` pairs —
+`lead` is bolded, `text` follows it.
+
+Each audience block takes `handoutLead` (one paragraph, print) and `landingParas[]`
+(the web version, usually the same lead plus one more). `bullets[]` is shared; add
+`landingBullets[]` only when the web wording needs to differ.
+
+**Keep the counts honest.** "Eight guided evenings" in `posterColumns` and "Eight
+Wednesday Evenings" in `socialPortraitEyebrow` are prose — nothing syncs them to
+`sessions[]`. Change the date list, re-read the copy.
 
 ## The cinematic look
 
@@ -64,6 +95,19 @@ is a `radial-gradient` in the `__scrim` / `::after` layers of `chapter-kit.css` 
 CSS `object-position`; a Cloudinary aspect crop on top of that double-crops and
 slices the top off the building. The builder requests width only.
 
+**3. Framing — optional, via `photoPosition` in the chapter JSON.**
+Each surface has an `object-position` default baked into the CSS, tuned for a
+building exterior where the subject sits low in the frame. An interior puts the
+chancel much higher, so those defaults crop to a blank stretch of wall. Set
+`photoPosition` (e.g. `"center 30%"`) to override the print surfaces — poster,
+handouts, social — and `photoPositionWeb` for the landing hero, which is nearly the
+photo's own aspect ratio and so rarely needs one. Omit both and every surface keeps
+its default, which is why Boulder's output is untouched by this knob.
+
+Percentages here are *image* positions: `center 30%` puts the point 30% down the
+photo at the same relative spot in the box. Lower the number to reveal more of the
+top of the frame.
+
 ## The overflow guard
 
 Print boxes are fixed-height, so a paragraph that runs two lines long gets silently
@@ -72,8 +116,9 @@ clipped — and a thumbnail will not show it. The build measures every fixed con
 `scrollHeight` omits a container's own `padding-bottom`) and **exits non-zero** on
 overflow rather than shipping a cropped PDF.
 
-If the build reports overflow, shorten the copy in `templates/` or reduce a fixed
-height in `chapter-kit.css`. Do not raise the container height past the trim.
+If the build reports overflow, shorten the copy in `chapters/<slug>.json` — that is
+where the prose lives — or reduce a fixed height in `chapter-kit.css`. Do not raise
+the container height past the trim.
 
 ## RSVP
 
@@ -90,7 +135,7 @@ and `chapter-slug` fields identifying which one. Submissions land in
 chapter-kit/
   chapters/<slug>.json      chapter data — the only file you edit per chapter
   templates/poster.html     8.5×11 poster
-  templates/handouts.html   half-sheets, 2-up, adult + student
+  templates/handouts.html   half-sheets, 2-up, one sheet per audience
   templates/social.html     1080 square + 1080×1350
   templates/landing.html    web landing page
   chapter-kit.css           print styles (poster + handout + social)

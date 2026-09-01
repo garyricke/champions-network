@@ -152,7 +152,7 @@ body.poster .page {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 58%;
+  object-position: var(--photo-pos, center 58%);
   display: block;
 }
 /* Cinematic depth: a dark corner vignette under a directional bottom scrim.
@@ -446,7 +446,7 @@ body.no-crops .sheet__cut { display: none; }
   overflow: hidden;
   border: 1px solid rgba(187,140,58,0.42);
 }
-.h-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; }
+.h-photo img { width: 100%; height: 100%; object-fit: cover; object-position: var(--photo-pos, center 42%); display: block; }
 .h-photo__scrim {
   position: absolute; inset: 0;
   background:
@@ -655,7 +655,7 @@ body.social {
 }
 .post--sq .s-photo { height: 284px; }
 .post--pt .s-photo { height: 312px; }
-.s-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; }
+.s-photo img { width: 100%; height: 100%; object-fit: cover; object-position: var(--photo-pos, center 42%); display: block; }
 .s-photo__scrim {
   position: absolute; inset: 0;
   background:

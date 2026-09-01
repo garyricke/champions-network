@@ -138,7 +138,7 @@ h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; letter-spa
   border: 1px solid rgba(187,140,58,0.4);
   box-shadow: 0 24px 60px rgba(0,0,0,0.32);
 }
-.hero__photo img { width: 100%; height: 380px; object-fit: cover; object-position: center 28%; }
+.hero__photo img { width: 100%; height: 380px; object-fit: cover; object-position: var(--photo-pos-web, center 28%); }
 /* Cinematic vignette — sits above the photo, below the caption. */
 .hero__photo::after {
   content: '';

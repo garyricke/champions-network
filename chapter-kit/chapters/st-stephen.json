@@ -1,0 +1,130 @@
+{
+  "slug": "st-stephen",
+  "chapterName": "St. Stephen Champions Chapter",
+  "shortName": "St. Stephen",
+
+  "venueName": "St. Stephen Lutheran Church",
+  "venueLine2": "Team Jesus · Liberty, Missouri",
+  "addressStreet": "205 N Forest Ave",
+  "addressCity": "Liberty, MO 64068",
+
+  "leaderName": "Rev. Joe Rodriguez",
+  "leaderTitle": "Senior Pastor",
+  "leaderPhone": "(816) 781-3377",
+  "leaderEmail": "",
+
+  "dayOfWeek": "Third Wednesdays",
+  "startTime": "6:30 PM",
+  "firstDateLong": "Wednesday, September 16",
+  "firstDateShort": "Sept 16",
+
+  "sessions": [
+    { "date": "Sept 16", "note": "First session" },
+    { "date": "Oct 21",  "note": "" },
+    { "date": "Nov 18",  "note": "" },
+    { "date": "Jan 20",  "note": "" },
+    { "date": "Feb 17",  "note": "" },
+    { "date": "Mar 17",  "note": "" },
+    { "date": "Apr 21",  "note": "" },
+    { "date": "May 19",  "note": "Final session of the year" }
+  ],
+
+  "photoId": "champions-network/st-stephen-sanctuary",
+  "photoGrade": "e_contrast:22/e_vibrance:38/co_rgb:ff9838,e_colorize:11/e_sharpen:40",
+  "photoPosition": "center 30%",
+  "heroPhotoAlt": "The sanctuary at St. Stephen Lutheran Church, Liberty, Missouri",
+
+  "landingUrl": "https://champions-network.com/st-stephen",
+  "landingUrlDisplay": "champions-network.com/st-stephen",
+  "qrFile": "assets/chapter-kit/qr-st-stephen.svg",
+
+  "audienceNote": "Open to members of St. Stephen and to neighboring congregations across the Liberty area.",
+
+  "adultHeadline": "Learn to speak for your faith *without picking a fight.*",
+  "adultSubhead": "St. Stephen is starting a Champions for Religious Liberty chapter — eight Wednesday evenings to get equipped, with neighbors from across the Liberty area at the table.",
+
+  "studentHeadline": "Your congregation is *welcome at this table.*",
+  "studentSubhead": "A Champions for Religious Liberty chapter at St. Stephen Lutheran — open to every congregation in the Liberty area, third Wednesdays through the year.",
+
+  "conferenceNote": "",
+
+  "posterColumns": [
+    {
+      "title": "Why this chapter, and why now",
+      "paras": [
+        "Religious liberty is not an abstraction in Liberty. It arrives in a school board meeting, a workplace policy, a conversation across the fence — and almost never with any warning.",
+        "This chapter is where a congregation gets ready together, **before** that moment comes, instead of each member working it out alone afterward.",
+        "The ask is simple: eight evenings on your calendar, and a seat in the room."
+      ]
+    },
+    {
+      "title": "What you'll actually learn",
+      "paras": [
+        "The Champions Academy trains ordinary Christians to speak clearly about religious liberty — distinguishing God's **left-hand kingdom** from His **right-hand kingdom**, engaging the culture with humility rather than heat.",
+        "Eight guided evenings on life, marriage, education, and the First Amendment. No prior study required."
+      ]
+    }
+  ],
+
+  "audienceA": {
+    "eyebrowHandout": "An Invitation to the St. Stephen Congregation",
+    "eyebrowLanding": "For the St. Stephen Congregation",
+    "cardTitle": "Get equipped together",
+    "handoutLead": "You have had the conversation — at work, at a family table, in a school parking lot — and walked away wishing you had said it better. This chapter is where you get ready for the next one, **before** it comes.",
+    "landingParas": [
+      "You have had the conversation — at work, at a family table, in a school parking lot — and walked away wishing you had said it better. This chapter is where you get ready for the next one, **before** it comes.",
+      "Team Jesus already knows how to show up for one another. **This is that same thing, pointed at the questions the culture is asking your family right now.**"
+    ],
+    "bullets": [
+      {
+        "lead": "Learn what you actually believe",
+        "text": "— and why the First Amendment protects it."
+      },
+      {
+        "lead": "Learn how to say it",
+        "text": "with clarity and charity, rather than heat."
+      },
+      {
+        "lead": "Go together.",
+        "text": "A conviction is easier to hold when the people in the next row are holding it too."
+      }
+    ]
+  },
+
+  "audienceB": {
+    "eyebrowHandout": "An Invitation to Neighboring Congregations",
+    "eyebrowLanding": "For Neighboring Congregations",
+    "cardTitle": "Bring your congregation",
+    "handoutLead": "This chapter meets at St. Stephen, but it was never meant to stop at the property line. **Congregations across the Liberty area are welcome at the table.**",
+    "landingParas": [
+      "This chapter meets at St. Stephen, but it was never meant to stop at the property line. **Congregations across the Liberty area are welcome at the table.**",
+      "You do not need to be a member here, and you do not need to arrive knowing anything. You need an evening a month and a willingness to show up."
+    ],
+    "bullets": [
+      {
+        "lead": "Come as you are.",
+        "text": "No cost, no prior study, and no need to be a member of St. Stephen."
+      },
+      {
+        "lead": "Get equipped yourself.",
+        "text": "Two-kingdom thinking, the First Amendment, life, marriage, and education."
+      },
+      {
+        "lead": "Bring it home.",
+        "text": "What you learn here, you carry back into your own congregation."
+      }
+    ]
+  },
+
+  "audienceIntro": "St. Stephen Lutheran Church is the home of this chapter — but the room was never meant to stop at the property line, and that is by design.",
+  "metaAudience": "Open to members of St. Stephen and neighboring congregations across the Liberty area.",
+  "socialFooter": "Open to St. Stephen members & neighboring congregations in the Liberty area",
+  "socialPortraitEyebrow": "Eight Wednesday Evenings · Save the Dates",
+  "roleOptions": [
+    "A member of St. Stephen",
+    "A member of a neighboring congregation",
+    "A pastor or church worker",
+    "Visiting — not a member anywhere yet",
+    "Other"
+  ]
+}

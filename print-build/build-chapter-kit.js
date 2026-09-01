@@ -44,6 +44,30 @@ const esc = (s) =>
 const accentize = (s) =>
   esc(s).replace(/\*(.+?)\*/g, '<span class="accent">$1</span>');
 
+// Chapter copy lives in the JSON, so it carries no markup of its own. `**bold**`
+// is the one inline convention. The bold tag is per-surface: the print pieces
+// use <strong>, the landing page's bullet leads use <b>. They render the same,
+// but keeping each surface on its original tag means a copy refactor can never
+// be the thing that moved a pixel.
+const boldize = (s, tag = 'strong') =>
+  esc(s).replace(/\*\*(.+?)\*\*/g, `<${tag}>$1</${tag}>`);
+
+const paras = (list, indent) =>
+  (list || []).map((p) => `<p>${boldize(p)}</p>`).join('\n' + ' '.repeat(indent));
+
+// {'--k': 'v', '--empty': undefined} -> ' style="--k: v;"' (or '' if all unset)
+const styleVars = (map) => {
+  const set = Object.entries(map).filter(([, v]) => v);
+  return set.length
+    ? ` style="${set.map(([k, v]) => `${k}: ${esc(v)};`).join(' ')}"`
+    : '';
+};
+
+const bullets = (list, tag, indent) =>
+  (list || [])
+    .map((b) => `<li><${tag}>${esc(b.lead)}</${tag}> ${boldize(b.text, tag)}</li>`)
+    .join('\n' + ' '.repeat(indent));
+
 function render(tpl, vars) {
   return tpl.replace(/\{\{(\w+)\}\}/g, (m, key) => {
     if (!(key in vars)) throw new Error(`template token {{${key}}} has no value`);
@@ -51,6 +75,7 @@ function render(tpl, vars) {
     // *HTML-suffixed tokens are pre-built markup; everything else is escaped
     return key.endsWith('HTML') || key.endsWith('Grid') || key.endsWith('Flag')
       || key.endsWith('Inline') || key.endsWith('Spans') || key.endsWith('Items')
+      || key.endsWith('Style')
       ? v
       : esc(v);
   });
@@ -116,6 +141,46 @@ function buildVars(c) {
     datesSpans,
     datesItems,
     sessionCount: String(c.sessions.length),
+
+    // ---- per-chapter copy ----
+    // Boulder is a campus chapter hosted by students; St. Stephen is a parish
+    // chapter. None of that prose can live in a shared template, so the two
+    // audience blocks and the poster's two columns come out of the chapter JSON.
+    posterCol1Title: c.posterColumns[0].title,
+    posterCol1HTML: paras(c.posterColumns[0].paras, 8),
+    posterCol2Title: c.posterColumns[1].title,
+    posterCol2HTML: paras(c.posterColumns[1].paras, 8),
+
+    audienceAEyebrowHandout: c.audienceA.eyebrowHandout,
+    audienceAEyebrowLanding: c.audienceA.eyebrowLanding,
+    audienceACardTitle: c.audienceA.cardTitle,
+    audienceALeadHTML: `<p>${boldize(c.audienceA.handoutLead)}</p>`,
+    audienceABulletsHTML: bullets(c.audienceA.bullets, 'strong', 8),
+    audienceALandingHTML: paras(c.audienceA.landingParas, 8),
+    audienceALandingBulletsHTML: bullets(
+      c.audienceA.landingBullets || c.audienceA.bullets, 'b', 10),
+
+    audienceBEyebrowHandout: c.audienceB.eyebrowHandout,
+    audienceBEyebrowLanding: c.audienceB.eyebrowLanding,
+    audienceBCardTitle: c.audienceB.cardTitle,
+    audienceBLeadHTML: `<p>${boldize(c.audienceB.handoutLead)}</p>`,
+    audienceBBulletsHTML: bullets(c.audienceB.bullets, 'strong', 8),
+    audienceBLandingHTML: paras(c.audienceB.landingParas, 8),
+    audienceBLandingBulletsHTML: bullets(
+      c.audienceB.landingBullets || c.audienceB.bullets, 'b', 10),
+
+    roleOptionsHTML: c.roleOptions
+      .map((o) => `<option>${esc(o)}</option>`)
+      .join('\n' + ' '.repeat(16)),
+
+    // Optional framing override. Each surface has a sensible default baked into
+    // the CSS, tuned for a building exterior where the subject sits low in the
+    // frame. An interior puts the chancel much higher, so those defaults crop to
+    // a blank wall — hence the knob. Omit it and every surface keeps its default.
+    photoPosStyle: styleVars({
+      '--photo-pos': c.photoPosition,
+      '--photo-pos-web': c.photoPositionWeb,
+    }),
   };
 }
 

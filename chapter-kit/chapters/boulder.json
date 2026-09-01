@@ -48,5 +48,98 @@
   "studentHeadline": "Hold your ground. *You don't have to hold it alone.*",
   "studentSubhead": "A Champions for Religious Liberty chapter at ULC — ten Thursday evenings to get equipped, and neighbors from around Boulder standing beside you.",
 
-  "conferenceNote": "Rev. Mark Frith speaks at the ULC conference on September 19."
+  "conferenceNote": "Rev. Mark Frith speaks at the ULC conference on September 19.",
+
+  "posterColumns": [
+    {
+      "title": "Why the students need you",
+      "paras": [
+        "A university campus is a lonely place to hold a biblical conviction — in the lecture hall, in the dorm, in conversations our students didn't choose.",
+        "They host this chapter. But a student's calendar is rarely their own, and a chapter of students alone empties out at midterms. **Members of neighboring congregations are what make it hold.**",
+        "The ask is simple: ten evenings on your calendar, and a seat in the room."
+      ]
+    },
+    {
+      "title": "And you'll be equipped too",
+      "paras": [
+        "The Champions Academy trains ordinary Christians to speak clearly about religious liberty — distinguishing God's **left-hand kingdom** from His **right-hand kingdom**, engaging the culture with humility rather than heat.",
+        "Ten guided evenings on life, marriage, education, and the First Amendment. No prior study required."
+      ]
+    }
+  ],
+
+  "audienceA": {
+    "eyebrowHandout": "An Invitation to Neighboring Congregations",
+    "eyebrowLanding": "For Neighboring Congregations",
+    "cardTitle": "Stand with the students",
+    "handoutLead": "A student's calendar is rarely their own. A chapter made only of students empties out at midterms — and the handful still in the room lose heart. **Your presence is what makes it hold.**",
+    "landingParas": [
+      "A university campus is a lonely place to hold a biblical conviction — in the lecture hall, in the dorm, in conversations our students didn't choose.",
+      "A student's calendar is rarely their own. A chapter made only of students empties out at midterms, and the handful still in the room lose heart. **Your steady presence is what makes it hold.**"
+    ],
+    "bullets": [
+      {
+        "lead": "Support the students.",
+        "text": "Be the ones who show up every time, so the students are never the only ones in the room."
+      },
+      {
+        "lead": "Get equipped yourself.",
+        "text": "Two-kingdom thinking, the First Amendment, life, marriage, and education."
+      },
+      {
+        "lead": "Bring it home.",
+        "text": "What you learn here, you carry back into your own congregation."
+      }
+    ]
+  },
+
+  "audienceB": {
+    "eyebrowHandout": "For CU Students · You Are the Hosts",
+    "eyebrowLanding": "For CU Students",
+    "cardTitle": "You're the host",
+    "handoutLead": "You already know the moment: a class discussion turns, and you have about four seconds to decide whether to say anything. This chapter is where you get ready for that moment — **before** it comes.",
+    "landingParas": [
+      "You already know the moment: a class discussion turns, and you have about four seconds to decide whether to say anything. This chapter is where you get ready for that moment — **before** it comes."
+    ],
+    "bullets": [
+      {
+        "lead": "Learn what you actually believe",
+        "text": "— and why the First Amendment protects it."
+      },
+      {
+        "lead": "Learn how to say it",
+        "text": "without being the person nobody wants to sit next to."
+      },
+      {
+        "lead": "Invite your congregation.",
+        "text": "ULC is the home, and you're the host — bring members of area congregations with you."
+      }
+    ],
+    "landingBullets": [
+      {
+        "lead": "Learn what you actually believe",
+        "text": "— and why the First Amendment protects it."
+      },
+      {
+        "lead": "Learn how to say it",
+        "text": "without being the person nobody wants to sit next to."
+      },
+      {
+        "lead": "Invite your congregation.",
+        "text": "Bring members of area congregations with you — they're coming for you as much as for themselves."
+      }
+    ]
+  },
+
+  "audienceIntro": "University Lutheran Chapel is the home of this chapter, and the students are its hosts. But this room was never meant to be students only — and that is by design.",
+  "metaAudience": "Open to students and members of neighboring congregations.",
+  "socialFooter": "Open to CU students, high schoolers & neighboring congregations",
+  "socialPortraitEyebrow": "Ten Thursday Evenings · Save the Dates",
+  "roleOptions": [
+    "A CU student",
+    "A member of a neighboring congregation",
+    "A parent of a student",
+    "A pastor or church worker",
+    "Other"
+  ]
 }
