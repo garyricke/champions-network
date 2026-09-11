@@ -1,0 +1,128 @@
+/* Mom & Pop Papers — branded print template (US Letter, office printer, no bleed).
+   Generated pages: paper-NN.html from papers.json via print-build/build-mom-pop.js */
+
+:root {
+  --gold: #BB8C3A;
+  --blue: #0876A9;
+  --navy: #055A81;
+  --navy-dark: #04263a;
+  --light: #ECF4F9;
+  --ink: #1a2b38;
+  --ink-mid: #34495e;
+  --ink-soft: #6b7a88;
+  --rule: #d9e2ea;
+}
+
+@page { size: 8.5in 11in; margin: 0.6in 0; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #e9edf1;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+
+.paper {
+  width: 8.5in;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0 0.75in 0.5in;
+}
+
+/* ── masthead band ─────────────────────────────────────── */
+.band {
+  margin: 0 -0.75in 0.28in;
+  padding: 0.18in 0.75in;
+  background: var(--navy-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 4px solid var(--gold);
+}
+.band .logo { height: 0.42in; width: auto; display: block; }
+.band .series { text-align: right; line-height: 1; }
+.band .name {
+  display: block; font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  font-size: 16pt; letter-spacing: .08em; color: #fff;
+}
+.band .no {
+  display: block; margin-top: 3pt; font-size: 8pt; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--gold); font-weight: 600;
+}
+
+/* ── title ─────────────────────────────────────────────── */
+.title-block { border-bottom: 1px solid var(--rule); padding-bottom: 0.16in; margin-bottom: 0.2in; }
+h1 {
+  font-family: 'Bebas Neue', 'Arial Narrow', sans-serif; font-weight: 400;
+  font-size: 30pt; line-height: .98; letter-spacing: .015em; color: var(--navy-dark);
+  margin: 0 0 6pt;
+}
+.subtitle { margin: 0 0 6pt; font-size: 10.5pt; font-weight: 400; color: var(--navy); letter-spacing: .02em; text-transform: uppercase; font-size: 8.5pt; }
+.kicker {
+  margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
+  font-size: 12.5pt; line-height: 1.4; color: var(--gold);
+}
+
+/* ── body ──────────────────────────────────────────────── */
+.body p { font-size: 10pt; line-height: 1.58; margin: 0 0 9pt; color: var(--ink-mid); text-align: left; }
+.body > p:first-child::first-letter {
+  font-family: 'Bebas Neue', sans-serif; font-size: 34pt; line-height: .8; float: left;
+  margin: 3pt 6pt 0 0; color: var(--navy);
+}
+.pull {
+  margin: 10pt 0 12pt; padding: 8pt 0 8pt 14pt; border-left: 3px solid var(--gold);
+  break-inside: avoid;
+}
+.pull p { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 12.5pt; line-height: 1.4; color: var(--navy-dark); margin: 0 0 4pt; }
+.pull cite, .scripture cite { display: block; font-style: normal; font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.pull cite sup { font-size: 6pt; margin-left: 2pt; color: var(--ink-soft); }
+.scripture {
+  margin: 8pt 0 12pt; padding: 12pt 16pt; background: var(--light); border-radius: 6pt;
+  break-inside: avoid;
+}
+.scripture p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: 10.2pt; line-height: 1.55; color: var(--navy-dark); margin: 0 0 6pt; }
+.pts { margin: 0 0 10pt; padding: 0 0 0 0; list-style: none; }
+.pts li { position: relative; padding-left: 16pt; font-size: 10.6pt; font-weight: 600; color: var(--navy); margin-bottom: 3pt; }
+.pts li::before { content: ''; position: absolute; left: 2pt; top: 7pt; width: 6pt; height: 6pt; background: var(--gold); border-radius: 50%; }
+
+/* ── discussion questions ──────────────────────────────── */
+.questions { margin-top: 0.22in; break-inside: avoid; }
+.q-head { border-top: 3px solid var(--navy-dark); padding-top: 10pt; margin-bottom: 8pt; }
+.eyebrow { font-size: 7.5pt; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.q-head h2 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 20pt; letter-spacing: .03em; color: var(--navy-dark); margin: 2pt 0 2pt; line-height: 1; }
+.q-head p { margin: 0; font-size: 9pt; color: var(--ink-soft); }
+.questions ol { list-style: none; margin: 0; padding: 0; counter-reset: q; }
+.questions li {
+  counter-increment: q; position: relative; padding: 8pt 0 8pt 34pt; border-top: 1px solid var(--rule);
+  break-inside: avoid;
+}
+.questions li::before {
+  content: counter(q); position: absolute; left: 0; top: 7pt;
+  width: 22pt; height: 22pt; border-radius: 50%; background: var(--navy); color: #fff;
+  font-family: 'Bebas Neue', sans-serif; font-size: 13pt; line-height: 22pt; text-align: center;
+}
+.questions .q { display: block; font-size: 10.4pt; font-weight: 400; color: var(--ink); line-height: 1.45; margin-bottom: 6pt; }
+.questions .lines {
+  display: block; height: 0.55in;
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 17pt, var(--rule) 17pt, var(--rule) 18pt);
+}
+
+/* ── footnotes & colophon ──────────────────────────────── */
+.footnotes { margin-top: 10pt; font-size: 7.5pt; color: var(--ink-soft); }
+.footnotes sup { color: var(--gold); }
+.colophon {
+  margin-top: 14pt; padding-top: 8pt; border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between; font-size: 7.5pt; letter-spacing: .04em; color: var(--ink-soft);
+}
+.colophon .url { font-weight: 600; color: var(--navy); }
+
+/* ── screen-only comfort ──────────────────────────────── */
+@media screen {
+  body { padding: 24px 0; }
+  .paper { box-shadow: 0 12px 40px rgba(4, 38, 58, .14); min-height: 11in; }
+}
+@media print {
+  body { background: #fff; }
+  .paper { margin: 0; box-shadow: none; }
+}
