@@ -704,6 +704,29 @@
      ============================================================ -->
 <div class="timeline">
 
+  <!-- ── 2026-09-11 (Sept 11 check-in prep) ── -->
+  <article class="entry">
+    <div class="dot"></div>
+    <div class="date">Sept 11<span class="y">2026</span></div>
+    <h3>Three weeks without a call — catching the agenda up before the board votes</h3>
+    <div class="tags">
+      <span class="tag internal">Check-in</span>
+      <span class="tag internal">Academy</span>
+      <span class="tag internal">Budget</span>
+    </div>
+    <ul>
+      <li><strong>Two Fridays went by without a check-in</strong> (Aug 28 — Gary moving a child into school; Sept 4 — Mark at a family wedding, Labor Day weekend), so today's <a href="/agenda">/agenda</a> was rewritten as a catch-up: every email thread since Aug 21 reviewed and folded in.</li>
+      <li><strong>The board meets Tuesday, Sept 15</strong> with Mark's web-services budget request (the proposal's recommended tier). Mark asked for an <strong>updated agreement ready to execute on approval</strong> and is finding the designated signing authority on the LCRL side. <strong>Georgia Endicott</strong> (LCMS Office of the President) is now the payment contact — she asked for an invoice Sept 9; answered that it follows once budget and scope are set, Mark copied.</li>
+      <li><strong>Dr. Seltz retired Aug 31.</strong> His retirement announcement went up on the LCRL site Aug 25 (photo header, teaser video, full letter). Mark is now the sole LAA approver; three episodes (Toffler, DeAngelis, Pavone) each approved and posted the day they were sent. Seltz's new address on file.</li>
+      <li><strong>Mark's ask for today:</strong> get the Academy-subscription messaging ready now — "Right now Boulder people do not know that there will be an individual fee. So, it looks free." He told Pr. Jarvis $100/month and promised a 50% pilot discount. Drafted <code>plan/academy-pricing-messaging-2026-09-11.html</code>: <strong>Founding Members at half price, locked for as long as they stay</strong> (the Memento model from Aug 21), with the pastor's spoken line, a note from Mark to both pastors, a one-page kit insert and a chapter-page paragraph — prices left as placeholders because the $100/mo told to Jarvis and the May "$1,000 ≈ 20 seats" example don't reconcile.</li>
+      <li><strong>Chapters:</strong> Boulder met for the first time Sept 10 on the revised kit (Jarvis, Aug 22: "Perfect! I like 'neighbors' better than 'adults.'"). St. Stephen launches Sept 16; Carly forwarded the kit and the three open questions (dates / Dec 16, contact, name) to Rev. Rodriguez and his assistant Sept 2 — no answer back, so the current pieces are proposed as the launch-night pieces. Carly uploaded the July 2-page brochure to Basecamp Sept 10, presumably for the ULC conference on the 19th.</li>
+      <li><strong>Advocate Weekly:</strong> Shelly's first submission arrived Sept 2 (Illinois euthanasia-law lawsuit; Päivi Räsänen's UK ban). Held pending the budget, with his understanding; proposed as issue #1 the day the board approves, on a 48-hour draft turnaround.</li>
+      <li><strong>Still unanswered:</strong> Doctrinal Review page-vs-PDF (asked Aug 14); the Mom &amp; Pop Papers folder Mark shared Aug 21 couldn't be listed from Gary's account — to be confirmed on the call.</li>
+      <li><strong>Budget band on /agenda</strong> now reads as a closed period: the retainer ended Aug 31 over its 60 hours; work since Sept 1 is outside any agreement until Tuesday.</li>
+    </ul>
+    <div class="commit">Sources: <code>plan/sources/2026-08-21-transcript-weekly-checkin.txt</code>; Mark's emails Sept 3 ("No Meeting on Friday") and Sept 10; Georgia Endicott, Sept 9 · Commit <code>551970c</code></div>
+  </article>
+
   <!-- ── 2026-08-28 (St. Stephen chapter kit) ── -->
   <article class="entry">
     <div class="dot"></div>
@@ -720,7 +743,7 @@
       <li><strong>The kit was Boulder-shaped in its prose.</strong> "A university campus is a lonely place…", "For CU Students · You Are the Hosts", "empties out at midterms" — all hardcoded in the templates. A parish chapter can't use any of it. So the audience copy, the poster's two columns, the RSVP role menu and the social footer now live in the chapter JSON. <strong>Boulder's output is byte-identical after the refactor</strong> — verified against the committed PNGs, thumbnails and HTML.</li>
       <li><strong>New <code>photoPosition</code> knob.</strong> The CSS framing defaults assume a building exterior, where the subject sits low; an interior puts the chancel high, so the handout band cropped to a blank wall with the cross cut off. Optional per-chapter override; omit it and every surface keeps its default.</li>
       <li><strong>Two judgement calls flagged for Carly, not decided here:</strong> the session list is a placeholder (third Wednesdays, Sept–May), and <strong>December 16 is dropped</strong> because St. Stephen holds Advent midweek services on December Wednesdays. Contact number is the church office, not Rev. Rodriguez direct.</li>
-      <li><strong>Not yet deployed.</strong> <code>/st-stephen</code> is built but unpushed, so the QR codes and the printed URL 404 until it ships. Nothing should circulate before then.</li>
+      <li><strong>Deployed Sept 1</strong> (commit <code>f0e106d</code>) — <code>/st-stephen</code> and the kit on <code>/chapters</code> are live; Carly forwarded the pieces to Rev. Rodriguez Sept 2.</li>
     </ul>
     <div class="commit">Source: Carly’s “St. Stephens Chapter / Materials Request”, Aug 21</div>
   </article>
