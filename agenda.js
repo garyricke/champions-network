@@ -211,7 +211,14 @@
     });
 
     var note = document.getElementById('bud-note');
-    if (over) {
+    if (over && daysLeft === 0) {
+      note.innerHTML =
+        'The six-month retainer <b>closed on August 31</b> having run past its 60 hours during <b>' +
+        (crossed || 'the summer') + '</b>. Everything since September 1 — the St. Stephen kit, three ' +
+        'Liberty Action Alerts, the retirement announcement — is being carried outside any agreement ' +
+        'until the board votes on the <a href="/proposal">Sept 2026 – Aug 2027 proposal</a> on Tuesday. ' +
+        'The projected figure above is the period&rsquo;s final total, not a forecast.';
+    } else if (over) {
       note.innerHTML =
         'The six-month retainer is <b>already spent</b>, with ' + daysLeft + ' days still to run — ' +
         'the running total passed 60 hours during <b>' + (crossed || 'the last few weeks') +
